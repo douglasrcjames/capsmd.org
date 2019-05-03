@@ -1,0 +1,773 @@
+/*/ 
+Colors:
+Main: 
+Blue: #0a1a3a
+Yellow: #FFD54C
+/*/
+
+/* @font-face {
+    font-family: "AvenirNext-Regular";
+    src: url(../fonts/AvenirNext/AvenirNextLTPro-Regular.otf);
+  }
+  @font-face {
+    font-family: "AvenirNext-Bold";
+    src: url(../fonts/AvenirNext/AvenirNextLTPro-Bold.otf);
+  }
+  @font-face {
+    font-family: "AvenirNext-Demi";
+    src: url(../fonts/AvenirNext/AvenirNextLTPro-Demi.otf);
+  } */
+  
+  /* Eventually organize these into seperate CSS files, like Utitlity, Buttons, etc */
+  
+  /*
+  * Essentials 
+  */
+  
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+
+  .site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  body {
+    margin: 0 0 100px;
+    padding: 0;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  }
+  
+  h1 {
+    font-size: 3em;
+  }
+  
+  h2 {
+    font-size: 2em;
+  }
+  
+  h3 {
+    font-size: 1.5em;
+    padding: 0px !important;
+    margin: 0px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre;
+  }
+  
+  @media screen and (max-width: 720px) {
+    h3 {
+      font-size: 1em;
+      padding: 0px !important;
+      margin: 0px !important;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: pre;
+      width: 60%;
+    }
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: Montserrat, sans-serif;
+    color: #0a1938;
+  }
+  
+  .inline {
+    display:inline; 
+  }
+  
+  p {
+    font-family: Montserrat, sans-serif;
+    line-height: 1.6;
+    font-size: 16;
+  }
+  
+  span {
+    font-family: Montserrat, sans-serif;
+  }
+  div {
+    font-family: Montserrat, sans-serif;
+  }
+  
+  p.indent {
+    text-indent: 2.5em;
+  }
+  
+  .s-line-height {
+    line-height: 1.2;
+  }
+  
+  a {
+    text-decoration: none;
+    font-family: Montserrat, sans-serif;
+    cursor: pointer;
+  }
+  
+  .grey {
+    color: grey !important;
+  }
+  .black {
+    color: black !important;
+  }
+  .blue {
+    color: #0a1a3a !important;
+  }
+  .yellow {
+    color: #eeba47 !important;
+  }
+  .white {
+    color: white !important;
+  }
+  .red {
+    color: rgb(252, 36, 36) !important;
+  }
+  .green {
+    color: rgb(19, 204, 13) !important;
+  }
+  
+  .background-blue {
+    background: #0a1a3a
+  }
+  
+  label {
+    font-family: Montserrat, sans-serif;
+  }
+  
+  ul,
+  ol,
+  li {
+    font-family: Montserrat, sans-serif;
+    line-height: 1.6;
+    font-size: 16;
+  }
+  
+  hr {
+    border-top: 0.1px solid grey;
+  }
+  
+  /* Table */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tr:hover {background-color:#f5f5f5;}
+  /* End table */
+  
+  .overflow-div {
+    overflow-x:auto;
+  }
+  
+  .rounded {
+    border-radius: 50%;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+    border-radius: 5px;
+    padding: 2%
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  
+  .heading-rule {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid black;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+  }
+  
+  .heading-rule span {
+    background: #fff;
+    padding: 0 10px;
+    color: black;
+    font-family: Montserrat, sans-serif;
+  }
+  
+  /* EXAMPLE:
+  <h2 className="heading-rule">
+    <span>Messages</span>
+  </h2>      
+  */
+  
+  .regular-font {
+    font-family: Montserrat, sans-serif;
+    line-height: 1.6;
+    font-size: 16;
+  }
+  
+  .center-text {
+    text-align: center !important;
+  }
+  
+  .xs-text {
+    font-size: 8px;
+  }
+  
+  .s-text {
+    font-size: 12px;
+  }
+  
+  .m-text {
+    font-size: 16px;
+  }
+  
+  .l-text {
+    font-size: 20px;
+  }
+  
+  .xl-text {
+    font-size: 24px;
+  }
+  
+  .text-hover-danger:hover {
+    color: rgb(252, 36, 36)  !important;
+    cursor: pointer;
+  }
+  
+  .text-hover:hover {
+    color: #0a1a3a  !important;
+    cursor: pointer;
+  }
+  
+  /* 
+  * Responsive
+  */
+
+  /* Extra Large */
+  @media screen and (min-width: 1600px) {
+    .wrapper {
+      /* For outer Div holding the body */
+      margin: 0 auto;
+      width: 50%;
+      padding: 7% 0 0 0;
+      flex: 1;
+    }
+  
+  }
+  
+  /* Large */
+  @media screen and (min-width: 1181px) and (max-width: 1599px) {
+    .wrapper {
+      /* For outer Div holding the body */
+      margin: 0 auto;
+      width: 50%;
+      padding: 10% 0 0 0;
+      flex: 1;
+    }
+  
+    .l-container {
+      margin: auto;
+      width: 70%;
+      padding: 1%;
+    }
+  
+    .m-container {
+      margin: auto;
+      width: 50%;
+      padding: 1%;
+    }
+  
+    .s-container {
+      margin: auto;
+      width: 25%;
+      padding: 1%;
+    }
+  }
+  
+  /* Medium */
+  @media screen and (min-width: 720px) and (max-width: 1180px) {
+    .wrapper {
+      margin: 0 auto;
+      width: 70%;
+      padding: 15% 0 0 0;
+      flex: 1;
+    }
+  
+    .l-container {
+      margin: auto;
+      width: 90%;
+      padding: 1%;
+    }
+  
+    .m-container {
+      margin: auto;
+      width: 80%;
+      padding: 1%;
+    }
+  
+    .s-container {
+      margin: auto;
+      width: 70%;
+      padding: 1%;
+    }
+  }
+  
+  /* Small */
+  @media screen and (max-width: 720px) {
+    .wrapper {
+      margin: 0 auto;
+      width: 90%;
+      padding: 20% 0 0 0;
+      flex: 1;
+    }
+  
+    .l-container {
+      margin: auto;
+      width: 95%;
+      padding: 1%;
+    }
+  
+    .m-container {
+      margin: auto;
+      width: 95%;
+      padding: 0.5%;
+    }
+  
+    .s-container {
+      margin: auto;
+      width: 95%;
+      padding: 0.5%;
+    }
+  }
+  
+  /* 
+  * Forms 
+  */
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    font-size: 16px;
+    color: black;
+    font-family: Montserrat, sans-serif;
+    width: 100%;
+    padding: 5px 5px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid rgb(130, 130, 130);
+    outline-width: 0;
+    background: none;
+  }
+  
+  span.dollar-inline {
+    display: inline-block;
+    position: relative;
+  }
+  
+  span.dollar-inline::before {
+    content: "$";
+    font-family: Montserrat, sans-serif;
+    font-size: 1em;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+  }
+  
+  input[type="number"] {
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px 10px 10px 20px;
+    box-sizing: border-box;
+    border: 1px solid rgb(130, 130, 130);
+    border-radius: 4px;
+    background-color: white;
+    resize: none;
+  }
+  
+  input[type="text"].box {
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    border: 1px solid rgb(130, 130, 130);
+    border-radius: 4px;
+    background-color: white;
+    resize: none;
+  }
+  
+  .box {
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    border: 1px solid rgb(130, 130, 130);
+    border-radius: 4px;
+    background-color: white;
+    resize: none;
+  }
+  
+  input[type="text"]:disabled {
+    color: rgb(171, 171, 171);
+  }
+  
+  input[type="file"] {
+    font-family: Montserrat, sans-serif;
+    padding: 0px 0px 10px 0px;
+  }
+  
+  textarea {
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    width: 100%;
+    height: 150px;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    border: 1px solid rgb(130, 130, 130);
+    border-radius: 4px;
+    background-color: white;
+    resize: none;
+  }
+  
+  select {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+  }
+  
+  /* 
+  * Objects 
+  */
+  .collapse-content {
+    padding: 1% 2% 0 2%;
+    background-color: #dddddd93;
+    border: 1px solid #0a1a3a;
+    border-radius: 0 3px 3px 3px;
+    border-color: #0a1a3a !important;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .horiz-center {
+    margin: 0 auto;
+  }
+  
+  .s-border {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #0a1a3a;
+  }
+  
+  .m-border {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #0a1a3a;
+  }
+  
+  .l-border {
+    border-style: solid;
+    border-width: 5px;
+    border-color: #0a1a3a;
+  }
+  
+  .left-border {
+    border-left: 6px solid #0a1a3a;
+    padding: 10px 0px 10px 5px;
+  }
+  
+  .no-padding {
+    padding: 0px !important;
+  }
+  
+  .s-padding-r {
+    padding: 0 1% 0 0;
+  }
+  
+  .m-padding-t {
+    padding: 5% 0 0 0;
+  }
+  
+  .m-padding-r-l {
+    padding: 0 5% 0 5%;
+  }
+  
+  .l-padding-r-l {
+    padding: 0 10% 0 10%;
+  }
+  
+  
+  .s-padding {
+    padding: 1%;
+  }
+  
+  .m-padding {
+    padding: 5%;
+  }
+  
+  .l-padding {
+    padding: 10%;
+  }
+  
+  .no-margin {
+    margin: 0px;
+  }
+  
+  .s-margin {
+    margin: 1%;
+  }
+  
+  .m-margin {
+    margin: 5%;
+  }
+  
+  .l-margin {
+    margin: 10%;
+  }
+  
+  .s-width {
+    width: 25% !important;
+  }
+  
+  .m-width {
+    width: 50% !important;
+  }
+  
+  .l-width {
+    width: 75% !important;
+  }
+  
+  @media screen and (max-width: 720px) {
+    .s-width {
+      width: 90% !important;
+    }
+  
+    .m-width {
+      width: 90% !important;
+    }
+  
+    .l-width {
+      width: 90% !important;
+    }
+  }
+  
+  /*
+  * Positioning
+  */
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: center;
+  }
+  
+  .right {
+    display: block;
+    float: right;
+  }
+  
+  .left {
+    display: block;
+    float: left;
+  }
+  
+  /* Using the position attribute */
+  .p-container {
+    position: relative;
+  }
+  
+  .p-top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+  }
+  
+  .p-top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+  }
+  
+  .p-bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+  }
+  
+  .p-bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+  }
+  
+  .p-center {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .p-bottom-center {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* 
+  * Images
+  */
+  .hover:hover {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ffd54c;
+    cursor: pointer;
+  }
+  
+  img.call-btn {
+    width: 100%;
+    height: auto;
+    max-width: 75px;
+    padding: 5px;
+  }
+  
+  img.xsmall {
+    width: 100%;
+    height: auto;
+    max-width: 50px;
+    padding: 5px;
+  }
+  
+  img.small {
+    width: 100%;
+    height: auto;
+    max-width: 100px;
+    padding: 5px;
+  }
+  
+  img.medium {
+    width: 100%;
+    height: auto;
+    max-width: 150px;
+    padding: 5px;
+  }
+  
+  img.large {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    padding: 5px;
+  }
+  
+  img.xlarge {
+    width: 100%;
+    height: auto;
+    max-width: 450px;
+    padding: 5px;
+  }
+  
+  .responsive {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  img.em {
+    height: 1.25em;
+  }
+  
+  .m-flat-icon {
+    max-width: 175px;
+  }
+  
+  /* 
+  * Multiline text overflow 
+  */
+  .block-with-text {
+    /* hide text if it more than N lines  */
+    overflow: hidden;
+    /* for set '...' in absolute position */
+    position: relative;
+    /* use this value to count block height */
+    line-height: 1.5em;
+    /* max-height = line-height (1.2) * lines max number (3) */
+    max-height: 4.5em;
+    /* fix problem when last visible word doesn't adjoin right side  */
+    text-align: justify;
+    margin-right: -1em;
+    padding-right: 1em;
+  
+    padding: 0 1em 0 0;
+    margin: 0 -1em 0 0;
+  }
+  .block-with-text:before {
+    /* points in the end */
+    content: "...";
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of block */
+    right: 0;
+    bottom: 0;
+  }
+  .block-with-text:after {
+    /* points in the end */
+    content: "";
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of text */
+    right: 0;
+    width: 1em;
+    /* set width and height */
+    height: 1em;
+    margin-top: 0.2em;
+    background: white;
+  }
+  
+  
+  /* Confirm Alert */
+  .custom-ui {
+    text-align: center;
+    width: 500px;
+    padding: 40px;
+    background: #28bae6;
+    box-shadow: 0 20px 75px rgba(0, 0, 0, 0.23);
+    color: #fff;
+  }
+  
+  .custom-ui > h1 {
+    margin-top: 0;
+  }
+  
+  .custom-ui > button {
+    width: 160px;
+    padding: 10px;
+    border: 1px solid #fff;
+    margin: 10px;
+    cursor: pointer;
+    background: none;
+    color: #fff;
+    font-size: 14px;
+  }
