@@ -10,12 +10,10 @@ export default class Footer extends Component {
         return (
             <footer>
             <div className="f-container">
-                
                 Council for Advocacy and Policy Solutions
                 &nbsp;
                 &copy;
-                {this.state.year}
-                
+                {this.state.year}    
             </div>
         </footer>
         )

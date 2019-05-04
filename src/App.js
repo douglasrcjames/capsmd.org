@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 
 // CSS
 import "./assets/css/App.css";
+import "./assets/css/Buttons.css";
 import "./assets/css/Header.css";
 import "./assets/css/Footer.css";
 
@@ -19,9 +20,7 @@ class App extends Component {
         <div className="site">
           <ToastContainer position="top-center" hideProgressBar={true} />
           <Header />
-          <div className="wrapper site-content">
-            <Routes />
-          </div>
+          <Routes />
           <Footer />
         </div>
       </BrowserRouter>

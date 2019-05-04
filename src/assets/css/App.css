@@ -58,7 +58,7 @@ Yellow: #FFD54C
     white-space: pre;
   }
   
-  @media screen and (max-width: 720px) {
+  /* @media screen and (max-width: 720px) {
     h3 {
       font-size: 1em;
       padding: 0px !important;
@@ -68,7 +68,7 @@ Yellow: #FFD54C
       white-space: pre;
       width: 60%;
     }
-  }
+  } */
   
   h1,
   h2,
@@ -134,6 +134,14 @@ Yellow: #FFD54C
   
   .background-blue {
     background: #0a1a3a
+  }
+
+  .background-white {
+    background: white !important;
+  }
+
+  .background-light-grey {
+    background-color: #f8f8f8 !important;
   }
   
   label {
@@ -220,23 +228,23 @@ Yellow: #FFD54C
   }
   
   .xs-text {
-    font-size: 8px;
+    font-size: 8px !important;
   }
   
   .s-text {
-    font-size: 12px;
+    font-size: 12px !important;
   }
   
   .m-text {
-    font-size: 16px;
+    font-size: 16px !important;
   }
   
   .l-text {
-    font-size: 20px;
+    font-size: 20px !important;
   }
   
   .xl-text {
-    font-size: 24px;
+    font-size: 24px !important;
   }
   
   .text-hover-danger:hover {
@@ -260,7 +268,7 @@ Yellow: #FFD54C
       margin: 0 auto;
       width: 50%;
       padding: 7% 0 0 0;
-      flex: 1;
+      
     }
   
   }
@@ -272,7 +280,7 @@ Yellow: #FFD54C
       margin: 0 auto;
       width: 50%;
       padding: 10% 0 0 0;
-      flex: 1;
+      
     }
   
     .l-container {
@@ -300,7 +308,7 @@ Yellow: #FFD54C
       margin: 0 auto;
       width: 70%;
       padding: 15% 0 0 0;
-      flex: 1;
+      
     }
   
     .l-container {
@@ -328,7 +336,7 @@ Yellow: #FFD54C
       margin: 0 auto;
       width: 90%;
       padding: 20% 0 0 0;
-      flex: 1;
+      
     }
   
     .l-container {
@@ -501,6 +509,18 @@ Yellow: #FFD54C
   .no-padding {
     padding: 0px !important;
   }
+
+  .s-padding-l {
+    padding: 0 1% 0 0;
+  }
+
+  .m-padding-l {
+    padding: 0 5% 0 0;
+  }
+
+  .l-padding-l {
+    padding: 0 10% 0 0;
+  }
   
   .s-padding-r {
     padding: 0 1% 0 0;
@@ -513,11 +533,18 @@ Yellow: #FFD54C
   .m-padding-r-l {
     padding: 0 5% 0 5%;
   }
+
+  .m-padding-t-r-l {
+    padding: 5% 5% 0 5%;
+  }
   
   .l-padding-r-l {
     padding: 0 10% 0 10%;
   }
-  
+
+  .m-padding-b {
+    padding: 0 0 5% 0;
+  }
   
   .s-padding {
     padding: 1%;
@@ -665,7 +692,7 @@ Yellow: #FFD54C
   img.small {
     width: 100%;
     height: auto;
-    max-width: 100px;
+    max-width: 100px !important;
     padding: 5px;
   }
   
