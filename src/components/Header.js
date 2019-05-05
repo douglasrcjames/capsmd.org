@@ -7,7 +7,7 @@ import MediaQuery from "react-responsive";
 class Header extends Component {
   render() {
       return (
-        <header>
+        <header className="m-padding-b">
           <div className="top-nav">
             <MediaQuery minWidth={751}>
               <div className="nav-container">
@@ -36,10 +36,10 @@ class Header extends Component {
                                 Education
                             </NavLink>
                             <NavLink 
-                                to="/issues/transportation" 
+                                to="/issues/infrastructure" 
                                 className="nav-link dropdown"
                                 activeClassName="nav-select">
-                                Transportation
+                                infrastructure
                             </NavLink>
                             <NavLink 
                                 to="/issues/more" 
@@ -97,10 +97,10 @@ class Header extends Component {
                         Education
                     </NavLink>
                     <NavLink 
-                        id="transportation"
-                        to="/issues/transportation" 
+                        id="infrastructure"
+                        to="/issues/infrastructure" 
                         className="menu-item">
-                        Transportation
+                        infrastructure
                     </NavLink>
                     <NavLink 
                         id="more"

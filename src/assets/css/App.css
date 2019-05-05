@@ -716,6 +716,13 @@ Yellow: #FFD54C
     max-width: 450px;
     padding: 5px;
   }
+
+  img.headshot {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    padding: 5px;
+  }
   
   .responsive {
     max-width: 100%;

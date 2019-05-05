@@ -42,7 +42,7 @@ export default class Home extends Component {
   render() {
     return (
     <div>
-        <Slider className="slider-wrapper" autoplay={3000}>
+        <Slider className="slider-wrapper m-padding-t" autoplay={3000}>
             {sliderContent.map((item, index) => (
                 <div
                     key={index}
@@ -61,46 +61,42 @@ export default class Home extends Component {
             <h1>Explore the Issues</h1>
             <Grid fluid>
                 <Row>
-                    <Col xs={12} s={6} md={3}>
+                    <Col xs={12} sm={6} md={3} className="center-text">
                         <img
                             className="center small"
                             alt="dollar"
                             src={require("../assets/images/icons/dollar.png")}
                             />
-                        <br/>
                         <h4>Economic Development</h4>
                         <p>Learn about jobs, business growth and other issues connected to growing the economy.</p>
                         <Link to="/issues/economic-development"><span className="s-text grey">Learn more</span></Link>
                     </Col>
-                    <Col xs={12} s={6} md={3}>
+                    <Col xs={12} sm={6} md={3} className="center-text">
                         <img
                             className="center small"
                             alt="book"
                             src={require("../assets/images/icons/book.png")}
                             />
-                        <br/>
                         <h4>Education</h4>
                         <p>Learn about jobs, business growth and other issues connected to growing the economy.</p>
                         <Link to="/issues/education"><span className="s-text grey">Learn more</span></Link>
                     </Col>
-                    <Col xs={12} s={6} md={3}>
+                    <Col xs={12} sm={6} md={3} className="center-text">
                         <img
                             className="center small"
                             alt="bus"
                             src={require("../assets/images/icons/bus.png")}
                             />
-                        <br/>
-                        <h4>Transportation</h4>
-                        <p>Learn about our transportation network, including roads, transit and more.</p>
-                        <Link to="/issues/transportation"><span className="s-text grey">Learn more</span></Link>
+                        <h4>Infrastructure</h4>
+                        <p>Learn about our infrastructure network, including roads, transit and more.</p>
+                        <Link to="/issues/infrastructure"><span className="s-text grey">Learn more</span></Link>
                     </Col>
-                    <Col xs={12} s={6} md={3}>
+                    <Col xs={12} sm={6} md={3} className="center-text">
                         <img
                             className="center medium"
                             alt="books"
                             src={require("../assets/images/icons/books.png")}
                             />
-                        <br/>
                         <h4>More</h4>
                         <p>Learn about other issues important to Montgomery County.</p>
                         <Link to="/issues/more"><span className="s-text grey">Learn more</span></Link>

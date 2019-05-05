@@ -8,7 +8,7 @@ import ContactUs from "./components/ContactUs";
 
 import EconomicDevelopment from "./components/issues/EconomicDevelopment";
 import Education from "./components/issues/Education";
-import Transportation from "./components/issues/Transportation";
+import infrastructure from "./components/issues/Infrastructure";
 import More from "./components/issues/More";
 
 
@@ -32,7 +32,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/contact-us" component={ContactUs} />
         <Route exact path="/issues/economic-development" component={EconomicDevelopment} />
         <Route exact path="/issues/education" component={Education} />
-        <Route exact path="/issues/transportation" component={Transportation} />
+        <Route exact path="/issues/infrastructure" component={infrastructure} />
         <Route exact path="/issues/more" component={More} />
         <Route component={Page404} />
       </Switch>
