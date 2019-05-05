@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default class ContactUs extends Component {
   render() {
     return (
-      <div className="m-padding">
+      <div className="wrapper">
         <h1>Contact Us</h1>
         <p>Send us a message directly or email us at <Link mailto="info@capsmd.org"><u>info@capsmd.org</u></Link></p>
         

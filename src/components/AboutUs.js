@@ -18,7 +18,7 @@ const Headshot = ({ name, picPath }) => {
 export default class AboutUs extends Component {
   render() {
     return (
-      <div className="m-padding-t">
+      <div className="wrapper-top">
       {/* Section 1 */}
       <div className="m-padding background-light-grey">
         <h1>Who We Are</h1>

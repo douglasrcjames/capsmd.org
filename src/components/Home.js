@@ -41,8 +41,8 @@ const sliderContent = [
 export default class Home extends Component {
   render() {
     return (
-    <div>
-        <Slider className="slider-wrapper m-padding-t" autoplay={3000}>
+    <div className="wrapper-top">
+        <Slider className="slider-wrapper" autoplay={3000}>
             {sliderContent.map((item, index) => (
                 <div
                     key={index}
