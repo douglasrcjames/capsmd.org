@@ -6,20 +6,20 @@
 @media screen and (min-width: 1181px) {
   .nav-container {
     margin: 0 auto;
-    width: 65%;
+    width: 90%;
   }
 }
 
-/* Medium */
+/* Medium
 @media screen and (min-width: 720px) and (max-width: 1180px) {
   .nav-container {
     margin: 0 auto;
-    width: 80%;
+    width: 95%;
   }
-}
+} */
 
 /* Small */
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1180px) {
   .nav-container {
     margin: 0 auto;
   }
