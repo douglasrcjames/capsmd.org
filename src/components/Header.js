@@ -14,8 +14,8 @@ class Header extends Component {
                 <Link to="/">
                   <img
                     className="responsive nav-logo"
-                    alt="minutetech-logo"
-                    src={require("../assets/images/logo/caps-logo.png")}
+                    alt="caps-logo"
+                    src={require("../assets/images/logo/caps-logo-v2.png")}
                   />
                 </Link>
                 <div className="right">
@@ -39,7 +39,7 @@ class Header extends Component {
                                 to="/issues/infrastructure" 
                                 className="nav-link dropdown"
                                 activeClassName="nav-select">
-                                infrastructure
+                                Infrastructure
                             </NavLink>
                             <NavLink 
                                 to="/issues/more" 
@@ -70,15 +70,17 @@ class Header extends Component {
               <Link to="/">
                 <img
                   className="responsive nav-logo"
-                  alt="minutetech-logo"
-                  src={require("../assets/images/logo/caps-logo.png")}
+                  alt="caps-logo"
+                  src={require("../assets/images/logo/caps-logo-v2.png")}
                 />
               </Link>
               <Menu
-                customBurgerIcon={<FaBars color="#0a1a3a" />}
+                customBurgerIcon={<FaBars color="#003da5" />}
                 right
                 noOverlay
                 width="50%"
+                menuClassName={ "high-z" } 
+                // Why is the slider yellow button a higher z value than this??
               >
                 <div className="side-dropdown">
                   <a className="menu-item">Issues &nbsp;<i className="fas fa-chevron-down fa-xs" /></a>
@@ -100,7 +102,7 @@ class Header extends Component {
                         id="infrastructure"
                         to="/issues/infrastructure" 
                         className="menu-item">
-                        infrastructure
+                        Infrastructure
                     </NavLink>
                     <NavLink 
                         id="more"
@@ -113,11 +115,11 @@ class Header extends Component {
                 <NavLink id="news" className="menu-item" to="/news">
                     News
                 </NavLink>
-                <NavLink id="contact-us" className="menu-item" to="/contact-us">
-                    Contact Us
-                </NavLink>
                 <NavLink id="about-us" className="menu-item" to="/about-us">
-                    About Us
+                    About
+                </NavLink>
+                <NavLink id="contact-us" className="menu-item" to="/contact-us">
+                    Contact
                 </NavLink>
               </Menu>
             </MediaQuery>

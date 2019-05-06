@@ -30,8 +30,8 @@ const sliderContent = [
     {
 		title: 'LET’S TRY AGAIN ON THREE GOOD VOTING BILLS',
 		description:
-        `The three General Assembly bills below would have made improvements to v
-        oting in Maryland. None of them passed in the 2019 session but hopefully they 
+        `The three General Assembly bills below would have made improvements to voting
+         in Maryland. None of them passed in the 2019 session but hopefully they 
         will pass next time.`,
 		button: 'Read Now',
 		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fballot-stickers.jpg?alt=media&token=05702b57-03d8-43b6-8841-0a9444ef3d96',
@@ -42,18 +42,18 @@ export default class Home extends Component {
   render() {
     return (
     <div className="wrapper-top">
-        <Slider className="slider-wrapper" autoplay={3000}>
+        <Slider className="slider-wrapper" autoplay={3000} minSwipeOffset={100}>
             {sliderContent.map((item, index) => (
                 <div
                     key={index}
                     className="slider-content"
                     style={{ background: `url('${item.image}') no-repeat center center` }}
                 >
-                <div className="inner">
-                    <h1 className="blue">{item.title}</h1>
-                    <p className="blue m-text">{item.description}</p>
-                    <button className="s-btn">{item.button}</button>
-                </div>
+                    <div className="inner">
+                        <h1 className="blue">{item.title}</h1>
+                        <h5 className="black m-text">{item.description}</h5>
+                        <button className="s-btn">{item.button}</button>
+                    </div>
                 </div>
             ))}
         </Slider>

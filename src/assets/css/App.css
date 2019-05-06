@@ -1,7 +1,7 @@
 /*/ 
 Colors:
 Main: 
-Blue: #0a1a3a
+Blue: #003da5
 Yellow: #FFD54C
 /*/
 
@@ -27,12 +27,6 @@ Yellow: #FFD54C
   html {
     position: relative;
     min-height: 100%;
-  }
-
-  .site {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
   }
 
   body {
@@ -117,7 +111,7 @@ Yellow: #FFD54C
     color: black !important;
   }
   .blue {
-    color: #0a1a3a !important;
+    color: #003da5 !important;
   }
   .yellow {
     color: #eeba47 !important;
@@ -133,7 +127,7 @@ Yellow: #FFD54C
   }
   
   .background-blue {
-    background: #0a1a3a
+    background: #003da5
   }
 
   .background-white {
@@ -195,6 +189,9 @@ Yellow: #FFD54C
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
   
+  .high-z {
+    z-index: 99 !important;
+  }
   
   .heading-rule {
     width: 100%;
@@ -253,7 +250,7 @@ Yellow: #FFD54C
   }
   
   .text-hover:hover {
-    color: #0a1a3a  !important;
+    color: #003da5  !important;
     cursor: pointer;
   }
   
@@ -265,22 +262,22 @@ Yellow: #FFD54C
   @media screen and (min-width: 1600px) {
     .wrapper {
       /* For outer Div holding the body */
-      padding: 0 5% 0 5%; 
+      padding: 0 7% 0 7%; 
     }
 
     .wrapper-top {
-      padding: 0 0 0 0; 
+      padding: 3% 0 0 0; 
     }
   }
   
   /* Large */
   @media screen and (min-width: 1181px) and (max-width: 1599px) {
     .wrapper {
-      padding: 0 5% 0 5%; 
+      padding: 3% 5% 0 7%; 
     }
 
     .wrapper-top {
-      padding: 0 0 0 0; 
+      padding: 5% 0 0 0; 
     }
   
     .l-container {
@@ -305,11 +302,11 @@ Yellow: #FFD54C
   /* Medium */
   @media screen and (min-width: 720px) and (max-width: 1180px) {
     .wrapper {
-      padding: 1% 5% 0 5%; 
+      padding: 5% 1% 0 1%;  
     }
 
     .wrapper-top {
-      padding: 5% 0 0 0; 
+      padding: 10% 0 0 0; 
     }
   
     .l-container {
@@ -332,13 +329,13 @@ Yellow: #FFD54C
   }
   
   /* Small */
-  @media screen and (max-width: 720px) {
+  @media screen and (min-width: 461px) and (max-width: 720px) {
     .wrapper {
-      padding: 10% 5% 0 5%; 
+      padding: 10% 1% 0 1%; 
     }
 
     .wrapper-top {
-      padding: 10% 0 0 0; 
+      padding: 20% 0 0 0; 
     }
   
     .l-container {
@@ -358,6 +355,17 @@ Yellow: #FFD54C
       width: 95%;
       padding: 0.5%;
     }
+  }
+
+  /* Extra Small */
+  @media screen and (max-width: 460px) {
+    .wrapper {
+      padding: 20% 1% 0 1%; 
+    }
+    .wrapper-top {
+      padding: 25% 0 0 0; 
+    }
+
   }
   
   /* 
@@ -472,9 +480,9 @@ Yellow: #FFD54C
   .collapse-content {
     padding: 1% 2% 0 2%;
     background-color: #dddddd93;
-    border: 1px solid #0a1a3a;
+    border: 1px solid #003da5;
     border-radius: 0 3px 3px 3px;
-    border-color: #0a1a3a !important;
+    border-color: #003da5 !important;
   }
   
   .hide {
@@ -488,23 +496,23 @@ Yellow: #FFD54C
   .s-border {
     border-style: solid;
     border-width: 1px;
-    border-color: #0a1a3a;
+    border-color: #003da5;
   }
   
   .m-border {
     border-style: solid;
     border-width: 3px;
-    border-color: #0a1a3a;
+    border-color: #003da5;
   }
   
   .l-border {
     border-style: solid;
     border-width: 5px;
-    border-color: #0a1a3a;
+    border-color: #003da5;
   }
   
   .left-border {
-    border-left: 6px solid #0a1a3a;
+    border-left: 6px solid #003da5;
     padding: 10px 0px 10px 5px;
   }
   

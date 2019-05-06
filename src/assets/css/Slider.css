@@ -25,7 +25,7 @@
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          z-index: 10;
+          z-index: 2;
           background: url('http://svgshare.com/i/41_.svg') no-repeat center center / 16px;
           width: 32px;
           height: 32px;
@@ -49,6 +49,7 @@
   
   .nextButton {
     right: 0;
+    z-index: 2;
   }
   
   .nextButton:hover {

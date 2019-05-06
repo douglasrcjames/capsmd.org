@@ -29,13 +29,12 @@
   width: 100%;
   height: auto;
   max-width: 200px;
-  padding: 5px 0 0 5px;
 }
 
 .top-nav {
   width: 100%;
-  background: white;
   position: fixed;
+  background-color: white;
   margin: 0 0 0 0;
   z-index: 1;
 }
@@ -43,10 +42,10 @@
 .nav-link {
   position: relative;
   text-decoration: none;
-  height: 75px;
-  line-height: 75px;
+  height: 125px;
+  line-height: 125px;
   white-space: nowrap;
-  color: #0a1a3a;
+  color: #003da5;
   padding: 0px 10px 0px 10px;
 }
 
@@ -137,7 +136,7 @@
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #0a1a3a;
+  background-color: #003da5;
 }
 
 /* nav select */
@@ -200,7 +199,7 @@
   width: 36px;
   height: 30px;
   right: 20px;
-  top: 20px;
+  top: 50px;
   outline: 0;
 }
 
@@ -227,7 +226,7 @@
 /* General sidebar styles */
 .bm-menu {
   position: relative;
-  background: #0a1a3a;
+  background: #003da5;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
   text-align: center;
@@ -235,7 +234,7 @@
 
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
-  fill: #0a1a3a;
+  fill: #003da5;
 }
 
 /* Wrapper for item list */
@@ -260,13 +259,13 @@
   display: none;
   position: absolute;
   top: 105%;
-  right: 24%;
+  right: -10%;
   background-color: #ffffff;
-  min-width: 160px;
+  min-width: 140px;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   padding: 5px;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .side-dropdown-content a {
@@ -286,5 +285,5 @@
 }
 
 .side-dropdown:hover .dropbtn {
-  background-color: #0a1a3a;
+  background-color: #003da5;
 }

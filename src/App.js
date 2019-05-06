@@ -17,7 +17,7 @@ class App extends Component {
   render() {
       return (
       <BrowserRouter>
-        <div className="site">
+        <div>
           <ToastContainer position="top-center" hideProgressBar={true} />
           <Header />
           <Routes />
