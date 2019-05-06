@@ -52,17 +52,11 @@ Yellow: #FFD54C
     white-space: pre;
   }
   
-  /* @media screen and (max-width: 720px) {
-    h3 {
-      font-size: 1em;
-      padding: 0px !important;
-      margin: 0px !important;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: pre;
-      width: 60%;
+  @media screen and (max-width: 720px) {
+    h1 {
+      font-size: 2em;
     }
-  } */
+  }
   
   h1,
   h2,
@@ -302,7 +296,7 @@ Yellow: #FFD54C
   /* Medium */
   @media screen and (min-width: 720px) and (max-width: 1180px) {
     .wrapper {
-      padding: 5% 1% 0 1%;  
+      padding: 6% 1% 0 1%;  
     }
 
     .wrapper-top {
@@ -331,7 +325,7 @@ Yellow: #FFD54C
   /* Small */
   @media screen and (min-width: 461px) and (max-width: 720px) {
     .wrapper {
-      padding: 10% 1% 0 1%; 
+      padding: 12% 1% 0 1%; 
     }
 
     .wrapper-top {
@@ -360,7 +354,7 @@ Yellow: #FFD54C
   /* Extra Small */
   @media screen and (max-width: 460px) {
     .wrapper {
-      padding: 20% 1% 0 1%; 
+      padding: 25% 1% 0 1%; 
     }
     .wrapper-top {
       padding: 25% 0 0 0; 
@@ -521,15 +515,23 @@ Yellow: #FFD54C
   }
 
   .s-padding-l {
-    padding: 0 1% 0 0;
+    padding: 0 0 0 1%;
+  }
+
+  .s-padding-b {
+    padding: 0 0 1% 0;
+  }
+
+  .m-padding-t-b {
+    padding: 5% 0 5% 0;
   }
 
   .m-padding-l {
-    padding: 0 5% 0 0;
+    padding: 0 0 0 5%;
   }
 
   .l-padding-l {
-    padding: 0 10% 0 0;
+    padding: 0 0 0 10%;
   }
   
   .s-padding-r {
@@ -575,6 +577,10 @@ Yellow: #FFD54C
   .s-margin {
     margin: 1%;
   }
+
+  .s-margin-b {
+    margin: 0 0 1% 0;
+  }
   
   .m-margin {
     margin: 5%;
@@ -583,6 +589,8 @@ Yellow: #FFD54C
   .l-margin {
     margin: 10%;
   }
+
+
   
   .s-width {
     width: 25% !important;
@@ -608,6 +616,10 @@ Yellow: #FFD54C
     .l-width {
       width: 90% !important;
     }
+  }
+
+  .clearfix {
+    overflow: auto;
   }
   
   /*

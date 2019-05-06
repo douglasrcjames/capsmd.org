@@ -34,7 +34,7 @@ const sliderContent = [
          in Maryland. None of them passed in the 2019 session but hopefully they 
         will pass next time.`,
 		button: 'Read Now',
-		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fballot-stickers.jpg?alt=media&token=05702b57-03d8-43b6-8841-0a9444ef3d96',
+		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fvoting-box.png?alt=media&token=aeea3b37-64b8-4313-81b6-3c61fa5c8be8',
 	}
 ];
 

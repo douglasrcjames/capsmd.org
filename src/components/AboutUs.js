@@ -23,9 +23,9 @@ export default class AboutUs extends Component {
       <div className="m-padding background-light-grey">
         <h1>Who We Are</h1>
         <p>
-        The Council for Advocacy and Policy Solutions (CAPS) is a non-profit public policy organization 
-        based in Montgomery County, Maryland, USA. CAPS is the locus of discussion and information 
-        dissemination for responsible local policy.
+          The Council for Advocacy and Policy Solutions (CAPS) is a non-profit public policy organization 
+          based in Montgomery County, Maryland, USA. CAPS is the locus of discussion and information 
+          dissemination for responsible local policy.
         </p>
         <Link to="/contact-us"><button className="s-btn">Contact Us</button></Link>
       </div>
@@ -122,6 +122,7 @@ export default class AboutUs extends Component {
             <Headshot name={'Rose Li'} picPath={require('../assets/images/headshots/Rose.png')} />
             <Headshot name={'Chung Pak'} picPath={require('../assets/images/headshots/Chung.png')} />
             <Headshot name={'Nancy Roman'} picPath={require('../assets/images/headshots/Nancy.png')} />
+            <Headshot name={'Jordan Steffy'} picPath={require('../assets/images/headshots/Jordan.png')} />
           </Row>
         </Grid>     
       </div>
