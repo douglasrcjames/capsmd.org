@@ -12,14 +12,15 @@ import "./assets/css/App.css";
 import "./assets/css/Buttons.css";
 import "./assets/css/Header.css";
 import "./assets/css/Footer.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 class App extends Component {
   render() {
       return (
       <BrowserRouter>
         <div>
-          <ToastContainer position="top-center" hideProgressBar={true} />
           <Header />
+          <ToastContainer position="top-center" hideProgressBar={true} />
           <Routes />
           <Footer />
         </div>

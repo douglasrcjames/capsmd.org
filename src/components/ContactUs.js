@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
+import MediaQuery from "react-responsive";
+import Subscribe from '../components/Subscribe';
 
 export default class ContactUs extends Component {
   render() {
@@ -14,12 +16,20 @@ export default class ContactUs extends Component {
         <p>Your contribution goes directly to support bringing civics education, transparency and good sense policy to Montgomery County, MD.</p>
         <div className="center-text"><button className="s-btn">Contribute</button></div>
         <br/>
-        <p className="s-text grey">
+        <p className="s-text grey m-container">
           Council for Advocacy and Policy Solutions (CAPS) operates as a 501(c)(4) under IRS Form 8976, Notice of Intent to Operate Under
           Section 501(c)(4). Organizations operating as 501(c)(4) organizations may also choose to file Form 1024-A, Application for
           Recognition of Exemption Under Section 501(c)(4) of the Internal Revenue Code, to request recognition of tax-exempt status. CAPS
           is in process for submission of Form 1024-A.
         </p>
+        <br/>
+        <div className="m-container m-padding text-center background-light-grey">
+          <h3>Join Our Mailing List</h3>
+          <span>Keep up with the latest information about the county.</span>
+          <Subscribe />
+        </div>
+
+    
       </div>
     )
   }

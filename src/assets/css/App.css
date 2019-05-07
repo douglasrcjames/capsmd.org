@@ -174,7 +174,6 @@ Yellow: #FFD54C
   .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 100%;
     border-radius: 5px;
     padding: 2%
   }
@@ -184,7 +183,7 @@ Yellow: #FFD54C
   }
   
   .high-z {
-    z-index: 99 !important;
+    z-index: 10 !important;
   }
   
   .heading-rule {
@@ -261,6 +260,24 @@ Yellow: #FFD54C
 
     .wrapper-top {
       padding: 3% 0 0 0; 
+    }
+
+    .l-container {
+      margin: auto;
+      width: 70%;
+      padding: 1%;
+    }
+  
+    .m-container {
+      margin: auto;
+      width: 50%;
+      padding: 1%;
+    }
+  
+    .s-container {
+      margin: auto;
+      width: 25%;
+      padding: 1%;
     }
   }
   
@@ -369,16 +386,15 @@ Yellow: #FFD54C
   input[type="password"],
   input[type="email"] {
     font-size: 16px;
-    color: black;
     font-family: Montserrat, sans-serif;
+    font-size: 16px;
     width: 100%;
-    padding: 5px 5px;
-    margin: 5px 0;
+    padding: 10px 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     box-sizing: border-box;
-    border: none;
-    border-bottom: 1px solid rgb(130, 130, 130);
-    outline-width: 0;
-    background: none;
   }
   
   span.dollar-inline {
@@ -418,24 +434,24 @@ Yellow: #FFD54C
     font-family: Montserrat, sans-serif;
     font-size: 16px;
     width: 100%;
-    padding: 10px 10px;
-    box-sizing: border-box;
-    border: 1px solid rgb(130, 130, 130);
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: white;
-    resize: none;
+    box-sizing: border-box;
   }
   
   .box {
     font-family: Montserrat, sans-serif;
     font-size: 16px;
     width: 100%;
-    padding: 10px 10px;
-    box-sizing: border-box;
-    border: 1px solid rgb(130, 130, 130);
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: white;
-    resize: none;
+    box-sizing: border-box;
   }
   
   input[type="text"]:disabled {
@@ -676,6 +692,16 @@ Yellow: #FFD54C
     left: 0;
     top: 50%;
     width: 100%;
+    text-align: center;
+  }
+
+  .p-subscribe-home {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40%;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
   }
   

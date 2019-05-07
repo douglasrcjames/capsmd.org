@@ -6,6 +6,9 @@ import 'react-animated-slider/build/horizontal.css';
 import '../assets/css/SliderAnimations.css';
 import '../assets/css/Slider.css';
 
+import MediaQuery from "react-responsive";
+import Subscribe from '../components/Subscribe';
+
 
 const sliderContent = [
 	{
@@ -41,7 +44,7 @@ const sliderContent = [
 export default class Home extends Component {
   render() {
     return (
-    <div className="wrapper-top">
+    <div className="wrapper-top p-container">
         <Slider className="slider-wrapper" autoplay={3000} minSwipeOffset={100}>
             {sliderContent.map((item, index) => (
                 <div
@@ -57,6 +60,20 @@ export default class Home extends Component {
                 </div>
             ))}
         </Slider>
+        <MediaQuery minWidth={751}>
+            <div className="s-container card p-subscribe-home background-white">
+                <h3>Join Our Mailing List</h3>
+                <span>Keep up with the latest information about the county.</span>
+                <Subscribe />
+            </div>
+        </MediaQuery>
+        <MediaQuery maxWidth={750}>
+            <div className="m-padding background-light-grey">
+                <h3>Join Our Mailing List</h3>
+                <span>Keep up with the latest information about the county.</span>
+                <Subscribe />
+            </div>
+        </MediaQuery>
         <div className="m-padding">
             <h1>Explore the Issues</h1>
             <Grid fluid>
@@ -105,8 +122,9 @@ export default class Home extends Component {
             </Grid>         
         </div>
         <div className="m-padding">
-        <h1>Recent CAPS Updates</h1>
-        <p>No updates yet, stay tuned!</p>
+            <h1>Recent CAPS Updates</h1>
+            <p>No updates yet, stay tuned!</p>
+            
         </div>
     </div>
     )

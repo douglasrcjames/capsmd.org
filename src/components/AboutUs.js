@@ -27,7 +27,9 @@ export default class AboutUs extends Component {
           based in Montgomery County, Maryland, USA. CAPS is the locus of discussion and information 
           dissemination for responsible local policy.
         </p>
-        <Link to="/contact-us"><button className="s-btn">Contact Us</button></Link>
+        <div className="center-text">
+          <Link to="/contact-us"><button className="m-btn">Contact Us</button></Link>
+        </div>
       </div>
 
       {/* Section 2 */}
@@ -40,7 +42,6 @@ export default class AboutUs extends Component {
           The Council for Advocacy and Policy Solutions partners with other nonprofits and charitable organizations to pilot 
           real-change solutions to challenges facing our community.
           </p>
-          <Link to="/contact-us"><button className="s-btn">Contact Us</button></Link>
       </div>
 
       {/* Section 3 */}

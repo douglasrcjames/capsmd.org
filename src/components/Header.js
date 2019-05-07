@@ -67,19 +67,11 @@ class Header extends Component {
 
             {/* Mobile */}
             <MediaQuery maxWidth={750}>
-              <Link to="/">
-                <img
-                  className="responsive nav-logo"
-                  alt="caps-logo"
-                  src={require("../assets/images/logo/caps-logo-v2.png")}
-                />
-              </Link>
-              <Menu
+            <Menu
                 customBurgerIcon={<FaBars color="#003da5" />}
                 right
                 noOverlay
                 width="50%"
-                menuClassName={ "high-z" } 
                 // Why is the slider yellow button a higher z value than this??
               >
                 <div className="side-dropdown">
@@ -122,6 +114,15 @@ class Header extends Component {
                     Contact
                 </NavLink>
               </Menu>
+              {/* had to rearrange this order so the menu appear in the upper right corner */}
+              <Link to="/">
+                <img
+                  className="responsive nav-logo"
+                  alt="caps-logo"
+                  src={require("../assets/images/logo/caps-logo-v2.png")}
+                />
+              </Link>
+              
             </MediaQuery>
           </div>
         </header>
