@@ -47,7 +47,7 @@ class Subscribe extends Component {
               <Field
                 type="email"
                 placeholder="Enter email"
-                className="box"
+                className="box m-width"
                 onChange={props.handleChange}
                 name="email"
                 value={props.values.email}

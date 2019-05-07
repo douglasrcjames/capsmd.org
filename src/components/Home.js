@@ -6,7 +6,6 @@ import 'react-animated-slider/build/horizontal.css';
 import '../assets/css/SliderAnimations.css';
 import '../assets/css/Slider.css';
 
-import MediaQuery from "react-responsive";
 import Subscribe from '../components/Subscribe';
 
 
@@ -60,20 +59,11 @@ export default class Home extends Component {
                 </div>
             ))}
         </Slider>
-        <MediaQuery minWidth={751}>
-            <div className="s-container card p-subscribe-home background-white">
-                <h3>Join Our Mailing List</h3>
-                <span>Keep up with the latest information about the county.</span>
-                <Subscribe />
-            </div>
-        </MediaQuery>
-        <MediaQuery maxWidth={750}>
-            <div className="m-padding background-light-grey">
-                <h3>Join Our Mailing List</h3>
-                <span>Keep up with the latest information about the county.</span>
-                <Subscribe />
-            </div>
-        </MediaQuery>
+        <div className="m-padding background-light-grey center-text">
+            <h3>Join Our Mailing List</h3>
+            <span>Keep up with the latest information about the county.</span>
+            <Subscribe />
+        </div>
         <div className="m-padding">
             <h1>Explore the Issues</h1>
             <Grid fluid>
