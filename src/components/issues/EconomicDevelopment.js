@@ -72,7 +72,7 @@ export default class EconomicDevelopment extends Component {
       <hr className="m-width"/>
       <br/>
 
-      <h2 className="inline">Ideas</h2>
+      <h2 className="inline">Solutions</h2>
       <p>The county's challenges and some ideas to address them</p>
       <ArticlePreview 
         title={'Montgomery County Trails Most of the Region in New Housing'}

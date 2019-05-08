@@ -52,6 +52,7 @@ class Subscribe extends Component {
                 name="email"
                 value={props.values.email}
               />
+              <br/>
               {props.errors.email && props.touched.email ? (
                 <span className="red">{props.errors.email}</span>
               ) : (
@@ -60,7 +61,7 @@ class Subscribe extends Component {
               <br/>
               <button
                 type="submit"
-                className="s-btn s-margin"
+                className="s-btn"
                 disabled={!props.dirty && !props.isSubmitting}
               >
                 Subscribe

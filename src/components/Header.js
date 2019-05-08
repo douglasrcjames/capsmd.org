@@ -70,7 +70,6 @@ class Header extends Component {
             <Menu
                 customBurgerIcon={<FaBars color="#003da5" />}
                 right
-                
                 width="50%"
                 // Why is the slider yellow button a higher z value than this??
               >
