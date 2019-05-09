@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { Link } from "react-router-dom";
 
-class ArticlePreview extends Component {
+class NewsArticlePreview extends Component {
     render() {
         return (
             <div className="l-container background-light-grey clearfix">
@@ -18,7 +17,14 @@ class ArticlePreview extends Component {
                         <Col xs={12} sm={8} md={10} className="s-padding"> 
                             <span className="grey">{this.props.date}</span>
                             <p className="l-text">{this.props.title}</p>
-                            <Link to={this.props.link} className="blue">Read now</Link>
+                            <a 
+                                className="blue" 
+                                href={this.props.link} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                >
+                                Read now
+                            </a>
                         </Col>
                     </Row>
                 </Grid>
@@ -28,4 +34,4 @@ class ArticlePreview extends Component {
     }
 }
 
-export default ArticlePreview;
+export default NewsArticlePreview;

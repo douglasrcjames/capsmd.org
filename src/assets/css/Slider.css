@@ -60,7 +60,7 @@
   }
   
   .slider-content .inner {
-    padding: 0 70px;
+    
     box-sizing: border-box;
     position: absolute;
     width: 100%;
@@ -76,11 +76,8 @@
   }
   
   .slider-content .inner h1 {
-    font-weight: 900;
-    margin: 0 auto;
     max-width: 840px;
     color: #FFFFFF;
-    font-size: 64px;
     line-height: 1;
   }
   
@@ -147,5 +144,57 @@
   @media (max-width: 640px) {
     .slider-content .inner h1 {
       font-size: 32px;
+    }
+    
+  }
+
+
+  /* Blur box mobility */
+    
+    /* Large */
+    @media screen and (min-width: 1181px) {
+      .blur-modal {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 5px;
+        color: #333;
+        max-width: 50%;
+        padding: 0 1% 1% 1%;
+      }
+  
+    }
+    
+    /* Medium */
+    @media screen and (min-width: 720px) and (max-width: 1180px) {
+      .blur-modal {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 5px;
+        color: #333;
+        max-width: 90%;
+        padding: 0 1% 1% 1%;
+      }
+      
+    }
+    
+    /* Small */
+    @media screen and (max-width: 720px) {
+      .blur-modal {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 5px;
+        color: #333;
+        max-width: 95%;
+        padding: 0 1% 1% 1%;
+      }
+     
+    }
+  
+  /* Needed? */
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .blur-modal {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.5);  
+    }
+    .warning {
+      display: none;
     }
   }

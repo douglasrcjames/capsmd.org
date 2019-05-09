@@ -6,14 +6,21 @@ import AboutUs from "./components/AboutUs";
 import News from "./components/News";
 import ContactUs from "./components/ContactUs";
 
-import EconomicDevelopment from "./components/issues/EconomicDevelopment";
-import Education from "./components/issues/Education";
-import infrastructure from "./components/issues/Infrastructure";
-import More from "./components/issues/More";
+import EconomicDevelopment from "./components/issues/EconomicDevelopmentScreens/index";
+import JobMarketStagnant from "./components/issues/EconomicDevelopmentScreens/Facts/JobMarketStagnant";
+import LagsRegionInJobCreation from "./components/issues/EconomicDevelopmentScreens/Facts/LagsRegionInJobCreation";
+
+import Education from "./components/issues/EducationScreens/index";
+
+import Infrastructure from "./components/issues/InfrastructureScreens/index";
+
+import More from "./components/issues/MoreScreens/index";
+import NewspapersDisappearing from "./components/issues/MoreScreens/Facts/NewspapersDisappearing";
+
 
 
 const Page404 = ({ location }) => (
-  <div className="m-padding-t">
+  <div className="m-padding">
     {/* <img src={error404} alt="error404" className="large responsive center" /> */}
     <p>
       Uh oh... doesn't look like this page exists. Check the web address and try
@@ -30,10 +37,18 @@ export class Routes extends React.PureComponent {
         <Route exact path="/about-us" component={AboutUs} />
         <Route exact path="/news" component={News} />
         <Route exact path="/contact-us" component={ContactUs} />
+
         <Route exact path="/issues/economic-development" component={EconomicDevelopment} />
+        <Route exact path="/issues/economic-development/facts/job-market-stagnant" component={JobMarketStagnant} />
+        <Route exact path="/issues/economic-development/facts/lags-region-in-job-creation" component={LagsRegionInJobCreation} />
+
         <Route exact path="/issues/education" component={Education} />
-        <Route exact path="/issues/infrastructure" component={infrastructure} />
+
+        <Route exact path="/issues/infrastructure" component={Infrastructure} />
+
         <Route exact path="/issues/more" component={More} />
+        <Route exact path="/issues/more/facts/newspapers-disappearing" component={NewspapersDisappearing} />
+        
         <Route component={Page404} />
       </Switch>
     );

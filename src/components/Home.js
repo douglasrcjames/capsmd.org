@@ -15,19 +15,19 @@ const sliderContent = [
 		description:
         `An organization’s budget is an indicator of what the organization values and what’s important to it. The County’s budget is no different.`,
 		button: 'Read Now',
-        image: `https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fbudget-table.jpg?alt=media&token=2520e91c-88bd-4463-a933-56468c50bb54`
+        image: `https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fbudget-table.jpg?alt=media&token=ce36b62e-96ea-4ef6-9645-e4c697021e33`
     },
 	{
 		title: 'CAPS LAUNCHES INAUGURAL STUDY',
 		description:
         `Racial gaps within MCPS and the impact of disparities on student communities`,
 		button: 'Read Now',
-		image: `https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fpeople-brainstorming.jpg?alt=media&token=04723190-f548-48c5-8697-fceaf36a5c42`,
+		image: `https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fpeople-brainstorming.jpg?alt=media&token=a1d69df7-3e6c-4dc5-9a0e-7e316772b1d8`,
 	},
 	{
 		title: 'MONTGOMERY COUNTY’S ROADS ARE MORE CLOGGED THAN EVER BEFORE',
 		button: 'Read Now',
-		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fside-view-car.jpg?alt=media&token=19321f8a-e80d-4706-bd61-d413d837b869',
+		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fside-view-car.jpg?alt=media&token=010359c9-33fb-40db-b838-114b89851fd5',
     },
     {
 		title: 'LET’S TRY AGAIN ON THREE GOOD VOTING BILLS',
@@ -36,22 +36,22 @@ const sliderContent = [
          in Maryland. None of them passed in the 2019 session but hopefully they 
         will pass next time.`,
 		button: 'Read Now',
-		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fvoting-box.png?alt=media&token=aeea3b37-64b8-4313-81b6-3c61fa5c8be8',
+		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fballot-stickers.jpg?alt=media&token=5cc68a5c-25b3-4ebf-85d7-65abc63e810d',
 	}
 ];
 
 export default class Home extends Component {
   render() {
     return (
-    <div className="wrapper-top p-container">
-        <Slider className="slider-wrapper" autoplay={3000} minSwipeOffset={100}>
+    <div className="wrapper-top">
+        <Slider className="slider-wrapper p-container" autoplay={3000} minSwipeOffset={100}>
             {sliderContent.map((item, index) => (
                 <div
                     key={index}
                     className="slider-content"
                     style={{ background: `url('${item.image}') no-repeat center center` }}
                 >
-                    <div className="inner">
+                    <div className="blur-modal inner">
                         <h1 className="blue">{item.title}</h1>
                         <h5 className="black m-text">{item.description}</h5>
                         <button className="s-btn">{item.button}</button>
