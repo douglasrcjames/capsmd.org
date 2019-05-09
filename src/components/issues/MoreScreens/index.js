@@ -45,7 +45,13 @@ export default class More extends Component {
 
         <h2 className="inline">Solutions</h2>
         <p>The county's challenges and some ideas to address them</p>
-        <div className="blue">No articles yet, stay tuned!</div>
+        <ArticlePreview 
+          title={'Proposals Worth Considering'}
+          picPath={require('../../../assets/images/icons/Pencil.png')}
+          link={'/issues/more/solutions/proposals-worth-considering'}
+          date={'April, 1st 2019'}
+          />
+        <br/>
       </div>
     )
   }

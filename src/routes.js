@@ -16,8 +16,8 @@ import Infrastructure from "./components/issues/InfrastructureScreens/index";
 
 import More from "./components/issues/MoreScreens/index";
 import NewspapersDisappearing from "./components/issues/MoreScreens/Facts/NewspapersDisappearing";
-
-
+import ProposalsWorthConsidering from "./components/issues/MoreScreens/Solutions/ProposalsWorthConsidering";
+import VotingBills from "./components/issues/MoreScreens/Legislation/VotingBills";
 
 const Page404 = ({ location }) => (
   <div className="m-padding">
@@ -48,6 +48,9 @@ export class Routes extends React.PureComponent {
 
         <Route exact path="/issues/more" component={More} />
         <Route exact path="/issues/more/facts/newspapers-disappearing" component={NewspapersDisappearing} />
+        <Route exact path="/issues/more/stories-opinions/beginners-guide-to-budget" component={NewspapersDisappearing} />
+        <Route exact path="/issues/more/solutions/proposals-worth-considering" component={ProposalsWorthConsidering} />
+        <Route exact path="/issues/more/legislation/voting-bills" component={VotingBills} />
         
         <Route component={Page404} />
       </Switch>

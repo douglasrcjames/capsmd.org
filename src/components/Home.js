@@ -11,31 +11,39 @@ import Subscribe from '../components/Subscribe';
 
 const sliderContent = [
 	{
-		title: `A BEGINNER'S GUIDE TO THE MONTGOMERY COUNTY BUDGET`,
-		description:
-        `An organization’s budget is an indicator of what the organization values and what’s important to it. The County’s budget is no different.`,
-		button: 'Read Now',
+		title: `Beginners Guide to the Budget`,
+        author: `Adam Pagnucco`,
+        description: `An organization’s budget is an indicator of what the organization values and what’s important to it. The County’s budget is no different.`,
+        button: 'Read Now',
+        link: '/issues/more/stories-opinions/beginners-guide-to-budget',
         image: `https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fbudget-table.jpg?alt=media&token=ce36b62e-96ea-4ef6-9645-e4c697021e33`
     },
 	{
-		title: 'CAPS LAUNCHES INAUGURAL STUDY',
+		title: 'CAPS launches inaugural study',
 		description:
         `Racial gaps within MCPS and the impact of disparities on student communities`,
-		button: 'Read Now',
+        button: 'Read Now',
+        link: '',
 		image: `https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fpeople-brainstorming.jpg?alt=media&token=a1d69df7-3e6c-4dc5-9a0e-7e316772b1d8`,
 	},
 	{
-		title: 'MONTGOMERY COUNTY’S ROADS ARE MORE CLOGGED THAN EVER BEFORE',
-		button: 'Read Now',
+        title: 'Silver Spring Housing',
+        author:`Dan Reed`,
+        button: 'Read Now',
+        link: '',
 		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fside-view-car.jpg?alt=media&token=010359c9-33fb-40db-b838-114b89851fd5',
     },
     {
-		title: 'LET’S TRY AGAIN ON THREE GOOD VOTING BILLS',
-		description:
-        `The three General Assembly bills below would have made improvements to voting
-         in Maryland. None of them passed in the 2019 session but hopefully they 
-        will pass next time.`,
-		button: 'Read Now',
+        title: 'Voting Bills',
+        author: 'Adam Pagnucco',
+        button: 'Read Now',
+        link: '/issues/more/legislation/voting-bills',
+		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fballot-stickers.jpg?alt=media&token=5cc68a5c-25b3-4ebf-85d7-65abc63e810d',
+    },
+    {
+		title: 'Proposals Worth Considering ',
+        button: 'Read Now',
+        link: '/issues/more/solutions/proposals-worth-considering',
 		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fballot-stickers.jpg?alt=media&token=5cc68a5c-25b3-4ebf-85d7-65abc63e810d',
 	}
 ];
@@ -53,8 +61,9 @@ export default class Home extends Component {
                 >
                     <div className="blur-modal inner">
                         <h1 className="blue">{item.title}</h1>
-                        <h5 className="black m-text">{item.description}</h5>
-                        <button className="s-btn">{item.button}</button>
+                        { item.author && (<h5 className="black no-padding">by: {item.author}</h5>) }
+                        { item.description && (<p className="black">{item.description}</p>) }
+                        <Link to={item.link}><button className="s-btn">{item.button}</button></Link>
                     </div>
                 </div>
             ))}
