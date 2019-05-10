@@ -5,7 +5,13 @@ export default class More extends Component {
   render() {
     return (
       <div className="wrapper">
-        <h1>More</h1>
+        <h1>
+          <img
+            className="m-em"
+            alt="bulb"
+            src={require("../../../assets/images/icons/bulb-no-padding.png")}
+            />&nbsp;More  
+        </h1>
         <p>This will contain items for More related stuffs and is currently under construction.</p>
 
         <br/>

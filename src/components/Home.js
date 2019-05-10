@@ -85,7 +85,7 @@ export default class Home extends Component {
                             />
                         <h4>Economic Development</h4>
                         <p>Learn about jobs, business growth and other issues connected to growing the economy.</p>
-                        <Link to="/issues/economic-development"><span className="s-text grey">Learn more</span></Link>
+                        <Link to="/issues/economic-development"><span className="m-text blue">Learn more</span></Link>
                     </Col>
                     <Col xs={12} sm={6} md={3} className="center-text">
                         <img
@@ -95,7 +95,7 @@ export default class Home extends Component {
                             />
                         <h4>Education</h4>
                         <p>Learn about jobs, business growth and other issues connected to growing the economy.</p>
-                        <Link to="/issues/education"><span className="s-text grey">Learn more</span></Link>
+                        <Link to="/issues/education"><span className="m-text blue">Learn more</span></Link>
                     </Col>
                     <Col xs={12} sm={6} md={3} className="center-text">
                         <img
@@ -105,17 +105,17 @@ export default class Home extends Component {
                             />
                         <h4>Infrastructure</h4>
                         <p>Learn about our infrastructure network, including roads, transit and more.</p>
-                        <Link to="/issues/infrastructure"><span className="s-text grey">Learn more</span></Link>
+                        <Link to="/issues/infrastructure"><span className="m-text blue">Learn more</span></Link>
                     </Col>
                     <Col xs={12} sm={6} md={3} className="center-text">
                         <img
-                            className="center medium"
+                            className="center small"
                             alt="books"
-                            src={require("../assets/images/icons/books.png")}
+                            src={require("../assets/images/icons/bulb.png")}
                             />
                         <h4>More</h4>
                         <p>Learn about other issues important to Montgomery County.</p>
-                        <Link to="/issues/more"><span className="s-text grey">Learn more</span></Link>
+                        <Link to="/issues/more"><span className="m-text blue">Learn more</span></Link>
                     </Col>
                 </Row>
             </Grid>         

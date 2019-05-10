@@ -133,6 +133,7 @@ Yellow: #FFD54C
   }
   
   label {
+    font-weight: 600;
     font-family: Montserrat, sans-serif;
   }
   
@@ -534,6 +535,18 @@ Yellow: #FFD54C
     padding: 0 0 0 1%;
   }
 
+  .s-padding-t {
+    padding: 1% 0 0 0;
+  }
+
+  .m-padding-t {
+    padding: 5% 0 0 0;
+  }
+
+  .l-padding-t {
+    padding: 10% 0 0 0;
+  }
+
   .s-padding-b {
     padding: 0 0 1% 0;
   }
@@ -776,9 +789,21 @@ Yellow: #FFD54C
     max-width: 100%;
     height: auto;
   }
+
+  img.s-em {
+    height: 1em;
+  }
   
-  img.em {
+  img.m-em {
     height: 1.25em;
+  }
+
+  img.l-em {
+    height: 1.75em;
+  }
+
+  img.xl-em {
+    height: 2em;
   }
   
   .m-flat-icon {

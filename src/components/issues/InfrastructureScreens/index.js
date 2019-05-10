@@ -5,7 +5,13 @@ export default class Tranportation extends Component {
   render() {
     return (
       <div className="wrapper">
-        <h1>Tranportation</h1>
+        <h1>
+            <img
+              className="m-em"
+              alt="building"
+              src={require("../../../assets/images/icons/building-no-padding.png")}
+              />&nbsp;Tranportation  
+          </h1>
         <p>This will contain items for Tranportation related stuffs and is currently under construction.</p>
 
         <br/>
