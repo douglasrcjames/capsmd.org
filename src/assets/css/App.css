@@ -260,7 +260,7 @@ Yellow: #FFD54C
     }
 
     .wrapper-top {
-      padding: 3% 0 0 0; 
+      padding: 1% 0 0 0; 
     }
 
     .l-container {
@@ -283,7 +283,7 @@ Yellow: #FFD54C
   }
   
   /* Large */
-  @media screen and (min-width: 1181px) and (max-width: 1599px) {
+  @media screen and (min-width: 1081px) and (max-width: 1599px) {
     .wrapper {
       padding: 3% 5% 0 7%; 
     }
@@ -312,13 +312,13 @@ Yellow: #FFD54C
   }
   
   /* Medium */
-  @media screen and (min-width: 720px) and (max-width: 1180px) {
+  @media screen and (min-width: 720px) and (max-width: 1080px) {
     .wrapper {
       padding: 6% 1% 0 1%;  
     }
 
     .wrapper-top {
-      padding: 10% 0 0 0; 
+      padding: 7% 0 0 0; 
     }
   
     .l-container {
@@ -347,7 +347,7 @@ Yellow: #FFD54C
     }
 
     .wrapper-top {
-      padding: 20% 0 0 0; 
+      padding: 14% 0 0 0; 
     }
   
     .l-container {
@@ -375,7 +375,7 @@ Yellow: #FFD54C
       padding: 25% 1% 0 1%; 
     }
     .wrapper-top {
-      padding: 25% 0 0 0; 
+      padding: 21% 0 0 0; 
     }
 
   }
@@ -583,8 +583,13 @@ Yellow: #FFD54C
     padding: 0 10% 0 10%;
   }
 
+
   .m-padding-b {
     padding: 0 0 5% 0;
+  }
+
+  .l-padding-b {
+    padding: 0 0 10% 0;
   }
   
   .s-padding {

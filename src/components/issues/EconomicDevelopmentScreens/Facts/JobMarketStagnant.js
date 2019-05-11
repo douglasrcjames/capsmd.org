@@ -57,7 +57,7 @@ export default class JobMarketStagnant extends Component {
   render() {
     return (
       <div className="wrapper">
-        <h1>Maryland Newspapers are Disappearing</h1>
+        <h1>Montgomery County’s Job Market is Stagnant</h1>
         <p>Montgomery County’s total employment grew through the last business cycle, fell during the Great Recession 
             and is only one percent higher in 2017 than it was in 2006.  
             As of 2017, the county’s private sector employment has still not recovered from the recession.</p>

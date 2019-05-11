@@ -3,7 +3,8 @@ import { Route, Switch, withRouter } from "react-router-dom";
 
 import Home from "./components/Home";
 import AboutUs from "./components/AboutUs";
-import News from "./components/News";
+import News from "./components/news";
+import BusinessIncubator from "./components/news/BusinessIncubator";
 import ContactUs from "./components/ContactUs";
 
 import EconomicDevelopment from "./components/issues/EconomicDevelopmentScreens/index";
@@ -49,7 +50,10 @@ export class Routes extends React.PureComponent {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/about-us" component={AboutUs} />
+
         <Route exact path="/news" component={News} />
+        <Route exact path="/news/business-incubator" component={BusinessIncubator} />
+
         <Route exact path="/contact-us" component={ContactUs} />
 
         <Route exact path="/issues/economic-development" component={EconomicDevelopment} />

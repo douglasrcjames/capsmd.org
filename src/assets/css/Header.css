@@ -3,10 +3,14 @@
 *****************************************/
 
 /* Large */
-@media screen and (min-width: 1181px) {
+@media screen and (min-width: 1081px) {
   .nav-container {
     margin: 0 auto;
     width: 90%;
+  }
+
+  .header-padding {
+    padding: 0 0 7% 0;
   }
 }
 
@@ -19,9 +23,13 @@
 } */
 
 /* Small */
-@media screen and (max-width: 1180px) {
+@media screen and (max-width: 1080px) {
   .nav-container {
     margin: 0 auto;
+  }
+
+  .header-padding {
+    padding: 0 0 10% 0;
   }
 }
 

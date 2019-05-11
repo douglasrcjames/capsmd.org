@@ -24,14 +24,14 @@ export default class Education extends Component {
           title={'County Per Pupil Funding for Schools is Trailing Inflation'}
           picPath={require('../../../assets/images/icons/Math.png')}
           link={'/issues/education/facts/per-pupil-funding'}
-          date={'April, 31st 2019'}
+          date={''}
           />
         <br/>
         <ArticlePreview 
           title={'The Needs in Montgomery County Public Schools are Growing but Classroom Support is Not'}
           picPath={require('../../../assets/images/icons/Briefcase.png')}
           link={'/issues/education/facts/public-school-needs'}
-          date={'April, 31st 2019'}
+          date={''}
           />
         <br/>
         

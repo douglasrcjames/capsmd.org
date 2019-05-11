@@ -16,7 +16,7 @@ class ArticlePreview extends Component {
                                 />
                         </Col>
                         <Col xs={12} sm={8} md={10} className="s-padding"> 
-                            <span className="grey">{this.props.date}</span>
+                            { this.props.date && (<span className="grey">{this.props.date}</span>) }
                             <p className="l-text">{this.props.title}</p>
                             <Link to={this.props.link} className="blue">Read now</Link>
                         </Col>

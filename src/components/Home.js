@@ -6,7 +6,8 @@ import 'react-animated-slider/build/horizontal.css';
 import '../assets/css/SliderAnimations.css';
 import '../assets/css/Slider.css';
 
-import Subscribe from '../components/Subscribe';
+import Subscribe from './Subscribe';
+import NewsArticlePreview from './news/NewsArticlePreview'
 
 
 const sliderContent = [
@@ -20,21 +21,19 @@ const sliderContent = [
     },
 	{
 		title: 'CAPS launches student incubator',
-		description:
-        `Racial gaps within MCPS and the impact of disparities on student communities`,
         button: 'Read Now',
-        link: '',
+        link: '/news/business-incubator',
 		image: `https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fpeople-brainstorming.jpg?alt=media&token=a1d69df7-3e6c-4dc5-9a0e-7e316772b1d8`,
 	},
 	{
-        title: 'Silver Spring Housing',
+        title: 'Did Silver Spring build enough housing to stay affordable? Sort of.',
         author:`Dan Reed`,
         button: 'Read Now',
         link: '/issues/infrastructure/stories-opinions/silver-spring-housing',
 		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fside-view-car.jpg?alt=media&token=010359c9-33fb-40db-b838-114b89851fd5',
     },
     {
-        title: 'Voting Bills',
+        title: 'Let’s Try Again on Three Good Voting Bills',
         author: 'Adam Pagnucco',
         button: 'Read Now',
         link: '/issues/more/legislation/voting-bills',
@@ -43,8 +42,8 @@ const sliderContent = [
     {
 		title: 'Proposals Worth Considering ',
         button: 'Read Now',
-        link: '/issues/more/solutions/proposals-worth-considering',
-		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fballot-stickers.jpg?alt=media&token=5cc68a5c-25b3-4ebf-85d7-65abc63e810d',
+        link: '/issues/more/solutions/proposals-worth-considering', 
+		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fvoting-box.png?alt=media&token=bded4d83-fb48-442a-bfe4-f1fb9898c8c3',
 	}
 ];
 
@@ -52,7 +51,7 @@ export default class Home extends Component {
   render() {
     return (
     <div className="wrapper-top">
-        <Slider className="slider-wrapper p-container" autoplay={3000} minSwipeOffset={100}>
+        <Slider className="slider-wrapper p-container" autoplay={3000} touchDisabled={true}>
             {sliderContent.map((item, index) => (
                 <div
                     key={index}
@@ -69,6 +68,13 @@ export default class Home extends Component {
             ))}
         </Slider>
         <div className="m-padding background-light-grey center-text">
+            <h1>Who are we?</h1>
+            <p className="l-text">The Council for Advocacy and Policy Solutions (CAPS) is a non-profit public policy organization based in Montgomery County, Maryland.</p>
+
+            <br/>
+            <hr className="m-width" />
+            <br/>
+
             <h3>Join Our Mailing List</h3>
             <span>Keep up with the latest information about the county.</span>
             <Subscribe />
@@ -94,7 +100,7 @@ export default class Home extends Component {
                             src={require("../assets/images/icons/book.png")}
                             />
                         <h4>Education</h4>
-                        <p>Learn about jobs, business growth and other issues connected to growing the economy.</p>
+                        <p>Learn about issues concerning our public schools and more.</p>
                         <Link to="/issues/education"><span className="m-text blue">Learn more</span></Link>
                     </Col>
                     <Col xs={12} sm={6} md={3} className="center-text">
@@ -122,7 +128,13 @@ export default class Home extends Component {
         </div>
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
-            <p>No updates yet, stay tuned!</p>
+            <NewsArticlePreview 
+                title={'David Blair Announces Business Incubator and Student Entrepreneur Cultivation Program'}
+                picPath={require('../assets/images/icons/Growth.png')}
+                link={'https://www.capsmd.org/news/business-incubator'}
+                date={'May 14, 2019'}
+                />
+            <br/>
             
         </div>
     </div>

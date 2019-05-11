@@ -7,7 +7,7 @@ import MediaQuery from "react-responsive";
 class Header extends Component {
   render() {
       return (
-        <header className="m-padding-b">
+        <header className="header-padding">
           <div className="top-nav">
             <MediaQuery minWidth={751}>
               <div className="nav-container">

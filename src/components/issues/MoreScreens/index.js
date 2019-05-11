@@ -24,7 +24,7 @@ export default class More extends Component {
           title={'Maryland Newspapers are Disappearing'}
           picPath={require('../../../assets/images/icons/Growth.png')}
           link={'/issues/more/facts/newspapers-disappearing'}
-          date={'April, 1st 2019'}
+          date={''}
           />
         <br/>
        
@@ -39,7 +39,7 @@ export default class More extends Component {
           title={'A Beginner’s Guide to the Montgomery County Budget'}
           picPath={require('../../../assets/images/icons/Math.png')}
           link={'/issues/more/stories-opinions/beginners-guide-to-budget'}
-          date={'April, 1st 2019'}
+          date={''}
           />
         <br/>
 
@@ -61,7 +61,7 @@ export default class More extends Component {
           title={'Proposals Worth Considering'}
           picPath={require('../../../assets/images/icons/Pencil.png')}
           link={'/issues/more/solutions/proposals-worth-considering'}
-          date={'April, 1st 2019'}
+          date={''}
           />
         <br/>
       </div>

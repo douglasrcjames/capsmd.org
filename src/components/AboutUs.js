@@ -57,40 +57,40 @@ export default class AboutUs extends Component {
                 <Col xs={12} sm={6} md={3}>
                     <img
                         className="center xsmall"
-                        alt="dollar"
-                        src={require("../assets/images/icons/dollar.png")}
+                        alt="check"
+                        src={require("../assets/images/icons/check.png")}
                         />
                     <p className="s-text l-padding-r-l center-text">Truth and accuracy in research and reporting of information and data</p>
                 </Col>
                 <Col xs={12} sm={6} md={3}>
                     <img
                         className="center xsmall"
-                        alt="book"
-                        src={require("../assets/images/icons/building.png")}
+                        alt="scale"
+                        src={require("../assets/images/icons/scale.png")}
                         />
                     <p className="s-text l-padding-r-l center-text">Transparency in distinguishing facts and opinions</p>
                 </Col>
                 <Col xs={12} sm={6} md={3}>
                     <img
                         className="center xsmall"
-                        alt="book"
-                        src={require("../assets/images/icons/book.png")}
+                        alt="court"
+                        src={require("../assets/images/icons/court.png")}
                         />
                     <p className="s-text l-padding-r-l center-text">Advocacy for sensible legislation and policy</p>
                 </Col>
                 <Col xs={12} sm={6} md={3}>
                     <img
                         className="center xsmall"
-                        alt="bus"
-                        src={require("../assets/images/icons/bus.png")}
+                        alt="medal"
+                        src={require("../assets/images/icons/medal.png")}
                         />
                     <p className="s-text l-padding-r-l center-text"> Continuous pursuit of best practices</p>
                 </Col>
                 <Col xs={12} sm={6} md={3}>
                     <img
                         className="center xsmall"
-                        alt="bus"
-                        src={require("../assets/images/icons/bulb.png")}
+                        alt="thumbs"
+                        src={require("../assets/images/icons/thumbs.png")}
                         />
                     <p className="s-text l-padding-r-l">Dedication to piloting real-change programs</p>
                 </Col>

@@ -12,7 +12,7 @@ export default class Tranportation extends Component {
               src={require("../../../assets/images/icons/building-no-padding.png")}
               />&nbsp;Infrastructure  
           </h1>
-        <p>This will contain items for Tranportation related stuffs and is currently under construction.</p>
+        <p>Learn about Infrastructure including transportation, affordable housing and more</p>
 
         <br/>
         <hr className="m-width"/>
@@ -24,35 +24,35 @@ export default class Tranportation extends Component {
           title={"Montgomery County's Housing Construction Has Dropped Since the Recession"}
           picPath={require('../../../assets/images/icons/Housing Development.png')}
           link={'/issues/infrastructure/facts/housing-construction'}
-          date={'April, 31st 2019'}
+          date={''}
           />
         <br/>
         <ArticlePreview 
           title={'Montgomery County Trails Most of the Region in New Housing'}
           picPath={require('../../../assets/images/icons/Housing.png')}
           link={'/issues/infrastructure/facts/trails-in-new-housing'}
-          date={'April, 31st 2019'}
+          date={''}
           />
         <br/>
         <ArticlePreview 
           title={"Montgomery County's Roads are More Clogged Than Ever Before"}
           picPath={require('../../../assets/images/icons/Car.png')}
           link={'/issues/infrastructure/facts/roads-clogged'}
-          date={'April, 31st 2019'}
+          date={''}
           />
         <br/>
         <ArticlePreview 
           title={"Montgomery County Does Not Complete Transportation Projects on Time"}
           picPath={require('../../../assets/images/icons/Rail.png')}
           link={'/issues/infrastructure/facts/transportation-projects'}
-          date={'April, 31st 2019'}
+          date={''}
           />
         <br/>
         <ArticlePreview 
           title={'Silver Spring Housing'}
           picPath={require('../../../assets/images/icons/Housing.png')}
           link={'/issues/infrastructure/stories-opinions/silver-spring-housing'}
-          date={'April, 31st 2019'}
+          date={''}
           />
 
         <br/>
