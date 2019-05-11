@@ -27,6 +27,41 @@ export default class EconomicDevelopment extends Component {
         link={'/issues/economic-development/facts/lags-region-in-job-creation'}
         date={'April, 1st 2019'}
         />
+      <br/>
+      <ArticlePreview 
+        title={'Montgomery County Lags the Region in Business Growth'}
+        picPath={require('../../../assets/images/icons/Handshake.png')}
+        link={'/issues/economic-development/facts/lags-region-in-business'}
+        date={'April, 1st 2019'}
+        />
+      <br/>
+      <ArticlePreview 
+        title={'People Moving Into Montgomery County Make Less than People Moving Out'}
+        picPath={require('../../../assets/images/icons/Car.png')}
+        link={'/issues/economic-development/facts/in-migrants-make-less'}
+        date={'April, 1st 2019'}
+        />
+      <br/>
+      <ArticlePreview 
+        title={'Montgomery County is Losing More Taxpayer Income Than Most of the Rest of the Region'}
+        picPath={require('../../../assets/images/icons/Budget.png')}
+        link={'/issues/economic-development/facts/losing-taxpayer-income'}
+        date={'April, 1st 2019'}
+        />
+      <br/>
+      <ArticlePreview 
+        title={"Slow Growth Has Hit the County's Budget"}
+        picPath={require('../../../assets/images/icons/Math.png')}
+        link={'/issues/economic-development/facts/slow-growth-budget'}
+        date={'April, 1st 2019'}
+        />
+        <br/>
+      <ArticlePreview 
+        title={"Montgomery County is Not Investing Enough in Schools and Transportation"}
+        picPath={require('../../../assets/images/icons/Rail.png')}
+        link={'/issues/economic-development/facts/not-investing-in-schools'}
+        date={'April, 1st 2019'}
+        />
 
       <br/>
       <hr className="m-width"/>

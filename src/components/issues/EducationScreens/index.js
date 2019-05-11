@@ -14,14 +14,20 @@ export default class Education extends Component {
 
         <h2 className="inline">Facts</h2>
         <p>Information about where the county stands</p>
-        {/* <ArticlePreview 
-          title={'Montgomery County Trails Most of the Region in New Housing'}
-          picPath={require('../../../assets/images/icons/Housing.png')}
-          link={'/'}
+        <ArticlePreview 
+          title={'County Per Pupil Funding for Schools is Trailing Inflation'}
+          picPath={require('../../../assets/images/icons/Math.png')}
+          link={'/issues/education/facts/per-pupil-funding'}
           date={'April, 31st 2019'}
           />
-        <br/> */}
-        <div className="blue">No articles yet, stay tuned!</div>
+        <br/>
+        <ArticlePreview 
+          title={'The Needs in Montgomery County Public Schools are Growing but Classroom Support is Not'}
+          picPath={require('../../../assets/images/icons/Briefcase.png')}
+          link={'/issues/education/facts/public-school-needs'}
+          date={'April, 31st 2019'}
+          />
+        <br/>
         
 
         <br/>
