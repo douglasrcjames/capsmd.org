@@ -5,7 +5,13 @@ export default class Education extends Component {
   render() {
     return (
       <div className="wrapper">
-        <h1>Education</h1>
+        <h1>
+          <img
+            className="m-em"
+            alt="book"
+            src={require("../../../assets/images/icons/book-no-padding.png")}
+            />&nbsp;Education  
+        </h1>
         <p>Learn about issues concerning our public schools and more</p>
 
         <br/>

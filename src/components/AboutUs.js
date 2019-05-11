@@ -60,7 +60,15 @@ export default class AboutUs extends Component {
                         alt="dollar"
                         src={require("../assets/images/icons/dollar.png")}
                         />
-                    <p className="s-text l-padding-r-l">Truth and accuracy in research and reporting of information and data</p>
+                    <p className="s-text l-padding-r-l center-text">Truth and accuracy in research and reporting of information and data</p>
+                </Col>
+                <Col xs={12} sm={6} md={3}>
+                    <img
+                        className="center xsmall"
+                        alt="book"
+                        src={require("../assets/images/icons/building.png")}
+                        />
+                    <p className="s-text l-padding-r-l center-text">Transparency in distinguishing facts and opinions</p>
                 </Col>
                 <Col xs={12} sm={6} md={3}>
                     <img
@@ -68,15 +76,7 @@ export default class AboutUs extends Component {
                         alt="book"
                         src={require("../assets/images/icons/book.png")}
                         />
-                    <p className="s-text l-padding-r-l">Transparency in distinguishing facts and opinions</p>
-                </Col>
-                <Col xs={12} sm={6} md={3}>
-                    <img
-                        className="center xsmall"
-                        alt="book"
-                        src={require("../assets/images/icons/book.png")}
-                        />
-                    <p className="s-text l-padding-r-l">Advocacy for sensible legislation and policy</p>
+                    <p className="s-text l-padding-r-l center-text">Advocacy for sensible legislation and policy</p>
                 </Col>
                 <Col xs={12} sm={6} md={3}>
                     <img
@@ -84,13 +84,13 @@ export default class AboutUs extends Component {
                         alt="bus"
                         src={require("../assets/images/icons/bus.png")}
                         />
-                    <p className="s-text l-padding-r-l"> Continuous pursuit of best practices</p>
+                    <p className="s-text l-padding-r-l center-text"> Continuous pursuit of best practices</p>
                 </Col>
                 <Col xs={12} sm={6} md={3}>
                     <img
                         className="center xsmall"
                         alt="bus"
-                        src={require("../assets/images/icons/bus.png")}
+                        src={require("../assets/images/icons/bulb.png")}
                         />
                     <p className="s-text l-padding-r-l">Dedication to piloting real-change programs</p>
                 </Col>

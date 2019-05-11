@@ -5,7 +5,13 @@ export default class Tranportation extends Component {
   render() {
     return (
       <div className="wrapper">
-        <h1>Tranportation</h1>
+        <h1>
+            <img
+              className="m-em"
+              alt="building"
+              src={require("../../../assets/images/icons/building-no-padding.png")}
+              />&nbsp;Infrastructure  
+          </h1>
         <p>This will contain items for Tranportation related stuffs and is currently under construction.</p>
 
         <br/>
@@ -42,7 +48,12 @@ export default class Tranportation extends Component {
           date={'April, 31st 2019'}
           />
         <br/>
-        
+        <ArticlePreview 
+          title={'Silver Spring Housing'}
+          picPath={require('../../../assets/images/icons/Housing.png')}
+          link={'/issues/infrastructure/stories-opinions/silver-spring-housing'}
+          date={'April, 31st 2019'}
+          />
 
         <br/>
         <hr className="m-width"/>

@@ -5,7 +5,13 @@ export default class EconomicDevelopment extends Component {
   render() {
     return (
     <div className="wrapper">
-      <h1>Economic Development</h1>
+      <h1>
+        <img
+          className="m-em"
+          alt="cash"
+          src={require("../../../assets/images/icons/dollar-no-padding.png")}
+          />&nbsp;Economic Development  
+      </h1>
       <p>Learn about jobs, business growth and other issues connected to growing the economy.</p>
 
       <br/>

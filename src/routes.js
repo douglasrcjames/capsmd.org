@@ -24,11 +24,14 @@ import HousingConstruction from "./components/issues/InfrastructureScreens/Facts
 import TrailsInNewHousing from "./components/issues/InfrastructureScreens/Facts/TrailsInNewHousing";
 import RoadsClogged from "./components/issues/InfrastructureScreens/Facts/RoadsClogged";
 import TransportationProjects from "./components/issues/InfrastructureScreens/Facts/TransportationProjects";
+import SilverSpringHousing from "./components/issues/InfrastructureScreens/StoriesOpinions/SilverSpringHousing";
+
 
 import More from "./components/issues/MoreScreens/index";
 import NewspapersDisappearing from "./components/issues/MoreScreens/Facts/NewspapersDisappearing";
 import ProposalsWorthConsidering from "./components/issues/MoreScreens/Solutions/ProposalsWorthConsidering";
 import VotingBills from "./components/issues/MoreScreens/Legislation/VotingBills";
+import BeginnersGuideToBudget from "./components/issues/MoreScreens/StoriesOpinions/BeginnersGuideToBudget";
 
 const Page404 = ({ location }) => (
   <div className="m-padding">
@@ -67,10 +70,11 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/infrastructure/facts/trails-in-new-housing" component={TrailsInNewHousing} />
         <Route exact path="/issues/infrastructure/facts/roads-clogged" component={RoadsClogged} />
         <Route exact path="/issues/infrastructure/facts/transportation-projects" component={TransportationProjects} />
+        <Route exact path="/issues/infrastructure/stories-opinions/silver-spring-housing" component={SilverSpringHousing} />
 
         <Route exact path="/issues/more" component={More} />
         <Route exact path="/issues/more/facts/newspapers-disappearing" component={NewspapersDisappearing} />
-        <Route exact path="/issues/more/stories-opinions/beginners-guide-to-budget" component={NewspapersDisappearing} />
+        <Route exact path="/issues/more/stories-opinions/beginners-guide-to-budget" component={BeginnersGuideToBudget} />
         <Route exact path="/issues/more/solutions/proposals-worth-considering" component={ProposalsWorthConsidering} />
         <Route exact path="/issues/more/legislation/voting-bills" component={VotingBills} />
         
