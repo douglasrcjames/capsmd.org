@@ -35,7 +35,13 @@ export default class More extends Component {
 
         <h2 className="inline">Stories &amp; Opinions</h2>
         <p>How the county decisions affect real life people</p>
-        <div className="blue">No articles yet, stay tuned!</div>
+        <ArticlePreview 
+          title={'A Beginner’s Guide to the Montgomery County Budget'}
+          picPath={require('../../../assets/images/icons/Math.png')}
+          link={'/issues/more/stories-opinions/beginners-guide-to-budget'}
+          date={'April, 1st 2019'}
+          />
+        <br/>
 
         <br/>
         <hr className="m-width"/>

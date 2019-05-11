@@ -10,7 +10,7 @@ export default class Tranportation extends Component {
               className="m-em"
               alt="building"
               src={require("../../../assets/images/icons/building-no-padding.png")}
-              />&nbsp;Tranportation  
+              />&nbsp;Infrastructure  
           </h1>
         <p>This will contain items for Tranportation related stuffs and is currently under construction.</p>
 
@@ -20,13 +20,13 @@ export default class Tranportation extends Component {
 
         <h2 className="inline">Facts</h2>
         <p>Information about where the county stands</p>
-        {/* <ArticlePreview 
-          title={'Montgomery County Trails Most of the Region in New Housing'}
+        <ArticlePreview 
+          title={'Silver Spring Housing'}
           picPath={require('../../../assets/images/icons/Housing.png')}
-          link={'/'}
+          link={'/issues/infrastructure/stories-opinions/silver-spring-housing'}
           date={'April, 31st 2019'}
           />
-        <br/> */}
+        <br/>
         <div className="blue">No articles yet, stay tuned!</div>
 
         <br/>

@@ -13,11 +13,13 @@ import LagsRegionInJobCreation from "./components/issues/EconomicDevelopmentScre
 import Education from "./components/issues/EducationScreens/index";
 
 import Infrastructure from "./components/issues/InfrastructureScreens/index";
+import SilverSpringHousing from "./components/issues/InfrastructureScreens/StoriesOpinions/SilverSpringHousing";
 
 import More from "./components/issues/MoreScreens/index";
 import NewspapersDisappearing from "./components/issues/MoreScreens/Facts/NewspapersDisappearing";
 import ProposalsWorthConsidering from "./components/issues/MoreScreens/Solutions/ProposalsWorthConsidering";
 import VotingBills from "./components/issues/MoreScreens/Legislation/VotingBills";
+import BeginnersGuideToBudget from "./components/issues/MoreScreens/StoriesOpinions/BeginnersGuideToBudget";
 
 const Page404 = ({ location }) => (
   <div className="m-padding">
@@ -45,10 +47,11 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/education" component={Education} />
 
         <Route exact path="/issues/infrastructure" component={Infrastructure} />
+        <Route exact path="/issues/infrastructure/stories-opinions/silver-spring-housing" component={SilverSpringHousing} />
 
         <Route exact path="/issues/more" component={More} />
         <Route exact path="/issues/more/facts/newspapers-disappearing" component={NewspapersDisappearing} />
-        <Route exact path="/issues/more/stories-opinions/beginners-guide-to-budget" component={NewspapersDisappearing} />
+        <Route exact path="/issues/more/stories-opinions/beginners-guide-to-budget" component={BeginnersGuideToBudget} />
         <Route exact path="/issues/more/solutions/proposals-worth-considering" component={ProposalsWorthConsidering} />
         <Route exact path="/issues/more/legislation/voting-bills" component={VotingBills} />
         

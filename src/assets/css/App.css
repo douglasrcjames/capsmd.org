@@ -778,6 +778,13 @@ Yellow: #FFD54C
     padding: 5px;
   }
 
+  img.xxlarge {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    padding: 5px;
+  }
+
   img.headshot {
     width: 100%;
     height: auto;

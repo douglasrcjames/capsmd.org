@@ -19,7 +19,7 @@ const sliderContent = [
         image: `https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fbudget-table.jpg?alt=media&token=ce36b62e-96ea-4ef6-9645-e4c697021e33`
     },
 	{
-		title: 'CAPS launches inaugural study',
+		title: 'CAPS launches student incubator',
 		description:
         `Racial gaps within MCPS and the impact of disparities on student communities`,
         button: 'Read Now',
@@ -30,7 +30,7 @@ const sliderContent = [
         title: 'Silver Spring Housing',
         author:`Dan Reed`,
         button: 'Read Now',
-        link: '',
+        link: '/issues/infrastructure/stories-opinions/silver-spring-housing',
 		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fside-view-car.jpg?alt=media&token=010359c9-33fb-40db-b838-114b89851fd5',
     },
     {
@@ -100,8 +100,8 @@ export default class Home extends Component {
                     <Col xs={12} sm={6} md={3} className="center-text">
                         <img
                             className="center small"
-                            alt="bus"
-                            src={require("../assets/images/icons/bus.png")}
+                            alt="building"
+                            src={require("../assets/images/icons/building.png")}
                             />
                         <h4>Infrastructure</h4>
                         <p>Learn about our infrastructure network, including roads, transit and more.</p>

@@ -57,43 +57,36 @@ export default class VotingBills extends Component {
   render() {
     return (
       <div className="wrapper">
-        <h1>Maryland Newspapers are Disappearing</h1>
-        <p>Montgomery County’s total employment grew through the last business cycle, fell during the Great Recession 
-            and is only one percent higher in 2017 than it was in 2006.  
-            As of 2017, the county’s private sector employment has still not recovered from the recession.</p>
+        <h1>Let’s Try Again on Three Good Voting Bills</h1>
+        <p>The three General Assembly bills below would have made improvements to voting in Maryland.  None of them passed in the 2019 session but hopefully they will pass next time.</p>
 
-        <h4 className="center-text">Maryland County Employment</h4>
-        <ResponsiveContainer width="95%" height="95%" aspect={2} className="center m-width">
-          <LineChart
-            data={data1}
-            margin={{
-              top: 5, right: 30, left: 20, bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Line type="monotone" dataKey="Private" stroke="#8884d8" activeDot={{ r: 8 }} />
-            <Line type="monotone" dataKey="Govt." stroke="#82ca9d" activeDot={{ r: 8 }} />
-            <Line type="monotone" dataKey="Total" stroke="#ff7300" activeDot={{ r: 8 }} />
-          </LineChart>
-        </ResponsiveContainer>
+        <div className="l-container">
+            <h4>Same-Day Party Affiliation in Early Voting</h4>
+            <p>Under current law, unregistered voters can register to vote during early voting, pick a party 
+              affiliation and vote in that party’s primary.  And under a referendum passed last year, they 
+              can also do so on election day. However, registered unaffiliated voters can’t do the same thing and therefore 
+              can’t vote in a party primary on the day of 
+              voting. <a href="http://mgaleg.maryland.gov/webmga/frmMain.aspx?pid=billpage&amp;stab=01&amp;id=sb0489&amp;tab=subject3&amp;ys=2019RS">SB489/HB530</a>, 
+              sponsored by Senator Cheryl Kagan and Delegate 
+              Lily Qi, would have allowed a voter who is not affiliated with a political party to appear in person at a 
+              voting place and change party affiliation on an existing voter registration. This bill did not make it out of 
+              committee in either the Senate or the House.</p>
+            <h4>Vote-by-Mail Ballots</h4>
+            <p><a href="http://mgaleg.maryland.gov/webmga/frmMain.aspx?pid=billpage&amp;stab=01&amp;id=sb0606&amp;tab=subject3&amp;ys=2019RS">SB606/HB322</a>, 
+            sponsored by Senator Katie Fry Hester and Delegate Julie Palakovich Carr, required the State Board of Elections and the local boards of elections 
+            to refer to absentee ballots as “vote-by-mail” ballots and absentee voting as “voting by mail” in all communications with voters and the general 
+            public.  The Senate Education, Health and Environmental Affairs Committee killed the bill on 
+            a <a href="http://mgaleg.maryland.gov/2019RS/votes_comm/sb0606_ehe.pdf">6-5 vote.</a></p>
+            <h4>Pre-Paid Postage on Absentee Ballot Return Envelopes</h4>
+            <p><a href="http://mgaleg.maryland.gov/webmga/frmMain.aspx?pid=billpage&amp;stab=01&amp;id=sb0343&amp;tab=subject3&amp;ys=2019RS">SB343/HB269</a>, sponsored by Senator Cheryl Kagan and Delegate Kirill Reznik, required prepaid postage to be included on absentee 
+              ballot return envelopes, for absentee ballots sent to voters by mail.  The bill passed the Senate on 
+              a <a href="http://mgaleg.maryland.gov/2019RS/votes/Senate/0441.pdf">28-18 vote</a> but did not 
+              receive a vote in the House Ways and Means Committee.</p>
+        </div>
 
-        <p>Over the same period, employment by Maryland newspapers has fallen from 5,718 to 1,990, a drop of 65 percent.</p>
+        <p>We will be watching these bills and other good voting bills next year.  Join us and hopefully they will pass!</p>
 
-    
-        <p>In terms of Montgomery County coverage, the Montgomery Journal, the Washington Examiner and the Gazette have all closed.  
-            The Washington Post has cut back its local coverage sharply.  
-            Many of the remaining news sources are online only and offer a fraction of the content that county residents once enjoyed.</p>
-        <h3>Our Take</h3>
-        <p>Jobs are tremendously important for our county’s budget and quality of life.  Unless we can grow our jobs base at a faster rate, 
-            we won’t be able to pay for education, transportation and our other priorities to maintain our current standard of living.</p>
-        <Link className="blue">Read our ideas for creating jobs</Link>
-        <br/>
-        <br/>
-        <i>Source: U.S. Bureau of Labor Statistics.</i>
+       
         
       </div>
     )

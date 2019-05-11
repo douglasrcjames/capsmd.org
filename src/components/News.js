@@ -5,8 +5,6 @@ export default class News extends Component {
     return (
       <div className="wrapper">
         <h1>News</h1>
-        <p>Local news articles that affect the people of Montgomery County</p>
-
         <br/>
         <hr className="m-width"/>
         <br/>
