@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 
 // CSS
 import "./assets/css/App.css";
+import "./assets/css/CAPS.css";
 import "./assets/css/Buttons.css";
 import "./assets/css/Header.css";
 import "./assets/css/Footer.css";

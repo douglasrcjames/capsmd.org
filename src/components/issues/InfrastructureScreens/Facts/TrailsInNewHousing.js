@@ -46,7 +46,7 @@ export default class LosingTaxpayerIncome extends Component {
 
 </p>
 
-        <h4 className="center-text">Net Permitted in Taxpayer Income from Migration, 2006-2016</h4>
+        <h4 className="center-text">Housing Units Permitted per 100 Residents, 2009-2017.</h4>
         <ResponsiveContainer width="95%" height="95%" aspect={2} className="center m-width">
           <BarChart
             data={data1}

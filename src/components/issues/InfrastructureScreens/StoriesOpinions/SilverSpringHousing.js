@@ -44,6 +44,7 @@ export default class SilverSpringHousing extends Component {
     return (
       <div className="wrapper">
         <h1>Did Silver Spring build enough housing to stay affordable? Sort of.</h1>
+        <p className="grey">by Dan Reed</p>
         <p>In 2013, I looked at rents in Silver Spring to see if building tons of new homes could help keep our 
             community affordable. Five years and about 1,700 new apartments later, did it work? Sort of. 
             Rents in many downtown buildings are the same or lower than they were in 2013, but it hasn't been 

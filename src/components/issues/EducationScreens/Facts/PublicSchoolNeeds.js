@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
@@ -82,7 +83,8 @@ export default class PublicSchoolNeeds extends Component {
         <h3>Our Take</h3>
         <p>Growing needs should be met with growing attention.  
             Montgomery County, which has made local per pupil contributions to schools that trail the rate of inflation, is not doing that.  
-            [LINK to County Per Pupil Funding for Schools is Trailing Inflation page]</p>
+        </p>
+        <Link to="/issues/education/facts/per-pupil-funding" className="blue">Read article on 'County Per Pupil Funding for Schools is Trailing Inflation'</Link>
         <br/>
         <br/>
         <i>Source: Montgomery County Public Schools.</i>

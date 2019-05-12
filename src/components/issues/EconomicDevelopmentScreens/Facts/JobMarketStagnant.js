@@ -90,7 +90,7 @@ export default class JobMarketStagnant extends Component {
         <h3>Our Take</h3>
         <p>Jobs are tremendously important for our county’s budget and quality of life.  Unless we can grow our jobs base at a faster rate, 
             we won’t be able to pay for education, transportation and our other priorities to maintain our current standard of living.</p>
-        <Link className="blue">Read our ideas for creating jobs</Link>
+        {/* <Link className="blue">Read our ideas for creating jobs</Link> */}
         <br/>
         <br/>
         <i>Source: U.S. Bureau of Labor Statistics.</i>

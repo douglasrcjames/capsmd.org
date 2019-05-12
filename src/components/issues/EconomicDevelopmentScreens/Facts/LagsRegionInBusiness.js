@@ -6,31 +6,31 @@ import {
 
 const data1 = [
   {
-    name: 'District of Columbia', "Growth": 8113,
+    name: 'District of Columbia', "Growth %": 8113,
   },
   {
-    name: 'Fairfax, VA', "Growth": 5913,
+    name: 'Fairfax, VA', "Growth %": 5913,
   },
   {
-    name: 'Loudoun, VA', "Growth": 4791,
+    name: 'Loudoun, VA', "Growth %": 4791,
   },
   {
-    name: 'Prince William, VA', "Growth": 2835,
+    name: 'Prince William, VA', "Growth %": 2835,
   },
   {
-    name: 'Arlington, VA', "Growth": 1977,
+    name: 'Arlington, VA', "Growth %": 1977,
   },
   {
-    name: 'Frederick, MD', "Growth": 573,
+    name: 'Frederick, MD', "Growth %": 573,
   },
   {
-    name: 'Alexandria, VA', "Growth": 569,
+    name: 'Alexandria, VA', "Growth %": 569,
   },
   {
-    name: "Prince George's, MD", "Growth": 459,
+    name: "Prince George's, MD", "Growth %": 459,
   },
   {
-    name: 'Montgomery, MD', "Growth": 292,
+    name: 'Montgomery, MD', "Growth %": 292,
   },
 ];
 
@@ -58,7 +58,7 @@ export default class LagsRegionInBusiness extends Component {
             <YAxis type="category" dataKey="name" tick={{ fontSize: 10 }} />
             <Tooltip />
             <Legend />
-            <Bar dataKey="Growth" fill="#82ca9d" />
+            <Bar dataKey="Growth %" fill="#82ca9d" />
           </BarChart>
         </ResponsiveContainer>
        
@@ -66,7 +66,7 @@ export default class LagsRegionInBusiness extends Component {
         <p>There are two ways that state and local governments pay their bills: grow the tax base or raise taxes.
         Without new businesses creating jobs, it’s very hard to grow the tax base. That means you could pay
         the price through more tax hikes.</p>
-        <Link className="blue">Read our ideas for Creating Businesses through Innovation</Link>
+        {/* <Link className="blue">Read our ideas for Creating Businesses through Innovation</Link> */}
         <br/>
         <br/>
         <i>Source: U.S. Bureau of Labor Statistics.</i>

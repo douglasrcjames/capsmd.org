@@ -15,10 +15,12 @@ import InMigrantsMakeLess from "./components/issues/EconomicDevelopmentScreens/F
 import LosingTaxpayerIncome from "./components/issues/EconomicDevelopmentScreens/Facts/LosingTaxpayerIncome";
 import SlowGrowthBudget from "./components/issues/EconomicDevelopmentScreens/Facts/SlowGrowthBudget";
 import NotInvestingInSchools from "./components/issues/EconomicDevelopmentScreens/Facts/NotInvestingInSchools";
+import ProposalsWorthConsideringE from "./components/issues/EconomicDevelopmentScreens/Solutions/ProposalsWorthConsidering";
 
 import Education from "./components/issues/EducationScreens/index";
 import PerPupilFunding from "./components/issues/EducationScreens/Facts/PerPupilFunding";
 import PublicSchoolNeeds from "./components/issues/EducationScreens/Facts/PublicSchoolNeeds";
+import ProposalsWorthConsideringED from "./components/issues/EducationScreens/Solutions/ProposalsWorthConsidering";
 
 import Infrastructure from "./components/issues/InfrastructureScreens/index";
 import HousingConstruction from "./components/issues/InfrastructureScreens/Facts/HousingConstruction";
@@ -26,11 +28,12 @@ import TrailsInNewHousing from "./components/issues/InfrastructureScreens/Facts/
 import RoadsClogged from "./components/issues/InfrastructureScreens/Facts/RoadsClogged";
 import TransportationProjects from "./components/issues/InfrastructureScreens/Facts/TransportationProjects";
 import SilverSpringHousing from "./components/issues/InfrastructureScreens/StoriesOpinions/SilverSpringHousing";
+import ProposalsWorthConsideringI from "./components/issues/InfrastructureScreens/Solutions/ProposalsWorthConsidering";
 
 
 import More from "./components/issues/MoreScreens/index";
 import NewspapersDisappearing from "./components/issues/MoreScreens/Facts/NewspapersDisappearing";
-import ProposalsWorthConsidering from "./components/issues/MoreScreens/Solutions/ProposalsWorthConsidering";
+
 import VotingBills from "./components/issues/MoreScreens/Legislation/VotingBills";
 import BeginnersGuideToBudget from "./components/issues/MoreScreens/StoriesOpinions/BeginnersGuideToBudget";
 
@@ -64,10 +67,12 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/economic-development/facts/losing-taxpayer-income" component={LosingTaxpayerIncome} />
         <Route exact path="/issues/economic-development/facts/slow-growth-budget" component={SlowGrowthBudget} />
         <Route exact path="/issues/economic-development/facts/not-investing-in-schools" component={NotInvestingInSchools} />
+        <Route exact path="/issues/economic-development/solutions/proposals-worth-considering" component={ProposalsWorthConsideringED} />
 
         <Route exact path="/issues/education" component={Education} />
         <Route exact path="/issues/education/facts/per-pupil-funding" component={PerPupilFunding} />
         <Route exact path="/issues/education/facts/public-school-needs" component={PublicSchoolNeeds} />
+        <Route exact path="/issues/education/solutions/proposals-worth-considering" component={ProposalsWorthConsideringE} />
 
         <Route exact path="/issues/infrastructure" component={Infrastructure} />
         <Route exact path="/issues/infrastructure/facts/housing-construction" component={HousingConstruction} />
@@ -75,11 +80,11 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/infrastructure/facts/roads-clogged" component={RoadsClogged} />
         <Route exact path="/issues/infrastructure/facts/transportation-projects" component={TransportationProjects} />
         <Route exact path="/issues/infrastructure/stories-opinions/silver-spring-housing" component={SilverSpringHousing} />
+        <Route exact path="/issues/infrastructure/solutions/proposals-worth-considering" component={ProposalsWorthConsideringI} />
 
         <Route exact path="/issues/more" component={More} />
         <Route exact path="/issues/more/facts/newspapers-disappearing" component={NewspapersDisappearing} />
         <Route exact path="/issues/more/stories-opinions/beginners-guide-to-budget" component={BeginnersGuideToBudget} />
-        <Route exact path="/issues/more/solutions/proposals-worth-considering" component={ProposalsWorthConsidering} />
         <Route exact path="/issues/more/legislation/voting-bills" component={VotingBills} />
         
         <Route component={Page404} />

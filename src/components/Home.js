@@ -39,12 +39,6 @@ const sliderContent = [
         link: '/issues/more/legislation/voting-bills',
 		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fballot-stickers.jpg?alt=media&token=5cc68a5c-25b3-4ebf-85d7-65abc63e810d',
     },
-    {
-		title: 'Proposals Worth Considering ',
-        button: 'Read Now',
-        link: '/issues/more/solutions/proposals-worth-considering', 
-		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fvoting-box.png?alt=media&token=bded4d83-fb48-442a-bfe4-f1fb9898c8c3',
-	}
 ];
 
 export default class Home extends Component {

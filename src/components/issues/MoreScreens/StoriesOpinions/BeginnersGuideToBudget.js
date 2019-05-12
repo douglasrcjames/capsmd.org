@@ -1,33 +1,54 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
-import {
-  LineChart, Line, Pie, PieChart, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
-} from 'recharts';
+import { Pie, PieChart, Cell, ResponsiveContainer} from 'recharts';
+
 
 const data1 = [
-                {name: 'MoCo Govt', value: 37}, 
-                {name: 'MCPS', value: 47},
-                {name: 'College', value: 6}, 
-                {name: 'Park and Planning', value: 3}
-              ];
-const COLORS1 = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-
+    {name: 'MoCo Govt', value: 37}, 
+    {name: 'MCPS', value: 47},
+    {name: 'College', value: 6}, 
+    {name: 'Park and Planning', value: 3}]
 const data2 = [
-                {name: 'Property Tax', value: 34}, 
-                {name: 'Income Tax', value: 30},
-                {name: 'Intergov. Aid', value: 17}, 
-                {name: 'Energy Tax', value: 4},
-                {name: 'Fess and Fines', value: 4},
-                {name: 'Other', value: 11}
-              ];
-const COLORS2 = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FFF', '#FFF']; // change FFF to a color
-const RADIAN = Math.PI / 180;     
+      {name: 'Property Tax', value: 34}, 
+      {name: 'Income Tax', value: 30},
+      {name: 'Intergov. Aid', value: 17}, 
+      {name: 'Energy Tax', value: 4},
+      {name: 'Fees and Fines', value: 4},
+      {name: 'Other', value: 11}
+    ];
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF2F30', '#FFFFFF', '#8884d8'];
+
+const RADIAN = Math.PI / 180;                    
+const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value, name, index }) => {
+ 	const radius = innerRadius + (outerRadius - innerRadius) * 1.1;
+  const x  = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy  + radius * Math.sin(-midAngle * RADIAN);
+ 
+  return (
+    <text
+      x={x}
+      y={y}
+      fill="black"
+      style={{ fontSize: 10 }} 
+      textAnchor={x > cx ? "start" : "end"}
+      dominantBaseline="central"
+    >
+      {`${name}: ${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+
+};
+
+
+
+   
 
 export default class BeginnersGuideToBudget extends Component {
   render() {
     return (
       <div className="wrapper">
         <h1>A Beginner’s Guide to the Montgomery County Budget</h1>
+        <p className="grey">by Adam Pagnucco</p>
         <p>An organization’s budget is the outline for what it will be doing for the year.  
             It’s an indicator of what the organization values and what’s important to it.  
             The County’s budget is no different.
@@ -38,15 +59,18 @@ export default class BeginnersGuideToBudget extends Component {
                 <h4>Montgomery County Public Schools (MCPS)</h4>
                 <p>MCPS administers the county’s system of more than 200 public schools providing K-12 education.  
                     It is governed by an elected Board of Education which appoints and oversees a Superintendent of Schools.</p>
+
                 <h4>Montgomery College</h4>
                 <p>This is the county’s community college.  
                     It is governed by a Board of Trustees which is appointed by the Governor.  
                     The board appoints and oversees a president who runs the college on a daily basis.</p>
+
                 <h4>Maryland-National Capital Park and Planning Commission (M-NCPPC)</h4>
                 <p>M-NCPPC, colloquially called Park and Planning, is a state-chartered agency that oversees parks and provides planning services 
                     in Montgomery and Prince George’s Counties.  On the Montgomery side, the agency is overseen by five Planning Board Members, 
                     one of whom serves as the chair, who are appointed by the Montgomery County Council.</p>
-                <h4>Maryland-National Capital Park and Planning Commission (M-NCPPC)</h4>
+
+                <h4>Montgomery County Government (MCG)</h4>
                 <p>Most of the rest of county government functions are provided by MCG, which is headed by an elected County Executive with funding, 
                     oversight and legislative authority housed in a nine-member elected County Council.  MCG provides public safety services, health 
                     and human services, libraries, recreation, environmental protection, transportation, permitting, housing and many other services to residents.</p>
@@ -57,43 +81,19 @@ export default class BeginnersGuideToBudget extends Component {
         <ResponsiveContainer width="100%" height={250}>
           <PieChart height={250}>
             <Pie
-              data={data1}
+              data={data1} 
               cx="50%"
               cy="50%"
-              outerRadius={100}
-              fill="#003da5"
               dataKey="value"
-              label={({
-                cx,
-                cy,
-                midAngle,
-                innerRadius,
-                outerRadius,
-                value,
-                index
-              }) => {
-                const RADIAN = Math.PI / 180;
-                // eslint-disable-next-line
-                const radius = 25 + innerRadius + (outerRadius - innerRadius);
-                // eslint-disable-next-line
-                const x = cx + radius * Math.cos(-midAngle * RADIAN);
-                // eslint-disable-next-line
-                const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-                return (
-                  <text
-                    x={x}
-                    y={y}
-                    fill="#003da5"
-                    style={{ fontSize: 10 }} 
-                    textAnchor={x > cx ? "start" : "end"}
-                    dominantBaseline="central"
-                  >
-                    {data1[index].name} ({value})
-                  </text>
-                );
-              }}
-            />
+              labelLine={false}
+              label={renderCustomizedLabel}
+              outerRadius={100}
+              fill="#8884d8"
+              >
+              {
+                data1.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+              }
+            </Pie>
           </PieChart>
         </ResponsiveContainer>
 
@@ -103,45 +103,21 @@ export default class BeginnersGuideToBudget extends Component {
 
         <h4 className="center-text">County Revenues by Source, FY19</h4>
         <ResponsiveContainer width="100%" height={250}>
-          <PieChart height={250} margin={{top: 5, right: 30, left: 20, bottom: 20}}>
+          <PieChart height={250}>
             <Pie
-              data={data2}
+              data={data2} 
               cx="50%"
               cy="50%"
-              outerRadius={100}
-              fill="#003da5"
               dataKey="value"
-              label={({
-                cx,
-                cy,
-                midAngle,
-                innerRadius,
-                outerRadius,
-                value,
-                index
-              }) => {
-                const RADIAN = Math.PI / 180;
-                // eslint-disable-next-line
-                const radius = 25 + innerRadius + (outerRadius - innerRadius);
-                // eslint-disable-next-line
-                const x = cx + radius * Math.cos(-midAngle * RADIAN);
-                // eslint-disable-next-line
-                const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-                return (
-                  <text
-                    x={x}
-                    y={y}
-                    fill="#003da5"
-                    style={{ fontSize: 10 }} 
-                    textAnchor={x > cx ? "start" : "end"}
-                    dominantBaseline="central"
-                  >
-                    {data2[index].name} ({value})
-                  </text>
-                );
-              }}
-            />
+              labelLine={false}
+              label={renderCustomizedLabel}
+              outerRadius={80}
+              fill="#8884d8"
+              >
+              {
+                data1.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+              }
+            </Pie>
           </PieChart>
         </ResponsiveContainer>
         

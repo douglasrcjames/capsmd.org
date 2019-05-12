@@ -3,7 +3,6 @@ import { Formik, Field } from 'formik';
 import * as yup from 'yup'
 import firestore from "../config/Fire.js";
 import { toast } from 'react-toastify';
-import axios from 'axios';
 
 const formSchema = yup.object().shape({
     email: yup
@@ -29,8 +28,6 @@ class Contact extends Component {
   constructor(props) {
     super(props);
     this.addMessage = this.addMessage.bind(this);
-    this.sendEmail = this.sendEmail.bind(this);
-
     this.state = {};
   }
 
@@ -44,14 +41,6 @@ class Contact extends Component {
     }).then(toast.success("Thanks for the message!"));
   }
 
-  async sendEmail(email, name, message){
-    const form = await axios.post('/api/form', {
-      email: email,
-      name: name,
-      message: message,
-    })
-  }
-
   render() {
     return (
     <div>
@@ -59,7 +48,6 @@ class Contact extends Component {
           initialValues={initialFormState}
           onSubmit={(values, actions) => {
             this.addMessage(values.email, values.name, values.message);
-            this.sendEmail(values.email, values.name, values.message);
             actions.resetForm()
             console.log(values);
           }}

@@ -105,17 +105,19 @@ export default class LosingTaxpayerIncome extends Component {
         <p>FY03: Property tax hike</p>
         <p>FY04: Property, income and energy tax hikes</p>
         <p>FY05: Property tax hike</p>
-        <p>FY09: Property tax hike (13 percent)</p>
-        <p>FY11: Energy tax hike (doubled, with a broken promise to sunset the increase after 2 years)</p>
+        <p>FY09: Property tax hike (<a href="http://www.washingtonpost.com/wp-dyn/content/article/2010/09/28/AR2010092806084.html?tid=a_inl_manual">13 percent</a>)</p>
+        <p>FY11: Energy tax hike (doubled, with 
+          a <a href="https://bethesdamagazine.com/bethesda-beat/news/business-groups-make-another-push-to-reduce-montgomery-countys-energy-tax/">broken 
+          promise to sunset the increase after 2 years</a>)</p>
         <p>FY17: Recordation tax hike</p>
-        <p>FY17: Property tax hike (8.7 percent)</p>
+        <p>FY17: Property tax hike (<a href="https://bethesdamagazine.com/bethesda-beat/news/county-council-approves-87-percent-property-tax-increase/">8.7 percent</a>)</p>
 
         <p>Despite these increases, slow economic growth is now preventing the county from paying for education, transportation, public safety and other priorities.  
         Since tax hikes are not generating enough money to fund our needs, a renewed focus on economic development is absolutely imperative.
         </p>
-        <Link className="blue">Read our ideas for creating jobs</Link>
+        {/* <Link to="/issues/economic-development/facts/slow-growth-budget" className="blue">Read our ideas for creating jobs</Link>
         <br/>
-        <Link className="blue">Read our ideas for creating business through innovation</Link>
+        <Link className="blue">Read our ideas for creating business through innovation</Link> */}
         <br/>
         <br/>
         <i>Source: Montgomery County Office of Management and Budget.</i>

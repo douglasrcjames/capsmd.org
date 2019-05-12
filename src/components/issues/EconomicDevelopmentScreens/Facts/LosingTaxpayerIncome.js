@@ -5,7 +5,7 @@ import {
 
 const data1 = [
   {
-    name: 'Loudon', "Percent Change": 2.4,
+    name: 'Loudoun', "Percent Change": 2.4,
   },
   {
     name: 'Prince William', "Percent Change": 0.3,

@@ -6,31 +6,31 @@ import {
 
 const data1 = [
   {
-    name: 'Loudoun, VA', "Growth": 31,
+    name: 'Loudoun, VA', "Growth %": 31,
   },
   {
-    name: 'Prince William, VA', "Growth": 23,
+    name: 'Prince William, VA', "Growth %": 23,
   },
   {
-    name: 'District of Columbia', "Growth": 14,
+    name: 'District of Columbia', "Growth %": 14,
   },
   {
-    name: 'Arlington, VA', "Growth": 12,
+    name: 'Arlington, VA', "Growth %": 12,
   },
   {
-    name: 'Frederick, MD', "Growth": 9,
+    name: 'Frederick, MD', "Growth %": 9,
   },
   {
-    name: 'Washington Region', "Growth": 8,
+    name: 'Washington Region', "Growth %": 8,
   },
   {
-    name: 'Fairfax, VA', "Growth": 5,
+    name: 'Fairfax, VA', "Growth %": 5,
   },
   {
-    name: "Prince George's, MD", "Growth": 2,
+    name: "Prince George's, MD", "Growth %": 2,
   },
   {
-    name: 'Montgomery, MD', "Growth": 1,
+    name: 'Montgomery, MD', "Growth %": 1,
   },
 ];
 
@@ -58,7 +58,7 @@ export default class LagsRegionInJobCreation extends Component {
             <YAxis type="category" dataKey="name" tick={{ fontSize: 10 }} />
             <Tooltip />
             <Legend />
-            <Bar dataKey="Growth" fill="#82ca9d" />
+            <Bar dataKey="Growth %" fill="#82ca9d" />
           </BarChart>
         </ResponsiveContainer>
        
@@ -66,7 +66,7 @@ export default class LagsRegionInJobCreation extends Component {
         <p>We are falling behind the rest of the region in job growth.  
             If this keeps up, residents and employers will be less likely to want to move here and stay here.  
             We will pay the price in our county’s budget and our quality of life.</p>
-        <Link className="blue">Read our ideas for creating jobs</Link>
+        {/* <Link className="blue">Read our ideas for creating jobs</Link> */}
         <br/>
         <br/>
         <i>Source: U.S. Bureau of Labor Statistics.</i>

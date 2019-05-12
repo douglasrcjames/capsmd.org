@@ -107,7 +107,7 @@ export default class RoadsClogged extends Component {
         <p>The county has mostly stopped building road projects, even additional capacity on existing roads like new through lanes and turning lanes, 
             because of collapsing revenue for its capital budget.  The result is unbearable congestion for county residents and employers.
         </p>
-        <Link className="blue">Read our ideas for Short Term, Intermediate and Long Term Transportation SOlutions.</Link>
+        {/* <Link className="blue">Read our ideas for Short Term, Intermediate and Long Term Transportation SOlutions.</Link> */}
         <br/>
         <br/>
         <i>Source: Maryland Department of Transportation.</i>

@@ -68,7 +68,7 @@ export default class TransportationProjects extends Component {
         <h3>Our Take</h3>
         <p>The county’s inability to complete transportation projects on time is a major impediment to dealing with traffic congestion.  
           The county must do better.</p>
-        <Link className="blue">Read our ideas for Short Term, Intermediate and Long Term Transportation SOlutions.</Link>
+        {/* <Link className="blue">Read our ideas for Short Term, Intermediate and Long Term Transportation SOlutions.</Link> */}
         <br/>
         <br/>
         <i>Source: Montgomery County CountyStat.</i>

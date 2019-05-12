@@ -58,7 +58,13 @@ export default class Education extends Component {
 
         <h2 className="inline">Solutions</h2>
         <p>The county's challenges and some ideas to address them</p>
-        <div className="blue">No articles yet, stay tuned!</div>
+        <ArticlePreview 
+          title={'Proposals Worth Considering'}
+          picPath={require('../../../assets/images/icons/Pencil.png')}
+          link={'/issues/education/solutions/proposals-worth-considering'}
+          date={''}
+          />
+        <br/>
       </div>
     )
   }

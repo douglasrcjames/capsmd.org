@@ -40,8 +40,16 @@ export default class More extends Component {
           picPath={require('../../../assets/images/icons/Math.png')}
           link={'/issues/more/stories-opinions/beginners-guide-to-budget'}
           date={''}
+          author={'Adam Pagnucco'}
           />
         <br/>
+        <ArticlePreview 
+          title={'Let’s Try Again on Three Good Voting Bills'}
+          picPath={require('../../../assets/images/icons/Handshake.png')}
+          link={'/issues/more/legislation/voting-bills'}
+          date={''}
+          author={'Adam Pagnucco'}
+          />
 
         <br/>
         <hr className="m-width"/>

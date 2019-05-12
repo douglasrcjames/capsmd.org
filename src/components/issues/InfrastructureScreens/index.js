@@ -48,12 +48,7 @@ export default class Tranportation extends Component {
           date={''}
           />
         <br/>
-        <ArticlePreview 
-          title={'Silver Spring Housing'}
-          picPath={require('../../../assets/images/icons/Housing.png')}
-          link={'/issues/infrastructure/stories-opinions/silver-spring-housing'}
-          date={''}
-          />
+        
 
         <br/>
         <hr className="m-width"/>
@@ -61,7 +56,12 @@ export default class Tranportation extends Component {
 
         <h2 className="inline">Stories &amp; Opinions</h2>
         <p>How the county decisions affect real life people</p>
-        <div className="blue">No articles yet, stay tuned!</div>
+        <ArticlePreview 
+          title={'Silver Spring Housing'}
+          picPath={require('../../../assets/images/icons/Housing.png')}
+          link={'/issues/infrastructure/stories-opinions/silver-spring-housing'}
+          date={''}
+          />
 
         <br/>
         <hr className="m-width"/>
@@ -77,7 +77,13 @@ export default class Tranportation extends Component {
 
         <h2 className="inline">Solutions</h2>
         <p>The county's challenges and some ideas to address them</p>
-        <div className="blue">No articles yet, stay tuned!</div>
+        <ArticlePreview 
+          title={'Proposals Worth Considering'}
+          picPath={require('../../../assets/images/icons/Pencil.png')}
+          link={'/issues/infrastructure/solutions/proposals-worth-considering'}
+          date={''}
+          />
+        <br/>
       </div>
     )
   }

@@ -21,81 +21,87 @@ export default class AboutUs extends Component {
       <div className="wrapper-top">
       {/* Section 1 */}
       <div className="m-padding background-light-grey">
-        <h1>Who We Are</h1>
-        <p>
-          The Council for Advocacy and Policy Solutions (CAPS) is a non-profit public policy organization 
-          based in Montgomery County, Maryland, USA. CAPS is the locus of discussion and information 
-          dissemination for responsible local policy.
-        </p>
-        <div className="center-text">
-          <Link to="/contact-us"><button className="m-btn">Contact Us</button></Link>
+        <div className="l-container">
+          <h1>Who We Are</h1>
+          <p>
+            The Council for Advocacy and Policy Solutions (CAPS) is a non-profit public policy organization 
+            based in Montgomery County, Maryland, USA. CAPS is the locus of discussion and information 
+            dissemination for responsible local policy.
+          </p>
+          <div className="center-text">
+            <Link to="/contact-us"><button className="m-btn">Contact Us</button></Link>
+          </div>
         </div>
       </div>
 
       {/* Section 2 */}
       <div className="m-padding">
+        <div className="l-container">
           <h1>We're on a Mission</h1>
-          <p>
-          Our mission is to educate and activate the local community by providing the municipal with accurate and clear data, information, 
-          and resident expert opinions about policy implications. 
-‍
-          The Council for Advocacy and Policy Solutions partners with other nonprofits and charitable organizations to pilot 
-          real-change solutions to challenges facing our community.
-          </p>
+            <p>
+            Our mission is to educate and activate the local community by accurate and 
+            clear data, information, and resident expert opinions about policy implications. ‍ The 
+            Council for Advocacy and Policy Solutions partners with other nonprofits and charitable 
+            organizations to pilot real-change solutions to challenges facing our community.
+            </p>
+        </div>
       </div>
 
       {/* Section 3 */}
       <div className="m-padding background-light-grey">
-        <h1>Our Principles</h1>
-        <p>
-          Home-grown information channels—newspapers—are disappearing. 
-          CAPS works to fill that void, and maintains a commitment to educating and 
-          supporting our community and elected officials through:
-        </p>
-        <Grid fluid className="l-padding-r-l">
-            <Row>
-                <Col xs={12} sm={6} md={3}>
-                    <img
-                        className="center xsmall"
-                        alt="check"
-                        src={require("../assets/images/icons/check.png")}
-                        />
-                    <p className="s-text l-padding-r-l center-text">Truth and accuracy in research and reporting of information and data</p>
-                </Col>
-                <Col xs={12} sm={6} md={3}>
-                    <img
-                        className="center xsmall"
-                        alt="scale"
-                        src={require("../assets/images/icons/scale.png")}
-                        />
-                    <p className="s-text l-padding-r-l center-text">Transparency in distinguishing facts and opinions</p>
-                </Col>
-                <Col xs={12} sm={6} md={3}>
-                    <img
-                        className="center xsmall"
-                        alt="court"
-                        src={require("../assets/images/icons/court.png")}
-                        />
-                    <p className="s-text l-padding-r-l center-text">Advocacy for sensible legislation and policy</p>
-                </Col>
-                <Col xs={12} sm={6} md={3}>
-                    <img
-                        className="center xsmall"
-                        alt="medal"
-                        src={require("../assets/images/icons/medal.png")}
-                        />
-                    <p className="s-text l-padding-r-l center-text"> Continuous pursuit of best practices</p>
-                </Col>
-                <Col xs={12} sm={6} md={3}>
-                    <img
-                        className="center xsmall"
-                        alt="thumbs"
-                        src={require("../assets/images/icons/thumbs.png")}
-                        />
-                    <p className="s-text l-padding-r-l">Dedication to piloting real-change programs</p>
-                </Col>
-            </Row>
-        </Grid>         
+        <div className="l-container">
+          <h1>Our Principles</h1>
+          <p>
+            Home-grown information channels—newspapers—are disappearing. 
+            CAPS works to fill that void, and maintains a commitment to educating and 
+            supporting our community and elected officials through:
+          </p>
+          <Grid fluid className="l-padding-r-l">
+              <Row>
+                  <Col xs={12} sm={6} md={4}>
+                      <img
+                          className="center xsmall"
+                          alt="check"
+                          src={require("../assets/images/icons/check.png")}
+                          />
+                      <p className="s-text l-padding-r-l center-text">Truth and accuracy in research and reporting of information and data</p>
+                  </Col>
+                  <Col xs={12} sm={6} md={4}>
+                      <img
+                          className="center xsmall"
+                          alt="scale"
+                          src={require("../assets/images/icons/scale.png")}
+                          />
+                      <p className="s-text l-padding-r-l center-text">Transparency in distinguishing facts and opinions</p>
+                  </Col>
+                  <Col xs={12} sm={6} md={4}>
+                      <img
+                          className="center xsmall"
+                          alt="court"
+                          src={require("../assets/images/icons/court.png")}
+                          />
+                      <p className="s-text l-padding-r-l center-text">Advocacy for sensible legislation and policy</p>
+                  </Col>
+                  <Col xs={12} sm={6} md={4}>
+                      <img
+                          className="center xsmall"
+                          alt="medal"
+                          src={require("../assets/images/icons/medal.png")}
+                          />
+                      <p className="s-text l-padding-r-l center-text"> Continuous pursuit of best practices</p>
+                  </Col>
+                  <Col xs={12} sm={6} md={4}>
+                      <img
+                          className="center xsmall"
+                          alt="thumbs"
+                          src={require("../assets/images/icons/thumbs.png")}
+                          />
+                      <p className="s-text l-padding-r-l">Dedication to piloting real-change programs</p>
+                  </Col>
+              </Row>
+          </Grid>         
+        </div>
+        
       </div>
 
       {/* Section 4 */}

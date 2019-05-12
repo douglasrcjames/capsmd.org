@@ -17,7 +17,9 @@ class ArticlePreview extends Component {
                         </Col>
                         <Col xs={12} sm={8} md={10} className="s-padding"> 
                             { this.props.date && (<span className="grey">{this.props.date}</span>) }
-                            <p className="l-text">{this.props.title}</p>
+                            <h4 className="l-text preview-text">{this.props.title}</h4>
+                            { this.props.author && (<p className="grey preview-text">by {this.props.author}</p>) }
+                            { !this.props.author && (<br/>) }
                             <Link to={this.props.link} className="blue">Read now</Link>
                         </Col>
                     </Row>
