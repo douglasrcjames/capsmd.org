@@ -121,7 +121,7 @@ export default class AboutUs extends Component {
             <Headshot name={'Lisa Fuller'} picPath={require('../assets/images/headshots/Lisa.png')} />
             <Headshot name={'Jason Green'} picPath={require('../assets/images/headshots/Jason.png')} />
             <Headshot name={'Mimi Hassinein'} picPath={require('../assets/images/headshots/Mimi.png')} />
-            <Headshot name={'Kelly Taylor Leonard'} picPath={require('../assets/images/headshots/Kelly.png')} />
+            <Headshot name={'Kelly Leonard'} picPath={require('../assets/images/headshots/Kelly.png')} />
           </Row>
 
           {/* Row 3 */}

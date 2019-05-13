@@ -6,7 +6,6 @@
 .pnp.js
 
 /coverage
-src/config
 
 # production
 /build

@@ -19,48 +19,74 @@ class Header extends Component {
                   />
                 </Link>
                 <div className="right">
-                <div className="top-dropdown">
+                <NavLink to="/" exact={true} className="nav-link" activeClassName="nav-select">
+                    Home
+                </NavLink>
+                &nbsp;
+                  <div className="top-dropdown">
                     <Link className="nav-link">Issues &nbsp;<i className="fas fa-chevron-down fa-xs" /> </Link>
-                        &nbsp;
-                        <div className="top-dropdown-content">
-                            <NavLink 
-                                to="/issues/economic-development" 
-                                className="nav-link dropdown"
-                                activeClassName="nav-select">
-                                Economic Development
-                            </NavLink>
-                            <NavLink 
-                                to="/issues/education" 
-                                className="nav-link dropdown"
-                                activeClassName="nav-select">
-                                Education
-                            </NavLink>
-                            <NavLink 
-                                to="/issues/infrastructure" 
-                                className="nav-link dropdown"
-                                activeClassName="nav-select">
-                                Infrastructure
-                            </NavLink>
-                            <NavLink 
-                                to="/issues/more" 
-                                className="nav-link dropdown"
-                                activeClassName="nav-select">
-                                More
-                            </NavLink>
-                        </div>  
-                    </div>
                     &nbsp;
-                    <NavLink to="/news" className="nav-link" activeClassName="nav-select">
-                        News
-                    </NavLink>
+                    <div className="top-dropdown-content">
+                      <NavLink 
+                          to="/issues/economic-development" 
+                          className="nav-link dropdown"
+                          activeClassName="nav-select">
+                          Economic Development
+                      </NavLink>
+                      <NavLink 
+                          to="/issues/education" 
+                          className="nav-link dropdown"
+                          activeClassName="nav-select">
+                          Education
+                      </NavLink>
+                      <NavLink 
+                          to="/issues/infrastructure" 
+                          className="nav-link dropdown"
+                          activeClassName="nav-select">
+                          Infrastructure
+                      </NavLink>
+                      <NavLink 
+                          to="/issues/more" 
+                          className="nav-link dropdown"
+                          activeClassName="nav-select">
+                          More
+                      </NavLink>
+                    </div>  
+                  </div>
+                  &nbsp;
+                  <NavLink to="/news" className="nav-link" activeClassName="nav-select">
+                      News
+                  </NavLink>
+                  &nbsp;
+                  <div className="top-dropdown">
+                    <Link className="nav-link">Get Involved &nbsp;<i className="fas fa-chevron-down fa-xs" /> </Link>
                     &nbsp;
-                    <NavLink to="/about-us" className="nav-link" activeClassName="nav-select">
-                        About Us
-                    </NavLink>
-                    &nbsp;
-                    <NavLink to="/contact-us" className="nav-link" activeClassName="nav-select">
-                        Contact Us
-                    </NavLink> 
+                    <div className="top-dropdown-content">
+                        <NavLink 
+                            to="/contact-us" 
+                            className="nav-link dropdown"
+                            activeClassName="nav-select">
+                            Contact Us
+                        </NavLink>
+                        <NavLink 
+                            to="/contact-us" 
+                            className="nav-link dropdown"
+                            activeClassName="nav-select">
+                            Donate
+                        </NavLink>
+                        <NavLink 
+                            to="/find-legislators" 
+                            className="nav-link dropdown"
+                            activeClassName="nav-select">
+                            Find Your Legislators
+                        </NavLink>                     
+                    </div>  
+                  </div>
+                  &nbsp;
+                  <NavLink to="/about-us" className="nav-link" activeClassName="nav-select">
+                      About Us
+                  </NavLink>
+                  &nbsp;
                 </div>
               </div>
             </MediaQuery>

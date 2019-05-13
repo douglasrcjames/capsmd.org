@@ -123,7 +123,7 @@ export default class Home extends Component {
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
             <NewsArticlePreview 
-                title={'David Blair Announces Business Incubator and Student Entrepreneur Cultivation Program'}
+                title={'CAPS in partnership with David Blair, announces Business Incubator and Student Entrepreneur Cultivation Program'}
                 picPath={require('../assets/images/icons/Growth.png')}
                 link={'https://www.capsmd.org/news/business-incubator'}
                 date={'May 14, 2019'}
