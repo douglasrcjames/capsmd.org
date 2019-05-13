@@ -49,7 +49,6 @@ class Contact extends Component {
           onSubmit={(values, actions) => {
             this.addMessage(values.email, values.name, values.message);
             actions.resetForm()
-            console.log(values);
           }}
           validationSchema={formSchema}
         >

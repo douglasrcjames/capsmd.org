@@ -38,7 +38,7 @@ class Subscribe extends Component {
           initialValues={initialFormState}
           onSubmit={(values, actions) => {
             this.subscribe(values.email)
-            console.log(values);
+            actions.resetForm()
           }}
           validationSchema={formSchema}
         >
