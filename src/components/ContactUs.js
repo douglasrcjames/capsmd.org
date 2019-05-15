@@ -21,9 +21,16 @@ export default class ContactUs extends Component {
         <br/>
 
         <div className="m-container">
-          <h1>Donate</h1>
+          <h1><a id="donate"></a>Donate</h1>
           <p>Your contribution goes directly to support bringing civics education, transparency and good sense policy to Montgomery County, MD.</p>
-          <div className="center-text"><button className="m-btn">Contribute</button></div>
+          {/* <div className="center-text"><button className="m-btn">Contribute</button></div> */}
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick" />
+            <input type="hidden" name="hosted_button_id" value="TLCYBUWGMT2KY" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+          </form>
+
           <br/>
           <p className="s-text grey">
             Council for Advocacy and Policy Solutions (CAPS) operates as a 501(c)(4) under IRS Form 8976, Notice of Intent to Operate Under

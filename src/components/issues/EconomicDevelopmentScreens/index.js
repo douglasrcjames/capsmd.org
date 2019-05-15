@@ -81,13 +81,13 @@ export default class EconomicDevelopment extends Component {
       <hr className="m-width"/>
       <br/>
 
-      <h2 className="inline">Legislation</h2>
+      {/* <h2 className="inline">Legislation</h2>
       <p>What's before the county council and how will it affect you</p>
       <div className="blue">No articles yet, stay tuned!</div>
 
       <br/>
       <hr className="m-width"/>
-      <br/>
+      <br/> */}
 
       <h2 className="inline">Solutions</h2>
       <p>The county's challenges and some ideas to address them</p>

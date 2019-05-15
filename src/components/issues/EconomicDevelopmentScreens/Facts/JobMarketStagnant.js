@@ -81,12 +81,8 @@ export default class JobMarketStagnant extends Component {
           </LineChart>
         </ResponsiveContainer>
 
-        <p>Over the same period, employment by Maryland newspapers has fallen from 5,718 to 1,990, a drop of 65 percent.</p>
 
-    
-        <p>In terms of Montgomery County coverage, the Montgomery Journal, the Washington Examiner and the Gazette have all closed.  
-            The Washington Post has cut back its local coverage sharply.  
-            Many of the remaining news sources are online only and offer a fraction of the content that county residents once enjoyed.</p>
+
         <h3>Our Take</h3>
         <p>Jobs are tremendously important for our county’s budget and quality of life.  Unless we can grow our jobs base at a faster rate, 
             we won’t be able to pay for education, transportation and our other priorities to maintain our current standard of living.</p>

@@ -5,7 +5,7 @@ import {
 
 const data1 = [
   {
-    name: 'Loudon, VA', "Permitted": 7.6,
+    name: 'Loudoun, VA', "Permitted": 7.6,
   },
   {
     name: 'Arlington, VA', "Permitted": 6.0,

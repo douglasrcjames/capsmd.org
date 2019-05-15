@@ -42,19 +42,32 @@ export default class Education extends Component {
 
         <h2 className="inline">Stories &amp; Opinions</h2>
         <p>How the county decisions affect real life people</p>
-        <div className="blue">No articles yet, stay tuned!</div>
+        <ArticlePreview 
+          title={'Is MoCo Getting its Fair Share from Kirwan?'}
+          picPath={require('../../../assets/images/icons/Handshake.png')}
+          link={'/issues/education/stories-opinions/getting-fair-share-from-kirwan'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={'How MoCo Can Do Better on Kirwan Funding'}
+          picPath={require('../../../assets/images/icons/Budget.png')}
+          link={'/issues/education/stories-opinions/do-better-kirwan-funding'}
+          date={''}
+          />
+        <br/>
 
         <br/>
         <hr className="m-width"/>
         <br/>
 
-        <h2 className="inline">Legislation</h2>
+        {/* <h2 className="inline">Legislation</h2>
         <p>What's before the county council and how will it affect you</p>
         <div className="blue">No articles yet, stay tuned!</div>
 
         <br/>
         <hr className="m-width"/>
-        <br/>
+        <br/> */}
 
         <h2 className="inline">Solutions</h2>
         <p>The county's challenges and some ideas to address them</p>

@@ -44,7 +44,7 @@ export default class SilverSpringHousing extends Component {
     return (
       <div className="wrapper">
         <h1>Did Silver Spring build enough housing to stay affordable? Sort of.</h1>
-        <p className="grey">by Dan Reed</p>
+       
         <p>In 2013, I looked at rents in Silver Spring to see if building tons of new homes could help keep our 
             community affordable. Five years and about 1,700 new apartments later, did it work? Sort of. 
             Rents in many downtown buildings are the same or lower than they were in 2013, but it hasn't been 
@@ -203,7 +203,7 @@ export default class SilverSpringHousing extends Component {
         contributes to the high demand to live here, which pushes up rents and home values.</p>
 
     <p>The experience of the past few years shows that building homes can have an impact on prices. Let's keep it going by giving people more housing choices.</p>
-
+    <u className="blue">Written by Dan Reed</u>
     <br/>
     <p>
         <i>Reprinted with permission from the author. This article was originally published on April 17, 2019 by Greater, Greater Washington. </i>

@@ -6,6 +6,8 @@ import UnderConstruction from "./components/UnderConstruction";
 import AboutUs from "./components/AboutUs";
 import News from "./components/news";
 import BusinessIncubator from "./components/news/BusinessIncubator";
+import LetterFromChairman from "./components/news/LetterFromChairman";
+import InauguralStudy from "./components/news/InauguralStudy";
 
 import ContactUs from "./components/ContactUs";
 
@@ -23,6 +25,8 @@ import Education from "./components/issues/EducationScreens/index";
 import PerPupilFunding from "./components/issues/EducationScreens/Facts/PerPupilFunding";
 import PublicSchoolNeeds from "./components/issues/EducationScreens/Facts/PublicSchoolNeeds";
 import ProposalsWorthConsideringED from "./components/issues/EducationScreens/Solutions/ProposalsWorthConsidering";
+import GettingFairShareFromKirwan from "./components/issues/EducationScreens/StoriesOpinions/GettingFairShareFromKirwan";
+import DoBetterKirwanFunding from "./components/issues/EducationScreens/StoriesOpinions/DoBetterKirwanFunding";
 
 import Infrastructure from "./components/issues/InfrastructureScreens/index";
 import HousingConstruction from "./components/issues/InfrastructureScreens/Facts/HousingConstruction";
@@ -35,9 +39,9 @@ import ProposalsWorthConsideringI from "./components/issues/InfrastructureScreen
 
 import More from "./components/issues/MoreScreens/index";
 import NewspapersDisappearing from "./components/issues/MoreScreens/Facts/NewspapersDisappearing";
-
 import VotingBills from "./components/issues/MoreScreens/Legislation/VotingBills";
 import BeginnersGuideToBudget from "./components/issues/MoreScreens/StoriesOpinions/BeginnersGuideToBudget";
+import TestifyingMyConscience from "./components/issues/MoreScreens/StoriesOpinions/TestifyingMyConscience";
 
 const Page404 = ({ location }) => (
   <div className="m-padding">
@@ -58,6 +62,8 @@ export class Routes extends React.PureComponent {
 
         <Route exact path="/news" component={News} />
         <Route exact path="/news/business-incubator" component={BusinessIncubator} />
+        <Route exact path="/news/letter-from-chairman" component={LetterFromChairman} />
+        <Route exact path="/news/inaugural-study" component={InauguralStudy} />
 
         <Route exact path="/contact-us" component={ContactUs} />
         <Route exact path="/find-legislators" component={UnderConstruction} />
@@ -76,6 +82,8 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/education/facts/per-pupil-funding" component={PerPupilFunding} />
         <Route exact path="/issues/education/facts/public-school-needs" component={PublicSchoolNeeds} />
         <Route exact path="/issues/education/solutions/proposals-worth-considering" component={ProposalsWorthConsideringE} />
+        <Route exact path="/issues/education/stories-opinions/getting-fair-share-from-kirwan" component={GettingFairShareFromKirwan} />
+        <Route exact path="/issues/education/stories-opinions/do-better-kirwan-funding" component={DoBetterKirwanFunding} />
 
         <Route exact path="/issues/infrastructure" component={Infrastructure} />
         <Route exact path="/issues/infrastructure/facts/housing-construction" component={HousingConstruction} />
@@ -88,6 +96,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/more" component={More} />
         <Route exact path="/issues/more/facts/newspapers-disappearing" component={NewspapersDisappearing} />
         <Route exact path="/issues/more/stories-opinions/beginners-guide-to-budget" component={BeginnersGuideToBudget} />
+        <Route exact path="/issues/more/stories-opinions/testifying-my-conscience" component={TestifyingMyConscience} />
         <Route exact path="/issues/more/legislation/voting-bills" component={VotingBills} />
         
         <Route component={Page404} />

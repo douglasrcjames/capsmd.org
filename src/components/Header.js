@@ -15,7 +15,7 @@ class Header extends Component {
                   <img
                     className="responsive nav-logo"
                     alt="caps-logo"
-                    src={require("../assets/images/logo/caps-logo-v2.png")}
+                    src={require("../assets/images/logo/caps-logo-v3.png")}
                   />
                 </Link>
                 <div className="right">
@@ -69,9 +69,10 @@ class Header extends Component {
                             Contact Us
                         </NavLink>
                         <NavLink 
-                            to="/contact-us" 
+                            to="/contact-us#donate" 
                             className="nav-link dropdown"
-                            activeClassName="nav-select">
+                            href="#example"
+                            >
                             Donate
                         </NavLink>
                         <NavLink 
@@ -144,7 +145,7 @@ class Header extends Component {
                 <img
                   className="responsive nav-logo"
                   alt="caps-logo"
-                  src={require("../assets/images/logo/caps-logo-v2.png")}
+                  src={require("../assets/images/logo/caps-logo-v3.png")}
                 />
               </Link>
               

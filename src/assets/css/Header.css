@@ -36,6 +36,7 @@
 .nav-logo {
   width: 100%;
   height: auto;
+  padding: 2px 0 0 5px;
   max-width: 200px;
 }
 
@@ -50,8 +51,8 @@
 .nav-link {
   position: relative;
   text-decoration: none;
-  height: 125px;
-  line-height: 125px;
+  height: 100px;
+  line-height: 100px;
   white-space: nowrap;
   color: #003da5;
   padding: 0px 10px 0px 10px;
@@ -72,7 +73,8 @@
   background-color: #ffd54c;
   border-radius: 5px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .nav-select:after {
@@ -85,7 +87,8 @@
   background-color: #ffd54c;
   border-radius: 5px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 /* 
@@ -124,7 +127,8 @@
   background-color: #ffd54c;
   border-radius: 5px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .top-dropdown-content a.top-dropdown-select:after {
@@ -136,7 +140,8 @@
   border: 1px solid #ffd54c;
   border-radius: 5px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .top-dropdown:hover .top-dropdown-content {
@@ -158,7 +163,8 @@
   background-color: #ffd54c;
   border-radius: 5px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .nav-select.dropdown:after {
@@ -171,7 +177,8 @@
   background-color: #ffd54c;
   border-radius: 5px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 /***************************************** 
@@ -186,6 +193,7 @@
   text-decoration: none;
   margin-bottom: 16px;
   color: white;
+  -webkit-transition: color 0.2s;
   transition: color 0.2s;
   outline: 0;
   height: 42px;
@@ -207,7 +215,7 @@
   width: 36px;
   height: 30px;
   right: 20px;
-  top: 50px;
+  top: 35px;
   outline: 0;
 }
 

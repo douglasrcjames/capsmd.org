@@ -105,7 +105,7 @@ export default class ProposalsWorthConsideringED extends Component {
           they can connect with physicians to examine students. This technology allows school nurses to quickly rule out a contagious illness 
           like pink eye, diagnose the student, provide prescriptions to your local pharmacy, if necessary, and save parents time off of work. 
           Five Howard County public schools have been offering a telemedicine program since 2016, resulting in 
-          <a href="http://masbhc.org/telemedicine-in-howard-county-featured-in-the-washington-post/">98 percent of students going back to class</a>. 
+          <a href="http://masbhc.org/telemedicine-in-howard-county-featured-in-the-washington-post/"> 98 percent of students going back to class</a>. 
           In Burke County, North Carolina, 26 schools are offering telemedicine, with 
           <a href="https://www.healthcareitnews.com/news/portable-telemedicine-tech-keeps-kids-school-and-quadruples-visits">89 percent of students 
           returning to class after treatment.</a>

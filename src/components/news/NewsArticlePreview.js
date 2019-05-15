@@ -15,10 +15,10 @@ class NewsArticlePreview extends Component {
                                 />
                         </Col>
                         <Col xs={12} sm={8} md={10} className="s-padding"> 
-                            { this.props.date && (<span className="grey">{this.props.date}</span>) }
-                            <p className="l-text">{this.props.title}</p>
+                            { this.props.date && (<span className="grey preview-text">{this.props.date}</span>) }
+                            <p className="l-text preview-text">{this.props.title}</p>
                             <a 
-                                className="blue" 
+                                className="blue preview-text" 
                                 href={this.props.link} 
                                 target="_blank" 
                                 rel="noopener noreferrer"

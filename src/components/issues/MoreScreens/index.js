@@ -12,7 +12,6 @@ export default class More extends Component {
             src={require("../../../assets/images/icons/bulb-no-padding.png")}
             />&nbsp;More  
         </h1>
-        <p>This will contain items for More related stuffs and is currently under construction.</p>
 
         <br/>
         <hr className="m-width"/>
@@ -39,39 +38,41 @@ export default class More extends Component {
           title={'A Beginner’s Guide to the Montgomery County Budget'}
           picPath={require('../../../assets/images/icons/Math.png')}
           link={'/issues/more/stories-opinions/beginners-guide-to-budget'}
-          date={''}
-          author={'Adam Pagnucco'}
           />
         <br/>
         <ArticlePreview 
           title={'Let’s Try Again on Three Good Voting Bills'}
           picPath={require('../../../assets/images/icons/Handshake.png')}
           link={'/issues/more/legislation/voting-bills'}
-          date={''}
-          author={'Adam Pagnucco'}
+          />
+        <br/>
+        <ArticlePreview 
+          title={'Testifying with My Conscience: SB0489 Ballot Access, Voter Registration, Affiliating with a Party'}
+          picPath={require('../../../assets/images/icons/Pencil.png')}
+          link={'/issues/more/stories-opinions/testifying-my-conscience'}
           />
 
         <br/>
         <hr className="m-width"/>
         <br/>
 
-        <h2 className="inline">Legislation</h2>
+        {/* <h2 className="inline">Legislation</h2>
         <p>What's before the county council and how will it affect you</p>
         <div className="blue">No articles yet, stay tuned!</div>
 
         <br/>
         <hr className="m-width"/>
-        <br/>
+        <br/> */}
 
         <h2 className="inline">Solutions</h2>
         <p>The county's challenges and some ideas to address them</p>
-        <ArticlePreview 
+        {/* <ArticlePreview 
           title={'Proposals Worth Considering'}
           picPath={require('../../../assets/images/icons/Pencil.png')}
           link={'/issues/more/solutions/proposals-worth-considering'}
           date={''}
           />
-        <br/>
+        <br/> */}
       </div>
     )
   }

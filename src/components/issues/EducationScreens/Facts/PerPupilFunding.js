@@ -40,7 +40,7 @@ const data1 = [
     name: '2017', "Local Dollar Increase": 6, "Inflation %": 1,
   },
   {
-    name: '2018', "Local Dollar Increase": 1, "Inflation": 0,
+    name: '2018', "Local Dollar Increase": 1, "Inflation %": 0,
   },
 ];
 
@@ -71,7 +71,7 @@ export default class PerPupilFunding extends Component {
             <Tooltip />
             <Legend />
             <Line type="monotone" dataKey="Local Dollar Increase" stroke="#8884d8" activeDot={{ r: 8 }} />
-            <Line type="monotone" dataKey="Inflation" stroke="#D33F42" activeDot={{ r: 8 }} />
+            <Line type="monotone" dataKey="Inflation %" stroke="#D33F42" activeDot={{ r: 8 }} />
           </LineChart>
         </ResponsiveContainer>
 

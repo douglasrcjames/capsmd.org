@@ -11,33 +11,41 @@ import NewsArticlePreview from './news/NewsArticlePreview'
 
 
 const sliderContent = [
+    {
+		title: `Letter from the  Chairman`,
+        button: 'Read Now',
+        link: '/news/letter-from-chairman',
+        image: `https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fman-writing.jpg?alt=media&token=8fca31c4-a9ff-4a03-a375-783ac6554eec`
+    },
 	{
 		title: `Beginners Guide to the Budget`,
-        author: `Adam Pagnucco`,
-        description: `An organization’s budget is an indicator of what the organization values and what’s important to it. The County’s budget is no different.`,
         button: 'Read Now',
         link: '/issues/more/stories-opinions/beginners-guide-to-budget',
         image: `https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fbudget-table.jpg?alt=media&token=ce36b62e-96ea-4ef6-9645-e4c697021e33`
     },
 	{
-		title: 'CAPS launches student incubator',
+		title: 'CAPS Launches Student Incubator',
         button: 'Read Now',
         link: '/news/business-incubator',
+		image: `https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fchairs-classroom.jpg?alt=media&token=0096eb45-7b26-4c38-a94d-b150e68fc70a`,
+    },
+    {
+		title: 'CAPS Launches Inaugural Study',
+        button: 'Read Now',
+        link: '/news/inaugural-study',
 		image: `https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fpeople-brainstorming.jpg?alt=media&token=a1d69df7-3e6c-4dc5-9a0e-7e316772b1d8`,
 	},
 	{
         title: 'Did Silver Spring build enough housing to stay affordable? Sort of.',
-        author:`Dan Reed`,
         button: 'Read Now',
         link: '/issues/infrastructure/stories-opinions/silver-spring-housing',
 		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fside-view-car.jpg?alt=media&token=010359c9-33fb-40db-b838-114b89851fd5',
     },
     {
-        title: 'Let’s Try Again on Three Good Voting Bills',
-        author: 'Adam Pagnucco',
+        title: 'David Blair Testifies in Annapolis',
         button: 'Read Now',
-        link: '/issues/more/legislation/voting-bills',
-		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fballot-stickers.jpg?alt=media&token=5cc68a5c-25b3-4ebf-85d7-65abc63e810d',
+        link: '/issues/more/stories-opinions/testifying-my-conscience',
+		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fgavel-court.jpg?alt=media&token=4ca6ba54-0fa5-46d2-82d4-6237f7fc40c3',
     },
 ];
 
@@ -123,10 +131,25 @@ export default class Home extends Component {
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
             <NewsArticlePreview 
-                title={'CAPS in partnership with David Blair, announces Business Incubator and Student Entrepreneur Cultivation Program'}
+                title={'Letter from the Chairman'}
+                picPath={require('../assets/images/icons/Pencil.png')}
+                link={'https://www.capsmd.org/news/letter-from-chairman'}
+                />
+            <br/>
+
+            <NewsArticlePreview 
+                title={'CAPS Announces: Business Incubator and Student Entrepreneur Cultivation Program'}
                 picPath={require('../assets/images/icons/Growth.png')}
                 link={'https://www.capsmd.org/news/business-incubator'}
-                date={'May 14, 2019'}
+                date={'May 16, 2019'}
+                />
+            <br/>
+
+            <NewsArticlePreview 
+                title={'CAPS Launches Inaugural Study: Identifying Best Practices for Recruiting and Retaining Teachers of Color Within Public Schools'}
+                picPath={require('../assets/images/icons/Handshake.png')}
+                link={'https://www.capsmd.org/news/inaugural-study'}
+                date={'May 16, 2019'}
                 />
             <br/>
             

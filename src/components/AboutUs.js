@@ -2,15 +2,20 @@ import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
-const Headshot = ({ name, picPath }) => {
+const Headshot = ({ name, picPath, title, description }) => {
   return (
     <Col xs={12} sm={6} lg={3} className="m-padding-b">
       <img
-          className="center headshot"
+          className="center headshot rounded"
           alt="headshot"
           src={picPath}
           />
-      <p className="center-text l-text">{name}</p>
+      <div className="center-text">
+        <h3 className="headshot-text">{name}</h3>
+        <p className="blue headshot-text">{title}</p>
+        <p className="grey headshot-text">{description}</p>
+      </div>
+     
     </Col>
   )
 } 
@@ -110,26 +115,30 @@ export default class AboutUs extends Component {
         <Grid fluid>
           {/* Row 1 */}
           <Row>
-            <Headshot name={'Charlie Atwell'} picPath={require('../assets/images/headshots/Charlie.png')} />
-            <Headshot name={'David Blair'} picPath={require('../assets/images/headshots/David.png')} />
-            <Headshot name={'Mikel Blair'} picPath={require('../assets/images/headshots/Mikel.png')} />
-            <Headshot name={'Jane Fairweather'} picPath={require('../assets/images/headshots/Jane.png')} />
+            <Headshot name={'Charlie Atwell'} title={"Board Member"} description={"Co-founder, Chief Business Development at IBI"} picPath={require('../assets/images/headshots/Charlie.png')} />
+            <Headshot name={'David Blair'} title={"Chair of the Board"} description={"Founder, Council for Advocacy and Policy Solutions"} picPath={require('../assets/images/headshots/David.png')} />
+            <Headshot name={'Mikel Blair'} title={"Board Member"} description={"CEO, Badlands Playspace"} picPath={require('../assets/images/headshots/Mikel.png')} />
+            <Headshot name={'Jane Fairweather'} title={"Board Member"} description={"Owner at The Jane Fairweather Team"} picPath={require('../assets/images/headshots/Jane.png')} />
           </Row>
 
           {/* Row 2 */}
           <Row>
-            <Headshot name={'Lisa Fuller'} picPath={require('../assets/images/headshots/Lisa.png')} />
-            <Headshot name={'Jason Green'} picPath={require('../assets/images/headshots/Jason.png')} />
-            <Headshot name={'Mimi Hassinein'} picPath={require('../assets/images/headshots/Mimi.png')} />
-            <Headshot name={'Kelly Leonard'} picPath={require('../assets/images/headshots/Kelly.png')} />
+            <Headshot name={'Lisa Fuller'} title={"Board Member"} description={"Retired MCPS"} picPath={require('../assets/images/headshots/Lisa.png')} />
+            <Headshot name={'Jason Green'} title={"Board Member"} description={"Former Associate Counsel to President Obama"} picPath={require('../assets/images/headshots/Jason.png')} />
+            <Headshot name={'Mimi Hassinein'} title={"Board Member"} description={"Senior Fellow Middle Eastern Advisory Group at Montgomery County Government"} picPath={require('../assets/images/headshots/Mimi.png')} />
+            <Headshot name={'Kelly Leonard'} title={"Board Member"} description={"CEO + Co-Founder, Taylor-Leonard Corporation"} picPath={require('../assets/images/headshots/Kelly.png')} />
           </Row>
 
           {/* Row 3 */}
           <Row>
-            <Headshot name={'Rose Li'} picPath={require('../assets/images/headshots/Rose.png')} />
-            <Headshot name={'Chung Pak'} picPath={require('../assets/images/headshots/Chung.png')} />
-            <Headshot name={'Nancy Roman'} picPath={require('../assets/images/headshots/Nancy.png')} />
-            <Headshot name={'Jordan Steffy'} picPath={require('../assets/images/headshots/Jordan.png')} />
+            <Headshot name={'Rose Li'} title={"Board Member"} description={"CEO + President, Rose Li and Associates"} picPath={require('../assets/images/headshots/Rose.png')} />
+            <Headshot name={'Chung Pak'} title={"Board Member"} description={"Administrative Patent Judge at U.S. Patent Trial and Appeal Board"} picPath={require('../assets/images/headshots/Chung.png')} />
+            <Headshot name={'Nancy Roman'} title={"Board Member"} description={"CEO + President - Partnership for a Healthier America"} picPath={require('../assets/images/headshots/Nancy.png')} />
+            <Headshot name={'Jordan Steffy'} title={"Board Member"} description={"CEO + Founder, Attolo"} picPath={require('../assets/images/headshots/Jordan.png')} />
+          </Row>
+          <Row>
+            <Headshot name={'Terry Lierman'} title={"Board Member"} description={"Executive Officer, Health Ventures LLC"} picPath={require('../assets/images/headshots/Terry.png')} />
+            
           </Row>
         </Grid>     
       </div>

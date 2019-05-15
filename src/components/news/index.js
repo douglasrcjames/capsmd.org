@@ -9,10 +9,24 @@ export default class News extends Component {
         <hr className="m-width"/>
         <br/>
         <NewsArticlePreview 
-          title={'CAPS in partnership with David Blair, announces Business Incubator and Student Entrepreneur Cultivation Program'}
+          title={'Letter from the CAPS Chairman'}
+          picPath={require('../../assets/images/icons/Pencil.png')}
+          link={'https://www.capsmd.org/news/letter-from-chairman'}
+          date={''}
+          />
+        <br/>
+        <NewsArticlePreview 
+          title={'CAPS Announces: Business Incubator and Student Entrepreneur Cultivation Program'}
           picPath={require('../../assets/images/icons/Growth.png')}
           link={'https://www.capsmd.org/news/business-incubator'}
-          date={'May 14, 2019'}
+          date={'May 16, 2019'}
+          />
+        <br/>
+        <NewsArticlePreview 
+          title={'CAPS Launches Inaugural Study: Identifying Best Practices for Recruiting and Retaining Teachers of Color Within Public Schools'}
+          picPath={require('../../assets/images/icons/Handshake.png')}
+          link={'https://www.capsmd.org/news/inaugural-study'}
+          date={'May 16, 2019'}
           />
         <br/>
         <NewsArticlePreview 

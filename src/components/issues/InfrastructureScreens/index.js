@@ -57,7 +57,7 @@ export default class Tranportation extends Component {
         <h2 className="inline">Stories &amp; Opinions</h2>
         <p>How the county decisions affect real life people</p>
         <ArticlePreview 
-          title={'Silver Spring Housing'}
+          title={'Did Silver Spring build enough housing to stay affordable? Sort of.'}
           picPath={require('../../../assets/images/icons/Housing.png')}
           link={'/issues/infrastructure/stories-opinions/silver-spring-housing'}
           date={''}
@@ -67,13 +67,13 @@ export default class Tranportation extends Component {
         <hr className="m-width"/>
         <br/>
 
-        <h2 className="inline">Legislation</h2>
+        {/* <h2 className="inline">Legislation</h2>
         <p>What's before the county council and how will it affect you</p>
         <div className="blue">No articles yet, stay tuned!</div>
 
         <br/>
         <hr className="m-width"/>
-        <br/>
+        <br/> */}
 
         <h2 className="inline">Solutions</h2>
         <p>The county's challenges and some ideas to address them</p>

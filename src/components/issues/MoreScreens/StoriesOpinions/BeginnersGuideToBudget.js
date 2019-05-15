@@ -48,7 +48,6 @@ export default class BeginnersGuideToBudget extends Component {
     return (
       <div className="wrapper">
         <h1>A Beginner’s Guide to the Montgomery County Budget</h1>
-        <p className="grey">by Adam Pagnucco</p>
         <p>An organization’s budget is the outline for what it will be doing for the year.  
             It’s an indicator of what the organization values and what’s important to it.  
             The County’s budget is no different.
@@ -217,7 +216,7 @@ export default class BeginnersGuideToBudget extends Component {
                 </a>
             </li>
         </ul>
-
+        <u className="blue">Written by Adam Pagnucco</u>
       </div>
     )
   }

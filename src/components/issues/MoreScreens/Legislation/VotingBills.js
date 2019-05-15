@@ -58,7 +58,7 @@ export default class VotingBills extends Component {
     return (
       <div className="wrapper">
         <h1>Let’s Try Again on Three Good Voting Bills</h1>
-        <p className="grey">by Adam Pagnucco</p>
+        
         <p>The three General Assembly bills below would have made improvements to voting in Maryland.  None of them passed in the 2019 session but 
           hopefully they will pass next time.</p>
 
@@ -120,7 +120,7 @@ export default class VotingBills extends Component {
         </div>
 
         <p>We will be watching these bills and other good voting bills next year.  Join us and hopefully they will pass!</p>
-
+        <u className="blue">Written by Adam Pagnucco</u>
        
         
       </div>
