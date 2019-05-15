@@ -87,7 +87,7 @@ export default class PublicSchoolNeeds extends Component {
         </ResponsiveContainer>
         <p>Despite growing needs, MCPS students are not getting more classroom support.  In the school year ending in 2003, there were 10.8 students for every instructional staff member.  
             In the school year ending in 2018, there were 11.3 students for every instructional staff member.  The student/instructional staff ratio barely changed over the period, never exceeding 11.5 or falling below 10.5.  
-            That is despite the county levying 9 major tax hikes since 2003. [LINK to Slow Growth Has Hit the County’s Budget page]</p>
+            That is despite the county levying 9 major tax hikes since 2003.   <Link to="/issues/economic-development/facts/slow-growth-budget" className="blue">'Slow Growth Has Hit the County’s Budget'</Link></p>
        
         <h3>Our Take</h3>
         <p>Growing needs should be met with growing attention.  

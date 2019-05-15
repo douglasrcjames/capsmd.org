@@ -103,7 +103,7 @@ export default class RoadsClogged extends Component {
           >
             <CartesianGrid strokeDasharray="2 2" />
             <XAxis dataKey="name" />
-            <YAxis type="number"/>
+            <YAxis type="number" domain={[940000,1200000]}/>
             <Tooltip />
             <Legend />
             <Bar  dataKey="Miles Traveled" fill="#8884d8" />

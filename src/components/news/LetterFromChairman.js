@@ -21,7 +21,7 @@ export default class LetterFromChairman extends Component {
         <p>
         CAPS is a nonprofit organization that will bridge community and politics, by providing
         information and education on the impact of current and upcoming local and state-wide
-        legislation. We will conduct studies on best practices across the county and offer solutions to
+        legislation. We will conduct studies on best practices across the country and offer solutions to
         local challenges. As an information resource and a hub for innovative and attainable solutions,
         we aim to empower residents to join the conversation and to be a part of the solution.
         </p>
