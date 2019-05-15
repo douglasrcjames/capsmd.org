@@ -50,6 +50,12 @@ const data1 = [
   {
     name: '2015', "Private": 370323, "Govt.": 89344, "Total": 459667,
   },
+  {
+    name: '2016', "Private": 374115, "Govt.": 89852, "Total": 463967,
+  },
+  {
+    name: '2017', "Private": 378224, "Govt.": 91087, "Total": 469311,
+  },
 ];
 
 

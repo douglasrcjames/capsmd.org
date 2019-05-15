@@ -5,72 +5,80 @@ import {
 } from 'recharts';
 
 const data1 = [
- 
   {
-    name: '1994', "Miles Traveled": 1025000,
+    name: '1993', "Miles Traveled": 1025723,
   },
   {
-    name: '1995', "Miles Traveled": 1010000,
+    name: '1994', "Miles Traveled": 1011748,
   },
   {
-    name: '1996', "Miles Traveled": 1013000,
+    name: '1995', "Miles Traveled": 1013495,
   },
   {
-    name: '1997', "Miles Traveled": 1012000,
+    name: '1996', "Miles Traveled": 1011644,
   },
   {
-    name: '1998', "Miles Traveled": 1008000,
+    name: '1997', "Miles Traveled": 1007475,
   },
   {
-    name: '1999', "Miles Traveled": 1028000,
+    name: '1998', "Miles Traveled": 1028981,
   },
   {
-    name: '2000', "Miles Traveled": 1021000,
+    name: '1999', "Miles Traveled": 1023670,
   },
   {
-    name: '2001', "Miles Traveled": 1012000,
+    name: '2000', "Miles Traveled": 1013320,
   },
   {
-    name: '2002', "Miles Traveled": 1036000,
+    name: '2001', "Miles Traveled": 1037043,
   },
   {
-    name: '2003', "Miles Traveled": 1069000,
+    name: '2002', "Miles Traveled": 1069189,
   },
   {
-    name: '2004', "Miles Traveled": 1090000,
+    name: '2003', "Miles Traveled": 1090266,
   },
   {
-    name: '2005', "Miles Traveled": 1078000,
+    name: '2004', "Miles Traveled": 1078581,
   },
   {
-    name: '2006', "Miles Traveled": 1089000,
+    name: '2005', "Miles Traveled": 1090343,
   },
   {
-    name: '2007', "Miles Traveled": 1077000,
+    name: '2006', "Miles Traveled": 1085782,
   },
   {
-    name: '2008', "Miles Traveled": 1070000,
+    name: '2007', "Miles Traveled": 1076952,
   },
   {
-    name: '2009', "Miles Traveled": 1058000,
+    name: '2008', "Miles Traveled": 1070560,
   },
   {
-    name: '2010', "Miles Traveled": 1052000,
+    name: '2009', "Miles Traveled": 1058167,
   },
   {
-    name: '2011', "Miles Traveled": 1043000,
+    name: '2010', "Miles Traveled": 1054538,
   },
   {
-    name: '2012', "Miles Traveled": 1030000,
+    name: '2011', "Miles Traveled": 1044973,
   },
   {
-    name: '2013', "Miles Traveled": 1039000,
+    name: '2012', "Miles Traveled": 1032329,
   },
   {
-    name: '2014', "Miles Traveled": 1038000,
+    name: '2013', "Miles Traveled": 1038394,
   },
   {
-    name: '2015', "Miles Traveled": 1050000,
+    name: '2014', "Miles Traveled": 1037942,
+  },
+  {
+    name: '2015', "Miles Traveled": 1052037,
+  },
+  {
+    name: '2016', "Miles Traveled": 1075631,
+  },
+  {
+    name: '2017', "Miles Traveled": 1102453,
   },
 ];
 

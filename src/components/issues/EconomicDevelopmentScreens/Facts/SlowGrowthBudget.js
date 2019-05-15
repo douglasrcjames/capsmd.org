@@ -48,10 +48,10 @@ const data1 = [
     name: '2011', "percentIncrease": 3.3,
   },
   {
-    name: '2012', "percentIncrease": 7.9,
+    name: '2012', "percentIncrease": 7.8,
   },
   {
-    name: '2013', "percentIncrease": 3.0,
+    name: '2013', "percentIncrease": 3.1,
   },
   {
     name: '2014', "percentIncrease": 3.9,
@@ -60,13 +60,16 @@ const data1 = [
     name: '2015', "percentIncrease": -2.0,
   },
   {
-    name: '2016', "percentIncrease": 4.8,
+    name: '2016', "percentIncrease": 4.7,
   },
   {
-    name: '2017', "percentIncrease": 5.8,
+    name: '2017', "percentIncrease": 5.7,
   },
   {
     name: '2018', "percentIncrease": 2.6,
+  },
+  {
+    name: '2019', "percentIncrease": 1.2,
   },
 ];
 

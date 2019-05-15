@@ -45,6 +45,15 @@ const data1 = [
   {
     name: '2015', "FARMs": 35, "Ever FARMs": 44, "ESOL": 15,
   },
+  {
+    name: '2016', "FARMs": 35, "Ever FARMs": 45, "ESOL": 17,
+  },
+  {
+    name: '2017', "FARMs": 35, "Ever FARMs": 46, "ESOL": 16,
+  },
+  {
+    name: '2018', "FARMs": 34, "Ever FARMs": 45, "ESOL": 17,
+  },
 ];
 
 

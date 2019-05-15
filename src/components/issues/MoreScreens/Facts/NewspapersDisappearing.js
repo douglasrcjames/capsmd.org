@@ -49,6 +49,12 @@ const data1 = [
   {
     name: '2015', "Establishments": 94,
   },
+  {
+    name: '2016', "Establishments": 86,
+  },
+  {
+    name: '2017', "Establishments": 79,
+  },
 ];
 
 const data2 = [
@@ -96,6 +102,12 @@ const data2 = [
   },
   {
     name: '2015', "Employment": 2339,
+  },
+  {
+    name: '2016', "Employment": 2283,
+  },
+  {
+    name: '2017', "Employment": 1990,
   },
 ];
 

@@ -5,82 +5,88 @@ import {
 
 const data1 = [
   {
-    name: '1990', "Permitted": 5000,
+    name: '1990', "Permitted": 5077,
   },
   {
-    name: '1991', "Permitted": 3120,
+    name: '1991', "Permitted": 3276,
   },
   {
-    name: '1992', "Permitted": 3240,
+    name: '1992', "Permitted": 3485,
   },
   {
-    name: '1993', "Permitted": 3050,
+    name: '1993', "Permitted": 3141,
   },
   {
     name: '1994', "Permitted": 3520,
   },
   {
-    name: '1995', "Permitted": 3600,
+    name: '1995', "Permitted": 3590,
   },
   {
-    name: '1996', "Permitted": 3000,
+    name: '1996', "Permitted": 3062,
   },
   {
-    name: '1997', "Permitted": 3620,
+    name: '1997', "Permitted": 3682,
   },
   {
-    name: '1998', "Permitted": 5200,
+    name: '1998', "Permitted": 5315,
   },
   {
-    name: '1999', "Permitted": 4100,
+    name: '1999', "Permitted": 4253,
   },
   {
-    name: '2000', "Permitted": 4970,
+    name: '2000', "Permitted": 4950,
   },
   {
-    name: '2001', "Permitted": 5100,
+    name: '2001', "Permitted": 5249,
   },
   {
-    name: '2002', "Permitted": 5000,
+    name: '2002', "Permitted": 5013,
   },
   {
-    name: '2003', "Permitted": 4200,
+    name: '2003', "Permitted": 4428,
   },
   {
-    name: '2004', "Permitted": 3850,
+    name: '2004', "Permitted": 3821,
   },
   {
-    name: '2005', "Permitted": 3590,
+    name: '2005', "Permitted": 3591,
   },
   {
-    name: '2006', "Permitted": 3000,
+    name: '2006', "Permitted": 3031,
   },
   {
-    name: '2007', "Permitted": 3500,
+    name: '2007', "Permitted": 3459,
   },
   {
-    name: '2008', "Permitted": 1500,
+    name: '2008', "Permitted": 1476,
   },
   {
-    name: '2009', "Permitted": 850,
+    name: '2009', "Permitted": 862,
   },
   {
-    name: '2010', "Permitted": 1900,
+    name: '2010', "Permitted": 1899,
   },
   {
-    name: '2011', "Permitted": 2500,
+    name: '2011', "Permitted": 2512,
   },
   {
-    name: '2012', "Permitted": 3990,
+    name: '2012', "Permitted": 3981,
   },
   {
-    name: '2013', "Permitted": 3510,
+    name: '2013', "Permitted": 3514,
   },
   {
-    name: '2014', "Permitted": 3800,
+    name: '2014', "Permitted": 3839,
   },
   {
-    name: '2015', "Permitted": 2010,
+    name: '2015', "Permitted": 2080,
+  },
+  {
+    name: '2016', "Permitted": 2170,
+  },
+  {
+    name: '2017', "Permitted": 1637,
   },
 ];
 
