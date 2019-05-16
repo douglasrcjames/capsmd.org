@@ -81,7 +81,7 @@ export default class NotInvestingInSchools extends Component {
         <p>Since Fiscal Year 2003, the county has implemented nine major tax hikes. 
             However, despite the claims of elected officials, the county has not invested in public schools or transportation at the same rate as other functions of government.  
             The graph below shows the operating budget increase by major department and agency between FY2010 (the peak budget year before the Great Recession) and FY2019.</p>
-        <Link to="/issues/economic-development/facts/slow-growth-budget" className="blue">Read article on 'Slow Growth Has Hit the County’s Budget'</Link>
+        <Link to="/issues/economic-development/facts/slow-growth-budget" className="blue">Read article: 'Slow Growth Has Hit the County’s Budget'</Link>
         <h4 className="center-text">Operating Budget Increase, FY10-19</h4>
         <ResponsiveContainer width="95%" height="95%" aspect={2} className="center l-width">
           <BarChart

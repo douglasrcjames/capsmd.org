@@ -93,7 +93,7 @@ export default class PublicSchoolNeeds extends Component {
         <p>Growing needs should be met with growing attention.  
             Montgomery County, which has made local per pupil contributions to schools that trail the rate of inflation, is not doing that.  
         </p>
-        <Link to="/issues/education/facts/per-pupil-funding" className="blue">Read article on 'County Per Pupil Funding for Schools is Trailing Inflation'</Link>
+        <Link to="/issues/education/facts/per-pupil-funding" className="blue">Read article: 'County Per Pupil Funding for Schools is Trailing Inflation'</Link>
         <br/>
         <br/>
         <i>Source: Montgomery County Public Schools.</i>

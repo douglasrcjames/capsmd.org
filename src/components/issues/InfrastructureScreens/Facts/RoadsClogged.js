@@ -89,8 +89,10 @@ export default class RoadsClogged extends Component {
       <div className="wrapper">
         <h1>Montgomery County’s Roads are More Clogged Than Ever Before</h1>
         <p>Montgomery County has suffered from traffic congestion for a long time, just like the rest of the Washington region.  
-            But the county’s problems are exacerbated by the fact that it does not complete transportation projects on time. [Link to Montgomery County Does Not Complete Transportation Projects on Time page]  
-            Between 2012 and 2017, the county’s road lane mileage increased by 0.9%.  
+            But the county’s problems are exacerbated by the fact that it does not complete transportation projects on time. <Link to="/issues/infrastructure/facts/transportation-projects" className="blue">Read article: 
+        'Montgomery County Does Not Complete Transportation Projects on Time'</Link></p>  
+
+            <p>Between 2012 and 2017, the county’s road lane mileage increased by 0.9%.  
             But over the same period, vehicle miles traveled on the county’s roads increased by 7.7%.  The result is that the county’s roads are more clogged with cars than ever.</p>
 
         <h4 className="center-text">Vehicle Miles Traveled per Lane Mile, Montgomery County</h4>
