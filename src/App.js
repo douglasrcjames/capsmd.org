@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 // Components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ScrollToTop from "../src/ScrollToTop";
 
 // CSS
 import "./assets/css/App.css";
@@ -19,12 +20,14 @@ class App extends Component {
   render() {
       return (
       <BrowserRouter>
-        <div>
-          <Header />
-          <ToastContainer position="top-center" hideProgressBar={true} />
-          <Routes />
-          <Footer />
-        </div>
+        <ScrollToTop>
+          <div>
+            <Header />
+            <ToastContainer position="top-center" hideProgressBar={true} />
+            <Routes />
+            <Footer />
+          </div>
+          </ScrollToTop>
       </BrowserRouter>
     );
   }
