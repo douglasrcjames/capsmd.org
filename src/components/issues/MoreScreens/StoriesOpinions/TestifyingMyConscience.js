@@ -16,7 +16,7 @@ export default class TestifyingMyConscience extends Component {
             Last year, I ran for Montgomery County Executive – it was my first time running for public office.  It was truly a
             life changing experience which I am grateful for.  I gained a new appreciation for democracy.  Voting is the great
             equalizer. We all know it - each person has one vote.  It doesn’t matter if you’re worth millions or penniless,
-            whether your 18 or 100, obtained a master’s degree or lack a high school diploma – we’re all equal.
+            whether you're 18 or 100, obtained a master’s degree or lack a high school diploma – we’re all equal.
         </p>
 
         <p>
