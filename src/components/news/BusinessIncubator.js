@@ -19,11 +19,11 @@ export default class BusinessIncubator extends Component {
         <p>
           Blair, a lifelong Montgomery County resident and businessman, will offer space in the Tower Oaks
           building in Rockville to house the incubator. CAPS is in conversation with several Maryland higher
-          education institutions and has partnered with the Greater Bethesda Chamber of Commerce. The
-          chamber has offered to discount membership fees to selected student start-ups. Hands-on support in
-          the form of business and product strategy, growth and metrics, and investor pitches will exist on site, as
-          well as a place to network with other early-stage companies affiliated with the incubator. The first class
-          of entrepreneurs is expected this year.   
+          education institutions and will partner with the Greater Bethesda Chamber of Commerce, enabling
+          student start-ups to get involved in and make connections with the local business community. Hands-on
+          support in the form of business and product strategy, growth and metrics, and investor pitches will exist
+          on site, as well as a place to network with other early-stage companies affiliated with the incubator. The
+          first class of entrepreneurs is expected this year.  
         </p>
 
         <p>

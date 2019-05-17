@@ -68,7 +68,7 @@ export default class JobMarketStagnant extends Component {
             and is only one percent higher in 2017 than it was in 2006.  
             As of 2017, the county’s private sector employment has still not recovered from the recession.</p>
 
-        <h4 className="center-text">Maryland County Employment</h4>
+        <h4 className="center-text">Montgomery County Employment</h4>
         <ResponsiveContainer width="95%" height="95%" aspect={2} className="center m-width">
           <LineChart
             data={data1}

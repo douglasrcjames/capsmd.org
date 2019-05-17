@@ -7,40 +7,40 @@ import {
 
 const data1 = [
   {
-    name: '2007', "Local Dollar Increase": 7, "Inflation %": 4,
+    name: '2007', "Local Dollar % Increase": 7, "Inflation %": 4,
   },
   {
-    name: '2008', "Local Dollar Increase": 6, "Inflation %": 5,
+    name: '2008', "Local Dollar % Increase": 6, "Inflation %": 5,
   },
   {
-    name: '2009', "Local Dollar Increase": 4, "Inflation %": 0,
+    name: '2009', "Local Dollar % Increase": 4, "Inflation %": 0,
   },
   {
-    name: '2010', "Local Dollar Increase": -5, "Inflation %": 2,
+    name: '2010', "Local Dollar % Increase": -5, "Inflation %": 2,
   },
   {
-    name: '2011', "Local Dollar Increase": -4, "Inflation %": 3,
+    name: '2011', "Local Dollar % Increase": -4, "Inflation %": 3,
   },
   {
-    name: '2012', "Local Dollar Increase": -5, "Inflation %": 2,
+    name: '2012', "Local Dollar % Increase": -5, "Inflation %": 2,
   },
   {
-    name: '2013', "Local Dollar Increase": 0, "Inflation %": 2,
+    name: '2013', "Local Dollar % Increase": 0, "Inflation %": 2,
   },
   {
-    name: '2014', "Local Dollar Increase": 0, "Inflation %": 2,
+    name: '2014', "Local Dollar % Increase": 0, "Inflation %": 2,
   },
   {
-    name: '2015', "Local Dollar Increase": 0, "Inflation %": 0,
+    name: '2015', "Local Dollar % Increase": 0, "Inflation %": 0,
   },
   {
-    name: '2016', "Local Dollar Increase": 0, "Inflation %": 1,
+    name: '2016', "Local Dollar % Increase": 0, "Inflation %": 1,
   },
   {
-    name: '2017', "Local Dollar Increase": 6, "Inflation %": 1,
+    name: '2017', "Local Dollar % Increase": 6, "Inflation %": 1,
   },
   {
-    name: '2018', "Local Dollar Increase": 1,
+    name: '2018', "Local Dollar % Increase": 1,
   },
 ];
 
@@ -55,7 +55,7 @@ export default class PerPupilFunding extends Component {
             with the exception of FY 2017, when the county raised property taxes by 8.7%.  
             State aid has been helpful but has not completely compensated.</p>
         <Link to="/issues/economic-development/facts/not-investing-in-schools" className="blue">Read article: 'Montgomery County is Not Investing Enough in Schools and Transportation'</Link>
-        <h4 className="center-text">Local Dollar Increases per Pupil vs Inflation</h4>
+        <h4 className="center-text">Local Dollar % Increases per Pupil vs Inflation</h4>
         <ResponsiveContainer width="95%" height="95%" aspect={2} className="center m-width">
           <LineChart
             data={data1}
@@ -69,7 +69,7 @@ export default class PerPupilFunding extends Component {
             <ReferenceLine y={0} stroke='#000' />
             <Tooltip />
             <Legend />
-            <Line type="monotone" dataKey="Local Dollar Increase" stroke="#8884d8" activeDot={{ r: 8 }} />
+            <Line type="monotone" dataKey="Local Dollar % Increase" stroke="#8884d8" activeDot={{ r: 8 }} />
             <Line type="monotone" dataKey="Inflation %" stroke="#D33F42" activeDot={{ r: 8 }} />
           </LineChart>
         </ResponsiveContainer>
