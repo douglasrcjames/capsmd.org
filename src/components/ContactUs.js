@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
-import MediaQuery from "react-responsive";
 import Subscribe from '../components/Subscribe';
 import Contact from '../components/Contact';
 
@@ -21,7 +20,7 @@ export default class ContactUs extends Component {
         <br/>
 
         <div className="m-container">
-          <h1><a id="donate"></a>Donate</h1>
+          <h1>Donate<a id="donate" href="/" className="hide">Donate</a></h1>
           <p>Your contribution goes directly to support bringing civics education, transparency and good sense policy to Montgomery County, MD.</p>
           {/* <div className="center-text"><button className="m-btn">Contribute</button></div> */}
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">

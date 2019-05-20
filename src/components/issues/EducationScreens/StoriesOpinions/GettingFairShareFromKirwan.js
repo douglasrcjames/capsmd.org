@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
 import {  BarChart, Bar, Pie, PieChart, Cell, YAxis, XAxis, Tooltip, Legend, CartesianGrid, ResponsiveContainer} from 'recharts';
 
 

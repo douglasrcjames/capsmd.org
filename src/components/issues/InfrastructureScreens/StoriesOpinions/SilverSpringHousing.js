@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
-import {BarChart, Bar, ReferenceLine, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
+import {BarChart, Bar, ReferenceLine, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer} from 'recharts';
 
 const data = [
     {name: 'Falkland Chase (1936)', "Percentage Change": 1.80},

@@ -6,7 +6,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "chart.js": "^2.8.0",
-    "firebase": "^5.11.1",
+    "firebase": "^6.0.2-canary.5f5f1c1",
     "firebase-tools": "^6.9.2",
     "formik": "^1.5.4",
     "nodemailer": "^6.1.1",

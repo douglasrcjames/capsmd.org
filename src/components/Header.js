@@ -101,7 +101,7 @@ class Header extends Component {
                 // Why is the slider yellow button a higher z value than this??
               >
                 <div className="side-dropdown">
-                  <a className="menu-item">Issues &nbsp;<i className="fas fa-chevron-down fa-xs" /></a>
+                  <span className="menu-item" >Issues &nbsp;<i className="fas fa-chevron-down fa-xs" /></span>
                   &nbsp;
                   <div className="side-dropdown-content">
                     <NavLink 
