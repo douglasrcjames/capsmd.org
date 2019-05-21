@@ -43,6 +43,15 @@ const data1 = [
   {
     name: '2015', "% of Enrollment": 15,
   },
+  {
+    name: '2016', "% of Enrollment": 17,
+  },
+  {
+    name: '2017', "% of Enrollment": 16,
+  },
+  {
+    name: '2018', "% of Enrollment": 17,
+  },
 ];
 const data2 = [
       {name: 'Anne Arundel', value: 7}, 
@@ -119,7 +128,7 @@ export default class DoBetterKirwanFunding extends Component {
 
         <p>
         How does MCPS compare with the rest of the state? 
-        The <a href="https://nces.ed.gov/ccd/elsi/">National Center for Education Statistics (NCES)</a>
+        The <a href="https://nces.ed.gov/ccd/elsi/">National Center for Education Statistics (NCES) </a>
         collects enrollment data for public school districts nationwide. According to NCES, there were 69,079
         limited English proficient public school students in Maryland in FY17. Of those, 34% were in
         Montgomery County, 32% were in Prince George’s County and the rest were spread among the other 22

@@ -4,7 +4,7 @@ export default class News extends Component {
   render() {
     return (
       <div className="wrapper">
-        <h1>News</h1>
+        <h1>CAPS Press Releases</h1>
         <br/>
         <hr className="m-width"/>
         <br/>
@@ -29,6 +29,27 @@ export default class News extends Component {
           date={'May 16, 2019'}
           />
         <br/>
+
+        <br/>
+        <h1>External News</h1>
+        <br/>
+        <hr className="m-width"/>
+        <br/>
+        <NewsArticlePreview 
+          title={'Former Montgomery Executive Candidate Launches Think Tank'}
+          picPath={require('../../assets/images/icons/Handshake.png')}
+          link={'https://bethesdamagazine.com/bethesda-beat/government/former-montgomery-executive-candidate-launches-think-tank/?mode=grid'}
+          date={'March 21, 2019'}
+          />
+        <br/>
+        <NewsArticlePreview 
+          title={'Ex-Montgomery Co. Exec Candidate Blair Launches Think Tank'}
+          picPath={require('../../assets/images/icons/Handshake.png')}
+          link={'https://www.marylandmatters.org/blog/ex-montgomery-co-exec-candidate-blair-launches-think-tank/'}
+          date={'May 16, 2019'}
+          />
+        <br/>
+        
         <NewsArticlePreview 
           title={'Oversight Office Finds Gaps in After-School Programs'}
           picPath={require('../../assets/images/icons/Pencil.png')}
