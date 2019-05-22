@@ -15,7 +15,7 @@ const data2 = [
       {name: 'Fees and Fines', value: 4},
       {name: 'Other', value: 11}
     ];
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF2F30', '#FFFFFF', '#8884d8'];
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF2F30', 'black', '#8884d8'];
 
 const RADIAN = Math.PI / 180;                    
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value, name, index }) => {
@@ -113,7 +113,7 @@ export default class BeginnersGuideToBudget extends Component {
               fill="#8884d8"
               >
               {
-                data1.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+                data2.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
               }
             </Pie>
           </PieChart>

@@ -36,10 +36,17 @@ export default class News extends Component {
         <hr className="m-width"/>
         <br/>
         <NewsArticlePreview 
+          title={'Podcast: A Miner Detail Podcast - David Blair on launching Council for Advocacy and Policy Solutions'}
+          picPath={require('../../assets/images/icons/Handshake.png')}
+          link={'https://podcasts.apple.com/us/podcast/david-blair-on-launching-council-for-advocacy-policy/id966333929?i=1000438975657'}
+          date={'May 17, 2019'}
+          />
+        <br/>
+        <NewsArticlePreview 
           title={'Former Montgomery Executive Candidate Launches Think Tank'}
           picPath={require('../../assets/images/icons/Handshake.png')}
           link={'https://bethesdamagazine.com/bethesda-beat/government/former-montgomery-executive-candidate-launches-think-tank/?mode=grid'}
-          date={'March 21, 2019'}
+          date={'May 16, 2019'}
           />
         <br/>
         <NewsArticlePreview 

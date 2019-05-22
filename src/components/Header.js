@@ -100,6 +100,9 @@ class Header extends Component {
                 width="50%"
                 // Why is the slider yellow button a higher z value than this??
               >
+                <NavLink id="home" className="menu-item" to="/">
+                    Home
+                </NavLink>
                 <div className="side-dropdown">
                   <span className="menu-item" >Issues &nbsp;<i className="fas fa-chevron-down fa-xs" /></span>
                   &nbsp;
@@ -134,10 +137,10 @@ class Header extends Component {
                     News
                 </NavLink>
                 <NavLink id="about-us" className="menu-item" to="/about-us">
-                    About
+                    About Us
                 </NavLink>
                 <NavLink id="contact-us" className="menu-item" to="/contact-us">
-                    Contact
+                    Contact Us
                 </NavLink>
               </Menu>
               {/* had to rearrange this order so the menu appear in the upper right corner */}
