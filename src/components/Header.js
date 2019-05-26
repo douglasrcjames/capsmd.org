@@ -15,7 +15,7 @@ class Header extends Component {
                   <img
                     className="responsive nav-logo"
                     alt="caps-logo"
-                    src={require("../assets/images/logo/caps-logo-v3.png")}
+                    src={require("../assets/images/logo/caps-logo-v4.png")}
                   />
                 </Link>
                 <div className="right">
@@ -148,7 +148,7 @@ class Header extends Component {
                 <img
                   className="responsive nav-logo"
                   alt="caps-logo"
-                  src={require("../assets/images/logo/caps-logo-v3.png")}
+                  src={require("../assets/images/logo/caps-logo-v4.png")}
                 />
               </Link>
               

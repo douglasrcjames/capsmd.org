@@ -132,7 +132,7 @@ export default class AboutUs extends Component {
           {/* Row 3 */}
           <Row>
             <Headshot name={'Rose Li'} title={"Board Member"} description={"CEO + President, Rose Li and Associates"} picPath={require('../assets/images/headshots/Rose.png')} />
-            <Headshot name={'Chung Pak'} title={"Board Member"} description={"Administrative Patent Judge at U.S. Patent Trial and Appeal Board"} picPath={require('../assets/images/headshots/Chung.png')} />
+            <Headshot name={'Chung Pak'} title={"Board Member"} description={"Retired"} picPath={require('../assets/images/headshots/Chung.png')} />
             <Headshot name={'Nancy Roman'} title={"Board Member"} description={"CEO + President - Partnership for a Healthier America"} picPath={require('../assets/images/headshots/Nancy.png')} />
             <Headshot name={'Jordan Steffy'} title={"Board Member"} description={"CEO + Founder, Attolo"} picPath={require('../assets/images/headshots/Jordan.png')} />
           </Row>
