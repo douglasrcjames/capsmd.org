@@ -42,6 +42,7 @@ import NewspapersDisappearing from "./components/issues/MoreScreens/Facts/Newspa
 import VotingBills from "./components/issues/MoreScreens/Legislation/VotingBills";
 import BeginnersGuideToBudget from "./components/issues/MoreScreens/StoriesOpinions/BeginnersGuideToBudget";
 import TestifyingMyConscience from "./components/issues/MoreScreens/StoriesOpinions/TestifyingMyConscience";
+import LifeThreateningProjectBust from "./components/issues/MoreScreens/StoriesOpinions/LifeThreateningProjectBust";
 
 const Page404 = ({ location }) => (
   <div className="m-padding">
@@ -98,6 +99,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/more/stories-opinions/beginners-guide-to-budget" component={BeginnersGuideToBudget} />
         <Route exact path="/issues/more/stories-opinions/testifying-my-conscience" component={TestifyingMyConscience} />
         <Route exact path="/issues/more/legislation/voting-bills" component={VotingBills} />
+        <Route exact path="/issues/more/legislation/life-threatening-project-bust" component={LifeThreateningProjectBust} />
         
         <Route component={Page404} />
       </Switch>

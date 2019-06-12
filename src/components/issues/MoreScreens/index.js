@@ -51,7 +51,12 @@ export default class More extends Component {
           picPath={require('../../../assets/images/icons/Pencil.png')}
           link={'/issues/more/stories-opinions/testifying-my-conscience'}
           />
-
+        <br/>
+        <ArticlePreview 
+          title={'MoCo’s Life Threatening Project Bust'}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/more/legislation/life-threatening-project-bust'}
+          />
         <br/>
         <hr className="m-width"/>
         <br/>
