@@ -15,37 +15,37 @@ const sliderContent = [
 		title: `Letter from the  Chairman`,
         button: 'Read Now',
         link: '/news/letter-from-chairman',
-        image: `https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fman-writing.jpg?alt=media&token=8fca31c4-a9ff-4a03-a375-783ac6554eec`
+        image: require("../assets/images/carousel/man-writing.jpg")
     },
 	{
 		title: `Beginners Guide to the Budget`,
         button: 'Read Now',
         link: '/issues/more/stories-opinions/beginners-guide-to-budget',
-        image: `https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fbudget-table.jpg?alt=media&token=ce36b62e-96ea-4ef6-9645-e4c697021e33`
+        image:  require("../assets/images/carousel/budget-table.jpg")
     },
 	{
 		title: 'CAPS Launches Student Incubator',
         button: 'Read Now',
         link: '/news/business-incubator',
-		image: `https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fchairs-classroom.jpg?alt=media&token=0096eb45-7b26-4c38-a94d-b150e68fc70a`,
+		image:  require("../assets/images/carousel/chairs-classroom.jpg")
     },
     {
 		title: 'CAPS Launches Inaugural Study',
         button: 'Read Now',
         link: '/news/inaugural-study',
-		image: `https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fpeople-brainstorming.jpg?alt=media&token=a1d69df7-3e6c-4dc5-9a0e-7e316772b1d8`,
+		image:  require("../assets/images/carousel/people-brainstorming.jpg")
 	},
 	{
         title: 'Did Silver Spring build enough housing to stay affordable? Sort of.',
         button: 'Read Now',
         link: '/issues/infrastructure/stories-opinions/silver-spring-housing',
-		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fside-view-car.jpg?alt=media&token=010359c9-33fb-40db-b838-114b89851fd5',
+		image:  require("../assets/images/carousel/side-view-car.jpg")
     },
     {
         title: 'David Blair Testifies in Annapolis',
         button: 'Read Now',
         link: '/issues/more/stories-opinions/testifying-my-conscience',
-		image: 'https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/slider%2Fgavel-court.jpg?alt=media&token=4ca6ba54-0fa5-46d2-82d4-6237f7fc40c3',
+		image: require("../assets/images/carousel/gavel-court.jpg"),
     },
 ];
 

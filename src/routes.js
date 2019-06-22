@@ -43,6 +43,7 @@ import VotingBills from "./components/issues/MoreScreens/Legislation/VotingBills
 import BeginnersGuideToBudget from "./components/issues/MoreScreens/StoriesOpinions/BeginnersGuideToBudget";
 import TestifyingMyConscience from "./components/issues/MoreScreens/StoriesOpinions/TestifyingMyConscience";
 import LifeThreateningProjectBust from "./components/issues/MoreScreens/StoriesOpinions/LifeThreateningProjectBust";
+import withTracker from './components/WithTracker';
 
 const Page404 = ({ location }) => (
   <div className="m-padding">
@@ -58,18 +59,18 @@ export class Routes extends React.PureComponent {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about-us" component={AboutUs} />
+        <Route exact path="/" component={withTracker(Home)} />
+        <Route exact path="/about-us" component={withTracker(AboutUs)} />
 
-        <Route exact path="/news" component={News} />
-        <Route exact path="/news/business-incubator" component={BusinessIncubator} />
-        <Route exact path="/news/letter-from-chairman" component={LetterFromChairman} />
-        <Route exact path="/news/inaugural-study" component={InauguralStudy} />
+        <Route exact path="/news" component={withTracker(News)} />
+        <Route exact path="/news/business-incubator" component={withTracker(BusinessIncubator)} />
+        <Route exact path="/news/letter-from-chairman" component={withTracker(LetterFromChairman)} />
+        <Route exact path="/news/inaugural-study" component={withTracker(InauguralStudy)} />
 
-        <Route exact path="/contact-us" component={ContactUs} />
+        <Route exact path="/contact-us" component={withTracker(ContactUs)} />
         <Route exact path="/find-legislators" component={UnderConstruction} />
 
-        <Route exact path="/issues/economic-development" component={EconomicDevelopment} />
+        <Route exact path="/issues/economic-development" component={withTracker(EconomicDevelopment)} />
         <Route exact path="/issues/economic-development/facts/job-market-stagnant" component={JobMarketStagnant} />
         <Route exact path="/issues/economic-development/facts/lags-region-in-job-creation" component={LagsRegionInJobCreation} />
         <Route exact path="/issues/economic-development/facts/lags-region-in-business" component={LagsRegionInBusiness} />
@@ -79,14 +80,14 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/economic-development/facts/not-investing-in-schools" component={NotInvestingInSchools} />
         <Route exact path="/issues/economic-development/solutions/proposals-worth-considering" component={ProposalsWorthConsideringED} />
 
-        <Route exact path="/issues/education" component={Education} />
+        <Route exact path="/issues/education" component={withTracker(Education)} />
         <Route exact path="/issues/education/facts/per-pupil-funding" component={PerPupilFunding} />
         <Route exact path="/issues/education/facts/public-school-needs" component={PublicSchoolNeeds} />
         <Route exact path="/issues/education/solutions/proposals-worth-considering" component={ProposalsWorthConsideringE} />
         <Route exact path="/issues/education/stories-opinions/getting-fair-share-from-kirwan" component={GettingFairShareFromKirwan} />
         <Route exact path="/issues/education/stories-opinions/do-better-kirwan-funding" component={DoBetterKirwanFunding} />
 
-        <Route exact path="/issues/infrastructure" component={Infrastructure} />
+        <Route exact path="/issues/infrastructure" component={withTracker(Infrastructure)} />
         <Route exact path="/issues/infrastructure/facts/housing-construction" component={HousingConstruction} />
         <Route exact path="/issues/infrastructure/facts/trails-in-new-housing" component={TrailsInNewHousing} />
         <Route exact path="/issues/infrastructure/facts/roads-clogged" component={RoadsClogged} />
@@ -94,14 +95,14 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/infrastructure/stories-opinions/silver-spring-housing" component={SilverSpringHousing} />
         <Route exact path="/issues/infrastructure/solutions/proposals-worth-considering" component={ProposalsWorthConsideringI} />
 
-        <Route exact path="/issues/more" component={More} />
+        <Route exact path="/issues/more" component={withTracker(More)} />
         <Route exact path="/issues/more/facts/newspapers-disappearing" component={NewspapersDisappearing} />
         <Route exact path="/issues/more/stories-opinions/beginners-guide-to-budget" component={BeginnersGuideToBudget} />
         <Route exact path="/issues/more/stories-opinions/testifying-my-conscience" component={TestifyingMyConscience} />
         <Route exact path="/issues/more/legislation/voting-bills" component={VotingBills} />
         <Route exact path="/issues/more/legislation/life-threatening-project-bust" component={LifeThreateningProjectBust} />
         
-        <Route component={Page404} />
+        <Route component={withTracker(Page404)} />
       </Switch>
     );
   }

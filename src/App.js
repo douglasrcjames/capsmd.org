@@ -16,7 +16,9 @@ import "./assets/css/Header.css";
 import "./assets/css/Footer.css";
 import 'react-toastify/dist/ReactToastify.css';
 
+
 class App extends Component {
+  
   render() {
       return (
       <BrowserRouter>
