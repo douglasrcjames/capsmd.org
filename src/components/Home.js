@@ -47,6 +47,12 @@ const sliderContent = [
         link: '/issues/more/stories-opinions/testifying-my-conscience',
 		image: require("../assets/images/carousel/gavel-court.jpg"),
     },
+    {
+        title: 'The Complexities of Child Care in a Nutshell',
+        button: 'Read Now',
+        link: '/issues/more/stories-opinions/complexities-child-care-nutshell',
+		image: require("../assets/images/carousel/child-care.jpg"),
+    },
 ];
 
 export default class Home extends Component {

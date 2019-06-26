@@ -42,6 +42,7 @@ import NewspapersDisappearing from "./components/issues/MoreScreens/Facts/Newspa
 import VotingBills from "./components/issues/MoreScreens/Legislation/VotingBills";
 import BeginnersGuideToBudget from "./components/issues/MoreScreens/StoriesOpinions/BeginnersGuideToBudget";
 import TestifyingMyConscience from "./components/issues/MoreScreens/StoriesOpinions/TestifyingMyConscience";
+import ComplexitiesChildCareNutshell from "./components/issues/MoreScreens/StoriesOpinions/ComplexitiesChildCareNutshell";
 import LifeThreateningProjectBust from "./components/issues/MoreScreens/StoriesOpinions/LifeThreateningProjectBust";
 import withTracker from './components/WithTracker';
 
@@ -99,6 +100,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/more/facts/newspapers-disappearing" component={NewspapersDisappearing} />
         <Route exact path="/issues/more/stories-opinions/beginners-guide-to-budget" component={BeginnersGuideToBudget} />
         <Route exact path="/issues/more/stories-opinions/testifying-my-conscience" component={TestifyingMyConscience} />
+        <Route exact path="/issues/more/stories-opinions/complexities-child-care-nutshell" component={ComplexitiesChildCareNutshell} />
         <Route exact path="/issues/more/legislation/voting-bills" component={VotingBills} />
         <Route exact path="/issues/more/legislation/life-threatening-project-bust" component={LifeThreateningProjectBust} />
         

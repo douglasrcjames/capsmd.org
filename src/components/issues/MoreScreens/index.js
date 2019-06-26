@@ -58,6 +58,12 @@ export default class More extends Component {
           link={'/issues/more/legislation/life-threatening-project-bust'}
           />
         <br/>
+        <ArticlePreview 
+          title={'The Complexities of Child Care in a Nutshell'}
+          picPath={require('../../../assets/images/icons/Pencil.png')}
+          link={'/issues/more/stories-opinions/complexities-child-care-nutshell'}
+          />
+        <br/>
         <hr className="m-width"/>
         <br/>
 
