@@ -138,6 +138,7 @@ export default class AboutUs extends Component {
           </Row>
           <Row>
             <Headshot name={'Terry Lierman'} title={"Board Member"} description={"Executive Officer, Health Ventures LLC"} picPath={require('../assets/images/headshots/Terry.png')} />
+            <Headshot name={'Christine Cornett Drummond'} title={"Board Member"} description={"Chief of Staff, Accountable Health"} picPath={require('../assets/images/headshots/Christine.png')} />
             
           </Row>
         </Grid>     

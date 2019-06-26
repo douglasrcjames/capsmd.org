@@ -51,7 +51,7 @@ const sliderContent = [
         title: 'The Complexities of Child Care in a Nutshell',
         button: 'Read Now',
         link: '/issues/more/stories-opinions/complexities-child-care-nutshell',
-		image: require("../assets/images/carousel/child-care.jpg"),
+		image: require("../assets/images/carousel/baby-toys.jpg"),
     },
 ];
 
