@@ -12,6 +12,18 @@ import NewsArticlePreview from './news/NewsArticlePreview'
 
 const sliderContent = [
     {
+        title: 'Imagine Montgomery County in Five Years: Part One',
+        button: 'Read Now',
+        link: '/issues/more/stories-opinions/county-in-five-years-part-one',
+		image: require("../assets/images/carousel/street-cars.jpg"),
+    },
+    {
+        title: 'Imagine Montgomery County in Five Years: Part Two',
+        button: 'Read Now',
+        link: '/issues/more/stories-opinions/county-in-five-years-part-two',
+		image: require("../assets/images/carousel/street-cars.jpg"),
+    },
+    {
         title: 'The Complexities of Child Care in a Nutshell',
         button: 'Read Now',
         link: '/issues/more/stories-opinions/complexities-child-care-nutshell',
@@ -137,6 +149,20 @@ export default class Home extends Component {
         </div>
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
+            <NewsArticlePreview 
+                title={'Imagine Montgomery County in Five Years: Part Two'}
+                picPath={require('../assets/images/icons/Handshake.png')}
+                link={'/issues/more/stories-opinions/county-in-five-years-part-two'}
+                />
+            <br/>
+
+            <NewsArticlePreview 
+                title={'Imagine Montgomery County in Five Years: Part One'}
+                picPath={require('../assets/images/icons/Handshake.png')}
+                link={'/issues/more/stories-opinions/county-in-five-years-part-one'}
+                />
+            <br/>
+
             <NewsArticlePreview 
                 title={'Letter from the Chairman'}
                 picPath={require('../assets/images/icons/Pencil.png')}

@@ -57,6 +57,13 @@ export default class Tranportation extends Component {
         <h2 className="inline">Stories &amp; Opinions</h2>
         <p>How the county decisions affect real life people</p>
         <ArticlePreview 
+          title={'How to Do BRT Properly'}
+          picPath={require('../../../assets/images/icons/Rail.png')}
+          link={'/issues/infrastructure/stories-opinions/how-to-do-brt-properly'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
           title={'Did Silver Spring build enough housing to stay affordable? Sort of.'}
           picPath={require('../../../assets/images/icons/Housing.png')}
           link={'/issues/infrastructure/stories-opinions/silver-spring-housing'}

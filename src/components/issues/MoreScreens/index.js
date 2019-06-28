@@ -35,6 +35,36 @@ export default class More extends Component {
         <h2 className="inline">Stories &amp; Opinions</h2>
         <p>How the county decisions affect real life people</p>
         <ArticlePreview 
+          title={'Imagine Montgomery County in Five Years: Part Two'}
+          picPath={require('../../../assets/images/icons/Handshake.png')}
+          link={'/issues/more/stories-opinions/county-in-five-years-part-two'}
+          />
+        <br/>
+        <ArticlePreview 
+          title={'Imagine Montgomery County in Five Years: Part One'}
+          picPath={require('../../../assets/images/icons/Handshake.png')}
+          link={'/issues/more/stories-opinions/county-in-five-years-part-one'}
+          />
+        <br/>
+        <ArticlePreview 
+          title={'The Complexities of Child Care in a Nutshell'}
+          picPath={require('../../../assets/images/icons/Pencil.png')}
+          link={'/issues/more/stories-opinions/complexities-child-care-nutshell'}
+          />
+        <br/>
+        <ArticlePreview 
+          title={'MoCo’s Life Threatening Project Bust'}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/more/legislation/life-threatening-project-bust'}
+          />
+        <br/>
+        <ArticlePreview 
+          title={'Testifying with My Conscience: SB0489 Ballot Access, Voter Registration, Affiliating with a Party'}
+          picPath={require('../../../assets/images/icons/Pencil.png')}
+          link={'/issues/more/stories-opinions/testifying-my-conscience'}
+          />
+        <br/>
+        <ArticlePreview 
           title={'A Beginner’s Guide to the Montgomery County Budget'}
           picPath={require('../../../assets/images/icons/Math.png')}
           link={'/issues/more/stories-opinions/beginners-guide-to-budget'}
@@ -46,24 +76,9 @@ export default class More extends Component {
           link={'/issues/more/legislation/voting-bills'}
           />
         <br/>
-        <ArticlePreview 
-          title={'Testifying with My Conscience: SB0489 Ballot Access, Voter Registration, Affiliating with a Party'}
-          picPath={require('../../../assets/images/icons/Pencil.png')}
-          link={'/issues/more/stories-opinions/testifying-my-conscience'}
-          />
-        <br/>
-        <ArticlePreview 
-          title={'MoCo’s Life Threatening Project Bust'}
-          picPath={require('../../../assets/images/icons/Growth.png')}
-          link={'/issues/more/legislation/life-threatening-project-bust'}
-          />
-        <br/>
-        <ArticlePreview 
-          title={'The Complexities of Child Care in a Nutshell'}
-          picPath={require('../../../assets/images/icons/Pencil.png')}
-          link={'/issues/more/stories-opinions/complexities-child-care-nutshell'}
-          />
-        <br/>
+
+
+        
         <hr className="m-width"/>
         <br/>
 

@@ -34,6 +34,7 @@ import TrailsInNewHousing from "./components/issues/InfrastructureScreens/Facts/
 import RoadsClogged from "./components/issues/InfrastructureScreens/Facts/RoadsClogged";
 import TransportationProjects from "./components/issues/InfrastructureScreens/Facts/TransportationProjects";
 import SilverSpringHousing from "./components/issues/InfrastructureScreens/StoriesOpinions/SilverSpringHousing";
+import HowToDoBRTProperly from "./components/issues/InfrastructureScreens/StoriesOpinions/HowToDoBRTProperly";
 import ProposalsWorthConsideringI from "./components/issues/InfrastructureScreens/Solutions/ProposalsWorthConsidering";
 
 
@@ -42,8 +43,11 @@ import NewspapersDisappearing from "./components/issues/MoreScreens/Facts/Newspa
 import VotingBills from "./components/issues/MoreScreens/Legislation/VotingBills";
 import BeginnersGuideToBudget from "./components/issues/MoreScreens/StoriesOpinions/BeginnersGuideToBudget";
 import TestifyingMyConscience from "./components/issues/MoreScreens/StoriesOpinions/TestifyingMyConscience";
+import CountyInFiveYearsPartOne from "./components/issues/MoreScreens/StoriesOpinions/CountyInFiveYearsPartOne";
+import CountyInFiveYearsPartTwo from "./components/issues/MoreScreens/StoriesOpinions/CountyInFiveYearsPartTwo";
 import ComplexitiesChildCareNutshell from "./components/issues/MoreScreens/StoriesOpinions/ComplexitiesChildCareNutshell";
 import LifeThreateningProjectBust from "./components/issues/MoreScreens/StoriesOpinions/LifeThreateningProjectBust";
+
 import withTracker from './components/WithTracker';
 
 const Page404 = ({ location }) => (
@@ -94,11 +98,14 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/infrastructure/facts/roads-clogged" component={RoadsClogged} />
         <Route exact path="/issues/infrastructure/facts/transportation-projects" component={TransportationProjects} />
         <Route exact path="/issues/infrastructure/stories-opinions/silver-spring-housing" component={SilverSpringHousing} />
+        <Route exact path="/issues/infrastructure/stories-opinions/how-to-do-brt-properly" component={HowToDoBRTProperly} />
         <Route exact path="/issues/infrastructure/solutions/proposals-worth-considering" component={ProposalsWorthConsideringI} />
 
         <Route exact path="/issues/more" component={withTracker(More)} />
         <Route exact path="/issues/more/facts/newspapers-disappearing" component={NewspapersDisappearing} />
         <Route exact path="/issues/more/stories-opinions/beginners-guide-to-budget" component={BeginnersGuideToBudget} />
+        <Route exact path="/issues/more/stories-opinions/county-in-five-years-part-one" component={CountyInFiveYearsPartOne} />
+        <Route exact path="/issues/more/stories-opinions/county-in-five-years-part-two" component={CountyInFiveYearsPartTwo} />
         <Route exact path="/issues/more/stories-opinions/testifying-my-conscience" component={TestifyingMyConscience} />
         <Route exact path="/issues/more/stories-opinions/complexities-child-care-nutshell" component={ComplexitiesChildCareNutshell} />
         <Route exact path="/issues/more/legislation/voting-bills" component={VotingBills} />
