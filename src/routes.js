@@ -29,6 +29,7 @@ import GettingFairShareFromKirwan from "./components/issues/EducationScreens/Sto
 import DoBetterKirwanFunding from "./components/issues/EducationScreens/StoriesOpinions/DoBetterKirwanFunding";
 
 import Infrastructure from "./components/issues/InfrastructureScreens/index";
+import PotholePathos from "./components/issues/InfrastructureScreens/Facts/PotholePathos";
 import HousingConstruction from "./components/issues/InfrastructureScreens/Facts/HousingConstruction";
 import TrailsInNewHousing from "./components/issues/InfrastructureScreens/Facts/TrailsInNewHousing";
 import RoadsClogged from "./components/issues/InfrastructureScreens/Facts/RoadsClogged";
@@ -93,6 +94,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/education/stories-opinions/do-better-kirwan-funding" component={DoBetterKirwanFunding} />
 
         <Route exact path="/issues/infrastructure" component={withTracker(Infrastructure)} />
+        <Route exact path="/issues/infrastructure/facts/pothole-pathos" component={PotholePathos} />
         <Route exact path="/issues/infrastructure/facts/housing-construction" component={HousingConstruction} />
         <Route exact path="/issues/infrastructure/facts/trails-in-new-housing" component={TrailsInNewHousing} />
         <Route exact path="/issues/infrastructure/facts/roads-clogged" component={RoadsClogged} />
