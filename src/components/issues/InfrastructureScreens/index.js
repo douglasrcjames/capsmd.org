@@ -21,12 +21,6 @@ export default class Tranportation extends Component {
         <h2 className="inline">Facts</h2>
         <p>Information about where the county stands</p>
         <ArticlePreview 
-          title={'Pothole Pathos'}
-          picPath={require('../../../assets/images/icons/Car.png')}
-          link={'/issues/infrastructure/facts/pothole-pathos'}
-          />
-        <br/>
-        <ArticlePreview 
           title={"Montgomery County's Housing Construction Has Dropped Since the Recession"}
           picPath={require('../../../assets/images/icons/Housing Development.png')}
           link={'/issues/infrastructure/facts/housing-construction'}
@@ -62,6 +56,12 @@ export default class Tranportation extends Component {
 
         <h2 className="inline">Stories &amp; Opinions</h2>
         <p>How the county decisions affect real life people</p>
+        <ArticlePreview 
+          title={'Pothole Pathos'}
+          picPath={require('../../../assets/images/icons/Car.png')}
+          link={'/issues/infrastructure/stories-opinions/pothole-pathos'}
+          />
+        <br/>
         <ArticlePreview 
           title={'How to Do BRT Properly'}
           picPath={require('../../../assets/images/icons/Rail.png')}

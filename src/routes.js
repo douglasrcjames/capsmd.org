@@ -29,11 +29,11 @@ import GettingFairShareFromKirwan from "./components/issues/EducationScreens/Sto
 import DoBetterKirwanFunding from "./components/issues/EducationScreens/StoriesOpinions/DoBetterKirwanFunding";
 
 import Infrastructure from "./components/issues/InfrastructureScreens/index";
-import PotholePathos from "./components/issues/InfrastructureScreens/Facts/PotholePathos";
 import HousingConstruction from "./components/issues/InfrastructureScreens/Facts/HousingConstruction";
 import TrailsInNewHousing from "./components/issues/InfrastructureScreens/Facts/TrailsInNewHousing";
 import RoadsClogged from "./components/issues/InfrastructureScreens/Facts/RoadsClogged";
 import TransportationProjects from "./components/issues/InfrastructureScreens/Facts/TransportationProjects";
+import PotholePathos from "./components/issues/InfrastructureScreens/StoriesOpinions/PotholePathos";
 import SilverSpringHousing from "./components/issues/InfrastructureScreens/StoriesOpinions/SilverSpringHousing";
 import HowToDoBRTProperly from "./components/issues/InfrastructureScreens/StoriesOpinions/HowToDoBRTProperly";
 import ProposalsWorthConsideringI from "./components/issues/InfrastructureScreens/Solutions/ProposalsWorthConsidering";
@@ -94,11 +94,11 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/education/stories-opinions/do-better-kirwan-funding" component={DoBetterKirwanFunding} />
 
         <Route exact path="/issues/infrastructure" component={withTracker(Infrastructure)} />
-        <Route exact path="/issues/infrastructure/facts/pothole-pathos" component={PotholePathos} />
         <Route exact path="/issues/infrastructure/facts/housing-construction" component={HousingConstruction} />
         <Route exact path="/issues/infrastructure/facts/trails-in-new-housing" component={TrailsInNewHousing} />
         <Route exact path="/issues/infrastructure/facts/roads-clogged" component={RoadsClogged} />
         <Route exact path="/issues/infrastructure/facts/transportation-projects" component={TransportationProjects} />
+        <Route exact path="/issues/infrastructure/stories-opinions/pothole-pathos" component={PotholePathos} />
         <Route exact path="/issues/infrastructure/stories-opinions/silver-spring-housing" component={SilverSpringHousing} />
         <Route exact path="/issues/infrastructure/stories-opinions/how-to-do-brt-properly" component={HowToDoBRTProperly} />
         <Route exact path="/issues/infrastructure/solutions/proposals-worth-considering" component={ProposalsWorthConsideringI} />

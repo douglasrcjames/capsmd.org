@@ -4,7 +4,7 @@ export default class PotholePathos extends Component {
   render() {
     return (
       <div className="wrapper">
-        <h1>Montgomery County’s Roads are More Clogged Than Ever Before</h1>
+        <h1>Pothole Pathos</h1>
         <p>
           Driving along the Democracy Blvd exit off I- 270 yesterday, I was listening to an audible book. The story
           wasn’t good enough to distract my driving but it was compelling enough for me to miss the giant
