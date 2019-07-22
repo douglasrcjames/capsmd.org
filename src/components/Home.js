@@ -12,6 +12,12 @@ import NewsArticlePreview from './news/NewsArticlePreview'
 
 const sliderContent = [
     {
+        title: 'I-270 Expansion in Western Maryland',
+        button: 'Read Now',
+        link: '/issues/more/stories-opinions/I-270-Expansion-in-Western-Maryland',
+		image: require("../assets/images/carousel/high-way.jpg"),
+    },
+    {
         title: 'Imagine Montgomery County in Five Years: Part One',
         button: 'Read Now',
         link: '/issues/more/stories-opinions/county-in-five-years-part-one',
@@ -149,6 +155,13 @@ export default class Home extends Component {
         </div>
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
+            <NewsArticlePreview 
+                title={'I-270 Expansion in Western Maryland'}
+                picPath={require('../assets/images/icons/Car.png')}
+                link={'/issues/infrastructure/stories-opinions/I-270-Expansion-in-Western-Maryland'}
+                />
+            <br/>
+
             <NewsArticlePreview 
                 title={'Imagine Montgomery County in Five Years: Part Two'}
                 picPath={require('../assets/images/icons/Handshake.png')}

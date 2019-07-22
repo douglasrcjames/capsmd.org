@@ -57,6 +57,12 @@ export default class Tranportation extends Component {
         <h2 className="inline">Stories &amp; Opinions</h2>
         <p>How the county decisions affect real life people</p>
         <ArticlePreview 
+          title={'I-270 Expansion in Western Maryland'}
+          picPath={require('../../../assets/images/icons/Car.png')}
+          link={'/issues/infrastructure/stories-opinions/I-270-Expansion-in-Western-Maryland'}
+          />
+        <br/>
+        <ArticlePreview 
           title={'Pothole Pathos'}
           picPath={require('../../../assets/images/icons/Car.png')}
           link={'/issues/infrastructure/stories-opinions/pothole-pathos'}

@@ -33,6 +33,7 @@ import HousingConstruction from "./components/issues/InfrastructureScreens/Facts
 import TrailsInNewHousing from "./components/issues/InfrastructureScreens/Facts/TrailsInNewHousing";
 import RoadsClogged from "./components/issues/InfrastructureScreens/Facts/RoadsClogged";
 import TransportationProjects from "./components/issues/InfrastructureScreens/Facts/TransportationProjects";
+import I270ExpansioninWesternMaryland from "./components/issues/InfrastructureScreens/StoriesOpinions/I270ExpansioninWesternMaryland";
 import PotholePathos from "./components/issues/InfrastructureScreens/StoriesOpinions/PotholePathos";
 import SilverSpringHousing from "./components/issues/InfrastructureScreens/StoriesOpinions/SilverSpringHousing";
 import HowToDoBRTProperly from "./components/issues/InfrastructureScreens/StoriesOpinions/HowToDoBRTProperly";
@@ -98,6 +99,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/infrastructure/facts/trails-in-new-housing" component={TrailsInNewHousing} />
         <Route exact path="/issues/infrastructure/facts/roads-clogged" component={RoadsClogged} />
         <Route exact path="/issues/infrastructure/facts/transportation-projects" component={TransportationProjects} />
+        <Route exact path="/issues/infrastructure/stories-opinions/I-270-Expansion-in-Western-Maryland" component={I270ExpansioninWesternMaryland} />
         <Route exact path="/issues/infrastructure/stories-opinions/pothole-pathos" component={PotholePathos} />
         <Route exact path="/issues/infrastructure/stories-opinions/silver-spring-housing" component={SilverSpringHousing} />
         <Route exact path="/issues/infrastructure/stories-opinions/how-to-do-brt-properly" component={HowToDoBRTProperly} />
