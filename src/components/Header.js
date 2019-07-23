@@ -5,6 +5,24 @@ import { FaBars } from "react-icons/fa";
 import MediaQuery from "react-responsive";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      menuOpen: false
+    }
+  }
+  
+  handleStateChange (state) {
+    this.setState({menuOpen: state.isOpen})  
+  }
+
+  closeMenu() {
+    this.setState({menuOpen: false})
+  }
+
+  toggleMenu() {
+    this.setState(state => ({menuOpen: !state.menuOpen}))
+  }
   render() {
       return (
         <header className="header-padding">
@@ -95,12 +113,14 @@ class Header extends Component {
             {/* Mobile */}
             <MediaQuery maxWidth={750}>
             <Menu
-                customBurgerIcon={<FaBars color="#003da5" />}
+                customBurgerIcon={<FaBars color="#003da5" onClick={() => this.toggleMenu()} />}
                 right
                 width="50%"
+                isOpen={this.state.menuOpen}
+                onStateChange={(state) => this.handleStateChange(state)}
                 // Why is the slider yellow button a higher z value than this??
               >
-                <NavLink id="home" className="menu-item" to="/">
+                <NavLink id="home" className="menu-item" to="/" onClick={() => this.closeMenu()}>
                     Home
                 </NavLink>
                 <div className="side-dropdown">
@@ -110,36 +130,40 @@ class Header extends Component {
                     <NavLink 
                         id="economic-development"
                         to="/issues/economic-development" 
-                        className="menu-item">
+                        className="menu-item"
+                        onClick={() => this.closeMenu()}>
                         Economic Development
                     </NavLink>
                     <NavLink 
                         id="education"
                         to="/issues/education" 
-                        className="menu-item">
+                        className="menu-item"
+                        onClick={() => this.closeMenu()}>
                         Education
                     </NavLink>
                     <NavLink 
                         id="infrastructure"
                         to="/issues/infrastructure" 
-                        className="menu-item">
+                        className="menu-item"
+                        onClick={() => this.closeMenu()}>
                         Infrastructure
                     </NavLink>
                     <NavLink 
                         id="more"
                         to="/issues/more" 
-                        className="menu-item">
+                        className="menu-item"
+                        onClick={() => this.closeMenu()}>
                         More
                     </NavLink>
                   </div>
                 </div>
-                <NavLink id="news" className="menu-item" to="/news">
+                <NavLink id="news" className="menu-item" to="/news" onClick={() => this.closeMenu()}>
                     News
                 </NavLink>
-                <NavLink id="about-us" className="menu-item" to="/about-us">
+                <NavLink id="about-us" className="menu-item" to="/about-us" onClick={() => this.closeMenu()}>
                     About Us
                 </NavLink>
-                <NavLink id="contact-us" className="menu-item" to="/contact-us">
+                <NavLink id="contact-us" className="menu-item" to="/contact-us" onClick={() => this.closeMenu()}>
                     Contact Us
                 </NavLink>
               </Menu>
