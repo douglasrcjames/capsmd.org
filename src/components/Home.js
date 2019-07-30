@@ -14,7 +14,7 @@ const sliderContent = [
     {
         title: 'I-270 Expansion in Western Maryland',
         button: 'Read Now',
-        link: '/issues/more/stories-opinions/I-270-Expansion-in-Western-Maryland',
+        link: '/issues/infrastructure/stories-opinions/I-270-Expansion-in-Western-Maryland',
 		image: require("../assets/images/carousel/high-way.jpg"),
     },
     {

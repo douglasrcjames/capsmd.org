@@ -262,6 +262,7 @@ export default class I270ExpansioninWesternMaryland extends Component {
                 infrastructure, including our roads. We’re seeing more landslides closing roads.
                 We’re looking at a high probability this is just going to get worse.”
                 </p>
+                <u className="blue">Written by Dr. Eric Schwartz</u>
             </div>
         )
     }
