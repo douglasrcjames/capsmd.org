@@ -20,6 +20,7 @@ import LosingTaxpayerIncome from "./components/issues/EconomicDevelopmentScreens
 import SlowGrowthBudget from "./components/issues/EconomicDevelopmentScreens/Facts/SlowGrowthBudget";
 import NotInvestingInSchools from "./components/issues/EconomicDevelopmentScreens/Facts/NotInvestingInSchools";
 import ProposalsWorthConsideringE from "./components/issues/EconomicDevelopmentScreens/Solutions/ProposalsWorthConsidering";
+import HowisMoCoDoingJobsData2018 from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/HowisMoCoDoingJobsData2018";
 
 import Education from "./components/issues/EducationScreens/index";
 import PerPupilFunding from "./components/issues/EducationScreens/Facts/PerPupilFunding";
@@ -86,6 +87,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/economic-development/facts/slow-growth-budget" component={SlowGrowthBudget} />
         <Route exact path="/issues/economic-development/facts/not-investing-in-schools" component={NotInvestingInSchools} />
         <Route exact path="/issues/economic-development/solutions/proposals-worth-considering" component={ProposalsWorthConsideringED} />
+        <Route exact path="/issues/economic-development/solutions/how-is-moco-doing-jobs-data-2018" component={HowisMoCoDoingJobsData2018} />
 
         <Route exact path="/issues/education" component={withTracker(Education)} />
         <Route exact path="/issues/education/facts/per-pupil-funding" component={PerPupilFunding} />

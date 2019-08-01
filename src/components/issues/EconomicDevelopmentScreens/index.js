@@ -68,14 +68,20 @@ export default class EconomicDevelopment extends Component {
         link={'/issues/economic-development/facts/not-investing-in-schools'}
         date={''}
         />
-
+{/* 
       <br/>
       <hr className="m-width"/>
       <br/>
 
       <h2 className="inline">Stories &amp; Opinions</h2>
       <p>How the county decisions affect real life people</p>
-      <div className="blue">No articles yet, stay tuned!</div>
+      <ArticlePreview 
+        title={'How is MoCo Doing? Preliminary Jobs Data for 2018'}
+        picPath={require('../../../assets/images/icons/Briefcase.png')}
+        link={'/issues/economic-development/solutions/how-is-moco-doing-jobs-data-2018'}
+        date={''}
+        />
+      <br/> */}
 
       <br/>
       <hr className="m-width"/>

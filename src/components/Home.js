@@ -11,6 +11,12 @@ import NewsArticlePreview from './news/NewsArticlePreview'
 
 
 const sliderContent = [
+    // {
+    //     title: 'How is MoCo Doing? Preliminary Jobs Data for 2018',
+    //     button: 'Read Now',
+    //     link: '/issues/economic-development/solutions/how-is-moco-doing-jobs-data-2018',
+	// 	image: require("../assets/images/carousel/finger-paper-graphs.jpg"),
+    // },
     {
         title: 'I-270 Expansion in Western Maryland',
         button: 'Read Now',
