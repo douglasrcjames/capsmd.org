@@ -68,7 +68,6 @@ export default class EconomicDevelopment extends Component {
         link={'/issues/economic-development/facts/not-investing-in-schools'}
         date={''}
         />
-{/* 
       <br/>
       <hr className="m-width"/>
       <br/>
@@ -81,7 +80,7 @@ export default class EconomicDevelopment extends Component {
         link={'/issues/economic-development/solutions/how-is-moco-doing-jobs-data-2018'}
         date={''}
         />
-      <br/> */}
+      <br/>
 
       <br/>
       <hr className="m-width"/>
