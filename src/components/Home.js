@@ -41,42 +41,6 @@ const sliderContent = [
         link: '/issues/more/stories-opinions/complexities-child-care-nutshell',
 		image: require("../assets/images/carousel/baby-toys.jpg"),
     },
-    {
-		title: `Letter from the  Chairman`,
-        button: 'Read Now',
-        link: '/news/letter-from-chairman',
-        image: require("../assets/images/carousel/man-writing.jpg")
-    },
-	{
-		title: `Beginners Guide to the Budget`,
-        button: 'Read Now',
-        link: '/issues/more/stories-opinions/beginners-guide-to-budget',
-        image:  require("../assets/images/carousel/budget-table.jpg")
-    },
-	{
-		title: 'CAPS Launches Student Incubator',
-        button: 'Read Now',
-        link: '/news/business-incubator',
-		image:  require("../assets/images/carousel/chairs-classroom.jpg")
-    },
-    {
-		title: 'CAPS Launches Inaugural Study',
-        button: 'Read Now',
-        link: '/news/inaugural-study',
-		image:  require("../assets/images/carousel/people-brainstorming.jpg")
-	},
-	{
-        title: 'Did Silver Spring build enough housing to stay affordable? Sort of.',
-        button: 'Read Now',
-        link: '/issues/infrastructure/stories-opinions/silver-spring-housing',
-		image:  require("../assets/images/carousel/side-view-car.jpg")
-    },
-    {
-        title: 'David Blair Testifies in Annapolis',
-        button: 'Read Now',
-        link: '/issues/more/stories-opinions/testifying-my-conscience',
-		image: require("../assets/images/carousel/gavel-court.jpg"),
-    },
     
 ];
 
