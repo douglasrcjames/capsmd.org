@@ -75,9 +75,16 @@ export default class EconomicDevelopment extends Component {
       <h2 className="inline">Stories &amp; Opinions</h2>
       <p>How the county decisions affect real life people</p>
       <ArticlePreview 
+        title={'How Did the County Spend Your Money This Year?'}
+        picPath={require('../../../assets/images/icons/Budget.png')}
+        link={'/issues/economic-development/stories-opinions/how-did-the-county-spend-your-money-this-year'}
+        date={'August 18, 2019'}
+        />
+      <br/>
+      <ArticlePreview 
         title={'How is MoCo Doing? Preliminary Jobs Data for 2018'}
         picPath={require('../../../assets/images/icons/Briefcase.png')}
-        link={'/issues/economic-development/solutions/how-is-moco-doing-jobs-data-2018'}
+        link={'/issues/economic-development/stories-opinions/how-is-moco-doing-jobs-data-2018'}
         date={''}
         />
       <br/>

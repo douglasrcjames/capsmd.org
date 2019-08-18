@@ -117,7 +117,15 @@ Yellow: #FFD54C
     color: rgb(252, 36, 36) !important;
   }
   .green {
-    color: rgb(19, 204, 13) !important;
+    color: rgb(11, 138, 7) !important;
+  }
+  .purple {
+    color: rgb(123, 3, 128) !important;
+  }
+
+  .remove-pipe-spacing {
+    padding: 0px !important;
+    margin: 0px !important;
   }
   
   .background-blue {

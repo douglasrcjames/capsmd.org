@@ -12,9 +12,15 @@ import NewsArticlePreview from './news/NewsArticlePreview'
 
 const sliderContent = [
     {
+        title: 'How Did the County Spend Your Money This Year?',
+        button: 'Read Now',
+        link: '/issues/economic-development/stories-opinions/how-did-the-county-spend-your-money-this-year',
+		image: require("../assets/images/carousel/accounting-budget.jpg"),
+    },
+    {
         title: 'How is MoCo Doing? Preliminary Jobs Data for 2018',
         button: 'Read Now',
-        link: '/issues/economic-development/solutions/how-is-moco-doing-jobs-data-2018',
+        link: '/issues/economic-development/stories-opinions/how-is-moco-doing-jobs-data-2018',
 		image: require("../assets/images/carousel/finger-paper-graphs.jpg"),
     },
     {
@@ -125,6 +131,14 @@ export default class Home extends Component {
         </div>
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
+            <NewsArticlePreview 
+                title={'How Did the County Spend Your Money This Year?'}
+                picPath={require('../assets/images/icons/Budget.png')}
+                link={'/issues/economic-development/stories-opinions/how-did-the-county-spend-your-money-this-year'}
+                date={'August 18, 2019'}
+                />
+            <br/>
+
             <NewsArticlePreview 
                 title={'I-270 Expansion in Western Maryland'}
                 picPath={require('../assets/images/icons/Car.png')}
