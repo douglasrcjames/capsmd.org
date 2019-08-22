@@ -174,138 +174,140 @@ export default class HowisMoCoDoingJobsData2018 extends Component {
                 <div className="l-container">
                     <h2>Total Employment</h2>
                     <p>Source: U.S. Bureau of Labor Statistics.</p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Jurisdiction</th>
-                                <th>State</th>
-                                <th>2017</th>
-                                <th>2018 (Prelim.)</th>
-                                <th>Change</th>
-                                <th>'17-'18 (% Change)</th>
-                                <th>'10-'17 (Avg % Change)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Loudoun</td>
-                                <td>VA</td>
-                                <td>164,537</td>
-                                <td>169,155</td>
-                                <td>4,618</td>
-                                <td>2.8%</td>
-                                <td>1.4%</td>
-                            </tr> 
-                            <tr>
-                                <td>Prince William</td>
-                                <td>VA</td>
-                                <td>127,892</td>
-                                <td>130,324</td>
-                                <td>2,432</td>
-                                <td>1.9%</td>
-                                <td>1.2%</td>
-                            </tr> 
-                            <tr>
-                                <td>Fairfax County</td>
-                                <td>VA</td>
-                                <td>601,868</td>
-                                <td>612,449</td>
-                                <td>10,581</td>
-                                <td>1.8%</td>
-                                <td className="red">0.7%</td>
-                            </tr> 
-                            <tr>
-                                <td>Frederick</td>
-                                <td>MD</td>
-                                <td>100,627</td>
-                                <td>102,090</td>
-                                <td>1,463</td>
-                                <td>1.5%</td>
-                                <td>0.6%</td>
-                            </tr> 
-                            <tr>
-                                <td>District of Columbia</td>
-                                <td>DC</td>
-                                <td>763,847</td>
-                                <td>771,322</td>
-                                <td>7,475</td>
-                                <td>1.0%</td>
-                                <td>-0.6%</td>
-                            </tr> 
-                            <tr>
-                                <td>Arlington</td>
-                                <td>VA</td>
-                                <td>176,659</td>
-                                <td>178,165</td>
-                                <td>1,506</td>
-                                <td>0.9%</td>
-                                <td>1.4%</td>
-                            </tr> 
-                            <tr>
-                                <td className="red">Montgomery</td>
-                                <td className="red">MD</td>
-                                <td className="red">469,311</td>
-                                <td className="red">471,432</td>
-                                <td className="red">2,121</td>
-                                <td className="red">0.5%</td>
-                                <td>0.7%</td>
-                            </tr> 
-                            <tr>
-                                <td>Prince George's</td>
-                                <td>MD</td>
-                                <td>318,943</td>
-                                <td>320,279</td>
-                                <td>1,336</td>
-                                <td>0.4%</td>
-                                <td>3.0%</td>
-                            </tr> 
-                            <tr>
-                                <td>Alexandria City</td>
-                                <td>VA</td>
-                                <td>164,537</td>
-                                <td>169155</td>
-                                <td>4,618</td>
-                                <td>2.8%</td>
-                                <td>1.4%</td>
-                            </tr> 
-                            <tr>
-                                <td>Loudoun</td>
-                                <td>VA</td>
-                                <td>93,774</td>
-                                <td>91,909</td>
-                                <td>(1,865)</td>
-                                <td>-2.0%</td>
-                                <td>2.9%</td>
-                            </tr> 
-                            <tr>
-                                <td className="red">Total D.C. Area</td>
-                                <td></td>
-                                <td className="red">3,115,388</td>
-                                <td className="red">3,146,565</td>
-                                <td className="red">31,177</td>
-                                <td className="red">1.0%</td>
-                                <td className="red">1.1%</td>
-                            </tr> 
-                            {/* <tr>
-                                <td>D.C.</td>
-                                <td></td>
-                                <td>164,537</td>
-                                <td>169,155</td>
-                                <td>4,618</td>
-                                <td>2.8%</td>
-                                <td>1.4%</td>
-                            </tr> 
-                            <tr>
-                                <td>Loudoun</td>
-                                <td>VA</td>
-                                <td>164,537</td>
-                                <td>169155</td>
-                                <td>4,618</td>
-                                <td>2.8%</td>
-                                <td>1.4%</td>
-                            </tr>  */}
-                        </tbody>
-                    </table>
+                    <div className="overflow-div">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Jurisdiction</th>
+                                    <th>State</th>
+                                    <th>2017</th>
+                                    <th>2018 (Prelim.)</th>
+                                    <th>Change</th>
+                                    <th>'17-'18 (% Change)</th>
+                                    <th>'10-'17 (Avg % Change)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Loudoun</td>
+                                    <td>VA</td>
+                                    <td>164,537</td>
+                                    <td>169,155</td>
+                                    <td>4,618</td>
+                                    <td>2.8%</td>
+                                    <td>1.4%</td>
+                                </tr> 
+                                <tr>
+                                    <td>Prince William</td>
+                                    <td>VA</td>
+                                    <td>127,892</td>
+                                    <td>130,324</td>
+                                    <td>2,432</td>
+                                    <td>1.9%</td>
+                                    <td>1.2%</td>
+                                </tr> 
+                                <tr>
+                                    <td>Fairfax County</td>
+                                    <td>VA</td>
+                                    <td>601,868</td>
+                                    <td>612,449</td>
+                                    <td>10,581</td>
+                                    <td>1.8%</td>
+                                    <td className="red">0.7%</td>
+                                </tr> 
+                                <tr>
+                                    <td>Frederick</td>
+                                    <td>MD</td>
+                                    <td>100,627</td>
+                                    <td>102,090</td>
+                                    <td>1,463</td>
+                                    <td>1.5%</td>
+                                    <td>0.6%</td>
+                                </tr> 
+                                <tr>
+                                    <td>District of Columbia</td>
+                                    <td>DC</td>
+                                    <td>763,847</td>
+                                    <td>771,322</td>
+                                    <td>7,475</td>
+                                    <td>1.0%</td>
+                                    <td>-0.6%</td>
+                                </tr> 
+                                <tr>
+                                    <td>Arlington</td>
+                                    <td>VA</td>
+                                    <td>176,659</td>
+                                    <td>178,165</td>
+                                    <td>1,506</td>
+                                    <td>0.9%</td>
+                                    <td>1.4%</td>
+                                </tr> 
+                                <tr>
+                                    <td className="red">Montgomery</td>
+                                    <td className="red">MD</td>
+                                    <td className="red">469,311</td>
+                                    <td className="red">471,432</td>
+                                    <td className="red">2,121</td>
+                                    <td className="red">0.5%</td>
+                                    <td>0.7%</td>
+                                </tr> 
+                                <tr>
+                                    <td>Prince George's</td>
+                                    <td>MD</td>
+                                    <td>318,943</td>
+                                    <td>320,279</td>
+                                    <td>1,336</td>
+                                    <td>0.4%</td>
+                                    <td>3.0%</td>
+                                </tr> 
+                                <tr>
+                                    <td>Alexandria City</td>
+                                    <td>VA</td>
+                                    <td>164,537</td>
+                                    <td>169155</td>
+                                    <td>4,618</td>
+                                    <td>2.8%</td>
+                                    <td>1.4%</td>
+                                </tr> 
+                                <tr>
+                                    <td>Loudoun</td>
+                                    <td>VA</td>
+                                    <td>93,774</td>
+                                    <td>91,909</td>
+                                    <td>(1,865)</td>
+                                    <td>-2.0%</td>
+                                    <td>2.9%</td>
+                                </tr> 
+                                <tr>
+                                    <td className="red">Total D.C. Area</td>
+                                    <td></td>
+                                    <td className="red">3,115,388</td>
+                                    <td className="red">3,146,565</td>
+                                    <td className="red">31,177</td>
+                                    <td className="red">1.0%</td>
+                                    <td className="red">1.1%</td>
+                                </tr> 
+                                {/* <tr>
+                                    <td>D.C.</td>
+                                    <td></td>
+                                    <td>164,537</td>
+                                    <td>169,155</td>
+                                    <td>4,618</td>
+                                    <td>2.8%</td>
+                                    <td>1.4%</td>
+                                </tr> 
+                                <tr>
+                                    <td>Loudoun</td>
+                                    <td>VA</td>
+                                    <td>164,537</td>
+                                    <td>169155</td>
+                                    <td>4,618</td>
+                                    <td>2.8%</td>
+                                    <td>1.4%</td>
+                                </tr>  */}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 
                 <p>
@@ -401,76 +403,79 @@ export default class HowisMoCoDoingJobsData2018 extends Component {
                     George’s Counties) were stagnant in both measures as a group.    
                 </p>     
                 <div className="l-container">
-                <h2>Comparative Growth Rates, 2018 vs 2010-17 Avg.</h2>
-                <p>Source: U.S. Bureau of Labor Statistics.</p>
-                <h3>Total Employment</h3>
-                <table>
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>2018</th>
-                                <th>2010-2017 (Avg.)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><b>Region</b></td>
-                                <td>1.0%</td>
-                                <td>1.1%</td>
-                            </tr> 
-                            <tr>
-                                <td>D.C.</td>
-                                <td>1.0%</td>
-                                <td>1.4%</td>
-                            </tr> 
-                            <tr>
-                                <td>Maryland</td>
-                                <td>0.3%</td>
-                                <td>0.7%</td>
-                            </tr> 
-                            <tr>
-                                <td>Virginia</td>
-                                <td>1.5%</td>
-                                <td>1.2%</td>
-                            </tr> 
-                        </tbody>
-                    </table>
-                <br/>
-                <h3>Establishments</h3>
-                <table>
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>2018</th>
-                                <th>2010-2017 (Avg.)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><b>Region</b></td>
-                                <td>0.4%</td>
-                                <td>1.3%</td>
-                            </tr> 
-                            <tr>
-                                <td>D.C.</td>
-                                <td>-0.4%</td>
-                                <td>2.0%</td>
-                            </tr> 
-                            <tr>
-                                <td>Maryland</td>
-                                <td>0.0%</td>
-                                <td>0.2%</td>
-                            </tr> 
-                            <tr>
-                                <td>Virginia</td>
-                                <td>1.0%</td>
-                                <td>1.8%</td>
-                            </tr> 
-                        </tbody>
-                    </table>
+                    <h2>Comparative Growth Rates, 2018 vs 2010-17 Avg.</h2>
+                    <p>Source: U.S. Bureau of Labor Statistics.</p>
+                    <h3>Total Employment</h3>
+                    <div className="overflow-div">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>2018</th>
+                                    <th>2010-2017 (Avg.)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Region</b></td>
+                                    <td>1.0%</td>
+                                    <td>1.1%</td>
+                                </tr> 
+                                <tr>
+                                    <td>D.C.</td>
+                                    <td>1.0%</td>
+                                    <td>1.4%</td>
+                                </tr> 
+                                <tr>
+                                    <td>Maryland</td>
+                                    <td>0.3%</td>
+                                    <td>0.7%</td>
+                                </tr> 
+                                <tr>
+                                    <td>Virginia</td>
+                                    <td>1.5%</td>
+                                    <td>1.2%</td>
+                                </tr> 
+                            </tbody>
+                        </table>
+                    </div>
+                    <br/>
+                    <h3>Establishments</h3>
+                    <div className="overflow-div">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>2018</th>
+                                    <th>2010-2017 (Avg.)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Region</b></td>
+                                    <td>0.4%</td>
+                                    <td>1.3%</td>
+                                </tr> 
+                                <tr>
+                                    <td>D.C.</td>
+                                    <td>-0.4%</td>
+                                    <td>2.0%</td>
+                                </tr> 
+                                <tr>
+                                    <td>Maryland</td>
+                                    <td>0.0%</td>
+                                    <td>0.2%</td>
+                                </tr> 
+                                <tr>
+                                    <td>Virginia</td>
+                                    <td>1.0%</td>
+                                    <td>1.8%</td>
+                                </tr> 
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                
-                
+
                 <p>
                     All of this comes with an important caveat: the 2018 data is preliminary. It can be revised more than
                     once before BLS releases final numbers. But if the general trends hold up, they show slight growth
