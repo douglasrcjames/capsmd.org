@@ -24,7 +24,7 @@ const initialFormState = {
 };
 
 
-class Contact extends Component {
+class ContactForm extends Component {
   constructor(props) {
     super(props);
     this.addMessage = this.addMessage.bind(this);
@@ -119,4 +119,4 @@ class Contact extends Component {
   }
 }
 
-export default Contact;
+export default ContactForm;
