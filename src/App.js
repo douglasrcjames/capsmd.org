@@ -14,6 +14,7 @@ import "./assets/css/CAPS.css";
 import "./assets/css/Buttons.css";
 import "./assets/css/Header.css";
 import "./assets/css/Footer.css";
+import "./assets/css/pdf.css";
 import 'react-toastify/dist/ReactToastify.css';
 
 

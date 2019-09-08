@@ -29,6 +29,7 @@ import PublicSchoolNeeds from "./components/issues/EducationScreens/Facts/Public
 import ProposalsWorthConsideringED from "./components/issues/EducationScreens/Solutions/ProposalsWorthConsidering";
 import GettingFairShareFromKirwan from "./components/issues/EducationScreens/StoriesOpinions/GettingFairShareFromKirwan";
 import DoBetterKirwanFunding from "./components/issues/EducationScreens/StoriesOpinions/DoBetterKirwanFunding";
+import AnExaminationResourceAllocationDemographicsCapacityUtilizationMontgomeryCountyPublicSchools from "./components/issues/EducationScreens/Facts/AnExaminationResourceAllocationDemographicsCapacityUtilizationMontgomeryCountyPublicSchools";
 
 import Infrastructure from "./components/issues/InfrastructureScreens/index";
 import HousingConstruction from "./components/issues/InfrastructureScreens/Facts/HousingConstruction";
@@ -51,6 +52,12 @@ import CountyInFiveYearsPartOne from "./components/issues/MoreScreens/StoriesOpi
 import CountyInFiveYearsPartTwo from "./components/issues/MoreScreens/StoriesOpinions/CountyInFiveYearsPartTwo";
 import ComplexitiesChildCareNutshell from "./components/issues/MoreScreens/StoriesOpinions/ComplexitiesChildCareNutshell";
 import LifeThreateningProjectBust from "./components/issues/MoreScreens/StoriesOpinions/LifeThreateningProjectBust";
+
+import ResidentReflections from "./components/issues/ResidentReflectionsScreens/index"
+import MoCoBoardEducationConsidersRedrawingSchoolLines from "./components/issues/ResidentReflectionsScreens/MoCoBoardEducationConsidersRedrawingSchoolLines"
+import DemandMentalHealthServicesExceedSupplyMoCoSchools from "./components/issues/ResidentReflectionsScreens/DemandMentalHealthServicesExceedSupplyMoCoSchools"
+import MCPSTheNumbersBeyond from "./components/issues/ResidentReflectionsScreens/MCPSTheNumbersBeyond"
+import LocalGovernmentHoldsKeyGunReform from "./components/issues/ResidentReflectionsScreens/LocalGovernmentHoldsKeyGunReform"
 
 import withTracker from './components/WithTracker';
 
@@ -97,6 +104,9 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/education/solutions/proposals-worth-considering" component={ProposalsWorthConsideringE} />
         <Route exact path="/issues/education/stories-opinions/getting-fair-share-from-kirwan" component={GettingFairShareFromKirwan} />
         <Route exact path="/issues/education/stories-opinions/do-better-kirwan-funding" component={DoBetterKirwanFunding} />
+        <Route exact 
+          path="/issues/education/stories-opinions/an-examination-resource-allocation-demographics-capacity-utilization-montgomery-county-public-schools" 
+          component={AnExaminationResourceAllocationDemographicsCapacityUtilizationMontgomeryCountyPublicSchools} />
 
         <Route exact path="/issues/infrastructure" component={withTracker(Infrastructure)} />
         <Route exact path="/issues/infrastructure/facts/housing-construction" component={HousingConstruction} />
@@ -108,6 +118,12 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/infrastructure/stories-opinions/silver-spring-housing" component={SilverSpringHousing} />
         <Route exact path="/issues/infrastructure/stories-opinions/how-to-do-brt-properly" component={HowToDoBRTProperly} />
         <Route exact path="/issues/infrastructure/solutions/proposals-worth-considering" component={ProposalsWorthConsideringI} />
+                
+        <Route exact path="/issues/resident-reflections" component={withTracker(ResidentReflections)} />
+        <Route exact path="/issues/resident-reflections/moco-board-education-considers-redrawing-school-lines" component={withTracker(MoCoBoardEducationConsidersRedrawingSchoolLines)} />
+        <Route exact path="/issues/resident-reflections/demand-mental-health-services-exceed-supply-moco-schools" component={withTracker(DemandMentalHealthServicesExceedSupplyMoCoSchools)} />
+        <Route exact path="/issues/resident-reflections/mcps-the-numbers-beyond" component={withTracker(MCPSTheNumbersBeyond)} />
+        <Route exact path="/issues/resident-reflections/local-government-holds-key-gun-reform" component={withTracker(LocalGovernmentHoldsKeyGunReform)} />
 
         <Route exact path="/issues/more" component={withTracker(More)} />
         <Route exact path="/issues/more/facts/newspapers-disappearing" component={NewspapersDisappearing} />

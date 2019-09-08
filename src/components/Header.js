@@ -64,6 +64,12 @@ class Header extends Component {
                           Infrastructure
                       </NavLink>
                       <NavLink 
+                          to="/issues/resident-reflections" 
+                          className="nav-link dropdown"
+                          activeClassName="nav-select">
+                          Resident Reflections
+                      </NavLink>
+                      <NavLink 
                           to="/issues/more" 
                           className="nav-link dropdown"
                           activeClassName="nav-select">

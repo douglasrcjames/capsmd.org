@@ -9,8 +9,37 @@ import '../assets/css/Slider.css';
 import Subscribe from './Subscribe';
 import NewsArticlePreview from './news/NewsArticlePreview'
 
-
 const sliderContent = [
+    {
+        title: 'An Examination of Resource Allocation, Demographics and Capacity Utilization in Montgomery County Public Schools',
+        button: 'Read Now',
+        link: '/issues/education/stories-opinions/an-examination-resource-allocation-demographics-capacity-utilization-montgomery-county-public-schools',
+		image: require("../assets/images/carousel/library-curved.jpg"),
+    },
+    {
+        title: 'Local Government Holds Key to Gun Reform',
+        button: 'Read Now',
+        link: '/issues/resident-reflections/local-government-holds-key-gun-reform',
+		image: require("../assets/images/carousel/group-protest.jpg"),
+    },
+    {
+        title: 'MCPS: The Numbers and Beyond',
+        button: 'Read Now',
+        link: '/issues/resident-reflections/mcps-the-numbers-beyond',
+		image: require("../assets/images/carousel/green-chalk-board.jpg"),
+    },
+    {
+        title: 'MoCo Board of Education Considers Redrawing School Lines',
+        button: 'Read Now',
+        link: '/issues/resident-reflections/demand-mental-health-services-exceed-supply-moco-schools',
+		image: require("../assets/images/carousel/fence-signs.jpg"),
+    },
+    {
+        title: 'MoCo Board of Education Considers Redrawing School Lines',
+        button: 'Read Now',
+        link: '/issues/resident-reflections/moco-board-education-considers-redrawing-school-lines',
+		image: require("../assets/images/carousel/woman-sign.jpg"),
+    },
     {
         title: 'How Did the County Spend Your Money This Year?',
         button: 'Read Now',
@@ -86,7 +115,7 @@ export default class Home extends Component {
             <h1>Explore the Issues</h1>
             <Grid fluid>
                 <Row>
-                    <Col xs={12} sm={6} md={3} className="center-text">
+                    <Col md className="center-text">
                         <img
                             className="center small"
                             alt="dollar"
@@ -96,7 +125,7 @@ export default class Home extends Component {
                         <p>Learn about jobs, business growth and other issues connected to growing the economy.</p>
                         <Link to="/issues/economic-development"><span className="m-text blue">Learn more</span></Link>
                     </Col>
-                    <Col xs={12} sm={6} md={3} className="center-text">
+                    <Col md className="center-text">
                         <img
                             className="center small"
                             alt="book"
@@ -106,7 +135,7 @@ export default class Home extends Component {
                         <p>Learn about issues concerning our public schools and more.</p>
                         <Link to="/issues/education"><span className="m-text blue">Learn more</span></Link>
                     </Col>
-                    <Col xs={12} sm={6} md={3} className="center-text">
+                    <Col md className="center-text">
                         <img
                             className="center small"
                             alt="building"
@@ -116,7 +145,18 @@ export default class Home extends Component {
                         <p>Learn about our infrastructure network, including roads, transit and more.</p>
                         <Link to="/issues/infrastructure"><span className="m-text blue">Learn more</span></Link>
                     </Col>
-                    <Col xs={12} sm={6} md={3} className="center-text">
+                    <Col md className="center-text">
+                        <img
+                            className="center small"
+                            alt="books"
+                            src={require("../assets/images/icons/bulb.png")}
+                            />
+                        <h4>Resident Reflections</h4>
+                        <p>Giving residents a platform to share challenges and solutions 
+                    that support community improvement</p>
+                        <Link to="/issues/resident-reflections"><span className="m-text blue">Learn more</span></Link>
+                    </Col>
+                    <Col md className="center-text">
                         <img
                             className="center small"
                             alt="books"
@@ -131,6 +171,43 @@ export default class Home extends Component {
         </div>
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
+            <NewsArticlePreview 
+                title={'An Examination of Resource Allocation, Demographics and Capacity Utilization in Montgomery County Public Schools'}
+                picPath={require('../assets/images/carousel/library-curved.jpg')}
+                link={'/issues/education/stories-opinions/an-examination-resource-allocation-demographics-capacity-utilization-montgomery-county-public-schools'}
+                date={''}
+                />
+            <br/>
+            <NewsArticlePreview 
+                    title={'Local Government Holds Key to Gun Reform'}
+                    picPath={require('../assets/images/carousel/group-protest.jpg')}
+                    link={'/issues/resident-reflections/local-government-holds-key-gun-reform'}
+                    date={'September 8, 2019'}
+                    />
+            <br/>
+
+            <NewsArticlePreview 
+                title={'MCPS: The Numbers and Beyond'}
+                picPath={require('../assets/images/carousel/green-chalk-board.jpg')}
+                link={'/issues/resident-reflections/mcps-the-numbers-beyond'}
+                date={'September 8, 2019'}
+                />
+            <br/>
+
+            <NewsArticlePreview 
+                title={'Demand for Mental Health Services Exceed Supply in MoCo Schools'}
+                picPath={require('../assets/images/carousel/fence-signs.jpg')}
+                link={'/issues/resident-reflections/demand-mental-health-services-exceed-supply-moco-schools'}
+                date={'September 8, 2019'}
+                />
+            <br/>
+            <NewsArticlePreview 
+                title={'MoCo Board of Education Considers Redrawing School Lines'}
+                picPath={require('../assets/images/carousel/woman-sign.jpg')}
+                link={'/issues/resident-reflections/moco-board-education-considers-redrawing-school-lines'}
+                date={'September 8, 2019'}
+                />
+            <br/>
             <NewsArticlePreview 
                 title={'How Did the County Spend Your Money This Year?'}
                 picPath={require('../assets/images/icons/Budget.png')}
