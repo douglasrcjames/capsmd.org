@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Background from '../../../assets/images/carousel/woman-sign.jpg';
 
-export default class MoCoBoardEducationConsidersRedrawingSchoolLines extends Component {
+export default class MoCoOverlooksDevelopmentsImpactEducation extends Component {
     render() {
         var topBgImageStyle = {
             width: "100%",
@@ -16,7 +16,7 @@ export default class MoCoBoardEducationConsidersRedrawingSchoolLines extends Com
             <div style ={ topBgImageStyle }></div>
             <div className="wrapper">
                 
-                <h1>MoCo Board of Education Considers Redrawing School Lines</h1>
+                <h1>Montgomery County Overlooks Development's Impact on Education</h1>
                 <span className="grey">September 8, 2019</span>
                 <p>
                     The Glenmont Shopping Center off Georgia Avenue in Silver Spring, MD, is a static battlefield under the

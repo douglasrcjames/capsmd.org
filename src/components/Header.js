@@ -155,6 +155,13 @@ class Header extends Component {
                         Infrastructure
                     </NavLink>
                     <NavLink 
+                        id="resident-reflections"
+                        to="/issues/resident-reflections" 
+                        className="menu-item"
+                        onClick={() => this.closeMenu()}>
+                        Resident Reflections
+                    </NavLink>
+                    <NavLink 
                         id="more"
                         to="/issues/more" 
                         className="menu-item"

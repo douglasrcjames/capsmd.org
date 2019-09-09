@@ -58,7 +58,7 @@ import ComplexitiesChildCareNutshell from "./components/issues/MoreScreens/Stori
 import LifeThreateningProjectBust from "./components/issues/MoreScreens/StoriesOpinions/LifeThreateningProjectBust";
 
 import ResidentReflections from "./components/issues/ResidentReflectionsScreens/index"
-import MoCoBoardEducationConsidersRedrawingSchoolLines from "./components/issues/ResidentReflectionsScreens/MoCoBoardEducationConsidersRedrawingSchoolLines"
+import MoCoOverlooksDevelopmentsImpactEducation from "./components/issues/ResidentReflectionsScreens/MoCoOverlooksDevelopmentsImpactEducation"
 import DemandMentalHealthServicesExceedSupplyMoCoSchools from "./components/issues/ResidentReflectionsScreens/DemandMentalHealthServicesExceedSupplyMoCoSchools"
 import MCPSTheNumbersBeyond from "./components/issues/ResidentReflectionsScreens/MCPSTheNumbersBeyond"
 import LocalGovernmentHoldsKeyGunReform from "./components/issues/ResidentReflectionsScreens/LocalGovernmentHoldsKeyGunReform"
@@ -129,7 +129,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/infrastructure/solutions/proposals-worth-considering" component={ProposalsWorthConsideringI} />
                 
         <Route exact path="/issues/resident-reflections" component={withTracker(ResidentReflections)} />
-        <Route exact path="/issues/resident-reflections/moco-board-education-considers-redrawing-school-lines" component={withTracker(MoCoBoardEducationConsidersRedrawingSchoolLines)} />
+        <Route exact path="/issues/resident-reflections/moco-overlooks-developments-impact-education" component={withTracker(MoCoOverlooksDevelopmentsImpactEducation)} />
         <Route exact path="/issues/resident-reflections/demand-mental-health-services-exceed-supply-moco-schools" component={withTracker(DemandMentalHealthServicesExceedSupplyMoCoSchools)} />
         <Route exact path="/issues/resident-reflections/mcps-the-numbers-beyond" component={withTracker(MCPSTheNumbersBeyond)} />
         <Route exact path="/issues/resident-reflections/local-government-holds-key-gun-reform" component={withTracker(LocalGovernmentHoldsKeyGunReform)} />

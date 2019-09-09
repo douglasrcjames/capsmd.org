@@ -49,7 +49,7 @@ export default class ResidentReflections extends Component {
                 <ArticlePreview 
                     title={'MoCo Board of Education Considers Redrawing School Lines'}
                     picPath={require('../../../assets/images/carousel/woman-sign.jpg')}
-                    link={'/issues/resident-reflections/moco-board-education-considers-redrawing-school-lines'}
+                    link={'/issues/resident-reflections/moco-overlooks-developments-impact-education'}
                     date={'September 8, 2019'}
                     />
                 <br/>
