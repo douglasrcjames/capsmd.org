@@ -3,6 +3,28 @@
     padding: 0;
   }
 
+  @media screen and (min-width: 701px) {
+    .preview-container {
+      background-color: #f8f8f8 !important;
+      margin: auto;
+      width: 70%;
+      padding: 1%;
+      overflow: auto;
+    }
+  }
+  
+
+  @media screen and (max-width: 700px) {
+    .preview-container {
+      background-color: #f8f8f8 !important;
+      margin: auto;
+      width: 70%;
+      padding: 1% 1% 5% 1%;
+      overflow: auto;
+    }
+  }
+
+
 /* For graphs */
 .customized-tooltip-content {
     background-color: rgba(255, 255, 255, 0.945);

@@ -7,13 +7,43 @@ import '../assets/css/SliderAnimations.css';
 import '../assets/css/Slider.css';
 
 import Subscribe from './Subscribe';
-import NewsArticlePreview from './news/NewsArticlePreview'
+import ArticlePreview from './issues/ArticlePreview'
 
 const sliderContent = [
     {
+        title: 'Finding 1: MCPS Distributes Staff Resources to Fight the Achievement Gap',
+        button: 'Read Now',
+        link: '/issues/education/facts/finding-1-mcps-distributes-staff-resources-fight-achievement-gap',
+		image: require("../assets/images/carousel/pencils-yellow.jpg"),
+    },
+    {
+        title: 'Finding 2: The Fiscal 2017 Property Tax Hike Did Not Bring Substantially More Resources to the Classroom',
+        button: 'Read Now',
+        link: '/issues/education/facts/finding-2-fiscal-2017-property-tax-hike-did-not-bring-substantially-more-resources-classroom',
+		image: require("../assets/images/carousel/money-bg.jpg"),
+    },
+    {
+        title: 'Finding 3: There Are Gigantic Demographic Gaps Between Students and Professional Staff',
+        button: 'Read Now',
+        link: '/issues/education/facts/finding-3-there-are-gigantic-demographic-gaps-between-students-professional-staff',
+		image: require("../assets/images/carousel/classroom-teacher.jpg"),
+    },
+    {
+        title: 'Finding 4: Boundary Shifts Can Play a Role in Solving Capacity Issues',
+        button: 'Read Now',
+        link: '/issues/education/facts/finding-4-boundary-shifts-can-play-role-solving-capacity-issues',
+		image: require("../assets/images/carousel/fence-grass-sky.jpg"),
+    },
+    {
+        title: 'Strong Schools Maryland',
+        button: 'Read Now',
+        link: '/issues/education/solutions/strong-schools-maryland',
+		image: require("../assets/images/carousel/strong-schools-maryland.jpg"),
+    },
+    {
         title: 'An Examination of Resource Allocation, Demographics and Capacity Utilization in Montgomery County Public Schools',
         button: 'Read Now',
-        link: '/issues/education/stories-opinions/an-examination-resource-allocation-demographics-capacity-utilization-montgomery-county-public-schools',
+        link: '/issues/education/facts/an-examination-resource-allocation-demographics-capacity-utilization-montgomery-county-public-schools',
 		image: require("../assets/images/carousel/library-curved.jpg"),
     },
     {
@@ -40,43 +70,6 @@ const sliderContent = [
         link: '/issues/resident-reflections/moco-board-education-considers-redrawing-school-lines',
 		image: require("../assets/images/carousel/woman-sign.jpg"),
     },
-    {
-        title: 'How Did the County Spend Your Money This Year?',
-        button: 'Read Now',
-        link: '/issues/economic-development/stories-opinions/how-did-the-county-spend-your-money-this-year',
-		image: require("../assets/images/carousel/accounting-budget.jpg"),
-    },
-    {
-        title: 'How is MoCo Doing? Preliminary Jobs Data for 2018',
-        button: 'Read Now',
-        link: '/issues/economic-development/stories-opinions/how-is-moco-doing-jobs-data-2018',
-		image: require("../assets/images/carousel/finger-paper-graphs.jpg"),
-    },
-    {
-        title: 'I-270 Expansion in Western Maryland',
-        button: 'Read Now',
-        link: '/issues/infrastructure/stories-opinions/I-270-Expansion-in-Western-Maryland',
-		image: require("../assets/images/carousel/high-way.jpg"),
-    },
-    {
-        title: 'Imagine Montgomery County in Five Years: Part One',
-        button: 'Read Now',
-        link: '/issues/more/stories-opinions/county-in-five-years-part-one',
-		image: require("../assets/images/carousel/street-cars.jpg"),
-    },
-    {
-        title: 'Imagine Montgomery County in Five Years: Part Two',
-        button: 'Read Now',
-        link: '/issues/more/stories-opinions/county-in-five-years-part-two',
-		image: require("../assets/images/carousel/street-cars.jpg"),
-    },
-    {
-        title: 'The Complexities of Child Care in a Nutshell',
-        button: 'Read Now',
-        link: '/issues/more/stories-opinions/complexities-child-care-nutshell',
-		image: require("../assets/images/carousel/baby-toys.jpg"),
-    },
-    
 ];
 
 export default class Home extends Component {
@@ -171,14 +164,49 @@ export default class Home extends Component {
         </div>
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
-            <NewsArticlePreview 
-                title={'An Examination of Resource Allocation, Demographics and Capacity Utilization in Montgomery County Public Schools'}
-                picPath={require('../assets/images/carousel/library-curved.jpg')}
-                link={'/issues/education/stories-opinions/an-examination-resource-allocation-demographics-capacity-utilization-montgomery-county-public-schools'}
-                date={''}
+            <ArticlePreview 
+                title={'Finding 1: MCPS Distributes Staff Resources to Fight the Achievement Gap'}
+                picPath={require('../assets/images/carousel/pencils-yellow.jpg')}
+                link={'/issues/education/facts/finding-1-mcps-distributes-staff-resources-fight-achievement-gap'}
+                date={'September 8, 2019'}
                 />
             <br/>
-            <NewsArticlePreview 
+            <ArticlePreview 
+                    title={'Finding 2: The Fiscal 2017 Property Tax Hike Did Not Bring Substantially More Resources to the Classroom'}
+                    picPath={require('../assets/images/carousel/money-bg.jpg')}
+                    link={'/issues/education/facts/finding-2-fiscal-2017-property-tax-hike-did-not-bring-substantially-more-resources-classroom'}
+                    date={'September 8, 2019'}
+                    />
+            <br/>
+            <ArticlePreview 
+                    title={'Finding 3: There Are Gigantic Demographic Gaps Between Students and Professional Staff'}
+                    picPath={require('../assets/images/carousel/classroom-teacher.jpg')}
+                    link={'/issues/education/facts/finding-3-there-are-gigantic-demographic-gaps-between-students-professional-staff'}
+                    date={'September 8, 2019'}
+                    />
+            <br/>
+            <ArticlePreview 
+                    title={'Finding 4: Boundary Shifts Can Play a Role in Solving Capacity Issues'}
+                    picPath={require('../assets/images/carousel/fence-grass-sky.jpg')}
+                    link={'/issues/education/facts/finding-4-boundary-shifts-can-play-role-solving-capacity-issues'}
+                    date={'September 8, 2019'}
+                    />
+            <br/>
+            <ArticlePreview 
+                title={'Strong Schools Maryland'}
+                picPath={require('../assets/images/carousel/strong-schools-maryland.jpg')}
+                link={'/issues/education/solutions/strong-schools-maryland'}
+                date={'September 8, 2019'}
+                />
+            <br/>
+            <ArticlePreview 
+                title={'An Examination of Resource Allocation, Demographics and Capacity Utilization in Montgomery County Public Schools'}
+                picPath={require('../assets/images/carousel/library-curved.jpg')}
+                link={'/issues/education/facts/an-examination-resource-allocation-demographics-capacity-utilization-montgomery-county-public-schools'}
+                date={'September 8, 2019'}
+                />
+            <br/>
+            <ArticlePreview 
                     title={'Local Government Holds Key to Gun Reform'}
                     picPath={require('../assets/images/carousel/group-protest.jpg')}
                     link={'/issues/resident-reflections/local-government-holds-key-gun-reform'}
@@ -186,7 +214,7 @@ export default class Home extends Component {
                     />
             <br/>
 
-            <NewsArticlePreview 
+            <ArticlePreview 
                 title={'MCPS: The Numbers and Beyond'}
                 picPath={require('../assets/images/carousel/green-chalk-board.jpg')}
                 link={'/issues/resident-reflections/mcps-the-numbers-beyond'}
@@ -194,69 +222,18 @@ export default class Home extends Component {
                 />
             <br/>
 
-            <NewsArticlePreview 
+            <ArticlePreview 
                 title={'Demand for Mental Health Services Exceed Supply in MoCo Schools'}
                 picPath={require('../assets/images/carousel/fence-signs.jpg')}
                 link={'/issues/resident-reflections/demand-mental-health-services-exceed-supply-moco-schools'}
                 date={'September 8, 2019'}
                 />
             <br/>
-            <NewsArticlePreview 
+            <ArticlePreview 
                 title={'MoCo Board of Education Considers Redrawing School Lines'}
                 picPath={require('../assets/images/carousel/woman-sign.jpg')}
                 link={'/issues/resident-reflections/moco-board-education-considers-redrawing-school-lines'}
                 date={'September 8, 2019'}
-                />
-            <br/>
-            <NewsArticlePreview 
-                title={'How Did the County Spend Your Money This Year?'}
-                picPath={require('../assets/images/icons/Budget.png')}
-                link={'/issues/economic-development/stories-opinions/how-did-the-county-spend-your-money-this-year'}
-                date={'August 18, 2019'}
-                />
-            <br/>
-
-            <NewsArticlePreview 
-                title={'I-270 Expansion in Western Maryland'}
-                picPath={require('../assets/images/icons/Car.png')}
-                link={'/issues/infrastructure/stories-opinions/I-270-Expansion-in-Western-Maryland'}
-                />
-            <br/>
-
-            <NewsArticlePreview 
-                title={'Imagine Montgomery County in Five Years: Part Two'}
-                picPath={require('../assets/images/icons/Handshake.png')}
-                link={'/issues/more/stories-opinions/county-in-five-years-part-two'}
-                />
-            <br/>
-
-            <NewsArticlePreview 
-                title={'Imagine Montgomery County in Five Years: Part One'}
-                picPath={require('../assets/images/icons/Handshake.png')}
-                link={'/issues/more/stories-opinions/county-in-five-years-part-one'}
-                />
-            <br/>
-
-            <NewsArticlePreview 
-                title={'Letter from the Chairman'}
-                picPath={require('../assets/images/icons/Pencil.png')}
-                link={'https://www.capsmd.org/news/letter-from-chairman'}
-                />
-            <br/>
-
-            <NewsArticlePreview 
-                title={'CAPS Announces: Business Incubator and Student Entrepreneur Cultivation Program'}
-                picPath={require('../assets/images/icons/Growth.png')}
-                link={'https://www.capsmd.org/news/business-incubator'}
-                date={'May 16, 2019'}
-                />
-            <br/>
-
-            <NewsArticlePreview 
-                title={'CAPS Launches Inaugural Study: Identifying Best Practices for Recruiting and Retaining Teachers of Color Within Public Schools'}
-                picPath={require('../assets/images/icons/Handshake.png')}
-                link={'https://www.capsmd.org/news/inaugural-study'}
-                date={'May 16, 2019'}
                 />
             <br/>
             

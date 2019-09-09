@@ -21,10 +21,38 @@ export default class Education extends Component {
         <h2 className="inline">Facts</h2>
         <p>Information about where the county stands</p>
         <ArticlePreview 
+                title={'Finding 1: MCPS Distributes Staff Resources to Fight the Achievement Gap'}
+                picPath={require('../../../assets/images/carousel/pencils-yellow.jpg')}
+                link={'/issues/education/facts/finding-1-mcps-distributes-staff-resources-fight-achievement-gap'}
+                date={'September 8, 2019'}
+                />
+        <br/>
+        <ArticlePreview 
+                title={'Finding 2: The Fiscal 2017 Property Tax Hike Did Not Bring Substantially More Resources to the Classroom'}
+                picPath={require('../../../assets/images/carousel/money-bg.jpg')}
+                link={'/issues/education/facts/finding-2-fiscal-2017-property-tax-hike-did-not-bring-substantially-more-resources-classroom'}
+                date={'September 8, 2019'}
+                />
+        <br/>
+        <ArticlePreview 
+                title={'Finding 3: There Are Gigantic Demographic Gaps Between Students and Professional Staff'}
+                picPath={require('../../../assets/images/carousel/classroom-teacher.jpg')}
+                link={'/issues/education/facts/finding-3-there-are-gigantic-demographic-gaps-between-students-professional-staff'}
+                date={'September 8, 2019'}
+                />
+        <br/>
+        <ArticlePreview 
+                title={'Finding 4: Boundary Shifts Can Play a Role in Solving Capacity Issues'}
+                picPath={require('../../../assets/images/carousel/fence-grass-sky.jpg')}
+                link={'/issues/education/facts/finding-4-boundary-shifts-can-play-role-solving-capacity-issues'}
+                date={'September 8, 2019'}
+                />
+        <br/>
+        <ArticlePreview 
           title={'An Examination of Resource Allocation, Demographics and Capacity Utilization in Montgomery County Public Schools'}
           picPath={require('../../../assets/images/carousel/library-curved.jpg')}
-          link={'/issues/education/stories-opinions/an-examination-resource-allocation-demographics-capacity-utilization-montgomery-county-public-schools'}
-          date={''}
+          link={'/issues/education/facts/an-examination-resource-allocation-demographics-capacity-utilization-montgomery-county-public-schools'}
+          date={'September 8, 2019'}
           />
         <br/>
         <ArticlePreview 
@@ -78,6 +106,13 @@ export default class Education extends Component {
 
         <h2 className="inline">Solutions</h2>
         <p>The county's challenges and some ideas to address them</p>
+        <ArticlePreview 
+          title={'Strong Schools Maryland'}
+          picPath={require('../../../assets/images/carousel/strong-schools-maryland.jpg')}
+          link={'/issues/education/solutions/strong-schools-maryland'}
+          date={'September 8, 2019'}
+          />
+        <br/>
         <ArticlePreview 
           title={'Proposals Worth Considering'}
           picPath={require('../../../assets/images/icons/Pencil.png')}
