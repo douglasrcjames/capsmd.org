@@ -14,7 +14,7 @@ export default class MoCoOverlooksDevelopmentsImpactEducation extends Component 
         return (
             <>
             <div style ={ topBgImageStyle }></div>
-            <div className="wrapper">
+            <div className="wrapper-w-img">
                 
                 <h1>Montgomery County Overlooks Development's Impact on Education</h1>
                 <span className="grey">September 8, 2019</span>

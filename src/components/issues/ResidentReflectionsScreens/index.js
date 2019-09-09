@@ -47,7 +47,7 @@ export default class ResidentReflections extends Component {
                 <br/>
 
                 <ArticlePreview 
-                    title={'MoCo Board of Education Considers Redrawing School Lines'}
+                    title={"Montgomery County Overlooks Development's Impact on Education"}
                     picPath={require('../../../assets/images/carousel/woman-sign.jpg')}
                     link={'/issues/resident-reflections/moco-overlooks-developments-impact-education'}
                     date={'September 8, 2019'}

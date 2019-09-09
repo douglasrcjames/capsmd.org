@@ -59,13 +59,13 @@ const sliderContent = [
 		image: require("../assets/images/carousel/green-chalk-board.jpg"),
     },
     {
-        title: 'MoCo Board of Education Considers Redrawing School Lines',
+        title: 'Demand for Mental Health Services Exceed Supply in MoCo Schools',
         button: 'Read Now',
         link: '/issues/resident-reflections/demand-mental-health-services-exceed-supply-moco-schools',
 		image: require("../assets/images/carousel/fence-signs.jpg"),
     },
     {
-        title: 'MoCo Board of Education Considers Redrawing School Lines',
+        title: "Montgomery County Overlooks Development's Impact on Education",
         button: 'Read Now',
         link: '/issues/resident-reflections/moco-overlooks-developments-impact-education',
 		image: require("../assets/images/carousel/woman-sign.jpg"),
@@ -230,7 +230,7 @@ export default class Home extends Component {
                 />
             <br/>
             <ArticlePreview 
-                title={'MoCo Board of Education Considers Redrawing School Lines'}
+                title={"Montgomery County Overlooks Development's Impact on Education"}
                 picPath={require('../assets/images/carousel/woman-sign.jpg')}
                 link={'/issues/resident-reflections/moco-overlooks-developments-impact-education'}
                 date={'September 8, 2019'}

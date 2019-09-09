@@ -14,7 +14,7 @@ export default class LocalGovernmentHoldsKeyGunReform extends Component {
         return (
             <>
             <div style ={ topBgImageStyle }></div>
-            <div className="wrapper">
+            <div className="wrapper-w-img">
                 
                 <h1>Local Government Holds Key to Gun Reform</h1>
                 <span className="grey">September 8, 2019</span>

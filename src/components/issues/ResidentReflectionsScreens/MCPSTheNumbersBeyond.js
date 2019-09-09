@@ -14,7 +14,7 @@ export default class MCPSTheNumbersBeyond extends Component {
         return (
             <>
             <div style ={ topBgImageStyle }></div>
-            <div className="wrapper">
+            <div className="wrapper-w-img">
                 
                 <h1>MCPS: The Numbers and Beyond</h1>
                 <span className="grey">September 8, 2019</span>

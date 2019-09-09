@@ -14,7 +14,7 @@ export default class DemandMentalHealthServicesExceedSupplyMoCoSchools extends C
         return (
             <>
             <div style ={ topBgImageStyle }></div>
-            <div className="wrapper">
+            <div className="wrapper-w-img">
                 
                 <h1>Demand for Mental Health Services Exceed Supply in MoCo Schools</h1>
                 <span className="grey">September 8, 2019</span>
