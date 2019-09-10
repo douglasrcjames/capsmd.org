@@ -11,6 +11,12 @@ import ArticlePreview from './issues/ArticlePreview'
 
 const sliderContent = [
     {
+        title: "Wait, I'm Undocumented?",
+        button: 'Read Now',
+        link: '/issues/resident-reflections/wait-im-undocumented',
+		image: require("../assets/images/carousel/dreamer-jacket.jpg"),
+    },
+    {
         title: 'Finding 1: MCPS Distributes Staff Resources to Fight the Achievement Gap',
         button: 'Read Now',
         link: '/issues/education/facts/finding-1-mcps-distributes-staff-resources-fight-achievement-gap',
@@ -164,6 +170,13 @@ export default class Home extends Component {
         </div>
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
+            <ArticlePreview 
+                title={"Wait, I'm Undocumented?"}
+                picPath={require('../assets/images/carousel/dreamer-jacket.jpg')}
+                link={'/issues/resident-reflections/wait-im-undocumented'}
+                date={'September 10, 2019'}
+                />
+            <br/>
             <ArticlePreview 
                 title={'Finding 1: MCPS Distributes Staff Resources to Fight the Achievement Gap'}
                 picPath={require('../assets/images/carousel/pencils-yellow.jpg')}

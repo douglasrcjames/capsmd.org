@@ -21,7 +21,13 @@ export default class ResidentReflections extends Component {
                 <br/>
                 <hr className="m-width"/>
                 <br/>
-
+                <ArticlePreview 
+                    title={"Wait, I'm Undocumented?"}
+                    picPath={require('../../../assets/images/carousel/dreamer-jacket.jpg')}
+                    link={'/issues/resident-reflections/wait-im-undocumented'}
+                    date={'September 10, 2019'}
+                    />
+                <br/>
                 <ArticlePreview 
                     title={'Local Government Holds Key to Gun Reform'}
                     picPath={require('../../../assets/images/carousel/group-protest.jpg')}
