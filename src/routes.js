@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
-
+import fire  from './config/Fire'
 import Home from "./components/Home";
 import UnderConstruction from "./components/UnderConstruction";
 import AboutUs from "./components/AboutUs";
@@ -64,6 +64,7 @@ import MCPSTheNumbersBeyond from "./components/issues/ResidentReflectionsScreens
 import LocalGovernmentHoldsKeyGunReform from "./components/issues/ResidentReflectionsScreens/LocalGovernmentHoldsKeyGunReform"
 import WaitImUndocumented from "./components/issues/ResidentReflectionsScreens/WaitImUndocumented"
 
+import Test from "./components/Test";
 import withTracker from './components/WithTracker';
 
 const Page404 = ({ location }) => (
@@ -76,8 +77,60 @@ const Page404 = ({ location }) => (
   </div>
 );
 
-export class Routes extends React.PureComponent {
+class Article extends React.Component {
   render() {
+    return (
+      <div className="pdf-container">
+          <iframe 
+              src={`${this.props.pdfUrl}/preview`} 
+              title={this.props.title}
+              frameBorder="0" 
+              height="800px" 
+              width="100%">
+              <p>
+                  This PDF could not be displayed, please download or view it 
+                  <a href={`${this.props.pdfUrl}`} >
+                      here.
+                  </a>
+              </p>
+          </iframe>
+      </div>
+    );
+  }
+}
+
+
+export class Routes extends React.PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = {
+      articles : []
+    }
+  }
+  
+  componentWillMount() {
+    fire.collection("articles").where("status", "==", "live").onSnapshot(snapshot => {
+      const pastArticles = []
+      snapshot.forEach(doc => {
+        pastArticles.push({
+              id: doc.id,
+              title: doc.data().title,
+              pdfUrl: doc.data().pdfUrl,
+              localUrl: doc.data().localUrl
+          })
+          console.log("Title: " + doc.data().title + " , id: " + doc.id)
+      })
+      this.setState({
+        articles: pastArticles
+      })
+      }, () => {
+          console.log("No articles!")
+      });
+      
+  }
+
+  render() {
+    console.log(this.state.articles);
     return (
       <Switch>
         <Route exact path="/" component={withTracker(Home)} />
@@ -145,7 +198,16 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/more/stories-opinions/complexities-child-care-nutshell" component={ComplexitiesChildCareNutshell} />
         <Route exact path="/issues/more/legislation/voting-bills" component={VotingBills} />
         <Route exact path="/issues/more/legislation/life-threatening-project-bust" component={LifeThreateningProjectBust} />
-        
+        {  
+          this.state.articles && (
+            this.state.articles.map((article, key) => {
+              console.log("article.localUrl: " + article.localUrl)
+              return (<Route key={article.id} exact path={article.localUrl} component={() => <Article pdfUrl={article.pdfUrl} />} />)
+            })  
+           )
+          
+        } 
+        <Route exact path="/test" component={withTracker(Test)} />
         <Route component={withTracker(Page404)} />
       </Switch>
     );
