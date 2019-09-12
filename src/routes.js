@@ -29,7 +29,7 @@ import PublicSchoolNeeds from "./components/issues/EducationScreens/Facts/Public
 import ProposalsWorthConsideringED from "./components/issues/EducationScreens/Solutions/ProposalsWorthConsidering";
 import GettingFairShareFromKirwan from "./components/issues/EducationScreens/StoriesOpinions/GettingFairShareFromKirwan";
 import DoBetterKirwanFunding from "./components/issues/EducationScreens/StoriesOpinions/DoBetterKirwanFunding";
-import StrongSchoolsMaryland from "./components/issues/EducationScreens/Solutions/StrongSchoolsMaryland";
+import HowKirwanBenefitsMontgomeryCounty from "./components/issues/EducationScreens/Solutions/HowKirwanBenefitsMontgomeryCounty";
 import AnExaminationResourceAllocationDemographicsCapacityUtilizationMontgomeryCountyPublicSchools from "./components/issues/EducationScreens/Facts/AnExaminationResourceAllocationDemographicsCapacityUtilizationMontgomeryCountyPublicSchools";
 import Finding1MCPSDistributesStaffResourcesFightAchievementGap from "./components/issues/EducationScreens/Facts/Finding1MCPSDistributesStaffResourcesFightAchievementGap";
 import Finding2Fiscal2017PropertyTaxHikeDidNotBringSubstantiallyMoreResourcesClassroom from "./components/issues/EducationScreens/Facts/Finding2Fiscal2017PropertyTaxHikeDidNotBringSubstantiallyMoreResourcesClassroom";
@@ -112,7 +112,7 @@ export class Routes extends React.PureComponent {
         <Route exact 
           path="/issues/education/facts/an-examination-resource-allocation-demographics-capacity-utilization-montgomery-county-public-schools" 
           component={AnExaminationResourceAllocationDemographicsCapacityUtilizationMontgomeryCountyPublicSchools} />
-        <Route exact path="/issues/education/solutions/strong-schools-maryland" component={StrongSchoolsMaryland} />
+        <Route exact path="/issues/education/solutions/how-kirwan-benefits-montgomery-county" component={HowKirwanBenefitsMontgomeryCounty} />
         <Route exact path="/issues/education/facts/finding-1-mcps-distributes-staff-resources-fight-achievement-gap" component={Finding1MCPSDistributesStaffResourcesFightAchievementGap} />
         <Route exact path="/issues/education/facts/finding-2-fiscal-2017-property-tax-hike-did-not-bring-substantially-more-resources-classroom" component={Finding2Fiscal2017PropertyTaxHikeDidNotBringSubstantiallyMoreResourcesClassroom} />
         <Route exact path="/issues/education/facts/finding-3-there-are-gigantic-demographic-gaps-between-students-professional-staff" component={Finding3ThereAreGiganticDemographicGapsBetweenStudentsProfessionalStaff} />

@@ -41,9 +41,9 @@ const sliderContent = [
 		image: require("../assets/images/carousel/fence-grass-sky.jpg"),
     },
     {
-        title: 'Strong Schools Maryland',
+        title: 'How Kirwan Benefits Montgomery County',
         button: 'Read Now',
-        link: '/issues/education/solutions/strong-schools-maryland',
+        link: '/issues/education/solutions/how-kirwan-benefits-montgomery-county',
 		image: require("../assets/images/carousel/strong-schools-maryland.jpg"),
     },
     {
@@ -206,9 +206,9 @@ export default class Home extends Component {
                     />
             <br/>
             <ArticlePreview 
-                title={'Strong Schools Maryland'}
+                title={'How Kirwan Benefits Montgomery County'}
                 picPath={require('../assets/images/carousel/strong-schools-maryland.jpg')}
-                link={'/issues/education/solutions/strong-schools-maryland'}
+                link={'/issues/education/solutions/how-kirwan-benefits-montgomery-county'}
                 date={'September 8, 2019'}
                 />
             <br/>

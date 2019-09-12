@@ -107,9 +107,9 @@ export default class Education extends Component {
         <h2 className="inline">Solutions</h2>
         <p>The county's challenges and some ideas to address them</p>
         <ArticlePreview 
-          title={'Strong Schools Maryland'}
+          title={'How Kirwan Benefits Montgomery County'}
           picPath={require('../../../assets/images/carousel/strong-schools-maryland.jpg')}
-          link={'/issues/education/solutions/strong-schools-maryland'}
+          link={'/issues/education/solutions/how-kirwan-benefits-montgomery-county'}
           date={'September 8, 2019'}
           />
         <br/>
