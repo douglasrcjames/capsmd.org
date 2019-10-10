@@ -11,6 +11,18 @@ import ArticlePreview from './issues/ArticlePreview'
 
 const sliderContent = [
     {
+        title: "CAPS x Freddy's",
+        button: 'Read Now',
+        link: '/issues/economic-development/stories-opinions/caps-x-lisa-payne',
+		image: require("../assets/images/carousel/lobster.jpg"),
+    },
+    {
+        title: "CAPS x LIA's",
+        button: 'Read Now',
+        link: '/issues/economic-development/stories-opinions/caps-x-lias',
+		image: require("../assets/images/carousel/geoffs.jpg"),
+    },
+    {
         title: "Wait, I'm Undocumented?",
         button: 'Read Now',
         link: '/issues/resident-reflections/wait-im-undocumented',
@@ -57,24 +69,6 @@ const sliderContent = [
         button: 'Read Now',
         link: '/issues/resident-reflections/local-government-holds-key-gun-reform',
 		image: require("../assets/images/carousel/group-protest.jpg"),
-    },
-    {
-        title: 'MCPS: The Numbers and Beyond',
-        button: 'Read Now',
-        link: '/issues/resident-reflections/mcps-the-numbers-beyond',
-		image: require("../assets/images/carousel/green-chalk-board.jpg"),
-    },
-    {
-        title: 'Demand for Mental Health Services Exceed Supply in MoCo Schools',
-        button: 'Read Now',
-        link: '/issues/resident-reflections/demand-mental-health-services-exceed-supply-moco-schools',
-		image: require("../assets/images/carousel/fence-signs.jpg"),
-    },
-    {
-        title: "Montgomery County Overlooks Development's Impact on Education",
-        button: 'Read Now',
-        link: '/issues/resident-reflections/moco-overlooks-developments-impact-education',
-		image: require("../assets/images/carousel/woman-sign.jpg"),
     },
 ];
 
@@ -147,6 +141,16 @@ export default class Home extends Component {
                     <Col md className="center-text">
                         <img
                             className="center small"
+                            alt="building"
+                            src={require("../assets/images/icons/bus.png")}
+                            />
+                        <h4>Governance</h4>
+                        <p>Learn about governance.</p>
+                        <Link to="/issues/governance"><span className="m-text blue">Learn more</span></Link>
+                    </Col>
+                    <Col md className="center-text">
+                        <img
+                            className="center small"
                             alt="books"
                             src={require("../assets/images/icons/bulb.png")}
                             />
@@ -170,6 +174,20 @@ export default class Home extends Component {
         </div>
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
+            <ArticlePreview 
+                title={"CAPS x Freddy's"}
+                picPath={require('../assets/images/carousel/lobster.jpg')}
+                link={'/issues/economic-development/stories-opinions/caps-x-lisa-payne'}
+                date={'October 9, 2019'}
+                />
+            <br/>
+            <ArticlePreview 
+                title={"CAPS x LIA's"}
+                picPath={require('../assets/images/carousel/geoffs.jpg')}
+                link={'/issues/economic-development/stories-opinions/caps-x-lias'}
+                date={'October 9, 2019'}
+                />
+            <br/>
             <ArticlePreview 
                 title={"Wait, I'm Undocumented?"}
                 picPath={require('../assets/images/carousel/dreamer-jacket.jpg')}
@@ -231,21 +249,6 @@ export default class Home extends Component {
                 title={'MCPS: The Numbers and Beyond'}
                 picPath={require('../assets/images/carousel/green-chalk-board.jpg')}
                 link={'/issues/resident-reflections/mcps-the-numbers-beyond'}
-                date={'September 8, 2019'}
-                />
-            <br/>
-
-            <ArticlePreview 
-                title={'Demand for Mental Health Services Exceed Supply in MoCo Schools'}
-                picPath={require('../assets/images/carousel/fence-signs.jpg')}
-                link={'/issues/resident-reflections/demand-mental-health-services-exceed-supply-moco-schools'}
-                date={'September 8, 2019'}
-                />
-            <br/>
-            <ArticlePreview 
-                title={"Montgomery County Overlooks Development's Impact on Education"}
-                picPath={require('../assets/images/carousel/woman-sign.jpg')}
-                link={'/issues/resident-reflections/moco-overlooks-developments-impact-education'}
                 date={'September 8, 2019'}
                 />
             <br/>

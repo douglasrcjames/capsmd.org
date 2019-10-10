@@ -22,6 +22,8 @@ import NotInvestingInSchools from "./components/issues/EconomicDevelopmentScreen
 import ProposalsWorthConsideringE from "./components/issues/EconomicDevelopmentScreens/Solutions/ProposalsWorthConsidering";
 import HowisMoCoDoingJobsData2018 from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/HowisMoCoDoingJobsData2018";
 import HowDidtheCountySpendYourMoneyThisYear from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/HowDidtheCountySpendYourMoneyThisYear";
+import CAPSxLIAS from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/CAPSxLIAS"
+import CAPSxLisaPayne from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/CAPSxLisaPayne";
 
 import Education from "./components/issues/EducationScreens/index";
 import PerPupilFunding from "./components/issues/EducationScreens/Facts/PerPupilFunding";
@@ -46,6 +48,9 @@ import PotholePathos from "./components/issues/InfrastructureScreens/StoriesOpin
 import SilverSpringHousing from "./components/issues/InfrastructureScreens/StoriesOpinions/SilverSpringHousing";
 import HowToDoBRTProperly from "./components/issues/InfrastructureScreens/StoriesOpinions/HowToDoBRTProperly";
 import ProposalsWorthConsideringI from "./components/issues/InfrastructureScreens/Solutions/ProposalsWorthConsidering";
+
+import Governance from "./components/issues/GovernanceScreens/index";
+import CrimeMaryland from "./components/issues/GovernanceScreens/Facts/CrimeMaryland";
 
 import More from "./components/issues/MoreScreens/index";
 import NewspapersDisappearing from "./components/issues/MoreScreens/Facts/NewspapersDisappearing";
@@ -102,6 +107,8 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/economic-development/solutions/proposals-worth-considering" component={ProposalsWorthConsideringED} />
         <Route exact path="/issues/economic-development/stories-opinions/how-is-moco-doing-jobs-data-2018" component={HowisMoCoDoingJobsData2018} />
         <Route exact path="/issues/economic-development/stories-opinions/how-did-the-county-spend-your-money-this-year" component={HowDidtheCountySpendYourMoneyThisYear} />
+        <Route exact path="/issues/economic-development/stories-opinions/caps-x-lias" component={CAPSxLIAS} />
+        <Route exact path="/issues/economic-development/stories-opinions/caps-x-lisa-payne" component={CAPSxLisaPayne} />
 
         <Route exact path="/issues/education" component={withTracker(Education)} />
         <Route exact path="/issues/education/facts/per-pupil-funding" component={PerPupilFunding} />
@@ -128,7 +135,10 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/infrastructure/stories-opinions/silver-spring-housing" component={SilverSpringHousing} />
         <Route exact path="/issues/infrastructure/stories-opinions/how-to-do-brt-properly" component={HowToDoBRTProperly} />
         <Route exact path="/issues/infrastructure/solutions/proposals-worth-considering" component={ProposalsWorthConsideringI} />
-                
+        
+        <Route exact path="/issues/governance" component={withTracker(Governance)} />
+        <Route exact path="/issues/governance/facts/crime-in-maryland" component={CrimeMaryland} />
+
         <Route exact path="/issues/resident-reflections" component={withTracker(ResidentReflections)} />
         <Route exact path="/issues/resident-reflections/moco-overlooks-developments-impact-education" component={withTracker(MoCoOverlooksDevelopmentsImpactEducation)} />
         <Route exact path="/issues/resident-reflections/demand-mental-health-services-exceed-supply-moco-schools" component={withTracker(DemandMentalHealthServicesExceedSupplyMoCoSchools)} />

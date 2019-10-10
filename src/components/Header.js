@@ -64,6 +64,12 @@ class Header extends Component {
                           Infrastructure
                       </NavLink>
                       <NavLink 
+                          to="/issues/governance" 
+                          className="nav-link dropdown"
+                          activeClassName="nav-select">
+                          Governance
+                      </NavLink>
+                      <NavLink 
                           to="/issues/resident-reflections" 
                           className="nav-link dropdown"
                           activeClassName="nav-select">
@@ -154,6 +160,14 @@ class Header extends Component {
                         onClick={() => this.closeMenu()}>
                         Infrastructure
                     </NavLink>
+                    <NavLink 
+                          id="governance"
+                          to="/issues/governance" 
+                          className="nav-link dropdown"
+                          activeClassName="nav-select"
+                          onClick={() => this.closeMenu()}>
+                          Governance
+                      </NavLink>
                     <NavLink 
                         id="resident-reflections"
                         to="/issues/resident-reflections" 

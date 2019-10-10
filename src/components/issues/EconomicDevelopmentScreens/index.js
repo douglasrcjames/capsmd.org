@@ -75,6 +75,20 @@ export default class EconomicDevelopment extends Component {
       <h2 className="inline">Stories &amp; Opinions</h2>
       <p>How the county decisions affect real life people</p>
       <ArticlePreview 
+          title={"CAPS x Freddy's"}
+          picPath={require('../../../assets/images/carousel/lobster.jpg')}
+          link={'/issues/economic-development/stories-opinions/caps-x-lisa-payne'}
+          date={'October 9, 2019'}
+          />
+      <br/>
+      <ArticlePreview 
+        title={"CAPS x LIA's"}
+        picPath={require('../../../assets/images/carousel/geoffs.jpg')}
+        link={'/issues/economic-development/stories-opinions/caps-x-lias'}
+        date={'October 9, 2019'}
+        />
+      <br/>
+      <ArticlePreview 
         title={'How Did the County Spend Your Money This Year?'}
         picPath={require('../../../assets/images/icons/Budget.png')}
         link={'/issues/economic-development/stories-opinions/how-did-the-county-spend-your-money-this-year'}
