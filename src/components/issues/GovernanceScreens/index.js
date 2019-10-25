@@ -27,6 +27,34 @@ export default class Governance extends Component {
           date={''}
           />
         <br/>
+        <ArticlePreview 
+          title={"Worcester County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/worcester-county-violent-and-property-crime'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Wicomico County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/wicomico-county-violent-and-property-crime'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Washington County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/washington-county-violent-and-property-crime'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Talbot County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/talbot-county-violent-and-property-crime'}
+          date={''}
+          />
+        <br/>
 
         {/* <br/>
         <hr className="m-width"/>

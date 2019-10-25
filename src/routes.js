@@ -51,6 +51,10 @@ import ProposalsWorthConsideringI from "./components/issues/InfrastructureScreen
 
 import Governance from "./components/issues/GovernanceScreens/index";
 import CrimeMaryland from "./components/issues/GovernanceScreens/Facts/CrimeMaryland";
+import WorcesterCountyViolentandPropertyCrime from "./components/issues/GovernanceScreens/Facts/WorcesterCountyViolentandPropertyCrime";
+import WicomicoCountyCountyViolentandPropertyCrime from "./components/issues/GovernanceScreens/Facts/WicomicoCountyCountyViolentandPropertyCrime";
+import WashingtonCountyViolentandPropertyCrime from "./components/issues/GovernanceScreens/Facts/WashingtonCountyViolentandPropertyCrime";
+import TalbotCountyViolentandPropertyCrime from "./components/issues/GovernanceScreens/Facts/TalbotCountyViolentandPropertyCrime";
 
 import More from "./components/issues/MoreScreens/index";
 import NewspapersDisappearing from "./components/issues/MoreScreens/Facts/NewspapersDisappearing";
@@ -138,6 +142,10 @@ export class Routes extends React.PureComponent {
         
         <Route exact path="/issues/governance" component={withTracker(Governance)} />
         <Route exact path="/issues/governance/facts/crime-in-maryland" component={CrimeMaryland} />
+        <Route exact path="/issues/governance/facts/worcester-county-violent-and-property-crime" component={WorcesterCountyViolentandPropertyCrime} />
+        <Route exact path="/issues/governance/facts/wicomico-county-violent-and-property-crime" component={WicomicoCountyCountyViolentandPropertyCrime} />
+        <Route exact path="/issues/governance/facts/washington-county-violent-and-property-crime" component={WashingtonCountyViolentandPropertyCrime} />
+        <Route exact path="/issues/governance/facts/talbot-county-violent-and-property-crime" component={TalbotCountyViolentandPropertyCrime} />
 
         <Route exact path="/issues/resident-reflections" component={withTracker(ResidentReflections)} />
         <Route exact path="/issues/resident-reflections/moco-overlooks-developments-impact-education" component={withTracker(MoCoOverlooksDevelopmentsImpactEducation)} />
