@@ -72,6 +72,7 @@ import DemandMentalHealthServicesExceedSupplyMoCoSchools from "./components/issu
 import MCPSTheNumbersBeyond from "./components/issues/ResidentReflectionsScreens/MCPSTheNumbersBeyond"
 import LocalGovernmentHoldsKeyGunReform from "./components/issues/ResidentReflectionsScreens/LocalGovernmentHoldsKeyGunReform"
 import WaitImUndocumented from "./components/issues/ResidentReflectionsScreens/WaitImUndocumented"
+import StartingSmallBusinessMoCo from "./components/issues/ResidentReflectionsScreens/StartingSmallBusinessMoCo"
 
 import withTracker from './components/WithTracker';
 
@@ -153,6 +154,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/resident-reflections/mcps-the-numbers-beyond" component={withTracker(MCPSTheNumbersBeyond)} />
         <Route exact path="/issues/resident-reflections/local-government-holds-key-gun-reform" component={withTracker(LocalGovernmentHoldsKeyGunReform)} />
         <Route exact path="/issues/resident-reflections/wait-im-undocumented" component={withTracker(WaitImUndocumented)} />
+        <Route exact path="/issues/resident-reflections/starting-small-business-in-montgomery-county" component={withTracker(StartingSmallBusinessMoCo)} />
 
         <Route exact path="/issues/more" component={withTracker(More)} />
         <Route exact path="/issues/more/facts/newspapers-disappearing" component={NewspapersDisappearing} />

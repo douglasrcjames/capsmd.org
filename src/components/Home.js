@@ -11,6 +11,12 @@ import ArticlePreview from './issues/ArticlePreview'
 
 const sliderContent = [
     {
+        title: "Starting a Small Business in Montgomery County",
+        button: 'Read Now',
+        link: '/issues/resident-reflections/starting-small-business-in-montgomery-county',
+		image: require("../assets/images/carousel/dressing.jpg"),
+    },
+    {
         title: "CAPS x Freddy's",
         button: 'Read Now',
         link: '/issues/economic-development/stories-opinions/caps-x-lisa-payne',
@@ -174,6 +180,13 @@ export default class Home extends Component {
         </div>
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
+            <ArticlePreview 
+                title={"Starting a Small Business in Montgomery County"}
+                picPath={require('../assets/images/carousel/dressing.jpg')}
+                link={'/issues/resident-reflections/starting-small-business-in-montgomery-county'}
+                date={'October 28, 2019'}
+                />
+            <br/>
             <ArticlePreview 
                 title={"CAPS x Freddy's"}
                 picPath={require('../assets/images/carousel/lobster.jpg')}
