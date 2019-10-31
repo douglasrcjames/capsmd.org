@@ -22,6 +22,13 @@ export default class ResidentReflections extends Component {
                 <hr className="m-width"/>
                 <br/>
                 <ArticlePreview 
+                    title={"CAPS X Badlands"}
+                    picPath={require('../../../assets/images/carousel/badlands.jpg')}
+                    link={'/issues/resident-reflections/caps-x-badlands'}
+                    date={'October 30, 2019'}
+                    />
+                <br/>
+                <ArticlePreview 
                     title={"Starting a Small Business in Montgomery County"}
                     picPath={require('../../../assets/images/carousel/dressing.jpg')}
                     link={'/issues/resident-reflections/starting-small-business-in-montgomery-county'}

@@ -75,6 +75,7 @@ import WaitImUndocumented from "./components/issues/ResidentReflectionsScreens/W
 import StartingSmallBusinessMoCo from "./components/issues/ResidentReflectionsScreens/StartingSmallBusinessMoCo"
 
 import withTracker from './components/WithTracker';
+import Badlands from "./components/issues/ResidentReflectionsScreens/Badlands";
 
 const Page404 = ({ location }) => (
   <div className="m-padding">
@@ -155,6 +156,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/resident-reflections/local-government-holds-key-gun-reform" component={withTracker(LocalGovernmentHoldsKeyGunReform)} />
         <Route exact path="/issues/resident-reflections/wait-im-undocumented" component={withTracker(WaitImUndocumented)} />
         <Route exact path="/issues/resident-reflections/starting-small-business-in-montgomery-county" component={withTracker(StartingSmallBusinessMoCo)} />
+        <Route exact path="/issues/resident-reflections/caps-x-badlands" component={withTracker(Badlands)} />
 
         <Route exact path="/issues/more" component={withTracker(More)} />
         <Route exact path="/issues/more/facts/newspapers-disappearing" component={NewspapersDisappearing} />
