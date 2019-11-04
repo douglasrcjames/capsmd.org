@@ -21,6 +21,13 @@ export default class EconomicDevelopment extends Component {
       <h2 className="inline">Facts</h2>
       <p>Information about where the county stands</p>
       <ArticlePreview 
+          title={"The Potomac Divide"}
+          picPath={require('../../../assets/images/carousel/brown-green-field.jpg')}
+          link={'/issues/economic-development/facts/potomac-divide'}
+          date={'October 30, 2019'}
+          />
+      <br/>
+      <ArticlePreview 
         title={'Montgomery County’s Job Market is Stagnant'}
         picPath={require('../../../assets/images/icons/Briefcase.png')}
         link={'/issues/economic-development/facts/job-market-stagnant'}

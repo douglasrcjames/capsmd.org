@@ -83,7 +83,7 @@ export default class Badlands extends Component {
                 <p>
                     Yet, support continues to dwindle for entrepreneurs in Montgomery County, where cuts in funding for the
                     <a 
-                        href="https://www.pewtrusts.org/en/research-and-analysis/blogs/stateline/2018/08/02/after-parkland-states-pass-50-new-gun-control-laws"
+                        href="https://bethesdamagazine.com/bethesda-beat/business/countys-tax-supported-business-incubators-are-bleeding-money/"
                         target="_blank"
                         rel="noopener noreferrer"
                         >
@@ -114,7 +114,7 @@ export default class Badlands extends Component {
                         target="_blank"
                         rel="noopener noreferrer"
                         >
-                        &nbsp;storefronts are empty &nbsp;
+                        &nbsp;storefronts are empty&nbsp;
                     </a>
                     and buildings are littered with lease signs.
                 </p>

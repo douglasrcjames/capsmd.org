@@ -11,6 +11,12 @@ import ArticlePreview from './issues/ArticlePreview'
 
 const sliderContent = [
     {
+        title: "The Potomac Divide",
+        button: 'Read Now',
+        link: '/issues/economic-development/facts/potomac-divide',
+        image: require("../assets/images/carousel/brown-green-field.jpg"),
+    },
+    {
         title: "CAPS X Badlands",
         button: 'Read Now',
         link: '/issues/resident-reflections/caps-x-badlands',
@@ -63,24 +69,6 @@ const sliderContent = [
         button: 'Read Now',
         link: '/issues/education/facts/finding-4-boundary-shifts-can-play-role-solving-capacity-issues',
 		image: require("../assets/images/carousel/fence-grass-sky.jpg"),
-    },
-    {
-        title: 'How Kirwan Benefits Montgomery County',
-        button: 'Read Now',
-        link: '/issues/education/solutions/how-kirwan-benefits-montgomery-county',
-		image: require("../assets/images/carousel/strong-schools-maryland.jpg"),
-    },
-    {
-        title: 'An Examination of Resource Allocation, Demographics and Capacity Utilization in Montgomery County Public Schools',
-        button: 'Read Now',
-        link: '/issues/education/facts/an-examination-resource-allocation-demographics-capacity-utilization-montgomery-county-public-schools',
-		image: require("../assets/images/carousel/library-curved.jpg"),
-    },
-    {
-        title: 'Local Government Holds Key to Gun Reform',
-        button: 'Read Now',
-        link: '/issues/resident-reflections/local-government-holds-key-gun-reform',
-		image: require("../assets/images/carousel/group-protest.jpg"),
     },
 ];
 
@@ -187,11 +175,18 @@ export default class Home extends Component {
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
             <ArticlePreview 
-                    title={"CAPS X Badlands"}
-                    picPath={require('../assets/images/carousel/badlands.jpg')}
-                    link={'/issues/resident-reflections/caps-x-badlands'}
-                    date={'October 30, 2019'}
-                    />
+                title={"The Potomac Divide"}
+                picPath={require('../assets/images/carousel/brown-green-field.jpg')}
+                link={'/issues/economic-development/facts/potomac-divide'}
+                date={'October 30, 2019'}
+                />
+            <br/>
+            <ArticlePreview 
+                title={"CAPS X Badlands"}
+                picPath={require('../assets/images/carousel/badlands.jpg')}
+                link={'/issues/resident-reflections/caps-x-badlands'}
+                date={'October 30, 2019'}
+                />
             <br/>
             <ArticlePreview 
                 title={"Starting a Small Business in Montgomery County"}

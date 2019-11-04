@@ -19,6 +19,18 @@ import InMigrantsMakeLess from "./components/issues/EconomicDevelopmentScreens/F
 import LosingTaxpayerIncome from "./components/issues/EconomicDevelopmentScreens/Facts/LosingTaxpayerIncome";
 import SlowGrowthBudget from "./components/issues/EconomicDevelopmentScreens/Facts/SlowGrowthBudget";
 import NotInvestingInSchools from "./components/issues/EconomicDevelopmentScreens/Facts/NotInvestingInSchools";
+import PotomacDivide from "./components/issues/EconomicDevelopmentScreens/Facts/PotomacDivide";
+import GovEmploymentGrowth from "./components/issues/EconomicDevelopmentScreens/Facts/GovEmploymentGrowth";
+import WagesSalariesPaidGrowth from "./components/issues/EconomicDevelopmentScreens/Facts/WagesSalariesPaidGrowth";
+import UnemploymentRate from "./components/issues/EconomicDevelopmentScreens/Facts/UnemploymentRate";
+import TotalEmploymentGrowth from "./components/issues/EconomicDevelopmentScreens/Facts/TotalEmploymentGrowth";
+import PrivateEmploymentGrowth from "./components/issues/EconomicDevelopmentScreens/Facts/PrivateEmploymentGrowth";
+import PopulationGrowth from "./components/issues/EconomicDevelopmentScreens/Facts/PopulationGrowth";
+import MeanHouseholdIncome from "./components/issues/EconomicDevelopmentScreens/Facts/MeanHouseholdIncome";
+import MeanHouseholdIncomeGrowth from "./components/issues/EconomicDevelopmentScreens/Facts/MeanHouseholdIncomeGrowth";
+import MeanCompPerJob from "./components/issues/EconomicDevelopmentScreens/Facts/MeanCompPerJob";
+import EstablishmentGrowth from "./components/issues/EconomicDevelopmentScreens/Facts/EstablishmentGrowth";
+import CompGrowth from "./components/issues/EconomicDevelopmentScreens/Facts/CompGrowth";
 import ProposalsWorthConsideringE from "./components/issues/EconomicDevelopmentScreens/Solutions/ProposalsWorthConsidering";
 import HowisMoCoDoingJobsData2018 from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/HowisMoCoDoingJobsData2018";
 import HowDidtheCountySpendYourMoneyThisYear from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/HowDidtheCountySpendYourMoneyThisYear";
@@ -43,6 +55,7 @@ import HousingConstruction from "./components/issues/InfrastructureScreens/Facts
 import TrailsInNewHousing from "./components/issues/InfrastructureScreens/Facts/TrailsInNewHousing";
 import RoadsClogged from "./components/issues/InfrastructureScreens/Facts/RoadsClogged";
 import TransportationProjects from "./components/issues/InfrastructureScreens/Facts/TransportationProjects";
+import HousingUnitsPermitted from "./components/issues/InfrastructureScreens/Facts/HousingUnitsPermitted";
 import I270ExpansioninWesternMaryland from "./components/issues/InfrastructureScreens/StoriesOpinions/I270ExpansioninWesternMaryland";
 import PotholePathos from "./components/issues/InfrastructureScreens/StoriesOpinions/PotholePathos";
 import SilverSpringHousing from "./components/issues/InfrastructureScreens/StoriesOpinions/SilverSpringHousing";
@@ -110,11 +123,24 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/economic-development/facts/losing-taxpayer-income" component={LosingTaxpayerIncome} />
         <Route exact path="/issues/economic-development/facts/slow-growth-budget" component={SlowGrowthBudget} />
         <Route exact path="/issues/economic-development/facts/not-investing-in-schools" component={NotInvestingInSchools} />
+        <Route exact path="/issues/economic-development/facts/potomac-divide" component={PotomacDivide} />
+        <Route exact path="/issues/economic-development/facts/potomac-divide/government-employment-growth" component={GovEmploymentGrowth} />
+        <Route exact path="/issues/economic-development/facts/potomac-divide/wages-salaries-paid-growth" component={WagesSalariesPaidGrowth} />
+        <Route exact path="/issues/economic-development/facts/potomac-divide/unemployment-rate" component={UnemploymentRate} />
+        <Route exact path="/issues/economic-development/facts/potomac-divide/total-employment-growth" component={TotalEmploymentGrowth} />
+        <Route exact path="/issues/economic-development/facts/potomac-divide/private-employment-growth" component={PrivateEmploymentGrowth} />
+        <Route exact path="/issues/economic-development/facts/potomac-divide/population-growth" component={PopulationGrowth} />
+        <Route exact path="/issues/economic-development/facts/potomac-divide/mean-household-income" component={MeanHouseholdIncome} />
+        <Route exact path="/issues/economic-development/facts/potomac-divide/mean-household-income-growth" component={MeanHouseholdIncomeGrowth} />
+        <Route exact path="/issues/economic-development/facts/potomac-divide/mean-compensation-per-job" component={MeanCompPerJob} />
+        <Route exact path="/issues/economic-development/facts/potomac-divide/establishment-growth" component={EstablishmentGrowth} />
+        <Route exact path="/issues/economic-development/facts/potomac-divide/compensation-growth" component={CompGrowth} />
         <Route exact path="/issues/economic-development/solutions/proposals-worth-considering" component={ProposalsWorthConsideringED} />
         <Route exact path="/issues/economic-development/stories-opinions/how-is-moco-doing-jobs-data-2018" component={HowisMoCoDoingJobsData2018} />
         <Route exact path="/issues/economic-development/stories-opinions/how-did-the-county-spend-your-money-this-year" component={HowDidtheCountySpendYourMoneyThisYear} />
         <Route exact path="/issues/economic-development/stories-opinions/caps-x-lias" component={CAPSxLIAS} />
         <Route exact path="/issues/economic-development/stories-opinions/caps-x-lisa-payne" component={CAPSxLisaPayne} />
+        
 
         <Route exact path="/issues/education" component={withTracker(Education)} />
         <Route exact path="/issues/education/facts/per-pupil-funding" component={PerPupilFunding} />
@@ -141,6 +167,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/infrastructure/stories-opinions/silver-spring-housing" component={SilverSpringHousing} />
         <Route exact path="/issues/infrastructure/stories-opinions/how-to-do-brt-properly" component={HowToDoBRTProperly} />
         <Route exact path="/issues/infrastructure/solutions/proposals-worth-considering" component={ProposalsWorthConsideringI} />
+        <Route exact path="/issues/infrastructure/facts/potomac-divide/housing-units-permitted" component={HousingUnitsPermitted} />
         
         <Route exact path="/issues/governance" component={withTracker(Governance)} />
         <Route exact path="/issues/governance/facts/crime-in-maryland" component={CrimeMaryland} />
