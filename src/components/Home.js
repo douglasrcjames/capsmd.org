@@ -162,14 +162,14 @@ export default class Home extends Component {
                             />
                         <h4>Resident Reflections</h4>
                         <p>Giving residents a platform to share challenges and solutions 
-                    that support community improvement</p>
+                        that support community improvement</p>
                         <Link to="/issues/resident-reflections"><span className="m-text blue">Learn more</span></Link>
                     </Col>
                     <Col md className="center-text">
                         <img
                             className="center small"
                             alt="books"
-                            src={require("../assets/images/icons/bulb.png")}
+                            src={require("../assets/images/icons/more.png")}
                             />
                         <h4>More</h4>
                         <p>Learn about other issues important to Montgomery County.</p>
