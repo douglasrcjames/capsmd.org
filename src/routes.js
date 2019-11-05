@@ -49,6 +49,7 @@ import Finding1MCPSDistributesStaffResourcesFightAchievementGap from "./componen
 import Finding2Fiscal2017PropertyTaxHikeDidNotBringSubstantiallyMoreResourcesClassroom from "./components/issues/EducationScreens/Facts/Finding2Fiscal2017PropertyTaxHikeDidNotBringSubstantiallyMoreResourcesClassroom";
 import Finding3ThereAreGiganticDemographicGapsBetweenStudentsProfessionalStaff from "./components/issues/EducationScreens/Facts/Finding3ThereAreGiganticDemographicGapsBetweenStudentsProfessionalStaff";
 import Finding4BoundaryShiftsCanPlayRoleSolvingCapacityIssues from "./components/issues/EducationScreens/Facts/Finding4BoundaryShiftsCanPlayRoleSolvingCapacityIssues";
+import WillMoCoNeedTaxHikePayKirwan from "./components/issues/EducationScreens/StoriesOpinions/WillMoCoNeedTaxHikePayKirwan";
 
 import Infrastructure from "./components/issues/InfrastructureScreens/index";
 import HousingConstruction from "./components/issues/InfrastructureScreens/Facts/HousingConstruction";
@@ -148,6 +149,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/education/solutions/proposals-worth-considering" component={ProposalsWorthConsideringE} />
         <Route exact path="/issues/education/stories-opinions/getting-fair-share-from-kirwan" component={GettingFairShareFromKirwan} />
         <Route exact path="/issues/education/stories-opinions/do-better-kirwan-funding" component={DoBetterKirwanFunding} />
+        <Route exact path="/issues/education/stories-opinions/will-moco-need-a-tax-hike-to-pay-for-kirwan" component={WillMoCoNeedTaxHikePayKirwan} />
         <Route exact 
           path="/issues/education/facts/an-examination-resource-allocation-demographics-capacity-utilization-montgomery-county-public-schools" 
           component={AnExaminationResourceAllocationDemographicsCapacityUtilizationMontgomeryCountyPublicSchools} />

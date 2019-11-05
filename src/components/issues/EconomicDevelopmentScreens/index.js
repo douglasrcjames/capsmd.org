@@ -24,7 +24,7 @@ export default class EconomicDevelopment extends Component {
           title={"The Potomac Divide"}
           picPath={require('../../../assets/images/carousel/brown-green-field.jpg')}
           link={'/issues/economic-development/facts/potomac-divide'}
-          date={'October 30, 2019'}
+          date={'November 4, 2019'}
           />
       <br/>
       <ArticlePreview 

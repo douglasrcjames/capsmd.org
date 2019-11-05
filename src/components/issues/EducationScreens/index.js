@@ -78,6 +78,13 @@ export default class Education extends Component {
         <h2 className="inline">Stories &amp; Opinions</h2>
         <p>How the county decisions affect real life people</p>
         <ArticlePreview 
+          title={"Will MoCo Need a Tax Hike to Pay for Kirwan?"}
+          picPath={require('../../../assets/images/carousel/school-bus.jpg')}
+          link={'/issues/education/stories-opinions/will-moco-need-a-tax-hike-to-pay-for-kirwan'}
+          date={'November 5, 2019'}
+          />
+        <br/>
+        <ArticlePreview 
           title={'Is MoCo Getting its Fair Share from Kirwan?'}
           picPath={require('../../../assets/images/icons/Handshake.png')}
           link={'/issues/education/stories-opinions/getting-fair-share-from-kirwan'}

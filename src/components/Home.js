@@ -11,6 +11,12 @@ import ArticlePreview from './issues/ArticlePreview'
 
 const sliderContent = [
     {
+        title: "Will MoCo Need a Tax Hike to Pay for Kirwan?",
+        button: 'Read Now',
+        link: '/issues/education/stories-opinions/will-moco-need-a-tax-hike-to-pay-for-kirwan',
+        image: require("../assets/images/carousel/school-bus.jpg"),
+    },
+    {
         title: "The Potomac Divide",
         button: 'Read Now',
         link: '/issues/economic-development/facts/potomac-divide',
@@ -175,10 +181,17 @@ export default class Home extends Component {
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
             <ArticlePreview 
+                title={"Will MoCo Need a Tax Hike to Pay for Kirwan?"}
+                picPath={require('../assets/images/carousel/school-bus.jpg')}
+                link={'/issues/education/stories-opinions/will-moco-need-a-tax-hike-to-pay-for-kirwan'}
+                date={'November 5, 2019'}
+                />
+            <br/>
+            <ArticlePreview 
                 title={"The Potomac Divide"}
                 picPath={require('../assets/images/carousel/brown-green-field.jpg')}
                 link={'/issues/economic-development/facts/potomac-divide'}
-                date={'October 30, 2019'}
+                date={'November 4, 2019'}
                 />
             <br/>
             <ArticlePreview 
