@@ -164,7 +164,7 @@ class Header extends Component {
                           id="governance"
                           to="/issues/governance" 
                           className="nav-link dropdown"
-                          activeClassName="nav-select"
+                          // activeClassName="nav-select"
                           onClick={() => this.closeMenu()}>
                           Governance
                       </NavLink>

@@ -118,25 +118,26 @@ export default class AboutUs extends Component {
             <Headshot name={'Charlie Atwell'} title={"Board Member"} description={"Co-founder, Chief Business Development at IBI"} picPath={require('../assets/images/headshots/Charlie.png')} />
             <Headshot name={'David Blair'} title={"Chair of the Board"} description={"Founder, Council for Advocacy and Policy Solutions"} picPath={require('../assets/images/headshots/David.png')} />
             <Headshot name={'Mikel Blair'} title={"Board Member"} description={"CEO, Badlands Playspace"} picPath={require('../assets/images/headshots/Mikel.png')} />
-            <Headshot name={'Jane Fairweather'} title={"Board Member"} description={"Owner at The Jane Fairweather Team"} picPath={require('../assets/images/headshots/Jane.png')} />
+            <Headshot name={'Claudia Canales'} title={"Board Member"} description={"Montgomery County Activist"} picPath={require('../assets/images/headshots/Claudia.png')} />
           </Row>
 
           {/* Row 2 */}
           <Row>
+            <Headshot name={'Jane Fairweather'} title={"Board Member"} description={"Owner at The Jane Fairweather Team"} picPath={require('../assets/images/headshots/Jane.png')} />
             <Headshot name={'Lisa Fuller'} title={"Board Member"} description={"Retired MCPS"} picPath={require('../assets/images/headshots/Lisa.png')} />
             <Headshot name={'Jason Green'} title={"Board Member"} description={"Former Associate Counsel to President Obama"} picPath={require('../assets/images/headshots/Jason.png')} />
-            <Headshot name={'Mimi Hassinein'} title={"Board Member"} description={"Director of Community Outreach, Kid's Villa Learning Center "} picPath={require('../assets/images/headshots/Mimi.png')} />
-            <Headshot name={'Terry Lierman'} title={"Board Member"} description={"Executive Officer, Health Ventures LLC"} picPath={require('../assets/images/headshots/Terry.png')} /> 
+            <Headshot name={'Mimi Hassinein'} title={"Board Member"} description={"Director of Community Outreach, Kid's Villa Learning Center "} picPath={require('../assets/images/headshots/Mimi.png')} /> 
           </Row>
 
           {/* Row 3 */}
           <Row>
+            <Headshot name={'Terry Lierman'} title={"Board Member"} description={"Executive Officer, Health Ventures LLC"} picPath={require('../assets/images/headshots/Terry.png')} /> 
             <Headshot name={'Rose Li'} title={"Board Member"} description={"CEO + President, Rose Li and Associates"} picPath={require('../assets/images/headshots/Rose.png')} />
             <Headshot name={'Kelly Leonard'} title={"Board Member"} description={"CEO + Co-Founder, Taylor-Leonard Corporation"} picPath={require('../assets/images/headshots/Kelly.png')} />
             <Headshot name={'Chung Pak'} title={"Board Member"} description={"Retired Administrative Patent Judge"} picPath={require('../assets/images/headshots/Chung.png')} />
-            <Headshot name={'Nancy Roman'} title={"Board Member"} description={"CEO + President - Partnership for a Healthier America"} picPath={require('../assets/images/headshots/Nancy.png')} />
           </Row>
           <Row>
+            <Headshot name={'Nancy Roman'} title={"Board Member"} description={"CEO + President - Partnership for a Healthier America"} picPath={require('../assets/images/headshots/Nancy.png')} />
             <Headshot name={'Jordan Steffy'} title={"Board Member"} description={"CEO + Founder, Attolo"} picPath={require('../assets/images/headshots/Jordan.png')} />
           </Row>
         </Grid>     
