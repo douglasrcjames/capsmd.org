@@ -11,6 +11,12 @@ import ArticlePreview from './issues/ArticlePreview'
 
 const sliderContent = [
     {
+        title: "Local Government Holds Key to Gun Reform",
+        button: 'Read Now',
+        link: '/issues/resident-reflections/health-care-form-good-luck',
+        image: require("../assets/images/carousel/stethoscope.jpg"),
+    },
+    {
         title: "Will MoCo Need a Tax Hike to Pay for Kirwan?",
         button: 'Read Now',
         link: '/issues/education/stories-opinions/will-moco-need-a-tax-hike-to-pay-for-kirwan',
@@ -180,6 +186,13 @@ export default class Home extends Component {
         </div>
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
+            <ArticlePreview 
+                title={"Local Government Holds Key to Gun Reform"}
+                picPath={require('../assets/images/carousel/stethoscope.jpg')}
+                link={'/issues/resident-reflections/health-care-form-good-luck'}
+                date={'November 22, 2019'}
+                />
+            <br/>
             <ArticlePreview 
                 title={"Will MoCo Need a Tax Hike to Pay for Kirwan?"}
                 picPath={require('../assets/images/carousel/school-bus.jpg')}
