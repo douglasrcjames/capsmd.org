@@ -11,7 +11,7 @@ import ArticlePreview from './issues/ArticlePreview'
 
 const sliderContent = [
     {
-        title: "Local Government Holds Key to Gun Reform",
+        title: "Health Care Reform … Good Luck",
         button: 'Read Now',
         link: '/issues/resident-reflections/health-care-form-good-luck',
         image: require("../assets/images/carousel/stethoscope.jpg"),
@@ -187,7 +187,7 @@ export default class Home extends Component {
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
             <ArticlePreview 
-                title={"Local Government Holds Key to Gun Reform"}
+                title={"Health Care Reform … Good Luck"}
                 picPath={require('../assets/images/carousel/stethoscope.jpg')}
                 link={'/issues/resident-reflections/health-care-form-good-luck'}
                 date={'November 22, 2019'}

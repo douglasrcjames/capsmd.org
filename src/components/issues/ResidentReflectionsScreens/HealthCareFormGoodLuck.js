@@ -15,7 +15,7 @@ export default class HealthCareFormGoodLuck extends Component {
             <>
                 <div style ={ topBgImageStyle }></div>
                 <div className="wrapper-w-img">
-                    <h1>Local Government Holds Key to Gun Reform</h1>
+                    <h1>Health Care Reform … Good Luck</h1>
                     <span className="grey">November 22, 2019</span>
                     <p>
                         Its that time again. A gaggle of well-coiffed Presidential candidates are seeking
