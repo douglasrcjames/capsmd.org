@@ -21,6 +21,13 @@ export default class Education extends Component {
         <h2 className="inline">Facts</h2>
         <p>Information about where the county stands</p>
         <ArticlePreview 
+                title={"A Golden Opportunity: Promoting Lifelong Health by Investing in Infant & Early Childhood Mental Health"}
+                picPath={require('../../../assets/images/carousel/hero-kid.jpg')}
+                link={'/issues/education/facts/promoting-lifelong-health-by-investing-in-infant-and-early-childhood-mental-health'}
+                date={'December 6, 2019'}
+                />
+            <br/>
+        <ArticlePreview 
                 title={'Finding 1: MCPS Distributes Staff Resources to Fight the Achievement Gap'}
                 picPath={require('../../../assets/images/carousel/pencils-yellow.jpg')}
                 link={'/issues/education/facts/finding-1-mcps-distributes-staff-resources-fight-achievement-gap'}

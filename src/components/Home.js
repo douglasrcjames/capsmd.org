@@ -11,6 +11,12 @@ import ArticlePreview from './issues/ArticlePreview'
 
 const sliderContent = [
     {
+        title: "A Golden Opportunity: Promoting Lifelong Health by Investing in Infant & Early Childhood Mental Health",
+        button: 'Read Now',
+        link: '/issues/education/facts/promoting-lifelong-health-by-investing-in-infant-and-early-childhood-mental-health',
+        image: require("../assets/images/carousel/hero-kid.jpg"),
+    },
+    {
         title: "Health Care Reform … Good Luck",
         button: 'Read Now',
         link: '/issues/resident-reflections/health-care-form-good-luck',
@@ -186,6 +192,13 @@ export default class Home extends Component {
         </div>
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
+            <ArticlePreview 
+                title={"A Golden Opportunity: Promoting Lifelong Health by Investing in Infant & Early Childhood Mental Health"}
+                picPath={require('../assets/images/carousel/hero-kid.jpg')}
+                link={'/issues/education/facts/promoting-lifelong-health-by-investing-in-infant-and-early-childhood-mental-health'}
+                date={'December 6, 2019'}
+                />
+            <br/>
             <ArticlePreview 
                 title={"Health Care Reform … Good Luck"}
                 picPath={require('../assets/images/carousel/stethoscope.jpg')}

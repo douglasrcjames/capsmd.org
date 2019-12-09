@@ -91,6 +91,7 @@ import HealthCareFormGoodLuck from "./components/issues/ResidentReflectionsScree
 
 import withTracker from './components/WithTracker';
 import Badlands from "./components/issues/ResidentReflectionsScreens/Badlands";
+import GoldenOpportunity from "./components/issues/EducationScreens/Facts/GoldenOpportunity";
 
 const Page404 = ({ location }) => (
   <div className="m-padding">
@@ -159,6 +160,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/education/facts/finding-2-fiscal-2017-property-tax-hike-did-not-bring-substantially-more-resources-classroom" component={Finding2Fiscal2017PropertyTaxHikeDidNotBringSubstantiallyMoreResourcesClassroom} />
         <Route exact path="/issues/education/facts/finding-3-there-are-gigantic-demographic-gaps-between-students-professional-staff" component={Finding3ThereAreGiganticDemographicGapsBetweenStudentsProfessionalStaff} />
         <Route exact path="/issues/education/facts/finding-4-boundary-shifts-can-play-role-solving-capacity-issues" component={Finding4BoundaryShiftsCanPlayRoleSolvingCapacityIssues} />
+        <Route exact path="/issues/education/facts/promoting-lifelong-health-by-investing-in-infant-and-early-childhood-mental-health" component={GoldenOpportunity} />
 
         <Route exact path="/issues/infrastructure" component={withTracker(Infrastructure)} />
         <Route exact path="/issues/infrastructure/facts/housing-construction" component={HousingConstruction} />
