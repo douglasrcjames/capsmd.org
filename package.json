@@ -10,7 +10,7 @@
     "firebase-tools": "^6.9.2",
     "formik": "^1.5.4",
     "nodemailer": "^6.1.1",
-    "npm": "^6.13.2",
+    "npm": "^6.13.4",
     "react": "^16.8.6",
     "react-animated-burgers": "^1.2.6",
     "react-animated-slider": "^1.1.4",
