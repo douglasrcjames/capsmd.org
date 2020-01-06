@@ -11,6 +11,12 @@ import ArticlePreview from './issues/ArticlePreview'
 
 const sliderContent = [
     {
+        title: "The Next 10 Years Will Determine the Fate of Affordable Housing in Montgomery County",
+        button: 'Read Now',
+        link: '/issues/infrastructure/stories-opinions/ten-years-affordable-housing',
+        image: require("../assets/images/carousel/apartment-building.jpg"),
+    },
+    {
         title: "A Golden Opportunity: Promoting Lifelong Health by Investing in Infant & Early Childhood Mental Health",
         button: 'Read Now',
         link: '/issues/education/facts/promoting-lifelong-health-by-investing-in-infant-and-early-childhood-mental-health',
@@ -192,6 +198,13 @@ export default class Home extends Component {
         </div>
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
+            <ArticlePreview 
+                title={"The Next 10 Years Will Determine the Fate of Affordable Housing in Montgomery County"}
+                picPath={require('../assets/images/carousel/apartment-building.jpg')}
+                link={'/issues/infrastructure/stories-opinions/ten-years-affordable-housing'}
+                date={'January 6, 2020'}
+                />
+            <br/>
             <ArticlePreview 
                 title={"A Golden Opportunity: Promoting Lifelong Health by Investing in Infant & Early Childhood Mental Health"}
                 picPath={require('../assets/images/carousel/hero-kid.jpg')}

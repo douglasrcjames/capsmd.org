@@ -62,6 +62,7 @@ import PotholePathos from "./components/issues/InfrastructureScreens/StoriesOpin
 import SilverSpringHousing from "./components/issues/InfrastructureScreens/StoriesOpinions/SilverSpringHousing";
 import HowToDoBRTProperly from "./components/issues/InfrastructureScreens/StoriesOpinions/HowToDoBRTProperly";
 import ProposalsWorthConsideringI from "./components/issues/InfrastructureScreens/Solutions/ProposalsWorthConsidering";
+import TenYearsAffordableHousing from './components/issues/InfrastructureScreens/StoriesOpinions/TenYearsAffordableHousing'
 
 import Governance from "./components/issues/GovernanceScreens/index";
 import CrimeMaryland from "./components/issues/GovernanceScreens/Facts/CrimeMaryland";
@@ -171,9 +172,11 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/infrastructure/stories-opinions/pothole-pathos" component={PotholePathos} />
         <Route exact path="/issues/infrastructure/stories-opinions/silver-spring-housing" component={SilverSpringHousing} />
         <Route exact path="/issues/infrastructure/stories-opinions/how-to-do-brt-properly" component={HowToDoBRTProperly} />
+        <Route exact path="/issues/infrastructure/stories-opinions/ten-years-affordable-housing" component={TenYearsAffordableHousing} />
         <Route exact path="/issues/infrastructure/solutions/proposals-worth-considering" component={ProposalsWorthConsideringI} />
         <Route exact path="/issues/infrastructure/facts/potomac-divide/housing-units-permitted" component={HousingUnitsPermitted} />
-        
+   
+
         <Route exact path="/issues/governance" component={withTracker(Governance)} />
         <Route exact path="/issues/governance/facts/crime-in-maryland" component={CrimeMaryland} />
         <Route exact path="/issues/governance/facts/worcester-county-violent-and-property-crime" component={WorcesterCountyViolentandPropertyCrime} />
