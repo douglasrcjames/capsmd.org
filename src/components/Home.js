@@ -138,7 +138,7 @@ export default class Home extends Component {
             <h1>Explore the Issues</h1>
             <Grid fluid>
                 <Row>
-                    <Col md className="center-text">
+                    <Col lg className="center-text">
                         <img
                             className="center small"
                             alt="dollar"
@@ -148,7 +148,7 @@ export default class Home extends Component {
                         <p>Learn about jobs, business growth and other issues connected to growing the economy.</p>
                         <Link to="/issues/economic-development"><span className="m-text blue">Learn more</span></Link>
                     </Col>
-                    <Col md className="center-text">
+                    <Col lg className="center-text">
                         <img
                             className="center small"
                             alt="book"
@@ -158,7 +158,7 @@ export default class Home extends Component {
                         <p>Learn about issues concerning our public schools and more.</p>
                         <Link to="/issues/education"><span className="m-text blue">Learn more</span></Link>
                     </Col>
-                    <Col md className="center-text">
+                    <Col lg className="center-text">
                         <img
                             className="center small"
                             alt="building"
@@ -168,7 +168,7 @@ export default class Home extends Component {
                         <p>Learn about our infrastructure network, including roads, transit and more.</p>
                         <Link to="/issues/infrastructure"><span className="m-text blue">Learn more</span></Link>
                     </Col>
-                    <Col md className="center-text">
+                    <Col lg className="center-text">
                         <img
                             className="center small"
                             alt="building"
@@ -178,7 +178,7 @@ export default class Home extends Component {
                         <p>Learn about governance.</p>
                         <Link to="/issues/governance"><span className="m-text blue">Learn more</span></Link>
                     </Col>
-                    <Col md className="center-text">
+                    <Col lg className="center-text">
                         <img
                             className="center small"
                             alt="books"
@@ -189,7 +189,7 @@ export default class Home extends Component {
                         that support community improvement</p>
                         <Link to="/issues/resident-reflections"><span className="m-text blue">Learn more</span></Link>
                     </Col>
-                    <Col md className="center-text">
+                    <Col lg className="center-text">
                         <img
                             className="center small"
                             alt="books"

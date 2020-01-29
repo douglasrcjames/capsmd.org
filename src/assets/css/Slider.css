@@ -31,10 +31,12 @@
           height: 32px;
           text-indent: -9999px;
           cursor: pointer;
+          margin: 0 2% 0 2%;
   }
   
   .previousButton:hover, .nextButton:hover {
     background: url('https://svgshare.com/i/41_.svg') no-repeat center center / 16px;
+    display: 
   }
   
   .previousButton {
@@ -182,7 +184,7 @@
         border-radius: 5px;
         color: #333;
         max-width: 95%;
-        padding: 0 1% 1% 1%;
+        padding: 0 5% 5% 5%;
       }
      
     }
