@@ -27,31 +27,173 @@ export default class Governance extends Component {
           date={''}
           />
         <br/>
+
+        <ArticlePreview 
+          title={"Allegany County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/allegany-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Anne Arundel County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/anne-arundel-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Baltimore City: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/baltimore-city'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Baltimore County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/baltimore-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Calvert County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/calvert-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Caroline County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/caroline-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Carroll County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/carroll-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Cecil County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/cecil-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Charles County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/charles-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Dorchester County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/dorchester-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Frederick County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/frederick-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Garrett County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/garrett-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Harford County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/harford-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Howard County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/howard-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Kent County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/kent-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Montgomery County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/montgomery-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Prince George's County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/prince-georges-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Queen Anne's County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/queen-annes-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"Somerset County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/somerset-county'}
+          date={''}
+          />
+        <br/>
+        <ArticlePreview 
+          title={"St. Mary's County: Violent and Property Crime"}
+          picPath={require('../../../assets/images/icons/Growth.png')}
+          link={'/issues/governance/facts/violent-and-property-crime/st-marys-county'}
+          date={''}
+          />
+        <br/>
+
         <ArticlePreview 
           title={"Worcester County: Violent and Property Crime"}
           picPath={require('../../../assets/images/icons/Growth.png')}
-          link={'/issues/governance/facts/worcester-county-violent-and-property-crime'}
+          link={'/issues/governance/facts/violent-and-property-crime/worcester-county'}
           date={''}
           />
         <br/>
         <ArticlePreview 
           title={"Wicomico County: Violent and Property Crime"}
           picPath={require('../../../assets/images/icons/Growth.png')}
-          link={'/issues/governance/facts/wicomico-county-violent-and-property-crime'}
+          link={'/issues/governance/facts/violent-and-property-crime/wicomico-county'}
           date={''}
           />
         <br/>
         <ArticlePreview 
           title={"Washington County: Violent and Property Crime"}
           picPath={require('../../../assets/images/icons/Growth.png')}
-          link={'/issues/governance/facts/washington-county-violent-and-property-crime'}
+          link={'/issues/governance/facts/violent-and-property-crime/washington-county'}
           date={''}
           />
         <br/>
         <ArticlePreview 
           title={"Talbot County: Violent and Property Crime"}
           picPath={require('../../../assets/images/icons/Growth.png')}
-          link={'/issues/governance/facts/talbot-county-violent-and-property-crime'}
+          link={'/issues/governance/facts/violent-and-property-crime/talbot-county'}
           date={''}
           />
         <br/>

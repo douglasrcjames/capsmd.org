@@ -11,6 +11,12 @@ import ArticlePreview from './issues/ArticlePreview'
 
 const sliderContent = [
     {
+        title: "Does the County Government Need More Revenue?",
+        button: 'Read Now',
+        link: '/issues/economic-development/stories-opinions/does-county-need-more-revenue',
+        image: require("../assets/images/carousel/revenue.jpg"),
+    },
+    {
         title: "The Next 10 Years Will Determine the Fate of Affordable Housing in Montgomery County",
         button: 'Read Now',
         link: '/issues/infrastructure/stories-opinions/ten-years-affordable-housing',
@@ -198,6 +204,13 @@ export default class Home extends Component {
         </div>
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
+            <ArticlePreview 
+                title={"Does the County Government Need More Revenue?"}
+                picPath={require('../assets/images/carousel/revenue.jpg')}
+                link={'/issues/economic-development/stories-opinions/does-county-need-more-revenue'}
+                date={'January 29, 2020'}
+                />
+            <br/>
             <ArticlePreview 
                 title={"The Next 10 Years Will Determine the Fate of Affordable Housing in Montgomery County"}
                 picPath={require('../assets/images/carousel/apartment-building.jpg')}

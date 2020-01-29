@@ -36,6 +36,7 @@ import HowisMoCoDoingJobsData2018 from "./components/issues/EconomicDevelopmentS
 import HowDidtheCountySpendYourMoneyThisYear from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/HowDidtheCountySpendYourMoneyThisYear";
 import CAPSxLIAS from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/CAPSxLIAS"
 import CAPSxLisaPayne from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/CAPSxLisaPayne";
+import DoesCountyNeedMoreRevenue from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/DoesCountyNeedMoreRevenue";
 
 import Education from "./components/issues/EducationScreens/index";
 import PerPupilFunding from "./components/issues/EducationScreens/Facts/PerPupilFunding";
@@ -50,6 +51,7 @@ import Finding2Fiscal2017PropertyTaxHikeDidNotBringSubstantiallyMoreResourcesCla
 import Finding3ThereAreGiganticDemographicGapsBetweenStudentsProfessionalStaff from "./components/issues/EducationScreens/Facts/Finding3ThereAreGiganticDemographicGapsBetweenStudentsProfessionalStaff";
 import Finding4BoundaryShiftsCanPlayRoleSolvingCapacityIssues from "./components/issues/EducationScreens/Facts/Finding4BoundaryShiftsCanPlayRoleSolvingCapacityIssues";
 import WillMoCoNeedTaxHikePayKirwan from "./components/issues/EducationScreens/StoriesOpinions/WillMoCoNeedTaxHikePayKirwan";
+import GoldenOpportunity from "./components/issues/EducationScreens/Facts/GoldenOpportunity";
 
 import Infrastructure from "./components/issues/InfrastructureScreens/index";
 import HousingConstruction from "./components/issues/InfrastructureScreens/Facts/HousingConstruction";
@@ -66,10 +68,30 @@ import TenYearsAffordableHousing from './components/issues/InfrastructureScreens
 
 import Governance from "./components/issues/GovernanceScreens/index";
 import CrimeMaryland from "./components/issues/GovernanceScreens/Facts/CrimeMaryland";
-import WorcesterCountyViolentandPropertyCrime from "./components/issues/GovernanceScreens/Facts/WorcesterCountyViolentandPropertyCrime";
-import WicomicoCountyCountyViolentandPropertyCrime from "./components/issues/GovernanceScreens/Facts/WicomicoCountyCountyViolentandPropertyCrime";
-import WashingtonCountyViolentandPropertyCrime from "./components/issues/GovernanceScreens/Facts/WashingtonCountyViolentandPropertyCrime";
-import TalbotCountyViolentandPropertyCrime from "./components/issues/GovernanceScreens/Facts/TalbotCountyViolentandPropertyCrime";
+import AlleganyCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/AlleganyCountyVPC";
+import AnneArundelCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/AnneArundelCountyVPC";
+import BaltimoreCityVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/BaltimoreCityVPC";
+import BaltimoreCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/BaltimoreCountyVPC";
+import CalvertCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/CalvertCountyVPC";
+import CarolineCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/CarolineCountyVPC";
+import CarrollCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/CarrollCountyVPC";
+import CecilCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/CecilCountyVPC";
+import CharlesCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/CharlesCountyVPC";
+import DorchesterCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/DorchesterCountyVPC";
+import FrederickCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/FrederickCountyVPC";
+import GarrettCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/GarrettCountyVPC";
+import HarfordCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/HarfordCountyVPC";
+import HowardCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/HowardCountyVPC";
+import KentCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/KentCountyVPC";
+import MontgomeryCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/MontgomeryCountyVPC";
+import PrinceGeorgesCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/PrinceGeorgesCountyVPC";
+import QueenAnnesCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/QueenAnnesCountyVPC";
+import SomersetCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/SomersetCountyVPC";
+import StMarysCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/StMarysCountyVPC";
+import TalbotCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/TalbotCountyVPC";
+import WashingtonCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/WashingtonCountyVPC";
+import WicomicoCountyCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/WicomicoCountyCountyVPC";
+import WorcesterCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/WorcesterCountyVPC";
 
 import More from "./components/issues/MoreScreens/index";
 import NewspapersDisappearing from "./components/issues/MoreScreens/Facts/NewspapersDisappearing";
@@ -89,10 +111,10 @@ import LocalGovernmentHoldsKeyGunReform from "./components/issues/ResidentReflec
 import WaitImUndocumented from "./components/issues/ResidentReflectionsScreens/WaitImUndocumented"
 import StartingSmallBusinessMoCo from "./components/issues/ResidentReflectionsScreens/StartingSmallBusinessMoCo"
 import HealthCareFormGoodLuck from "./components/issues/ResidentReflectionsScreens/HealthCareFormGoodLuck"
+import Badlands from "./components/issues/ResidentReflectionsScreens/Badlands";
 
 import withTracker from './components/WithTracker';
-import Badlands from "./components/issues/ResidentReflectionsScreens/Badlands";
-import GoldenOpportunity from "./components/issues/EducationScreens/Facts/GoldenOpportunity";
+
 
 const Page404 = ({ location }) => (
   <div className="m-padding">
@@ -144,7 +166,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/economic-development/stories-opinions/how-did-the-county-spend-your-money-this-year" component={HowDidtheCountySpendYourMoneyThisYear} />
         <Route exact path="/issues/economic-development/stories-opinions/caps-x-lias" component={CAPSxLIAS} />
         <Route exact path="/issues/economic-development/stories-opinions/caps-x-lisa-payne" component={CAPSxLisaPayne} />
-        
+        <Route exact path="/issues/economic-development/stories-opinions/does-county-need-more-revenue" component={DoesCountyNeedMoreRevenue} />
 
         <Route exact path="/issues/education" component={withTracker(Education)} />
         <Route exact path="/issues/education/facts/per-pupil-funding" component={PerPupilFunding} />
@@ -176,13 +198,32 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/infrastructure/solutions/proposals-worth-considering" component={ProposalsWorthConsideringI} />
         <Route exact path="/issues/infrastructure/facts/potomac-divide/housing-units-permitted" component={HousingUnitsPermitted} />
    
-
         <Route exact path="/issues/governance" component={withTracker(Governance)} />
         <Route exact path="/issues/governance/facts/crime-in-maryland" component={CrimeMaryland} />
-        <Route exact path="/issues/governance/facts/worcester-county-violent-and-property-crime" component={WorcesterCountyViolentandPropertyCrime} />
-        <Route exact path="/issues/governance/facts/wicomico-county-violent-and-property-crime" component={WicomicoCountyCountyViolentandPropertyCrime} />
-        <Route exact path="/issues/governance/facts/washington-county-violent-and-property-crime" component={WashingtonCountyViolentandPropertyCrime} />
-        <Route exact path="/issues/governance/facts/talbot-county-violent-and-property-crime" component={TalbotCountyViolentandPropertyCrime} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/allegany-county" component={AlleganyCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/anne-arundel-county" component={AnneArundelCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/baltimore-city" component={BaltimoreCityVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/baltimore-county" component={BaltimoreCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/calvert-county" component={CalvertCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/caroline-county" component={CarolineCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/carroll-county" component={CarrollCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/cecil-county" component={CecilCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/charles-county" component={CharlesCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/dorchester-county" component={DorchesterCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/frederick-county" component={FrederickCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/garrett-county" component={GarrettCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/harford-county" component={HarfordCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/howard-county" component={HowardCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/kent-county" component={KentCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/montgomery-county" component={MontgomeryCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/prince-georges-county" component={PrinceGeorgesCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/queen-annes-county" component={QueenAnnesCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/somerset-county" component={SomersetCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/st-marys-county" component={StMarysCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/worcester-county" component={WorcesterCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/wicomico-county" component={WicomicoCountyCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/washington-county" component={WashingtonCountyVPC} />
+        <Route exact path="/issues/governance/facts/violent-and-property-crime/talbot-county" component={TalbotCountyVPC} />
 
         <Route exact path="/issues/resident-reflections" component={withTracker(ResidentReflections)} />
         <Route exact path="/issues/resident-reflections/moco-overlooks-developments-impact-education" component={withTracker(MoCoOverlooksDevelopmentsImpactEducation)} />
