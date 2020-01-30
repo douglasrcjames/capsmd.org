@@ -24,7 +24,27 @@
     
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      function isIE() {
+        ua = navigator.userAgent;
+        /* MSIE used to detect old browsers and Trident used to newer ones*/
+        var is_ie = ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
+          return is_ie; 
+      }
+      /* Create an alert to show if the browser is IE or not */
+      if (isIE()){
+          alert('Looks like you are using the ancient, unsupported, and unsafe Internet Explorer! No worries, just install a modern web browser like Chrome or email help@minute.tech and we will step you through it.');
+      } 
+    </script>
+    <noscript>
+      Uh oh, looks like JavaScript isn't enabled. This is rare, so you get
+      special treatment. Email doug@minute.tech and he can help.
+    </noscript>
+    <!--[if IE]>
+      Looks like you are using the ancient, unsupported Internet Explorer! 
+      No worries, just install a modern web browser like Chrome, Firefox, or Safari. 
+      If you can't figure out how to do that, email help@minute.tech and we will step you through it!
+    <![endif]-->
     <div id="root"></div>
   </body>
 </html>
