@@ -58,19 +58,6 @@ export default class DoesCountyNeedMoreRevenue extends Component {
                 </p>
 
                 <p>
-                    Blair is the Founder and CEO of 
-                    <a 
-                        href="https://badlandsplayspace.com/about/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >
-                        &nbsp;Badlands,&nbsp;
-                    </a> 
-                    a “free range play space for curious minds,” located in
-                    Loehmann’s Plaza on Randolph Road.
-                </p>
-
-                <p>
                     There are two ways to get money for a priority. One way is to raise revenue. That is common here; the
                     county has had 
                     <a 
