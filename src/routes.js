@@ -4,6 +4,11 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import Home from "./components/Home";
 import UnderConstruction from "./components/UnderConstruction";
 import AboutUs from "./components/AboutUs";
+
+import PilotProgram from "./components/caps-foundation/PilotProgram"
+import PressReleases from "./components/caps-foundation/PressReleases"
+import FoundationDonate from "./components/caps-foundation/FoundationDonate"
+
 import News from "./components/news";
 import BusinessIncubator from "./components/news/BusinessIncubator";
 import LetterFromChairman from "./components/news/LetterFromChairman";
@@ -37,6 +42,7 @@ import HowDidtheCountySpendYourMoneyThisYear from "./components/issues/EconomicD
 import CAPSxLIAS from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/CAPSxLIAS"
 import CAPSxLisaPayne from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/CAPSxLisaPayne";
 import DoesCountyNeedMoreRevenue from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/DoesCountyNeedMoreRevenue";
+import MoCoMoratoriumMadness from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/MoCoMoratoriumMadness";
 
 import Education from "./components/issues/EducationScreens/index";
 import PerPupilFunding from "./components/issues/EducationScreens/Facts/PerPupilFunding";
@@ -112,9 +118,9 @@ import WaitImUndocumented from "./components/issues/ResidentReflectionsScreens/W
 import StartingSmallBusinessMoCo from "./components/issues/ResidentReflectionsScreens/StartingSmallBusinessMoCo"
 import HealthCareFormGoodLuck from "./components/issues/ResidentReflectionsScreens/HealthCareFormGoodLuck"
 import Badlands from "./components/issues/ResidentReflectionsScreens/Badlands";
+import ShouldMoCoMakeTeardownsPayImpactTaxes from "./components/issues/ResidentReflectionsScreens/ShouldMoCoMakeTeardownsPayImpactTaxes";
 
 import withTracker from './components/WithTracker';
-
 
 const Page404 = ({ location }) => (
   <div className="m-padding">
@@ -140,6 +146,9 @@ export class Routes extends React.PureComponent {
 
         <Route exact path="/contact-us" component={withTracker(ContactUs)} />
         <Route exact path="/find-legislators" component={UnderConstruction} />
+        <Route exact path="/caps-foundation/pilot-program" component={PilotProgram} />
+        <Route exact path="/caps-foundation/press-releases" component={PressReleases} />
+        <Route exact path="/caps-foundation/donate" component={FoundationDonate} />
 
         <Route exact path="/issues/economic-development" component={withTracker(EconomicDevelopment)} />
         <Route exact path="/issues/economic-development/facts/job-market-stagnant" component={JobMarketStagnant} />
@@ -167,6 +176,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/economic-development/stories-opinions/caps-x-lias" component={CAPSxLIAS} />
         <Route exact path="/issues/economic-development/stories-opinions/caps-x-lisa-payne" component={CAPSxLisaPayne} />
         <Route exact path="/issues/economic-development/stories-opinions/does-county-need-more-revenue" component={DoesCountyNeedMoreRevenue} />
+        <Route exact path="/issues/economic-development/stories-opinions/moco-moratorium-madness" component={MoCoMoratoriumMadness} />
 
         <Route exact path="/issues/education" component={withTracker(Education)} />
         <Route exact path="/issues/education/facts/per-pupil-funding" component={PerPupilFunding} />
@@ -234,7 +244,8 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/resident-reflections/starting-small-business-in-montgomery-county" component={withTracker(StartingSmallBusinessMoCo)} />
         <Route exact path="/issues/resident-reflections/caps-x-badlands" component={withTracker(Badlands)} />
         <Route exact path="/issues/resident-reflections/health-care-form-good-luck" component={withTracker(HealthCareFormGoodLuck)} />
-
+        <Route exact path="/issues/resident-reflections/should-moco-make-teardowns-pay-impact-taxes" component={withTracker(ShouldMoCoMakeTeardownsPayImpactTaxes)} />
+        
         <Route exact path="/issues/more" component={withTracker(More)} />
         <Route exact path="/issues/more/facts/newspapers-disappearing" component={NewspapersDisappearing} />
         <Route exact path="/issues/more/stories-opinions/beginners-guide-to-budget" component={BeginnersGuideToBudget} />

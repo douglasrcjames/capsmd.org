@@ -11,6 +11,12 @@ import ArticlePreview from './issues/ArticlePreview'
 
 const sliderContent = [
     {
+        title: "MoCo’s Moratorium Madness",
+        button: 'Read Now',
+        link: '/issues/economic-development/stories-opinions/moco-moratorium-madness',
+        image: require("../assets/images/carousel/stop-sign.jpg"),
+    },
+    {
         title: "Does the County Government Need More Revenue?",
         button: 'Read Now',
         link: '/issues/economic-development/stories-opinions/does-county-need-more-revenue',
@@ -57,48 +63,6 @@ const sliderContent = [
         button: 'Read Now',
         link: '/issues/resident-reflections/starting-small-business-in-montgomery-county',
 		image: require("../assets/images/carousel/dressing.jpg"),
-    },
-    {
-        title: "CAPS x Freddy's",
-        button: 'Read Now',
-        link: '/issues/economic-development/stories-opinions/caps-x-lisa-payne',
-		image: require("../assets/images/carousel/lobster.jpg"),
-    },
-    {
-        title: "CAPS x LIA's",
-        button: 'Read Now',
-        link: '/issues/economic-development/stories-opinions/caps-x-lias',
-		image: require("../assets/images/carousel/geoffs.jpg"),
-    },
-    {
-        title: "Wait, I'm Undocumented?",
-        button: 'Read Now',
-        link: '/issues/resident-reflections/wait-im-undocumented',
-		image: require("../assets/images/carousel/dreamer-jacket.jpg"),
-    },
-    {
-        title: 'Finding 1: MCPS Distributes Staff Resources to Fight the Achievement Gap',
-        button: 'Read Now',
-        link: '/issues/education/facts/finding-1-mcps-distributes-staff-resources-fight-achievement-gap',
-		image: require("../assets/images/carousel/pencils-yellow.jpg"),
-    },
-    {
-        title: 'Finding 2: The Fiscal 2017 Property Tax Hike Did Not Bring Substantially More Resources to the Classroom',
-        button: 'Read Now',
-        link: '/issues/education/facts/finding-2-fiscal-2017-property-tax-hike-did-not-bring-substantially-more-resources-classroom',
-		image: require("../assets/images/carousel/money-bg.jpg"),
-    },
-    {
-        title: 'Finding 3: There Are Gigantic Demographic Gaps Between Students and Professional Staff',
-        button: 'Read Now',
-        link: '/issues/education/facts/finding-3-there-are-gigantic-demographic-gaps-between-students-professional-staff',
-		image: require("../assets/images/carousel/classroom-teacher.jpg"),
-    },
-    {
-        title: 'Finding 4: Boundary Shifts Can Play a Role in Solving Capacity Issues',
-        button: 'Read Now',
-        link: '/issues/education/facts/finding-4-boundary-shifts-can-play-role-solving-capacity-issues',
-		image: require("../assets/images/carousel/fence-grass-sky.jpg"),
     },
 ];
 
@@ -205,6 +169,20 @@ export default class Home extends Component {
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
             <ArticlePreview 
+                title={"MoCo’s Moratorium Madness"}
+                picPath={require('../assets/images/carousel/stop-sign.jpg')}
+                link={'/issues/economic-development/stories-opinions/moco-moratorium-madness'}
+                date={'February 10, 2020'}
+                />
+            <br/>
+            <ArticlePreview 
+                title={"Should MoCo Make Teardowns Pay Impact Taxes?"}
+                picPath={require('../assets/images/articles/taxes-coins.jpg')}
+                link={'/issues/resident-reflections/should-moco-make-teardowns-pay-impact-taxes'}
+                date={'February 10, 2020'}
+                />
+            <br/>
+            <ArticlePreview 
                 title={"Does the County Government Need More Revenue?"}
                 picPath={require('../assets/images/carousel/revenue.jpg')}
                 link={'/issues/economic-development/stories-opinions/does-county-need-more-revenue'}
@@ -258,84 +236,6 @@ export default class Home extends Component {
                 picPath={require('../assets/images/carousel/dressing.jpg')}
                 link={'/issues/resident-reflections/starting-small-business-in-montgomery-county'}
                 date={'October 28, 2019'}
-                />
-            <br/>
-            <ArticlePreview 
-                title={"CAPS x Freddy's"}
-                picPath={require('../assets/images/carousel/lobster.jpg')}
-                link={'/issues/economic-development/stories-opinions/caps-x-lisa-payne'}
-                date={'October 9, 2019'}
-                />
-            <br/>
-            <ArticlePreview 
-                title={"CAPS x LIA's"}
-                picPath={require('../assets/images/carousel/geoffs.jpg')}
-                link={'/issues/economic-development/stories-opinions/caps-x-lias'}
-                date={'October 9, 2019'}
-                />
-            <br/>
-            <ArticlePreview 
-                title={"Wait, I'm Undocumented?"}
-                picPath={require('../assets/images/carousel/dreamer-jacket.jpg')}
-                link={'/issues/resident-reflections/wait-im-undocumented'}
-                date={'September 10, 2019'}
-                />
-            <br/>
-            <ArticlePreview 
-                title={'Finding 1: MCPS Distributes Staff Resources to Fight the Achievement Gap'}
-                picPath={require('../assets/images/carousel/pencils-yellow.jpg')}
-                link={'/issues/education/facts/finding-1-mcps-distributes-staff-resources-fight-achievement-gap'}
-                date={'September 8, 2019'}
-                />
-            <br/>
-            <ArticlePreview 
-                    title={'Finding 2: The Fiscal 2017 Property Tax Hike Did Not Bring Substantially More Resources to the Classroom'}
-                    picPath={require('../assets/images/carousel/money-bg.jpg')}
-                    link={'/issues/education/facts/finding-2-fiscal-2017-property-tax-hike-did-not-bring-substantially-more-resources-classroom'}
-                    date={'September 8, 2019'}
-                    />
-            <br/>
-            <ArticlePreview 
-                    title={'Finding 3: There Are Gigantic Demographic Gaps Between Students and Professional Staff'}
-                    picPath={require('../assets/images/carousel/classroom-teacher.jpg')}
-                    link={'/issues/education/facts/finding-3-there-are-gigantic-demographic-gaps-between-students-professional-staff'}
-                    date={'September 8, 2019'}
-                    />
-            <br/>
-            <ArticlePreview 
-                    title={'Finding 4: Boundary Shifts Can Play a Role in Solving Capacity Issues'}
-                    picPath={require('../assets/images/carousel/fence-grass-sky.jpg')}
-                    link={'/issues/education/facts/finding-4-boundary-shifts-can-play-role-solving-capacity-issues'}
-                    date={'September 8, 2019'}
-                    />
-            <br/>
-            <ArticlePreview 
-                title={'How Kirwan Benefits Montgomery County'}
-                picPath={require('../assets/images/carousel/strong-schools-maryland.jpg')}
-                link={'/issues/education/solutions/how-kirwan-benefits-montgomery-county'}
-                date={'September 8, 2019'}
-                />
-            <br/>
-            <ArticlePreview 
-                title={'An Examination of Resource Allocation, Demographics and Capacity Utilization in Montgomery County Public Schools'}
-                picPath={require('../assets/images/carousel/library-curved.jpg')}
-                link={'/issues/education/facts/an-examination-resource-allocation-demographics-capacity-utilization-montgomery-county-public-schools'}
-                date={'September 8, 2019'}
-                />
-            <br/>
-            <ArticlePreview 
-                    title={'Local Government Holds Key to Gun Reform'}
-                    picPath={require('../assets/images/carousel/group-protest.jpg')}
-                    link={'/issues/resident-reflections/local-government-holds-key-gun-reform'}
-                    date={'September 8, 2019'}
-                    />
-            <br/>
-
-            <ArticlePreview 
-                title={'MCPS: The Numbers and Beyond'}
-                picPath={require('../assets/images/carousel/green-chalk-board.jpg')}
-                link={'/issues/resident-reflections/mcps-the-numbers-beyond'}
-                date={'September 8, 2019'}
                 />
             <br/>
             
