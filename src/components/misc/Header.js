@@ -33,7 +33,7 @@ class Header extends Component {
                   <img
                     className="responsive nav-logo"
                     alt="caps-logo"
-                    src={require("../assets/images/logo/caps-logo-v4.png")}
+                    src={require("../../assets/images/logo/caps-logo-v4.png")}
                   />
                 </Link>
                 <div className="right">
@@ -42,7 +42,7 @@ class Header extends Component {
                 </NavLink>
                 &nbsp;
                   <div className="top-dropdown">
-                    <Link className="nav-link">Issues &nbsp;<i className="fas fa-chevron-down fa-xs" /> </Link>
+                    <span className="nav-link">Issues &nbsp;<i className="fas fa-chevron-down fa-xs" /> </span>
                     &nbsp;
                     <div className="top-dropdown-content">
                       <NavLink 
@@ -89,7 +89,7 @@ class Header extends Component {
                   </NavLink>
                   &nbsp;
                   <div className="top-dropdown">
-                    <Link className="nav-link">CAPS Foundation &nbsp;<i className="fas fa-chevron-down fa-xs" /> </Link>
+                    <span className="nav-link">CAPS Foundation &nbsp;<i className="fas fa-chevron-down fa-xs" /> </span>
                     &nbsp;
                     <div className="top-dropdown-content">
                         <NavLink 
@@ -114,7 +114,7 @@ class Header extends Component {
                   </div>
                   &nbsp;
                   <div className="top-dropdown">
-                    <Link className="nav-link">Get Involved &nbsp;<i className="fas fa-chevron-down fa-xs" /> </Link>
+                    <span className="nav-link">Get Involved &nbsp;<i className="fas fa-chevron-down fa-xs" /> </span>
                     &nbsp;
                     <div className="top-dropdown-content">
                         <NavLink 
@@ -276,7 +276,7 @@ class Header extends Component {
                 <img
                   className="responsive nav-logo"
                   alt="caps-logo"
-                  src={require("../assets/images/logo/caps-logo-v4.png")}
+                  src={require("../../assets/images/logo/caps-logo-v4.png")}
                 />
               </Link>
               

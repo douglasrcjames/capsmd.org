@@ -1,21 +1,41 @@
 import React from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
-import fire  from './config/Fire'
-import Home from "./components/Home";
-import UnderConstruction from "./components/UnderConstruction";
-import AboutUs from "./components/AboutUs";
+import { Route, Switch, withRouter, Redirect } from "react-router-dom";
+import {firestore} from './Fire'
+import { toast } from 'react-toastify';
 
+// CMS
+import Article from './components/cms/Article'
+import CMSHome from './components/cms/CMSHome'
+import AddArticle from './components/cms/AddArticle'
+import ListArticles from './components/cms/ListArticles'
+
+// Auth
+import SignIn from './components/auth/SignIn'
+import SigningIn from './components/auth/SigningIn'
+import RegisterContainer from './components/auth/RegisterContainer'
+
+// Main pages
+import Home from "./components/Home";
+import AboutUs from "./components/AboutUs";
+import ContactUs from "./components/ContactUs";
+
+// Misc
+import withTracker from './components/misc/WithTracker';
+import UnderConstruction from "./components/misc/UnderConstruction";
+import ErrorBoundary from './components/misc/ErrorBoundary';
+
+// CAPS Foundation
 import PilotProgram from "./components/caps-foundation/PilotProgram"
 import PressReleases from "./components/caps-foundation/PressReleases"
 import FoundationDonate from "./components/caps-foundation/FoundationDonate"
 
+// News
 import News from "./components/news";
 import BusinessIncubator from "./components/news/BusinessIncubator";
 import LetterFromChairman from "./components/news/LetterFromChairman";
 import InauguralStudy from "./components/news/InauguralStudy";
 
-import ContactUs from "./components/ContactUs";
-
+// Economic Development
 import EconomicDevelopment from "./components/issues/EconomicDevelopmentScreens/index";
 import JobMarketStagnant from "./components/issues/EconomicDevelopmentScreens/Facts/JobMarketStagnant";
 import LagsRegionInJobCreation from "./components/issues/EconomicDevelopmentScreens/Facts/LagsRegionInJobCreation";
@@ -44,6 +64,7 @@ import CAPSxLisaPayne from "./components/issues/EconomicDevelopmentScreens/Stori
 import DoesCountyNeedMoreRevenue from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/DoesCountyNeedMoreRevenue";
 import MoCoMoratoriumMadness from "./components/issues/EconomicDevelopmentScreens/StoriesOpinions/MoCoMoratoriumMadness";
 
+// Education
 import Education from "./components/issues/EducationScreens/index";
 import PerPupilFunding from "./components/issues/EducationScreens/Facts/PerPupilFunding";
 import PublicSchoolNeeds from "./components/issues/EducationScreens/Facts/PublicSchoolNeeds";
@@ -59,6 +80,7 @@ import Finding4BoundaryShiftsCanPlayRoleSolvingCapacityIssues from "./components
 import WillMoCoNeedTaxHikePayKirwan from "./components/issues/EducationScreens/StoriesOpinions/WillMoCoNeedTaxHikePayKirwan";
 import GoldenOpportunity from "./components/issues/EducationScreens/Facts/GoldenOpportunity";
 
+// Infrastructure
 import Infrastructure from "./components/issues/InfrastructureScreens/index";
 import HousingConstruction from "./components/issues/InfrastructureScreens/Facts/HousingConstruction";
 import TrailsInNewHousing from "./components/issues/InfrastructureScreens/Facts/TrailsInNewHousing";
@@ -72,6 +94,7 @@ import HowToDoBRTProperly from "./components/issues/InfrastructureScreens/Storie
 import ProposalsWorthConsideringI from "./components/issues/InfrastructureScreens/Solutions/ProposalsWorthConsidering";
 import TenYearsAffordableHousing from './components/issues/InfrastructureScreens/StoriesOpinions/TenYearsAffordableHousing'
 
+// Governance
 import Governance from "./components/issues/GovernanceScreens/index";
 import CrimeMaryland from "./components/issues/GovernanceScreens/Facts/CrimeMaryland";
 import AlleganyCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/AlleganyCountyVPC";
@@ -99,6 +122,7 @@ import WashingtonCountyVPC from "./components/issues/GovernanceScreens/Facts/Vio
 import WicomicoCountyCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/WicomicoCountyCountyVPC";
 import WorcesterCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/WorcesterCountyVPC";
 
+// More
 import More from "./components/issues/MoreScreens/index";
 import NewspapersDisappearing from "./components/issues/MoreScreens/Facts/NewspapersDisappearing";
 import VotingBills from "./components/issues/MoreScreens/Legislation/VotingBills";
@@ -109,6 +133,7 @@ import CountyInFiveYearsPartTwo from "./components/issues/MoreScreens/StoriesOpi
 import ComplexitiesChildCareNutshell from "./components/issues/MoreScreens/StoriesOpinions/ComplexitiesChildCareNutshell";
 import LifeThreateningProjectBust from "./components/issues/MoreScreens/StoriesOpinions/LifeThreateningProjectBust";
 
+// Resident Reflections
 import ResidentReflections from "./components/issues/ResidentReflectionsScreens/index"
 import MoCoOverlooksDevelopmentsImpactEducation from "./components/issues/ResidentReflectionsScreens/MoCoOverlooksDevelopmentsImpactEducation"
 import DemandMentalHealthServicesExceedSupplyMoCoSchools from "./components/issues/ResidentReflectionsScreens/DemandMentalHealthServicesExceedSupplyMoCoSchools"
@@ -120,9 +145,6 @@ import HealthCareFormGoodLuck from "./components/issues/ResidentReflectionsScree
 import Badlands from "./components/issues/ResidentReflectionsScreens/Badlands";
 import ShouldMoCoMakeTeardownsPayImpactTaxes from "./components/issues/ResidentReflectionsScreens/ShouldMoCoMakeTeardownsPayImpactTaxes";
 
-import Test from "./components/Test";
-import withTracker from './components/WithTracker';
-
 const Page404 = ({ location }) => (
   <div className="m-padding">
     {/* <img src={error404} alt="error404" className="large responsive center" /> */}
@@ -132,28 +154,6 @@ const Page404 = ({ location }) => (
     </p>
   </div>
 );
-
-class Article extends React.Component {
-  render() {
-    return (
-      <div className="pdf-container">
-          <iframe 
-              src={`${this.props.pdfUrl}/preview`} 
-              title={this.props.title}
-              frameBorder="0" 
-              height="800px" 
-              width="100%">
-              <p>
-                  This PDF could not be displayed, please download or view it 
-                  <a href={`${this.props.pdfUrl}`} >
-                      here.
-                  </a>
-              </p>
-          </iframe>
-      </div>
-    );
-  }
-}
 
 
 export class Routes extends React.PureComponent {
@@ -165,7 +165,7 @@ export class Routes extends React.PureComponent {
   }
   
   componentWillMount() {
-    fire.collection("articles").where("status", "==", "live").onSnapshot(snapshot => {
+    firestore.collection("articles").where("status", "==", "live").onSnapshot(snapshot => {
       const pastArticles = []
       snapshot.forEach(doc => {
         pastArticles.push({
@@ -174,7 +174,6 @@ export class Routes extends React.PureComponent {
               pdfUrl: doc.data().pdfUrl,
               localUrl: doc.data().localUrl
           })
-          console.log("Title: " + doc.data().title + " , id: " + doc.id)
       })
       this.setState({
         articles: pastArticles
@@ -186,7 +185,6 @@ export class Routes extends React.PureComponent {
   }
 
   render() {
-    console.log(this.state.articles);
     return (
       <Switch>
         <Route exact path="/" component={withTracker(Home)} />
@@ -308,20 +306,64 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/more/stories-opinions/complexities-child-care-nutshell" component={ComplexitiesChildCareNutshell} />
         <Route exact path="/issues/more/legislation/voting-bills" component={VotingBills} />
         <Route exact path="/issues/more/legislation/life-threatening-project-bust" component={LifeThreateningProjectBust} />
+
+        {/* CMS */}
         {  
           this.state.articles && (
-            this.state.articles.map((article, key) => {
-              console.log("article.localUrl: " + article.localUrl)
+            this.state.articles.map((article) => {
               return (<Route key={article.id} exact path={article.localUrl} component={() => <Article pdfUrl={article.pdfUrl} />} />)
             })  
            )
-          
         } 
-        <Route exact path="/test" component={withTracker(Test)} />
+
+        <Route exact path="/cms/sign-in" component={SignIn} />
+        <Route path="/cms/signing-in" exact component={() => <SigningIn user={this.props.user} />} />
+        <Route path="/cms/register/" exact render={() => <RegisterContainer user={this.props.user} />} />
+        <UserRoute
+              exact
+              path="/cms/home"
+              loggedIn={this.props.user}
+              component={() => <CMSHome />} />
+        <UserRoute
+              exact
+              path="/cms/add-article"
+              loggedIn={this.props.user}
+              component={() => <AddArticle />} />
+        <UserRoute
+            exact
+            path="/cms/list-articles"
+            loggedIn={this.props.user}
+            component={() => <ListArticles />} />
+
         <Route component={withTracker(Page404)} />
       </Switch>
     );
   }
 }
+
+// Must be signed in to view
+const UserRoute = ({ component: Comp, loggedIn, path, ...rest }) => {
+  return (
+    <Route
+      path={path}
+      {...rest}
+      render={props => {
+        return loggedIn ? (
+          <ErrorBoundary><Comp {...props} /></ErrorBoundary>
+        ) : (
+          
+          <Route
+            render={() => (
+              <>
+                {toast.warn("You must sign in to visit that page.")}
+                <Redirect to="/cms/sign-in" />
+              </>
+            )}
+          />
+        );
+      }}
+    />
+  );
+};
 
 export default withRouter(Routes);

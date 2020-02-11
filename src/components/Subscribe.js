@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Formik, Field } from 'formik';
 import * as yup from 'yup'
-import firestore from "../config/Fire.js";
+import {firestore} from "../Fire.js";
 import { toast } from 'react-toastify';
 
 const formSchema = yup.object().shape({

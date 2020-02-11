@@ -1,56 +1,16 @@
 import React, { Component } from 'react'
 import { Formik, Field } from 'formik';
-import * as yup from 'yup'
-import firestore from "../config/Fire.js";
+import {firestore} from "../../Fire.js";
 import { toast } from 'react-toastify';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import {addArticleSchema} from '../../utilities/formSchemas'
 
-const formSchema = yup.object().shape({
-    title: yup
-        .string()
-        .required("A title is required."),
-    author: yup
-        .string(),
-    date: yup
-        .string(),
-    body: yup
-        .string(),
-    pdfUrl: yup
-        .string(),
-    status: yup
-        .string(),
-    category: yup
-        .string()
-        .required("A category tag is required."),
-    issue: yup
-        .string()
-        .required("An issue tag is required."),
-    
-})
-
-const initialFormState = {
-  title: "",
-  author: "",
-  date: "",
-  body: "",
-  pdfUrl: "",
-  status: "",
-  category: "",
-  issue: "",
-};
-
-export default class Test extends Component {
+export default class AddArticle extends Component {
     constructor(props) {
         super(props)
         this.addArticle = this.addArticle.bind(this);
-        this.state = {
-             
-        }
     }
 
-    componentDidMount() {
-        
-    }
     
     addArticle(values){
         var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
@@ -78,6 +38,17 @@ export default class Test extends Component {
       }
 
     render() {
+        const initialFormState = {
+            title: "",
+            author: "",
+            date: "",
+            body: "",
+            pdfUrl: "",
+            status: "",
+            category: "",
+            issue: "",
+          };
+
         return (
             <div className="wrapper">
                 <h1>Testing Page</h1>
@@ -87,7 +58,7 @@ export default class Test extends Component {
                         this.addArticle(values);
                         actions.resetForm()
                     }}
-                    validationSchema={formSchema}
+                    validationSchema={addArticleSchema}
                     >
                     {props => (
                         <form onSubmit={props.handleSubmit}>
@@ -95,7 +66,7 @@ export default class Test extends Component {
                             {/* Row 1 */}
                             <Row>
                                 <Col xs={12} sm={6}>
-                                    <label for="title">Title: </label>
+                                    <label htmlFor="title">Title: </label>
                                     <Field
                                         type="title"
                                         placeholder="The Greatest Finding Ever"
@@ -117,7 +88,7 @@ export default class Test extends Component {
                             {/* Row 2 */}
                             <Row>
                                 <Col xs={12} sm={6} md={4}>
-                                    <label for="author">Author: </label>
+                                    <label htmlFor="author">Author: </label>
                                     <Field
                                         type="text"
                                         placeholder="John Doe"
@@ -135,7 +106,7 @@ export default class Test extends Component {
                                     <br/>
                                 </Col>
                                 <Col xs={12} sm={6} md={4}>
-                                    <label for="date">Date: </label>
+                                    <label htmlFor="date">Date: </label>
                                     <Field
                                         type="text"
                                         placeholder="September 25, 2019"
@@ -158,7 +129,7 @@ export default class Test extends Component {
                             <Row>
                                 <Col xs={12}>
                                     {/* Make this a markdown field */}
-                                    <label for="body">Body: </label>
+                                    <label htmlFor="body">Body: </label>
                                     <Field
                                         component="textarea"
                                         placeholder="This can be a simple body of text."
@@ -180,7 +151,7 @@ export default class Test extends Component {
                             {/* Row 4 */}
                             <Row>
                                 <Col xs={12} sm={6}>
-                                    <label for="pdfUrl">Google Drive PDF URL: </label>
+                                    <label htmlFor="pdfUrl">Google Drive PDF URL: </label>
                                     <Field
                                         type="text"
                                         placeholder="https://drive.google.com/file/d/1eqNFnV8Df8ODN-hB4ZtAYe_OWyE3igeE"
@@ -202,7 +173,7 @@ export default class Test extends Component {
                             {/* Row 5 */}
                             <Row>
                                 <Col xs={12} sm={6} md={4}>
-                                    <label for="issue">Issue: </label>
+                                    <label htmlFor="issue">Issue: </label>
                                     <Field
                                         component="select" 
                                         onChange={props.handleChange}
@@ -225,7 +196,7 @@ export default class Test extends Component {
                                     <br/>
                                 </Col>
                                 <Col xs={12} sm={6} md={4}>
-                                    <label for="category">Category: </label>
+                                    <label htmlFor="category">Category: </label>
                                     <Field
                                         component="select" 
                                         onChange={props.handleChange}
@@ -246,7 +217,7 @@ export default class Test extends Component {
                                     <br/>
                                 </Col>
                                 <Col xs={12} sm={6} md={4}>
-                                    <label for="status">Status: </label>
+                                    <label htmlFor="status">Status: </label>
                                     <Field
                                         type="text"
                                         placeholder="live or draft"

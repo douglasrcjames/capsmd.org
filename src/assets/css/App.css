@@ -972,3 +972,8 @@ Yellow: #FFD54C
   select option {
     font-weight:normal;
   }
+
+  .yup-error {
+    font-weight: 600;
+    color: #c0392b !important;
+  }

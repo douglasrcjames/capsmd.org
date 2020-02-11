@@ -29,7 +29,7 @@ export default class Footer extends Component {
                             <img
                                 className="m-em"
                                 alt="facebook"
-                                src={require('../assets/images/social/facebook.png')}
+                                src={require('../../assets/images/social/facebook.png')}
                                 />
                             &nbsp;
                             Facebook
@@ -42,7 +42,7 @@ export default class Footer extends Component {
                             <img
                                 className="m-em"
                                 alt="twitter"
-                                src={require('../assets/images/social/twitter.png')}
+                                src={require('../../assets/images/social/twitter.png')}
                                 />
                             &nbsp;
                             Twitter
@@ -54,7 +54,7 @@ export default class Footer extends Component {
                             <img
                                 className="m-em"
                                 alt="instagram"
-                                src={require('../assets/images/social/instagram.png')}
+                                src={require('../../assets/images/social/instagram.png')}
                                 />
                             &nbsp;
                             Instagram
@@ -68,7 +68,7 @@ export default class Footer extends Component {
                             <img
                                 className="m-em"
                                 alt="facebook"
-                                src={require('../assets/images/social/facebook.png')}
+                                src={require('../../assets/images/social/facebook.png')}
                                 />
                             &nbsp;
                             Facebook
@@ -78,7 +78,7 @@ export default class Footer extends Component {
                             <img
                                 className="m-em"
                                 alt="instagram"
-                                src={require('../assets/images/social/instagram.png')}
+                                src={require('../../assets/images/social/instagram.png')}
                                 />
                             &nbsp;
                             Instagram
@@ -88,7 +88,7 @@ export default class Footer extends Component {
                             <img
                                 className="m-em"
                                 alt="twitter"
-                                src={require('../assets/images/social/twitter.png')}
+                                src={require('../../assets/images/social/twitter.png')}
                                 />
                             &nbsp;
                             Twitter

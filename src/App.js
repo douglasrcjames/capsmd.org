@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
 import Routes from "./routes";
 import { ToastContainer } from "react-toastify";
 
+import { firebase } from "./Fire.js";
+import history from './history';
 // Components
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/misc/Header";
+import Footer from "./components/misc/Footer";
 import ScrollToTop from "../src/ScrollToTop";
 
 // CSS
@@ -19,19 +21,56 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 class App extends Component {
+  _isMounted = false
+  constructor(props) {
+    super(props)
   
+    this.state = {
+       loading: true
+    }
+  }
+
+  componentDidMount(){
+    this._isMounted = true;
+    if(this._isMounted){
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          this.setState({
+            user: user,
+            loading: false
+          });
+        } else {
+          this.setState({
+            loading: false
+          });
+        }
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
   render() {
       return (
-      <BrowserRouter>
+      <Router history={history}>
         <ScrollToTop>
           <div>
             <Header />
             <ToastContainer position="top-center" hideProgressBar={true} />
-            <Routes />
+            { !this.state.loading && (
+              <Routes user={this.state.user} />
+            )}
+            { this.state.loading && (
+              <div className="l-container">
+                <h2>Loading...</h2> 
+              </div>
+            )}
             <Footer />
           </div>
-          </ScrollToTop>
-      </BrowserRouter>
+        </ScrollToTop>
+      </Router>
     );
   }
 }
