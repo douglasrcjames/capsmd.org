@@ -21,6 +21,13 @@ export default class Education extends Component {
         <h2 className="inline">Facts</h2>
         <p>Information about where the county stands</p>
         <ArticlePreview 
+                title={"A Golden Opportunity: Promoting Lifelong Health by Investing in Infant & Early Childhood Mental Health"}
+                picPath={require('../../../assets/images/carousel/hero-kid.jpg')}
+                link={'/issues/education/facts/promoting-lifelong-health-by-investing-in-infant-and-early-childhood-mental-health'}
+                date={'December 6, 2019'}
+                />
+            <br/>
+        <ArticlePreview 
                 title={'Finding 1: MCPS Distributes Staff Resources to Fight the Achievement Gap'}
                 picPath={require('../../../assets/images/carousel/pencils-yellow.jpg')}
                 link={'/issues/education/facts/finding-1-mcps-distributes-staff-resources-fight-achievement-gap'}
@@ -78,6 +85,13 @@ export default class Education extends Component {
         <h2 className="inline">Stories &amp; Opinions</h2>
         <p>How the county decisions affect real life people</p>
         <ArticlePreview 
+          title={"Will MoCo Need a Tax Hike to Pay for Kirwan?"}
+          picPath={require('../../../assets/images/carousel/school-bus.jpg')}
+          link={'/issues/education/stories-opinions/will-moco-need-a-tax-hike-to-pay-for-kirwan'}
+          date={'November 5, 2019'}
+          />
+        <br/>
+        <ArticlePreview 
           title={'Is MoCo Getting its Fair Share from Kirwan?'}
           picPath={require('../../../assets/images/icons/Handshake.png')}
           link={'/issues/education/stories-opinions/getting-fair-share-from-kirwan'}
@@ -107,9 +121,9 @@ export default class Education extends Component {
         <h2 className="inline">Solutions</h2>
         <p>The county's challenges and some ideas to address them</p>
         <ArticlePreview 
-          title={'Strong Schools Maryland'}
+          title={'How Kirwan Benefits Montgomery County'}
           picPath={require('../../../assets/images/carousel/strong-schools-maryland.jpg')}
-          link={'/issues/education/solutions/strong-schools-maryland'}
+          link={'/issues/education/solutions/how-kirwan-benefits-montgomery-county'}
           date={'September 8, 2019'}
           />
         <br/>

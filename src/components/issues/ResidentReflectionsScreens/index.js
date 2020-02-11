@@ -22,6 +22,34 @@ export default class ResidentReflections extends Component {
                 <hr className="m-width"/>
                 <br/>
                 <ArticlePreview 
+                    title={"Should MoCo Make Teardowns Pay Impact Taxes?"}
+                    picPath={require('../../../assets/images/articles/taxes-coins.jpg')}
+                    link={'/issues/resident-reflections/should-moco-make-teardowns-pay-impact-taxes'}
+                    date={'February 10, 2020'}
+                    />
+                <br/>
+                <ArticlePreview 
+                    title={"Health Care Reform … Good Luck"}
+                    picPath={require('../../../assets/images/carousel/stethoscope.jpg')}
+                    link={'/issues/resident-reflections/health-care-form-good-luck'}
+                    date={'November 22, 2019'}
+                    />
+                <br/>
+                <ArticlePreview 
+                    title={"CAPS X Badlands"}
+                    picPath={require('../../../assets/images/carousel/badlands.jpg')}
+                    link={'/issues/resident-reflections/caps-x-badlands'}
+                    date={'October 30, 2019'}
+                    />
+                <br/>
+                <ArticlePreview 
+                    title={"Starting a Small Business in Montgomery County"}
+                    picPath={require('../../../assets/images/carousel/dressing.jpg')}
+                    link={'/issues/resident-reflections/starting-small-business-in-montgomery-county'}
+                    date={'October 28, 2019'}
+                    />
+                <br/>
+                <ArticlePreview 
                     title={"Wait, I'm Undocumented?"}
                     picPath={require('../../../assets/images/carousel/dreamer-jacket.jpg')}
                     link={'/issues/resident-reflections/wait-im-undocumented'}

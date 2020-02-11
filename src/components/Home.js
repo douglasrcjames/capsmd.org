@@ -11,70 +11,58 @@ import ArticlePreview from './issues/ArticlePreview'
 
 const sliderContent = [
     {
-        title: "Wait, I'm Undocumented?",
+        title: "MoCo’s Moratorium Madness",
         button: 'Read Now',
-        link: '/issues/resident-reflections/wait-im-undocumented',
-		image: require("../assets/images/carousel/dreamer-jacket.jpg"),
+        link: '/issues/economic-development/stories-opinions/moco-moratorium-madness',
+        image: require("../assets/images/carousel/stop-sign.jpg"),
     },
     {
-        title: 'Finding 1: MCPS Distributes Staff Resources to Fight the Achievement Gap',
+        title: "Does the County Government Need More Revenue?",
         button: 'Read Now',
-        link: '/issues/education/facts/finding-1-mcps-distributes-staff-resources-fight-achievement-gap',
-		image: require("../assets/images/carousel/pencils-yellow.jpg"),
+        link: '/issues/economic-development/stories-opinions/does-county-need-more-revenue',
+        image: require("../assets/images/carousel/revenue.jpg"),
     },
     {
-        title: 'Finding 2: The Fiscal 2017 Property Tax Hike Did Not Bring Substantially More Resources to the Classroom',
+        title: "The Next 10 Years Will Determine the Fate of Affordable Housing in Montgomery County",
         button: 'Read Now',
-        link: '/issues/education/facts/finding-2-fiscal-2017-property-tax-hike-did-not-bring-substantially-more-resources-classroom',
-		image: require("../assets/images/carousel/money-bg.jpg"),
+        link: '/issues/infrastructure/stories-opinions/ten-years-affordable-housing',
+        image: require("../assets/images/carousel/apartment-building.jpg"),
     },
     {
-        title: 'Finding 3: There Are Gigantic Demographic Gaps Between Students and Professional Staff',
+        title: "A Golden Opportunity: Promoting Lifelong Health by Investing in Infant & Early Childhood Mental Health",
         button: 'Read Now',
-        link: '/issues/education/facts/finding-3-there-are-gigantic-demographic-gaps-between-students-professional-staff',
-		image: require("../assets/images/carousel/classroom-teacher.jpg"),
+        link: '/issues/education/facts/promoting-lifelong-health-by-investing-in-infant-and-early-childhood-mental-health',
+        image: require("../assets/images/carousel/hero-kid.jpg"),
     },
     {
-        title: 'Finding 4: Boundary Shifts Can Play a Role in Solving Capacity Issues',
+        title: "Health Care Reform … Good Luck",
         button: 'Read Now',
-        link: '/issues/education/facts/finding-4-boundary-shifts-can-play-role-solving-capacity-issues',
-		image: require("../assets/images/carousel/fence-grass-sky.jpg"),
+        link: '/issues/resident-reflections/health-care-form-good-luck',
+        image: require("../assets/images/carousel/stethoscope.jpg"),
     },
     {
-        title: 'Strong Schools Maryland',
+        title: "Will MoCo Need a Tax Hike to Pay for Kirwan?",
         button: 'Read Now',
-        link: '/issues/education/solutions/strong-schools-maryland',
-		image: require("../assets/images/carousel/strong-schools-maryland.jpg"),
+        link: '/issues/education/stories-opinions/will-moco-need-a-tax-hike-to-pay-for-kirwan',
+        image: require("../assets/images/carousel/school-bus.jpg"),
     },
     {
-        title: 'An Examination of Resource Allocation, Demographics and Capacity Utilization in Montgomery County Public Schools',
+        title: "The Potomac Divide",
         button: 'Read Now',
-        link: '/issues/education/facts/an-examination-resource-allocation-demographics-capacity-utilization-montgomery-county-public-schools',
-		image: require("../assets/images/carousel/library-curved.jpg"),
+        link: '/issues/economic-development/facts/potomac-divide',
+        image: require("../assets/images/carousel/brown-green-field.jpg"),
     },
     {
-        title: 'Local Government Holds Key to Gun Reform',
+        title: "CAPS X Badlands",
         button: 'Read Now',
-        link: '/issues/resident-reflections/local-government-holds-key-gun-reform',
-		image: require("../assets/images/carousel/group-protest.jpg"),
+        link: '/issues/resident-reflections/caps-x-badlands',
+		image: require("../assets/images/carousel/badlands.jpg"),
     },
     {
-        title: 'MCPS: The Numbers and Beyond',
+        title: "Starting a Small Business in Montgomery County",
         button: 'Read Now',
-        link: '/issues/resident-reflections/mcps-the-numbers-beyond',
-		image: require("../assets/images/carousel/green-chalk-board.jpg"),
-    },
-    {
-        title: 'Demand for Mental Health Services Exceed Supply in MoCo Schools',
-        button: 'Read Now',
-        link: '/issues/resident-reflections/demand-mental-health-services-exceed-supply-moco-schools',
-		image: require("../assets/images/carousel/fence-signs.jpg"),
-    },
-    {
-        title: "Montgomery County Overlooks Development's Impact on Education",
-        button: 'Read Now',
-        link: '/issues/resident-reflections/moco-overlooks-developments-impact-education',
-		image: require("../assets/images/carousel/woman-sign.jpg"),
+        link: '/issues/resident-reflections/starting-small-business-in-montgomery-county',
+		image: require("../assets/images/carousel/dressing.jpg"),
     },
 ];
 
@@ -114,7 +102,7 @@ export default class Home extends Component {
             <h1>Explore the Issues</h1>
             <Grid fluid>
                 <Row>
-                    <Col md className="center-text">
+                    <Col lg className="center-text">
                         <img
                             className="center small"
                             alt="dollar"
@@ -124,7 +112,7 @@ export default class Home extends Component {
                         <p>Learn about jobs, business growth and other issues connected to growing the economy.</p>
                         <Link to="/issues/economic-development"><span className="m-text blue">Learn more</span></Link>
                     </Col>
-                    <Col md className="center-text">
+                    <Col lg className="center-text">
                         <img
                             className="center small"
                             alt="book"
@@ -134,7 +122,7 @@ export default class Home extends Component {
                         <p>Learn about issues concerning our public schools and more.</p>
                         <Link to="/issues/education"><span className="m-text blue">Learn more</span></Link>
                     </Col>
-                    <Col md className="center-text">
+                    <Col lg className="center-text">
                         <img
                             className="center small"
                             alt="building"
@@ -144,7 +132,17 @@ export default class Home extends Component {
                         <p>Learn about our infrastructure network, including roads, transit and more.</p>
                         <Link to="/issues/infrastructure"><span className="m-text blue">Learn more</span></Link>
                     </Col>
-                    <Col md className="center-text">
+                    <Col lg className="center-text">
+                        <img
+                            className="center small"
+                            alt="building"
+                            src={require("../assets/images/icons/bus.png")}
+                            />
+                        <h4>Governance</h4>
+                        <p>Learn about governance.</p>
+                        <Link to="/issues/governance"><span className="m-text blue">Learn more</span></Link>
+                    </Col>
+                    <Col lg className="center-text">
                         <img
                             className="center small"
                             alt="books"
@@ -152,14 +150,14 @@ export default class Home extends Component {
                             />
                         <h4>Resident Reflections</h4>
                         <p>Giving residents a platform to share challenges and solutions 
-                    that support community improvement</p>
+                        that support community improvement</p>
                         <Link to="/issues/resident-reflections"><span className="m-text blue">Learn more</span></Link>
                     </Col>
-                    <Col md className="center-text">
+                    <Col lg className="center-text">
                         <img
                             className="center small"
                             alt="books"
-                            src={require("../assets/images/icons/bulb.png")}
+                            src={require("../assets/images/icons/more.png")}
                             />
                         <h4>More</h4>
                         <p>Learn about other issues important to Montgomery County.</p>
@@ -171,82 +169,73 @@ export default class Home extends Component {
         <div className="m-padding">
             <h1>Recent CAPS Updates</h1>
             <ArticlePreview 
-                title={"Wait, I'm Undocumented?"}
-                picPath={require('../assets/images/carousel/dreamer-jacket.jpg')}
-                link={'/issues/resident-reflections/wait-im-undocumented'}
-                date={'September 10, 2019'}
+                title={"MoCo’s Moratorium Madness"}
+                picPath={require('../assets/images/carousel/stop-sign.jpg')}
+                link={'/issues/economic-development/stories-opinions/moco-moratorium-madness'}
+                date={'February 10, 2020'}
                 />
             <br/>
             <ArticlePreview 
-                title={'Finding 1: MCPS Distributes Staff Resources to Fight the Achievement Gap'}
-                picPath={require('../assets/images/carousel/pencils-yellow.jpg')}
-                link={'/issues/education/facts/finding-1-mcps-distributes-staff-resources-fight-achievement-gap'}
-                date={'September 8, 2019'}
+                title={"Should MoCo Make Teardowns Pay Impact Taxes?"}
+                picPath={require('../assets/images/articles/taxes-coins.jpg')}
+                link={'/issues/resident-reflections/should-moco-make-teardowns-pay-impact-taxes'}
+                date={'February 10, 2020'}
                 />
             <br/>
             <ArticlePreview 
-                    title={'Finding 2: The Fiscal 2017 Property Tax Hike Did Not Bring Substantially More Resources to the Classroom'}
-                    picPath={require('../assets/images/carousel/money-bg.jpg')}
-                    link={'/issues/education/facts/finding-2-fiscal-2017-property-tax-hike-did-not-bring-substantially-more-resources-classroom'}
-                    date={'September 8, 2019'}
-                    />
-            <br/>
-            <ArticlePreview 
-                    title={'Finding 3: There Are Gigantic Demographic Gaps Between Students and Professional Staff'}
-                    picPath={require('../assets/images/carousel/classroom-teacher.jpg')}
-                    link={'/issues/education/facts/finding-3-there-are-gigantic-demographic-gaps-between-students-professional-staff'}
-                    date={'September 8, 2019'}
-                    />
-            <br/>
-            <ArticlePreview 
-                    title={'Finding 4: Boundary Shifts Can Play a Role in Solving Capacity Issues'}
-                    picPath={require('../assets/images/carousel/fence-grass-sky.jpg')}
-                    link={'/issues/education/facts/finding-4-boundary-shifts-can-play-role-solving-capacity-issues'}
-                    date={'September 8, 2019'}
-                    />
-            <br/>
-            <ArticlePreview 
-                title={'Strong Schools Maryland'}
-                picPath={require('../assets/images/carousel/strong-schools-maryland.jpg')}
-                link={'/issues/education/solutions/strong-schools-maryland'}
-                date={'September 8, 2019'}
+                title={"Does the County Government Need More Revenue?"}
+                picPath={require('../assets/images/carousel/revenue.jpg')}
+                link={'/issues/economic-development/stories-opinions/does-county-need-more-revenue'}
+                date={'January 29, 2020'}
                 />
             <br/>
             <ArticlePreview 
-                title={'An Examination of Resource Allocation, Demographics and Capacity Utilization in Montgomery County Public Schools'}
-                picPath={require('../assets/images/carousel/library-curved.jpg')}
-                link={'/issues/education/facts/an-examination-resource-allocation-demographics-capacity-utilization-montgomery-county-public-schools'}
-                date={'September 8, 2019'}
+                title={"The Next 10 Years Will Determine the Fate of Affordable Housing in Montgomery County"}
+                picPath={require('../assets/images/carousel/apartment-building.jpg')}
+                link={'/issues/infrastructure/stories-opinions/ten-years-affordable-housing'}
+                date={'January 6, 2020'}
                 />
             <br/>
             <ArticlePreview 
-                    title={'Local Government Holds Key to Gun Reform'}
-                    picPath={require('../assets/images/carousel/group-protest.jpg')}
-                    link={'/issues/resident-reflections/local-government-holds-key-gun-reform'}
-                    date={'September 8, 2019'}
-                    />
-            <br/>
-
-            <ArticlePreview 
-                title={'MCPS: The Numbers and Beyond'}
-                picPath={require('../assets/images/carousel/green-chalk-board.jpg')}
-                link={'/issues/resident-reflections/mcps-the-numbers-beyond'}
-                date={'September 8, 2019'}
-                />
-            <br/>
-
-            <ArticlePreview 
-                title={'Demand for Mental Health Services Exceed Supply in MoCo Schools'}
-                picPath={require('../assets/images/carousel/fence-signs.jpg')}
-                link={'/issues/resident-reflections/demand-mental-health-services-exceed-supply-moco-schools'}
-                date={'September 8, 2019'}
+                title={"A Golden Opportunity: Promoting Lifelong Health by Investing in Infant & Early Childhood Mental Health"}
+                picPath={require('../assets/images/carousel/hero-kid.jpg')}
+                link={'/issues/education/facts/promoting-lifelong-health-by-investing-in-infant-and-early-childhood-mental-health'}
+                date={'December 6, 2019'}
                 />
             <br/>
             <ArticlePreview 
-                title={"Montgomery County Overlooks Development's Impact on Education"}
-                picPath={require('../assets/images/carousel/woman-sign.jpg')}
-                link={'/issues/resident-reflections/moco-overlooks-developments-impact-education'}
-                date={'September 8, 2019'}
+                title={"Health Care Reform … Good Luck"}
+                picPath={require('../assets/images/carousel/stethoscope.jpg')}
+                link={'/issues/resident-reflections/health-care-form-good-luck'}
+                date={'November 22, 2019'}
+                />
+            <br/>
+            <ArticlePreview 
+                title={"Will MoCo Need a Tax Hike to Pay for Kirwan?"}
+                picPath={require('../assets/images/carousel/school-bus.jpg')}
+                link={'/issues/education/stories-opinions/will-moco-need-a-tax-hike-to-pay-for-kirwan'}
+                date={'November 5, 2019'}
+                />
+            <br/>
+            <ArticlePreview 
+                title={"The Potomac Divide"}
+                picPath={require('../assets/images/carousel/brown-green-field.jpg')}
+                link={'/issues/economic-development/facts/potomac-divide'}
+                date={'November 4, 2019'}
+                />
+            <br/>
+            <ArticlePreview 
+                title={"CAPS X Badlands"}
+                picPath={require('../assets/images/carousel/badlands.jpg')}
+                link={'/issues/resident-reflections/caps-x-badlands'}
+                date={'October 30, 2019'}
+                />
+            <br/>
+            <ArticlePreview 
+                title={"Starting a Small Business in Montgomery County"}
+                picPath={require('../assets/images/carousel/dressing.jpg')}
+                link={'/issues/resident-reflections/starting-small-business-in-montgomery-county'}
+                date={'October 28, 2019'}
                 />
             <br/>
             

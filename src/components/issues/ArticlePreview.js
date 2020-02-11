@@ -8,15 +8,15 @@ class ArticlePreview extends Component {
             <div className="preview-container">
                 <Grid fluid>
                     <Row>
-                        <Col xs={12} sm={4} md={2} className="s-padding-t"> 
+                        <Col sm={12} md={2} className="preview-img"> 
                             <img
                                 className="medium"
                                 alt="article-img"
                                 src={this.props.picPath}
                                 />
                         </Col>
-                        <Col xs={12} sm={8} md={10}> 
-                            { this.props.date && (<span className="grey preview-text">{this.props.date}</span>) }
+                        <Col sm={12} md={10} className="preview-body"> 
+                            { this.props.date && (<span className="grey preview">{this.props.date}</span>) }
                             <h4 className="l-text preview-text">{this.props.title}</h4>
                             {/* { this.props.author && (<p className="grey preview-text">by {this.props.author}</p>) }
                             { !this.props.author && (<br/>) } */}

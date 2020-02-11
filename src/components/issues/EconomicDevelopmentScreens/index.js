@@ -21,6 +21,13 @@ export default class EconomicDevelopment extends Component {
       <h2 className="inline">Facts</h2>
       <p>Information about where the county stands</p>
       <ArticlePreview 
+          title={"The Potomac Divide"}
+          picPath={require('../../../assets/images/carousel/brown-green-field.jpg')}
+          link={'/issues/economic-development/facts/potomac-divide'}
+          date={'November 4, 2019'}
+          />
+      <br/>
+      <ArticlePreview 
         title={'Montgomery County’s Job Market is Stagnant'}
         picPath={require('../../../assets/images/icons/Briefcase.png')}
         link={'/issues/economic-development/facts/job-market-stagnant'}
@@ -74,6 +81,34 @@ export default class EconomicDevelopment extends Component {
 
       <h2 className="inline">Stories &amp; Opinions</h2>
       <p>How the county decisions affect real life people</p>
+      <ArticlePreview 
+          title={"MoCo’s Moratorium Madness"}
+          picPath={require('../../../assets/images/carousel/stop-sign.jpg')}
+          link={'/issues/economic-development/stories-opinions/moco-moratorium-madness'}
+          date={'February 10, 2020'}
+          />
+      <br/>
+      <ArticlePreview 
+          title={"Does the County Government Need More Revenue?"}
+          picPath={require('../../../assets/images/carousel/revenue.jpg')}
+          link={'/issues/economic-development/stories-opinions/does-county-need-more-revenue'}
+          date={'January 29, 2020'}
+          />
+      <br/>
+      <ArticlePreview 
+          title={"CAPS x Freddy's"}
+          picPath={require('../../../assets/images/carousel/lobster.jpg')}
+          link={'/issues/economic-development/stories-opinions/caps-x-lisa-payne'}
+          date={'October 9, 2019'}
+          />
+      <br/>
+      <ArticlePreview 
+        title={"CAPS x LIA's"}
+        picPath={require('../../../assets/images/carousel/geoffs.jpg')}
+        link={'/issues/economic-development/stories-opinions/caps-x-lias'}
+        date={'October 9, 2019'}
+        />
+      <br/>
       <ArticlePreview 
         title={'How Did the County Spend Your Money This Year?'}
         picPath={require('../../../assets/images/icons/Budget.png')}

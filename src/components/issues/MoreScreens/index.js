@@ -8,8 +8,8 @@ export default class More extends Component {
         <h1>
           <img
             className="m-em"
-            alt="bulb"
-            src={require("../../../assets/images/icons/bulb-no-padding.png")}
+            alt="plus"
+            src={require("../../../assets/images/icons/more-no-padding.png")}
             />&nbsp;More  
         </h1>
 

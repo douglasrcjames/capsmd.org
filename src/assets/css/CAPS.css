@@ -3,26 +3,48 @@
     padding: 0;
   }
 
-  @media screen and (min-width: 701px) {
-    .preview-container {
-      background-color: #f8f8f8 !important;
-      margin: auto;
-      width: 70%;
-      padding: 1%;
-      overflow: auto;
-    }
-  }
-  
+.preview-container {
+  background-color: #f8f8f8 !important;
+  margin: auto;
+  overflow: auto;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
 
-  @media screen and (max-width: 700px) {
-    .preview-container {
-      background-color: #f8f8f8 !important;
-      margin: auto;
-      width: 70%;
-      padding: 1% 1% 5% 1%;
-      overflow: auto;
-    }
+.preview-container:hover {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+@media screen and (min-width: 701px) {
+  .preview-container {
+    padding: 1%;
+    width: 70%;
   }
+
+  .preview-img {
+    padding: 1% 0 0 0;
+  }
+
+  .preview-body {
+    padding: 1% 0 0 5%;
+  }
+}
+
+
+@media screen and (max-width: 700px) {
+  .preview-container {
+    padding: 1% 1% 5% 1%;
+    width: 90%;
+  }
+
+  .preview-img {
+    padding: 5% 0 0 0;
+  }
+
+  .preview-body {
+    padding: 5% 0 0 0;
+  }
+}
 
 
 /* For graphs */
@@ -30,3 +52,4 @@
     background-color: rgba(255, 255, 255, 0.945);
     padding: 10px;
   }
+

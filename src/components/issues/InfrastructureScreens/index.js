@@ -57,6 +57,13 @@ export default class Tranportation extends Component {
         <h2 className="inline">Stories &amp; Opinions</h2>
         <p>How the county decisions affect real life people</p>
         <ArticlePreview 
+            title={"The Next 10 Years Will Determine the Fate of Affordable Housing in Montgomery County"}
+            picPath={require('../../../assets/images/carousel/apartment-building.jpg')}
+            link={'/issues/infrastructure/stories-opinions/ten-years-affordable-housing'}
+            date={'January 6, 2020'}
+            />
+        <br/>
+        <ArticlePreview 
           title={'I-270 Expansion in Western Maryland'}
           picPath={require('../../../assets/images/icons/Car.png')}
           link={'/issues/infrastructure/stories-opinions/I-270-Expansion-in-Western-Maryland'}

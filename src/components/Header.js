@@ -27,7 +27,7 @@ class Header extends Component {
       return (
         <header className="header-padding">
           <div className="top-nav">
-            <MediaQuery minWidth={751}>
+            <MediaQuery minWidth={921}>
               <div className="nav-container">
                 <Link to="/">
                   <img
@@ -64,6 +64,12 @@ class Header extends Component {
                           Infrastructure
                       </NavLink>
                       <NavLink 
+                          to="/issues/governance" 
+                          className="nav-link dropdown"
+                          activeClassName="nav-select">
+                          Governance
+                      </NavLink>
+                      <NavLink 
                           to="/issues/resident-reflections" 
                           className="nav-link dropdown"
                           activeClassName="nav-select">
@@ -83,6 +89,31 @@ class Header extends Component {
                   </NavLink>
                   &nbsp;
                   <div className="top-dropdown">
+                    <Link className="nav-link">CAPS Foundation &nbsp;<i className="fas fa-chevron-down fa-xs" /> </Link>
+                    &nbsp;
+                    <div className="top-dropdown-content">
+                        <NavLink 
+                            to="/caps-foundation/pilot-program" 
+                            className="nav-link dropdown"
+                            activeClassName="nav-select">
+                            Pilot Program
+                        </NavLink>
+                        <NavLink 
+                            to="/caps-foundation/press-releases" 
+                            className="nav-link dropdown"
+                            activeClassName="nav-select">
+                            Press Releases
+                        </NavLink>
+                        <NavLink 
+                            to="/caps-foundation/donate" 
+                            className="nav-link dropdown"
+                            activeClassName="nav-select">
+                            Donate
+                        </NavLink>                     
+                    </div>  
+                  </div>
+                  &nbsp;
+                  <div className="top-dropdown">
                     <Link className="nav-link">Get Involved &nbsp;<i className="fas fa-chevron-down fa-xs" /> </Link>
                     &nbsp;
                     <div className="top-dropdown-content">
@@ -95,7 +126,7 @@ class Header extends Component {
                         <NavLink 
                             to="/contact-us#donate" 
                             className="nav-link dropdown"
-                            href="#example"
+                            href="#donate"
                             >
                             Donate
                         </NavLink>
@@ -117,11 +148,11 @@ class Header extends Component {
             </MediaQuery>
 
             {/* Mobile */}
-            <MediaQuery maxWidth={750}>
+            <MediaQuery maxWidth={920}>
             <Menu
                 customBurgerIcon={<FaBars color="#003da5" onClick={() => this.toggleMenu()} />}
                 right
-                width="50%"
+                width="70%"
                 isOpen={this.state.menuOpen}
                 onStateChange={(state) => this.handleStateChange(state)}
                 // Why is the slider yellow button a higher z value than this??
@@ -155,6 +186,14 @@ class Header extends Component {
                         Infrastructure
                     </NavLink>
                     <NavLink 
+                          id="governance"
+                          to="/issues/governance" 
+                          className="menu-item"
+                          // activeClassName="nav-select"
+                          onClick={() => this.closeMenu()}>
+                          Governance
+                      </NavLink>
+                    <NavLink 
                         id="resident-reflections"
                         to="/issues/resident-reflections" 
                         className="menu-item"
@@ -173,9 +212,61 @@ class Header extends Component {
                 <NavLink id="news" className="menu-item" to="/news" onClick={() => this.closeMenu()}>
                     News
                 </NavLink>
-                <NavLink id="about-us" className="menu-item" to="/about-us" onClick={() => this.closeMenu()}>
-                    About Us
-                </NavLink>
+                <div className="side-dropdown">
+                  <span className="menu-item" >CAPS Foundation &nbsp;<i className="fas fa-chevron-down fa-xs" /></span>
+                  &nbsp;
+                  <div className="side-dropdown-content">
+                    <NavLink 
+                        id="pilot-program"
+                        to="/caps-foundation/pilot-program" 
+                        className="menu-item"
+                        onClick={() => this.closeMenu()}>
+                        Pilot Program
+                    </NavLink>
+                    <NavLink 
+                        id="press-releases"
+                        to="/caps-foundation/press-releases" 
+                        className="menu-item"
+                        onClick={() => this.closeMenu()}>
+                        Press Releases
+                    </NavLink>
+                    <NavLink 
+                        id="donate"
+                        to="/caps-foundation/donate" 
+                        className="menu-item"
+                        onClick={() => this.closeMenu()}>
+                        Donate
+                    </NavLink>
+                  </div>
+                </div>
+                <div className="side-dropdown">
+                  <span className="menu-item" >Get Involved &nbsp;<i className="fas fa-chevron-down fa-xs" /></span>
+                  &nbsp;
+                  <div className="side-dropdown-content">
+                    <NavLink 
+                        id="about-us"
+                        to="/about-us"
+                        className="menu-item"
+                        onClick={() => this.closeMenu()}>
+                        About Us
+                    </NavLink>
+                    <NavLink 
+                        id="donate"
+                        to="/contact-us#donate"
+                        href="#donate" 
+                        className="menu-item"
+                        onClick={() => this.closeMenu()}>
+                        Donate
+                    </NavLink>
+                    <NavLink 
+                        id="infrastructure"
+                        to="/find-legislators" 
+                        className="menu-item"
+                        onClick={() => this.closeMenu()}>
+                        Find Your Legislators
+                    </NavLink>
+                  </div>
+                </div>
                 <NavLink id="contact-us" className="menu-item" to="/contact-us" onClick={() => this.closeMenu()}>
                     Contact Us
                 </NavLink>
