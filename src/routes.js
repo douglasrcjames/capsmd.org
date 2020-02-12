@@ -25,8 +25,7 @@ import withTracker from './components/misc/WithTracker';
 import UnderConstruction from "./components/misc/UnderConstruction";
 import ErrorBoundary from './components/misc/ErrorBoundary';
 
-// CAPS Foundation
-import PilotProgram from "./components/caps-foundation/PilotProgram"
+import PilotPrograms from "./components/caps-foundation/PilotPrograms"
 import PressReleases from "./components/caps-foundation/PressReleases"
 import FoundationDonate from "./components/caps-foundation/FoundationDonate"
 
@@ -197,7 +196,7 @@ export class Routes extends React.PureComponent {
 
         <Route exact path="/contact-us" component={withTracker(ContactUs)} />
         <Route exact path="/find-legislators" component={UnderConstruction} />
-        <Route exact path="/caps-foundation/pilot-program" component={PilotProgram} />
+        <Route exact path="/caps-foundation/pilot-programs" component={PilotPrograms} />
         <Route exact path="/caps-foundation/press-releases" component={PressReleases} />
         <Route exact path="/caps-foundation/donate" component={FoundationDonate} />
 
