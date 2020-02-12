@@ -93,10 +93,10 @@ class Header extends Component {
                     &nbsp;
                     <div className="top-dropdown-content">
                         <NavLink 
-                            to="/caps-foundation/pilot-program" 
+                            to="/caps-foundation/pilot-programs" 
                             className="nav-link dropdown"
                             activeClassName="nav-select">
-                            Pilot Program
+                            Pilot Programs
                         </NavLink>
                         <NavLink 
                             to="/caps-foundation/press-releases" 
@@ -218,10 +218,10 @@ class Header extends Component {
                   <div className="side-dropdown-content">
                     <NavLink 
                         id="pilot-program"
-                        to="/caps-foundation/pilot-program" 
+                        to="/caps-foundation/pilot-programs" 
                         className="menu-item"
                         onClick={() => this.closeMenu()}>
-                        Pilot Program
+                        Pilot Programs
                     </NavLink>
                     <NavLink 
                         id="press-releases"
