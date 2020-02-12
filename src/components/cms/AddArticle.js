@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Formik, Field } from 'formik';
-import {firestore} from "../../Fire.js";
+import { Link } from 'react-router-dom'
+import { firestore } from "../../Fire.js";
 import { toast } from 'react-toastify';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import {addArticleSchema} from '../../utilities/formSchemas'
+import { addArticleSchema } from '../../utilities/formSchemas'
 
 export default class AddArticle extends Component {
     constructor(props) {
@@ -11,30 +12,41 @@ export default class AddArticle extends Component {
         this.addArticle = this.addArticle.bind(this);
     }
 
+    // TODO: add ability to add image
+    // TODO: body needs to do something?
+    // TODO: on carousel? recents preview? issue index preview?
+
     
     addArticle(values){
         var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
         var titleCleaned = titleNoSpecialChars.replace(/\s+/g, '-').toLowerCase(); //lower case and dashified
 
-        var localUrl =  `/issues/${values.issue}/${values.category}/${titleCleaned}`
+        var ref = firestore.collection("articles").doc(`${titleCleaned}`)
+        ref.get().then(doc => {
+        console.log("Exists?" + doc.exists); //true
+            if(doc.exists){
+                toast.error("An article with a similar title exists");
+            } else {
+                var localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
+                ref.set({
+                    title: values.title,
+                    author: values.author,
+                    date: values.date, //change this to a calender set for user
+                    body: values.body,
+                    pdfUrl: values.pdfUrl,
+                    status: values.status,
+                    category: values.category,
+                    issue: values.issue,
+                    localUrl: localUrl,
+                    created: Date.now()
+                }).then(function() {
+                    toast.success("Article added successfully!");
+                }).catch(function(error) {
+                    toast.error("Error writing document: ", error);
+                });
+            }
+        })
 
-        firestore.collection("articles").doc(`${titleCleaned}`).set({
-            title: values.title,
-            author: values.author,
-            date: values.date, //change this to a calender set for user
-            body: values.body,
-            pdfUrl: values.pdfUrl,
-            status: values.status,
-            category: values.category,
-            issue: values.issue,
-            localUrl: localUrl
-        })
-        .then(function() {
-            toast.success("Article added successfully!");
-        })
-        .catch(function(error) {
-            toast.error("Error writing document: ", error);
-        });
       }
 
     render() {
@@ -51,12 +63,17 @@ export default class AddArticle extends Component {
 
         return (
             <div className="wrapper">
-                <h1>Testing Page</h1>
+                <h1>Add Article</h1>
+                <p>Please spell and capitalize everything how you would want it to be seen.</p>
+                <Link to="/cms/home"><button className="s-btn"> <i className="fas fa-arrow-left" />&nbsp; Back to CMS home</button></Link>
+                <br/>
+                <br/>
+                <hr/>
+                <br/>
                 <Formik
                     initialValues={initialFormState}
                     onSubmit={(values, actions) => {
                         this.addArticle(values);
-                        actions.resetForm()
                     }}
                     validationSchema={addArticleSchema}
                     >
@@ -150,8 +167,10 @@ export default class AddArticle extends Component {
 
                             {/* Row 4 */}
                             <Row>
-                                <Col xs={12} sm={6}>
+                                <Col xs={12}>
                                     <label htmlFor="pdfUrl">Google Drive PDF URL: </label>
+                                    <br/>
+                                    <span className="grey s-text">* make sure this URL follows the placeholder value format (i.e. no '/view' appended)</span>
                                     <Field
                                         type="text"
                                         placeholder="https://drive.google.com/file/d/1eqNFnV8Df8ODN-hB4ZtAYe_OWyE3igeE"
@@ -184,6 +203,7 @@ export default class AddArticle extends Component {
                                         <option value="economic-development">Economic Development</option>
                                         <option value="education">Education</option>
                                         <option value="infrastructure">Infrastructure</option>
+                                        <option value="governance">Governance</option>
                                         <option value="resident-reflections">Resident Reflections</option>
                                         <option value="more">More</option>
                                     </Field>
@@ -236,7 +256,7 @@ export default class AddArticle extends Component {
                                 </Col>
                             </Row>  
                         </Grid>
-                        <div className="center-text">
+                        <div className="center-text s-margin-t">
                             <button
                                 type="submit"
                                 className="m-btn"

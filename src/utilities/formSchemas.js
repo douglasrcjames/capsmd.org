@@ -65,3 +65,30 @@ export const addArticleSchema = yup.object().shape({
         .required("An issue tag is required."),
     
 })
+
+export const editArticleSchema = yup.object().shape({
+  title: yup
+    .string()
+    .required("A title is required."),
+  author: yup
+    .string(),
+  date: yup
+    .string(),
+  body: yup
+      .string(),
+  localUrl: yup
+    .string()
+    .required("A local URL is required."),
+  pdfUrl: yup
+    .string(),
+  status: yup
+      .string(),
+  category: yup
+    .string()
+    .required("A category tag is required."),
+  issue: yup
+    .string()
+    .required("An issue tag is required."),
+
+  
+})

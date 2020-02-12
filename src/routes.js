@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch, withRouter, Redirect } from "react-router-dom";
-import {firestore} from './Fire'
+import { firestore } from './Fire'
 import { toast } from 'react-toastify';
 
 // CMS
@@ -8,6 +8,7 @@ import Article from './components/cms/Article'
 import CMSHome from './components/cms/CMSHome'
 import AddArticle from './components/cms/AddArticle'
 import ListArticles from './components/cms/ListArticles'
+import EditArticle from "./components/cms/EditArticle";
 
 // Auth
 import SignIn from './components/auth/SignIn'
@@ -165,22 +166,21 @@ export class Routes extends React.PureComponent {
   }
   
   componentWillMount() {
-    firestore.collection("articles").where("status", "==", "live").onSnapshot(snapshot => {
-      const pastArticles = []
-      snapshot.forEach(doc => {
-        pastArticles.push({
-              id: doc.id,
-              title: doc.data().title,
-              pdfUrl: doc.data().pdfUrl,
-              localUrl: doc.data().localUrl
-          })
-      })
-      this.setState({
-        articles: pastArticles
-      })
-      }, () => {
-          console.log("No articles!")
-      });
+    firestore.collection("articles").onSnapshot(snapshot => {
+        const pastArticles = []
+        snapshot.forEach(doc => {
+            if(doc.data().status === "live"){
+              var docWithId = Object.assign({}, doc.data());
+              docWithId.id = doc.id;
+              pastArticles.push(docWithId)
+            }
+        })
+        this.setState({
+            articles: pastArticles
+        })
+    }, () => {
+        console.log("No articles!")
+    });
       
   }
 
@@ -318,17 +318,22 @@ export class Routes extends React.PureComponent {
 
         <Route exact path="/cms/sign-in" component={SignIn} />
         <Route path="/cms/signing-in" exact component={() => <SigningIn user={this.props.user} />} />
-        <Route path="/cms/register/" exact render={() => <RegisterContainer user={this.props.user} />} />
+        <Route path="/cms/register" exact render={() => <RegisterContainer user={this.props.user} />} />
         <UserRoute
               exact
               path="/cms/home"
               loggedIn={this.props.user}
-              component={() => <CMSHome />} />
+              component={() => <CMSHome user={this.props.user} />} />
         <UserRoute
               exact
               path="/cms/add-article"
               loggedIn={this.props.user}
               component={() => <AddArticle />} />
+        <UserRoute
+              exact
+              path="/cms/edit-article/:articleId"
+              loggedIn={this.props.user}
+              component={() => <EditArticle />} />
         <UserRoute
             exact
             path="/cms/list-articles"

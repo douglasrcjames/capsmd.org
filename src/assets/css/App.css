@@ -648,6 +648,14 @@ Yellow: #FFD54C
     margin: 0 0 1% 0;
   }
   
+  .s-margin-t {
+    margin: 1% 0% 0% 0%;
+  } 
+
+  .s-margin-t-b {
+    margin: 1% 0% 1% 0%;
+  }
+  
   .m-margin {
     margin: 5%;
   }

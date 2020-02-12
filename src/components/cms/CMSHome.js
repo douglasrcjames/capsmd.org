@@ -24,29 +24,44 @@ class CMSHome extends Component {
       }
 
     render() {
-        return (
-            <div className="wrapper">
-                <h1>CMS Home</h1>
-                <p>
-                    CMS or Content Management System will allow you to post content (articles) directly to the site based on what the web developers built.
-                </p>
-                <Grid fluid>
-                    <Row>
-                        <Col xs={6} sm={3}>
-                            <Link to="/cms/add-article"><button className="s-btn">Add an article</button></Link>
+        if(!this.props.user){
+            return(
+                <h2>Loading...</h2>
+            )
+        } else {
+            return (
+                <div className="wrapper">
+                    <div className="center-text">
+                        <h1>CMS Home</h1>
+                    </div>
+                    
+                    <h3>Hello {this.props.user.displayName}!</h3>
+                    <b>Your email is {this.props.user.email}</b>
+                    <p>
+                        CMS or Content Management System will allow you to post content (articles) directly to the site based on what the web developers built. 
+                    </p>
+                    <p>
+                        Choose an option below.
+                    </p>
+                    <Grid fluid>
+                        <Row>
+                            <Col xs={6} sm={3}>
+                                <Link to="/cms/add-article"><button className="s-btn"> <i className="fas fa-plus" />&nbsp; Add an article</button></Link>
+                                </Col>
+                            <Col xs={6} sm={3}>
+                                <Link to="/cms/list-articles"><button className="s-btn"> <i className="fas fa-list" />&nbsp; List all articles</button></Link>
                             </Col>
-                        <Col xs={6} sm={3}>
-                            <Link to="/cms/list-articles"><button className="s-btn">List all articles</button></Link>
-                        </Col>
-                        <Col xs={6} sm={3}>
-                            <button className="s-btn-danger" onClick={this.signOut}>Sign Out</button>
-                        </Col>
-                    </Row>
-                </Grid>
-               
-                
-            </div>
-        )
+                            <Col xs={6} sm={3}>
+                                <button className="s-btn-danger" onClick={this.signOut}> <i className="fas fa-sign-out-alt" />&nbsp; Sign Out</button>
+                            </Col>
+                        </Row>
+                    </Grid>
+                   
+                    
+                </div>
+            )
+        }
+        
     }
 }
 
