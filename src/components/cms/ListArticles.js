@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { firestore } from '../../Fire'
 import { timestamp_to_date_time } from '../../utilities/dateTime'
+
 export default class ListArticles extends Component {
     _isMounted = false
     constructor(props) {
@@ -65,10 +66,12 @@ export default class ListArticles extends Component {
                                         <label>Date: </label>
                                         {article.date}
                                     </Col>
-                                    <Col xs={12} sm={6}>
-                                        <label>Author: </label>
-                                        {article.author}
-                                    </Col>
+                                    { article.body && (
+                                        <Col xs={12} sm={6}>
+                                            <label>Author: </label>
+                                            {article.author}
+                                        </Col>
+                                    )}
                                 </Row>
                                 <Row>
                                     <Col xs={12} sm={6}>
@@ -88,12 +91,14 @@ export default class ListArticles extends Component {
                                         </Link>
                                     </Col>
                                 </Row>
-                                <Row>
-                                    <Col xs={12}>
-                                        <label>PDF URL: </label>
-                                        {article.pdfUrl}
-                                    </Col>
-                                </Row>
+                                { article.pdfUrl && (
+                                    <Row>
+                                        <Col xs={12}>
+                                            <label>PDF URL: </label>
+                                            {article.pdfUrl}
+                                        </Col>
+                                    </Row>
+                                )}
                                 <Row>
                                     <Col xs={12} sm={6}>
                                         <label>Status: </label>

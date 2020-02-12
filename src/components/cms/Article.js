@@ -6,14 +6,14 @@ export default class Article extends Component {
             return (
                 <div className="pdf-container">
                     <iframe 
-                        src={`${this.props.pdfUrl}/preview`} 
-                        title={this.props.title}
+                        src={`${this.props.article.pdfUrl}/preview`} 
+                        title={this.props.article.title}
                         frameBorder="0" 
                         height="800px" 
                         width="100%">
                         <p>
                             This PDF could not be displayed, please download or view it 
-                            <a href={`${this.props.pdfUrl}`} >
+                            <a href={`${this.props.article.pdfUrl}`} >
                                 here.
                             </a>
                         </p>

@@ -56,7 +56,6 @@ class App extends Component {
       return (
       <Router history={history}>
         <ScrollToTop>
-          <div>
             <Header />
             <ToastContainer position="top-center" hideProgressBar={true} />
             { !this.state.loading && (
@@ -68,7 +67,6 @@ class App extends Component {
               </div>
             )}
             <Footer />
-          </div>
         </ScrollToTop>
       </Router>
     );

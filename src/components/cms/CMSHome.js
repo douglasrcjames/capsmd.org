@@ -46,7 +46,7 @@ class CMSHome extends Component {
                     <Grid fluid>
                         <Row>
                             <Col xs={6} sm={3}>
-                                <Link to="/cms/add-article"><button className="s-btn"> <i className="fas fa-plus" />&nbsp; Add an article</button></Link>
+                                <Link to="/cms/add-article"><button className="s-btn-success"> <i className="fas fa-plus" />&nbsp; Add an article</button></Link>
                                 </Col>
                             <Col xs={6} sm={3}>
                                 <Link to="/cms/list-articles"><button className="s-btn"> <i className="fas fa-list" />&nbsp; List all articles</button></Link>
