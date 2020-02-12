@@ -43,52 +43,98 @@ export const forgotPasswordSchema = yup.object().shape({
       .required("Please enter your email."),
   })
 
-export const addArticleSchema = yup.object().shape({
+export const addRichTextArticleSchema = yup.object().shape({
     title: yup
         .string()
         .required("A title is required."),
     author: yup
-        .string(),
+        .string()
+        .required("An author is required."),
     date: yup
-        .string(),
+        .string()
+        .required("A date is required."),
     body: yup
-        .string(),
-    pdfUrl: yup
-        .string(),
+        .string()
+        .required("A body paragraph is required."),
     status: yup
-        .string(),
+        .string()
+        .required("A status is required."),
     category: yup
         .string()
         .required("A category tag is required."),
     issue: yup
         .string()
         .required("An issue tag is required."),
-    
 })
 
-export const editArticleSchema = yup.object().shape({
+export const addPdfArticleSchema = yup.object().shape({
   title: yup
-    .string()
-    .required("A title is required."),
-  author: yup
-    .string(),
+      .string()
+      .required("A title is required."),
   date: yup
-    .string(),
-  body: yup
-      .string(),
-  localUrl: yup
-    .string()
-    .required("A local URL is required."),
+      .string()
+      .required("A date is required."),
   pdfUrl: yup
-    .string(),
+      .string()
+      .required("A PDF URL is required."),
   status: yup
-      .string(),
+      .string()
+      .required("A status is required."),
   category: yup
-    .string()
-    .required("A category tag is required."),
+      .string()
+      .required("A category tag is required."),
   issue: yup
-    .string()
-    .required("An issue tag is required."),
+      .string()
+      .required("An issue tag is required."),
+})
 
-  
+export const editRichTextArticleSchema = yup.object().shape({
+  title: yup
+      .string()
+      .required("A title is required."),
+  author: yup
+      .string()
+      .required("An author is required."),
+  date: yup
+      .string()
+      .required("A date is required."),
+  body: yup
+      .string()
+      .required("A body paragraph is required."),
+  localUrl: yup
+      .string()
+      .required("A local URL is required."),
+  status: yup
+      .string()
+      .required("A status is required."),
+  category: yup
+      .string()
+      .required("A category tag is required."),
+  issue: yup
+      .string()
+      .required("An issue tag is required."),
+})
+
+export const editPdfArticleSchema = yup.object().shape({
+  title: yup
+      .string()
+      .required("A title is required."),
+  date: yup
+      .string()
+      .required("A date is required."),
+  localUrl: yup
+      .string()
+      .required("A local URL is required."),
+  pdfUrl: yup
+      .string()
+      .required("A PDF URL is required."),
+  status: yup
+      .string()
+      .required("A status is required."),
+  category: yup
+      .string()
+      .required("A category tag is required."),
+  issue: yup
+      .string()
+      .required("An issue tag is required."),
 })

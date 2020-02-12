@@ -506,7 +506,6 @@ Yellow: #FFD54C
     border: 1px solid rgb(130, 130, 130);
     border-radius: 4px;
     background-color: white;
-    resize: none;
   }
   
   select {
