@@ -4,16 +4,22 @@ import { Link, withRouter } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import ReactQuill from 'react-quill';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import FileUploader from "react-firebase-file-uploader";
 
-import { firestore } from "../../Fire.js";
+import { firestore, firebase } from "../../Fire.js";
 import { editRichTextArticleSchema, editPdfArticleSchema } from '../../utilities/formSchemas'
+import { checkFile } from '../../utilities/misc.js';
 
 class EditArticle extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
-             article: ""
+             article: "",
+             headerUrl: "",
+             isUploading: false,
+             progress: 0,
+             picPath: '',
         }
     }
 
@@ -38,10 +44,6 @@ class EditArticle extends Component {
         // TODO: implement
     }
 
-    updateHeaderUrl(){
-        // TODO: implement
-    }
-
     updateRichTextArticle(values){
         firestore.collection("articles").doc(this.props.match.params.articleId).update({
             title: values.title,
@@ -52,6 +54,7 @@ class EditArticle extends Component {
             category: values.category,
             issue: values.issue,
             localUrl: values.localUrl,
+            headerUrl: values.headerUrl
         })
         .then(function() {
             console.log("Successfully updated article.");
@@ -72,7 +75,7 @@ class EditArticle extends Component {
             status: values.status,
             category: values.category,
             issue: values.issue,
-            localUrl: values.localUrl,
+            localUrl: values.localUrl
         })
         .then(function() {
             console.log("Successfully updated article.");
@@ -84,6 +87,66 @@ class EditArticle extends Component {
             toast.error("Error updating article: " + error);
         });
     }
+
+    handleFileChange = e => {
+        if (e.target.files[0]) {
+            if(checkFile(this.state.article.pdfUrl)){
+                const picPath = e.target.files[0];
+                this.setState(() => ({ picPath }));
+            } else {
+                toast.error("Please upload a picture file format like png, jpeg, jpg, bmp.");
+            }
+        }
+    };
+
+    uploadHeaderUrl() {
+        if(this.state.picPath){
+            this.fileUploader.startUpload(this.state.picPath)
+        } else {
+            toast.error("Choose a header picture first!");
+        }
+    }
+
+    handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
+
+    handleProgress = progress => this.setState({ progress });
+
+    handleUploadError = error => {
+        this.setState({ isUploading: false });
+        console.error("Error handling upload: " + error);
+        toast.error("Error handling upload: " + error);
+    };
+
+    deletePicPath(){
+        this.setState(() => ({ picPath: "" }));
+    }
+
+    handleUploadSuccess = filename => {
+        firebase.storage()
+            .ref(`headers`)
+            .child(filename)
+            .getDownloadURL()
+            .then((url) => {    
+                firestore.collection("articles").doc(this.props.match.params.articleId).update({
+                    headerUrl: url
+                })
+                .then(function() {
+                    console.log("Successfully updated article.");
+                    toast.success("Successfully updated article.")
+                })
+                .catch(function(error) {
+                    // The document probably doesn't exist.
+                    console.error("Error updating article: ", error);
+                    toast.error("Error updating article: " + error);
+                });
+
+                this.setState({  
+                    headerUrl: url,
+                    progress: 100, 
+                    isUploading: false
+                });
+            });
+        }
     
     render() {
         const initialRichTextFormState = {
@@ -94,7 +157,7 @@ class EditArticle extends Component {
             localUrl: this.state.article.localUrl,
             status: this.state.article.status,
             category: this.state.article.category,
-            issue: this.state.article.issue,
+            issue: this.state.article.issue
           };
 
         const initialPDFFormState = {
@@ -104,7 +167,7 @@ class EditArticle extends Component {
             pdfUrl: this.state.article.pdfUrl,
             status: this.state.article.status,
             category: this.state.article.category,
-            issue: this.state.article.issue,
+            issue: this.state.article.issue
           };
         
         if(!this.state.article){
@@ -306,7 +369,58 @@ class EditArticle extends Component {
                                             )}
                                             <br/>
                                         </Col>
-                                    </Row>  
+                                    </Row>
+                                    {/* Row 6 */}
+                                    <Row>
+                                        { !this.state.headerUrl && (
+                                            <>
+                                            <Col xs={12} sm={6}>
+                                                <label className="s-btn-inv">
+                                                    <i className="fa fa-upload"></i> Choose a header photo
+                                                    <FileUploader
+                                                        name="file-upload1"
+                                                        id="file-upload1"
+                                                        hidden
+                                                        accept="image/*"
+                                                        randomizeFilename
+                                                        storageRef={firebase.storage().ref(`headers`)}
+                                                        onChange={this.handleFileChange}
+                                                        ref={instance => { this.fileUploader = instance; } }
+                                                        onUploadStart={this.handleUploadStart}
+                                                        onUploadError={this.handleUploadError}
+                                                        onUploadSuccess={this.handleUploadSuccess}
+                                                        onProgress={this.handleProgress}
+                                                    />
+                                                </label>
+                                            </Col>
+                                            <Col xs={12} sm={6}>
+                                                {this.state.isUploading && <p>Progress: {this.state.progress}%</p>}
+                                                <br/>
+                                                {this.state.picPath && (
+                                                    <>
+                                                        <button type="button" className="s-btn-inv" onClick={() => this.uploadHeaderUrl()}>Upload choice</button>
+                                                        &nbsp; &nbsp;
+                                                        <button type="button" className="s-btn-danger-inv" onClick={() => this.deletePicPath()}>Delete choice</button>
+                                                        <br/><br/>
+                                                        <img className="responsive square medium" alt="profile" src={URL.createObjectURL(this.state.picPath)} />
+                                                    </>
+                                                )}
+                                            </Col>
+                                            </>
+                                        )}
+                                        { this.state.headerUrl && (
+                                             <Col xs={12}>
+                                                <span className="blue"><i className="fa fa-check"></i> New header updated successfully!</span>
+                                                <br/><br/>
+                                                <img
+                                                    src={this.state.headerUrl}
+                                                    alt="headerUrl"
+                                                    className="medium responsive"
+                                                />
+                                            </Col>
+                                        )}
+                                        
+                                    </Row>   
                                 </Grid>
                                 <div className="center-text s-margin-t">
                                     <button
@@ -489,7 +603,67 @@ class EditArticle extends Component {
                                             <br/>
                                         </Col>
                                     </Row>  
+
+                                    {/* Row 7 */}
+                                    <Row>
+                                        { !this.state.headerUrl && (
+                                            <>
+                                            <Col xs={12} sm={6}>
+                                                <img
+                                                    src={this.state.article.headerUrl}
+                                                    alt="headerUrl"
+                                                    className="medium responsive"
+                                                />
+                                                <br/>
+                                                <label className="s-btn-inv">
+                                                    <i className="fa fa-upload"></i> Choose a new header photo
+                                                    <FileUploader
+                                                        name="file-upload2"
+                                                        id="file-upload2"
+                                                        hidden
+                                                        accept="image/*"
+                                                        randomizeFilename
+                                                        storageRef={firebase.storage().ref(`headers`)}
+                                                        onChange={this.handleFileChange}
+                                                        ref={instance => { this.fileUploader = instance; } }
+                                                        onUploadStart={this.handleUploadStart}
+                                                        onUploadError={this.handleUploadError}
+                                                        onUploadSuccess={this.handleUploadSuccess}
+                                                        onProgress={this.handleProgress}
+                                                    />
+                                                </label>
+                                            </Col>
+                                            <Col xs={12} sm={6}>
+                                                {this.state.isUploading && <p>Progress: {this.state.progress}%</p>}
+                                                <br/>
+                                                {this.state.picPath && (
+                                                    <>
+                                                        <button type="button" className="s-btn-inv" onClick={() => this.uploadHeaderUrl()}>Upload choice</button>
+                                                        &nbsp; &nbsp;
+                                                        <button type="button" className="s-btn-danger-inv" onClick={() => this.deletePicPath()}>Delete choice</button>
+                                                        <br/><br/>
+                                                        <img className="responsive square medium" alt="profile" src={URL.createObjectURL(this.state.picPath)} />
+                                                    </>
+                                                )}
+                                            </Col>
+                                               
+                                            </>
+                                        )}
+                                        { this.state.headerUrl && (
+                                            <Col xs={12}>
+                                                <span className="blue"><i className="fa fa-check"></i> New header updated successfully!</span>
+                                                <br/><br/>
+                                                <img
+                                                    src={this.state.headerUrl}
+                                                    alt="headerUrl"
+                                                    className="medium responsive"
+                                                />
+                                            </Col>
+                                        )}
+                                        
+                                    </Row> 
                                 </Grid>
+                                
                                 <div className="center-text s-margin-t">
                                     <button
                                         type="submit"

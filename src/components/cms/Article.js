@@ -21,17 +21,17 @@ export default class Article extends Component {
                 </div>
             )
         } else if(this.props.article.body) {
-            // var topBgImageStyle = {
-            //     width: "100%",
-            //     height: "200px",
-            //     backgroundImage: `url(${this.props.article.picUrl})`,
-            //     backgroundPosition: "50% 60%", // change me around to move up and down!
-            //     backgroundSize: "cover"
-            //   };
+            var topBgImageStyle = {
+                width: "100%",
+                height: "200px",
+                backgroundImage: `url(${this.props.article.headerUrl})`,
+                backgroundPosition: "50% 60%", // change me around to move up and down!
+                backgroundSize: "cover"
+              };
               
             return (
                 <>
-                {/* <div style ={ topBgImageStyle }></div> */}
+                <div style ={ topBgImageStyle }></div>
                 <div className="wrapper-w-img">
                     <h1>{this.props.article.title}</h1>
                     { this.props.article.date && (

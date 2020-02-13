@@ -136,7 +136,7 @@ export default class AddArticle extends Component {
         if(this.state.picPath){
             this.fileUploader.startUpload(this.state.picPath)
         } else {
-            toast.error("Choose a picture first!");
+            toast.error("Choose a header picture first!");
         }
     }
 

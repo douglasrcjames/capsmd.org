@@ -104,6 +104,9 @@ export const editRichTextArticleSchema = yup.object().shape({
   localUrl: yup
       .string()
       .required("A local URL is required."),
+    headerUrl: yup
+      .string()
+      .required("A header URL is required."),
   status: yup
       .string()
       .required("A status is required."),
@@ -125,6 +128,9 @@ export const editPdfArticleSchema = yup.object().shape({
   localUrl: yup
       .string()
       .required("A local URL is required."),
+    headerUrl: yup
+      .string()
+      .required("A header URL is required."),
   pdfUrl: yup
       .string()
       .required("A PDF URL is required."),
