@@ -38,6 +38,10 @@ class EditArticle extends Component {
         // TODO: implement
     }
 
+    updateHeaderUrl(){
+        // TODO: implement
+    }
+
     updateRichTextArticle(values){
         firestore.collection("articles").doc(this.props.match.params.articleId).update({
             title: values.title,

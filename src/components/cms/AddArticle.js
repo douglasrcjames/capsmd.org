@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { Formik, Field } from 'formik';
 import { Link } from 'react-router-dom'
-import { firestore } from "../../Fire.js";
 import { toast } from 'react-toastify';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { addRichTextArticleSchema, addPdfArticleSchema } from '../../utilities/formSchemas'
+import FileUploader from "react-firebase-file-uploader";
 import ReactQuill from 'react-quill';
+
+import { firestore, firebase } from "../../Fire.js";
+import { addRichTextArticleSchema, addPdfArticleSchema } from '../../utilities/formSchemas'
+import { checkFile } from '../../utilities/misc.js';
 
 export default class AddArticle extends Component {
     constructor(props) {
@@ -13,13 +16,40 @@ export default class AddArticle extends Component {
     
         this.state = {
             quillShown: false,
-            pdfShown: false   
+            pdfShown: false,
+            headerUrl: "",
+            isUploading: false,
+            progress: 0,
+            picPath: '',
         }
+
+        this.modules = {
+            toolbar: [
+                [{ 'header': '1'}, {'header': '2'}],
+                [{size: []}],
+                ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+                [{'list': 'ordered'}, {'list': 'bullet'}, 
+                {'indent': '-1'}, {'indent': '+1'}],
+                [{ align: '' }, { align: 'center' }, { align: 'right' }, { align: 'justify' }],
+                ['link', 'image'],
+                ['clean']
+            ],
+            // TODO: this is still adding <p><br></p> for line breaks!
+            clipboard: {
+              matchVisual: false,
+            }
+          }
+        
+        this.formats = [
+            'header', 'size',
+            'bold', 'italic', 'underline', 'strike', 'blockquote',
+            'list', 'bullet', 'indent',
+            'link', 'image', 'align'
+        ]
         
     }
 
-    // TODO: add ability to add image
-    // TODO: body needs to do something?
+    // TODO: add ability to add image to header
     // TODO: on carousel? recents preview? issue index preview?
 
     
@@ -32,22 +62,27 @@ export default class AddArticle extends Component {
             if(doc.exists){
                 toast.error("An article with a similar title exists");
             } else {
-                var localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
-                ref.set({
-                    title: values.title,
-                    author: values.author,
-                    date: values.date, // TODO: change this to a calender set for user
-                    body: values.body,
-                    status: values.status,
-                    category: values.category,
-                    issue: values.issue,
-                    localUrl: localUrl,
-                    created: Date.now()
-                }).then(function() {
-                    toast.success("Rich text article added successfully!");
-                }).catch(function(error) {
-                    toast.error("Error writing document: ", error);
-                });
+                if(this.state.headerUrl){
+                    var localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
+                    ref.set({
+                        title: values.title,
+                        author: values.author,
+                        date: values.date, // TODO: change this to a calender set for user
+                        body: values.body,
+                        status: values.status,
+                        category: values.category,
+                        issue: values.issue,
+                        headerUrl: this.state.headerUrl,
+                        localUrl: localUrl,
+                        created: Date.now()
+                    }).then(function() {
+                        toast.success("Rich text article added successfully!");
+                    }).catch(function(error) {
+                        toast.error("Error writing document: ", error);
+                    });
+                } else {
+                    toast.error("Please upload a header image!")
+                }  
             }
         })
 
@@ -62,24 +97,76 @@ export default class AddArticle extends Component {
             if(doc.exists){
                 toast.error("An article with a similar title exists");
             } else {
-                var localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
-                ref.set({
-                    title: values.title,
-                    pdfUrl: values.pdfUrl,
-                    status: values.status,
-                    category: values.category,
-                    issue: values.issue,
-                    localUrl: localUrl,
-                    created: Date.now()
-                }).then(function() {
-                    toast.success("PDF article added successfully!");
-                }).catch(function(error) {
-                    toast.error("Error writing document: ", error);
-                });
+                if(this.state.headerUrl){
+                    var localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
+                    ref.set({
+                        title: values.title,
+                        pdfUrl: values.pdfUrl,
+                        status: values.status,
+                        category: values.category,
+                        issue: values.issue,
+                        localUrl: localUrl,
+                        headerUrl: this.state.headerUrl,
+                        created: Date.now()
+                    }).then(function() {
+                        toast.success("PDF article added successfully!");
+                    }).catch(function(error) {
+                        toast.error("Error writing document: ", error);
+                    });
+                } else {
+                    toast.error("Please upload a header image!")
+                }  
             }
         })
 
       }
+
+    handleFileChange = e => {
+        if (e.target.files[0]) {
+            if(checkFile(this.state.pdfShown)){
+                const picPath = e.target.files[0];
+                this.setState(() => ({ picPath }));
+            } else {
+                toast.error("Please upload a picture file format like png, jpeg, jpg, bmp.");
+            }
+        }
+    };
+
+    uploadHeaderUrl() {
+        if(this.state.picPath){
+            this.fileUploader.startUpload(this.state.picPath)
+        } else {
+            toast.error("Choose a picture first!");
+        }
+    }
+
+    handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
+
+    handleProgress = progress => this.setState({ progress });
+
+    handleUploadError = error => {
+        this.setState({ isUploading: false });
+        console.error("Error handling upload: " + error);
+        toast.error("Error handling upload: " + error);
+    };
+
+    deletePicPath(){
+        this.setState(() => ({ picPath: "" }));
+    }
+
+    handleUploadSuccess = filename => {
+        firebase.storage()
+            .ref(`headers`)
+            .child(filename)
+            .getDownloadURL()
+            .then((url) => {       
+                this.setState({  
+                    headerUrl: url,
+                    progress: 100, 
+                    isUploading: false
+                });
+            });
+        }
     
     showPdf(){
         this.setState({
@@ -111,7 +198,10 @@ export default class AddArticle extends Component {
         return (
             <div className="wrapper">
                 <h1>Add Article</h1>
-                <p>Please spell and capitalize everything how you would want it to be seen.</p>
+                <p>
+                    Please spell and capitalize everything how you would want it to be seen. 
+                    Remember that the Title, Date, and Author will be shown in the final article so do not include them in the Body section!
+                </p>
                 <Link to="/cms/home"><button className="s-btn"> <i className="fas fa-arrow-left" />&nbsp; Back to CMS home</button></Link>
                 <br/>
                 <br/>
@@ -212,6 +302,8 @@ export default class AddArticle extends Component {
                                         {({ field }) => 
                                         <ReactQuill 
                                             value={field.value} 
+                                            modules={this.modules}
+                                            formats={this.formats}
                                             placeholder="This can be a simple or complex body of text with links to webpages, bolded text, headers, and more!"
                                             onChange={field.onChange(field.name)} />
                                         }
@@ -291,6 +383,48 @@ export default class AddArticle extends Component {
                                     <br/>
                                 </Col>
                             </Row>  
+                            {/* Row 6 */}
+                            <Row>
+                                { !this.state.headerUrl && (
+                                    <>
+                                    <Col xs={12} sm={6}>
+                                        <label className="s-btn-inv">
+                                            <i className="fa fa-upload"></i> Choose a header photo
+                                            <FileUploader
+                                                name="file-upload1"
+                                                id="file-upload1"
+                                                hidden
+                                                accept="image/*"
+                                                randomizeFilename
+                                                storageRef={firebase.storage().ref(`headers`)}
+                                                onChange={this.handleFileChange}
+                                                ref={instance => { this.fileUploader = instance; } }
+                                                onUploadStart={this.handleUploadStart}
+                                                onUploadError={this.handleUploadError}
+                                                onUploadSuccess={this.handleUploadSuccess}
+                                                onProgress={this.handleProgress}
+                                            />
+                                        </label>
+                                    </Col>
+                                    <Col xs={12} sm={6}>
+                                        {this.state.isUploading && <p>Progress: {this.state.progress}%</p>}
+                                        <br/>
+                                        {this.state.picPath && (
+                                            <>
+                                                <button type="button" className="s-btn-inv" onClick={() => this.uploadHeaderUrl()}>Upload choice</button>
+                                                &nbsp; &nbsp;
+                                                <button type="button" className="s-btn-danger-inv" onClick={() => this.deletePicPath()}>Delete choice</button>
+                                                <br/><br/>
+                                                <img className="responsive square medium" alt="profile" src={URL.createObjectURL(this.state.picPath)} />
+                                            </>
+                                        )}
+                                    </Col>
+                                    </>
+                                )}
+                                { this.state.headerUrl && (
+                                    <span className="blue"><i className="fa fa-check"></i> Header uploaded!</span>
+                                )}
+                            </Row> 
                         </Grid>
                         <div className="center-text s-margin-t">
                             <button
@@ -451,6 +585,49 @@ export default class AddArticle extends Component {
                                     <br/>
                                 </Col>
                             </Row>  
+                            {/* Row 6 */}
+                            <Row>
+                                { !this.state.headerUrl && (
+                                    <>
+                                    <Col xs={12} sm={6}>
+                                        <label className="s-btn-inv">
+                                            <i className="fa fa-upload"></i> Choose a header photo
+                                            <FileUploader
+                                                name="file-upload2"
+                                                id="file-upload2"
+                                                hidden
+                                                accept="image/*"
+                                                randomizeFilename
+                                                storageRef={firebase.storage().ref(`headers`)}
+                                                onChange={this.handleFileChange}
+                                                ref={instance => { this.fileUploader = instance; } }
+                                                onUploadStart={this.handleUploadStart}
+                                                onUploadError={this.handleUploadError}
+                                                onUploadSuccess={this.handleUploadSuccess}
+                                                onProgress={this.handleProgress}
+                                            />
+                                        </label>
+                                    </Col>
+                                    <Col xs={12} sm={6}>
+                                        {this.state.isUploading && <p>Progress: {this.state.progress}%</p>}
+                                        <br/>
+                                        {this.state.picPath && (
+                                            <>
+                                                <button type="button" className="s-btn-inv" onClick={() => this.uploadHeaderUrl()}>Upload choice</button>
+                                                &nbsp; &nbsp;
+                                                <button type="button" className="s-btn-danger-inv" onClick={() => this.deletePicPath()}>Delete choice</button>
+                                                <br/><br/>
+                                                <img className="responsive square medium" alt="profile" src={URL.createObjectURL(this.state.picPath)} />
+                                            </>
+                                        )}
+                                    </Col>
+                                    </>
+                                )}
+                                { this.state.headerUrl && (
+                                    <span className="blue">Header uploaded!</span>
+                                )}
+                                
+                            </Row> 
                         </Grid>
                         <div className="center-text s-margin-t">
                             <button

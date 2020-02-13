@@ -2,14 +2,22 @@ export function ucFirst(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-export function checkFile() {
-    var fileElement = document.getElementById("file-upload");
+export function checkFile(pdfShown) {
+    var fileElement1 = document.getElementById("file-upload1");
+    var fileElement2 = document.getElementById("file-upload2")
+    var fileElement = null;
+    if(pdfShown){
+      fileElement = fileElement2
+    } else {
+      fileElement = fileElement1
+    }
+
     var fileExtension = "";
+
     if (fileElement.value.lastIndexOf(".") > 0) {
         fileExtension = fileElement.value.substring(fileElement.value.lastIndexOf(".") + 1, fileElement.value.length);
     }
     if (
-        fileExtension.toLowerCase() === "gif" || 
         fileExtension.toLowerCase() === "png" || 
         fileExtension.toLowerCase() === "jpg" || 
         fileExtension.toLowerCase() === "jpeg" ||
