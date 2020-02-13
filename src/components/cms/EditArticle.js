@@ -5,6 +5,8 @@ import { toast } from 'react-toastify';
 import ReactQuill from 'react-quill';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import FileUploader from "react-firebase-file-uploader";
+import { ReactDatez } from 'react-datez'
+import "react-datez/dist/css/react-datez.css";
 
 import { firestore, firebase } from "../../Fire.js";
 import { editRichTextArticleSchema, editPdfArticleSchema } from '../../utilities/formSchemas'
@@ -54,16 +56,16 @@ class EditArticle extends Component {
     }
 
     updateRichTextArticle(values){
+        var dateValue = new Date(values.date).getTime();
         firestore.collection("articles").doc(this.props.match.params.articleId).update({
             title: values.title,
             author: values.author,
-            date: values.date,
+            date: dateValue,
             body: values.body,
             status: values.status,
             category: values.category,
             issue: values.issue,
-            localUrl: values.localUrl,
-            headerUrl: values.headerUrl
+            localUrl: values.localUrl
         })
         .then(function() {
             console.log("Successfully updated article.");
@@ -77,9 +79,10 @@ class EditArticle extends Component {
     }
 
     updatePdfArticle(values){
+        var dateValue = new Date(values.date).getTime();
         firestore.collection("articles").doc(this.props.match.params.articleId).update({
             title: values.title,
-            date: values.date,
+            date: dateValue,
             pdfUrl: values.pdfUrl,
             status: values.status,
             category: values.category,
@@ -158,27 +161,6 @@ class EditArticle extends Component {
         }
     
     render() {
-        const initialRichTextFormState = {
-            title: this.state.article.title,
-            author: this.state.article.author,
-            date: this.state.article.date,
-            body: this.state.article.body,
-            localUrl: this.state.article.localUrl,
-            status: this.state.article.status,
-            category: this.state.article.category,
-            issue: this.state.article.issue
-          };
-
-        const initialPDFFormState = {
-            title: this.state.article.title,
-            date: this.state.article.date,
-            localUrl: this.state.article.localUrl,
-            pdfUrl: this.state.article.pdfUrl,
-            status: this.state.article.status,
-            category: this.state.article.category,
-            issue: this.state.article.issue
-          };
-        
         if(!this.state.article){
             return (
                 <div className="wrapper">
@@ -186,6 +168,27 @@ class EditArticle extends Component {
                 </div>
             )
         } else {
+            const initialRichTextFormState = {
+                title: this.state.article.title,
+                author: this.state.article.author,
+                date: new Date(this.state.article.date),
+                body: this.state.article.body,
+                localUrl: this.state.article.localUrl,
+                status: this.state.article.status,
+                category: this.state.article.category,
+                issue: this.state.article.issue
+              };
+    
+            const initialPDFFormState = {
+                title: this.state.article.title,
+                date: new Date(this.state.article.date),
+                localUrl: this.state.article.localUrl,
+                pdfUrl: this.state.article.pdfUrl,
+                status: this.state.article.status,
+                category: this.state.article.category,
+                issue: this.state.article.issue
+              };
+
             return (
                 <div className="wrapper">
                     <h1>Edit Article</h1>
@@ -202,8 +205,8 @@ class EditArticle extends Component {
                             onSubmit={(values) => {
                                 this.updateRichTextArticle(values);
                             }}
+                            enableReinitialize={true}
                             validationSchema={editRichTextArticleSchema}
-                            className={this.state.pdfShown ? "" : "hide"}
                             >
                             {props => (
                                 <form onSubmit={props.handleSubmit}>
@@ -232,7 +235,7 @@ class EditArticle extends Component {
 
                                     {/* Row 2 */}
                                     <Row>
-                                        <Col xs={12} sm={6} md={4}>
+                                        <Col xs={12} sm={6}>
                                             <label htmlFor="author">Author: </label>
                                             <Field
                                                 type="text"
@@ -250,16 +253,20 @@ class EditArticle extends Component {
                                             )}
                                             <br/>
                                         </Col>
-                                        <Col xs={12} sm={6} md={4}>
+                                        <Col xs={12} sm={6}>
                                             <label htmlFor="date">Date: </label>
-                                            <Field
-                                                type="text"
-                                                placeholder="September 25, 2019"
-                                                className="box"
-                                                onChange={props.handleChange}
-                                                name="date"
-                                                value={props.values.date}
-                                            />
+                                            <br/>
+                                            <Field name="date">
+                                                {({ field }) => 
+                                                    <ReactDatez 
+                                                        inputClassName="box"
+                                                        value={field.value}
+                                                        handleChange={field.onChange(field.name)}
+                                                        placeholder="Select date"
+                                                        dateFormat="MM/DD/YYYY"
+                                                    />
+                                                }
+                                            </Field>
                                             <br/>
                                             {props.errors.date && props.touched.date ? (
                                                 <span className="red">{props.errors.date}</span>
@@ -276,10 +283,10 @@ class EditArticle extends Component {
                                             <label htmlFor="body">Body: </label>
                                             <Field name="body">
                                                 {({ field }) => 
-                                                <ReactQuill 
-                                                    value={field.value} 
-                                                    placeholder="This can be a simple or complex body of text with links to webpages, bolded text, headers, and more!"
-                                                    onChange={field.onChange(field.name)} />
+                                                    <ReactQuill 
+                                                        value={field.value} 
+                                                        placeholder="This can be a simple or complex body of text with links to webpages, bolded text, headers, and more!"
+                                                        onChange={field.onChange(field.name)} />
                                                 }
                                             </Field>
                                             <br/>
@@ -363,20 +370,22 @@ class EditArticle extends Component {
                                         <Col xs={12} sm={6} md={4}>
                                             <label htmlFor="status">Status: </label>
                                             <Field
-                                                type="text"
-                                                placeholder="live or draft"
-                                                className="box"
+                                                component="select" 
                                                 onChange={props.handleChange}
                                                 name="status"
                                                 value={props.values.status}
-                                            />
+                                                >
+                                                <option defaultValue value="">No status selected</option> 
+                                                <option value="carousel">Carousel</option>
+                                                <option value="live">Live</option>
+                                                <option value="draft">Draft</option>
+                                            </Field>
                                             <br/>
                                             {props.errors.status && props.touched.status ? (
                                                 <span className="red">{props.errors.status}</span>
                                             ) : (
                                                 ""
                                             )}
-                                            <br/>
                                         </Col>
                                     </Row>
                                     {/* Row 6 */}
@@ -384,8 +393,14 @@ class EditArticle extends Component {
                                         { !this.state.headerUrl && (
                                             <>
                                             <Col xs={12} sm={6}>
+                                                <img
+                                                    src={this.state.article.headerUrl}
+                                                    alt="headerUrl"
+                                                    className="medium responsive"
+                                                />
+                                                <br/>
                                                 <label className="s-btn-inv">
-                                                    <i className="fa fa-upload"></i> Choose a header photo
+                                                    <i className="fa fa-upload"></i> Choose a new header photo
                                                     <FileUploader
                                                         name="file-upload1"
                                                         id="file-upload1"
@@ -415,10 +430,11 @@ class EditArticle extends Component {
                                                     </>
                                                 )}
                                             </Col>
+                                               
                                             </>
                                         )}
                                         { this.state.headerUrl && (
-                                             <Col xs={12}>
+                                            <Col xs={12}>
                                                 <span className="blue"><i className="fa fa-check"></i> New header updated successfully!</span>
                                                 <br/><br/>
                                                 <img
@@ -429,7 +445,7 @@ class EditArticle extends Component {
                                             </Col>
                                         )}
                                         
-                                    </Row>   
+                                    </Row> 
                                 </Grid>
                                 <div className="center-text s-margin-t">
                                     <button
@@ -437,7 +453,7 @@ class EditArticle extends Component {
                                         className="m-btn"
                                         disabled={!props.dirty && !props.isSubmitting}
                                         >
-                                    Update Article
+                                        Update Article
                                     </button>
                                 </div>
                                 </form>
@@ -449,9 +465,10 @@ class EditArticle extends Component {
                     { this.state.article.pdfUrl && (
                         <Formik
                             initialValues={initialPDFFormState}
-                            onSubmit={(values, actions) => {
+                            onSubmit={(values) => {
                                 this.updatePdfArticle(values);
                             }}
+                            enableReinitialize={true}
                             validationSchema={editPdfArticleSchema}
                             >
                             {props => (
@@ -481,16 +498,20 @@ class EditArticle extends Component {
 
                                     {/* Row 2 */}
                                     <Row>
-                                        <Col xs={12} sm={6} md={4}>
+                                        <Col xs={12} sm={6}>
                                             <label htmlFor="date">Date: </label>
-                                            <Field
-                                                type="text"
-                                                placeholder="September 25, 2019"
-                                                className="box"
-                                                onChange={props.handleChange}
-                                                name="date"
-                                                value={props.values.date}
-                                            />
+                                            <br/>
+                                            <Field name="date">
+                                                {({ field }) => 
+                                                    <ReactDatez 
+                                                        inputClassName="box"
+                                                        value={field.value}
+                                                        handleChange={field.onChange(field.name)}
+                                                        placeholder="Select date"
+                                                        dateFormat="MM/DD/YYYY"
+                                                    />
+                                                }
+                                            </Field>
                                             <br/>
                                             {props.errors.date && props.touched.date ? (
                                                 <span className="red">{props.errors.date}</span>
@@ -596,20 +617,22 @@ class EditArticle extends Component {
                                         <Col xs={12} sm={6} md={4}>
                                             <label htmlFor="status">Status: </label>
                                             <Field
-                                                type="text"
-                                                placeholder="live or draft"
-                                                className="box"
+                                                component="select" 
                                                 onChange={props.handleChange}
                                                 name="status"
                                                 value={props.values.status}
-                                            />
+                                                >
+                                                <option defaultValue value="">No status selected</option> 
+                                                <option value="carousel">Carousel</option>
+                                                <option value="live">Live</option>
+                                                <option value="draft">Draft</option>
+                                            </Field>
                                             <br/>
                                             {props.errors.status && props.touched.status ? (
                                                 <span className="red">{props.errors.status}</span>
                                             ) : (
                                                 ""
                                             )}
-                                            <br/>
                                         </Col>
                                     </Row>  
 
@@ -679,7 +702,7 @@ class EditArticle extends Component {
                                         className="m-btn"
                                         disabled={!props.dirty && !props.isSubmitting}
                                         >
-                                    Update Article
+                                        Update Article
                                     </button>
                                 </div>
                                 </form>

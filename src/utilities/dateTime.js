@@ -27,6 +27,23 @@ export function timestamp_to_date_time(timestamp) {
   };
 }
 
+export function readableTimestamp(timestamp) {
+  const dateObject = new Date(timestamp);
+  var monthNames = [
+    "January", "February", "March",
+    "April", "May", "June", "July",
+    "August", "September", "October",
+    "November", "December"
+  ];
+
+  var day = dateObject.getDate();
+  var monthIndex = dateObject.getMonth();
+  var year = dateObject.getFullYear();
+
+  return monthNames[monthIndex] + ' ' + day + ', '  + year;
+
+}
+
 export function timeDifference(current, previous) {
 
   var msPerMinute = 60 * 1000;

@@ -19,7 +19,7 @@ class ErrorBoundary extends React.Component {
     if (this.state.errorInfo) {
       // Error path
       return (
-        <div>
+        <div className="wrapper">
             <h2>Something went wrong</h2>
             {/* TODO: details not supported in Edge */}
             <details>  

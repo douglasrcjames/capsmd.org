@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { readableTimestamp } from '../../utilities/dateTime'
 
 export default class Article extends Component {
     render() {
@@ -28,14 +29,14 @@ export default class Article extends Component {
                 backgroundPosition: "50% 60%", // change me around to move up and down!
                 backgroundSize: "cover"
               };
-              
+            const dateDT = readableTimestamp(this.props.article.date)
             return (
                 <>
                 <div style ={ topBgImageStyle }></div>
                 <div className="wrapper-w-img">
                     <h1>{this.props.article.title}</h1>
                     { this.props.article.date && (
-                        <span className="grey">{this.props.article.date}</span>
+                        <span className="grey">{dateDT}</span>
                     )}
 
                     <br/>

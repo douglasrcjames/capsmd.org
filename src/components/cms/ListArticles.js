@@ -3,7 +3,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Link } from 'react-router-dom'
 
 import { firestore } from '../../Fire'
-import { timestamp_to_date_time } from '../../utilities/dateTime'
+import { timestamp_to_date_time, readableTimestamp } from '../../utilities/dateTime'
 
 export default class ListArticles extends Component {
     _isMounted = false
@@ -52,7 +52,8 @@ export default class ListArticles extends Component {
                 <br/>
                 { 
                     this.state.articles.map((article, i) => {
-                        const dateAndTime = timestamp_to_date_time(article.created)
+                        const createdDT = timestamp_to_date_time(article.created)
+                        const dateDT = readableTimestamp(article.date)
                         return (
                             <Grid fluid key={i}>
                                 <Row>
@@ -64,7 +65,7 @@ export default class ListArticles extends Component {
                                 <Row>
                                     <Col xs={12} sm={6}>
                                         <label>Date: </label>
-                                        {article.date}
+                                        {dateDT}
                                     </Col>
                                     { article.body && (
                                         <Col xs={12} sm={6}>
@@ -106,7 +107,7 @@ export default class ListArticles extends Component {
                                     </Col>
                                     <Col xs={12} sm={6}>
                                         <label>Created: </label>
-                                        {dateAndTime.fullDate} @ {dateAndTime.fullTime}
+                                        {createdDT.fullDate} @ {createdDT.fullTime}
                                     </Col>
                                 </Row>
                                 <Row>

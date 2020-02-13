@@ -5,6 +5,8 @@ import { toast } from 'react-toastify';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import FileUploader from "react-firebase-file-uploader";
 import ReactQuill from 'react-quill';
+import { ReactDatez } from 'react-datez'
+import "react-datez/dist/css/react-datez.css";
 
 import { firestore, firebase } from "../../Fire.js";
 import { addRichTextArticleSchema, addPdfArticleSchema } from '../../utilities/formSchemas'
@@ -21,6 +23,7 @@ export default class AddArticle extends Component {
             isUploading: false,
             progress: 0,
             picPath: '',
+            date: new Date()
         }
 
         this.modules = {
@@ -49,17 +52,15 @@ export default class AddArticle extends Component {
         
     }
 
-    // TODO: add ability to add image to header
     // TODO: on carousel? recents preview? issue index preview?
     // TODO: allow user to toggle articles on carousel
     // TODO: Home page recents should be 10 most recent articles (orderBy and limit)
-    // TODO: each category page index will only display based on where claus
-
+    // TODO: each category page index will only display specific articles based on where claus
     
     addRichTextArticle(values){
         var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
         var titleCleaned = titleNoSpecialChars.replace(/\s+/g, '-').toLowerCase(); //lower case and dashified
-
+        var dateValue = new Date(values.date).getTime()
         var ref = firestore.collection("articles").doc(`${titleCleaned}`)
         ref.get().then(doc => {
             if(doc.exists){
@@ -70,7 +71,7 @@ export default class AddArticle extends Component {
                     ref.set({
                         title: values.title,
                         author: values.author,
-                        date: values.date, // TODO: change this to a calender set for user
+                        date: dateValue,
                         body: values.body,
                         status: values.status,
                         category: values.category,
@@ -94,7 +95,7 @@ export default class AddArticle extends Component {
       addPdfArticle(values){
         var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
         var titleCleaned = titleNoSpecialChars.replace(/\s+/g, '-').toLowerCase(); //lower case and dashified
-
+        var dateValue = new Date(values.date).getTime()
         var ref = firestore.collection("articles").doc(`${titleCleaned}`)
         ref.get().then(doc => {
             if(doc.exists){
@@ -104,6 +105,7 @@ export default class AddArticle extends Component {
                     var localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
                     ref.set({
                         title: values.title,
+                        date: dateValue,
                         pdfUrl: values.pdfUrl,
                         status: values.status,
                         category: values.category,
@@ -230,7 +232,6 @@ export default class AddArticle extends Component {
                         this.addRichTextArticle(values);
                     }}
                     validationSchema={addRichTextArticleSchema}
-                    className={this.state.pdfShown ? "" : "hide"}
                     >
                     {props => (
                         <form onSubmit={props.handleSubmit}>
@@ -259,7 +260,7 @@ export default class AddArticle extends Component {
 
                             {/* Row 2 */}
                             <Row>
-                                <Col xs={12} sm={6} md={4}>
+                                <Col xs={12} sm={6}>
                                     <label htmlFor="author">Author: </label>
                                     <Field
                                         type="text"
@@ -277,16 +278,20 @@ export default class AddArticle extends Component {
                                     )}
                                     <br/>
                                 </Col>
-                                <Col xs={12} sm={6} md={4}>
+                                <Col xs={12} sm={6}>
                                     <label htmlFor="date">Date: </label>
-                                    <Field
-                                        type="text"
-                                        placeholder="September 25, 2019"
-                                        className="box"
-                                        onChange={props.handleChange}
-                                        name="date"
-                                        value={props.values.date}
-                                    />
+                                    <br/>
+                                    <Field name="date">
+                                        {({ field }) => 
+                                            <ReactDatez 
+                                                inputClassName="box"
+                                                value={field.value}
+                                                handleChange={field.onChange(field.name)}
+                                                placeholder="Select date"
+                                                dateFormat="MM/DD/YYYY"
+                                            />
+                                        }
+                                    </Field>
                                     <br/>
                                     {props.errors.date && props.touched.date ? (
                                         <span className="red">{props.errors.date}</span>
@@ -303,12 +308,12 @@ export default class AddArticle extends Component {
                                     <label htmlFor="body">Body: </label>
                                     <Field name="body">
                                         {({ field }) => 
-                                        <ReactQuill 
-                                            value={field.value} 
-                                            modules={this.modules}
-                                            formats={this.formats}
-                                            placeholder="This can be a simple or complex body of text with links to webpages, bolded text, headers, and more!"
-                                            onChange={field.onChange(field.name)} />
+                                            <ReactQuill 
+                                                value={field.value} 
+                                                modules={this.modules}
+                                                formats={this.formats}
+                                                placeholder="This can be a simple or complex body of text with links to webpages, bolded text, headers, and more!"
+                                                onChange={field.onChange(field.name)} />
                                         }
                                     </Field>
                                     <br/>
@@ -370,13 +375,16 @@ export default class AddArticle extends Component {
                                 <Col xs={12} sm={6} md={4}>
                                     <label htmlFor="status">Status: </label>
                                     <Field
-                                        type="text"
-                                        placeholder="live or draft"
-                                        className="box"
+                                        component="select" 
                                         onChange={props.handleChange}
                                         name="status"
                                         value={props.values.status}
-                                    />
+                                        >
+                                        <option defaultValue value="">No status selected</option> 
+                                        <option value="carousel">Carousel</option>
+                                        <option value="live">Live</option>
+                                        <option value="draft">Draft</option>
+                                    </Field>
                                     <br/>
                                     {props.errors.status && props.touched.status ? (
                                         <span className="red">{props.errors.status}</span>
@@ -479,16 +487,20 @@ export default class AddArticle extends Component {
 
                             {/* Row 2 */}
                             <Row>
-                                <Col xs={12} sm={6} md={4}>
+                                <Col xs={12} sm={6}>
                                     <label htmlFor="date">Date: </label>
-                                    <Field
-                                        type="text"
-                                        placeholder="September 25, 2019"
-                                        className="box"
-                                        onChange={props.handleChange}
-                                        name="date"
-                                        value={props.values.date}
-                                    />
+                                    <br/>
+                                    <Field name="date">
+                                        {({ field }) => 
+                                            <ReactDatez 
+                                                inputClassName="box"
+                                                value={field.value}
+                                                handleChange={field.onChange(field.name)}
+                                                placeholder="Select date"
+                                                dateFormat="MM/DD/YYYY"
+                                            />
+                                        }
+                                    </Field>
                                     <br/>
                                     {props.errors.date && props.touched.date ? (
                                         <span className="red">{props.errors.date}</span>
@@ -572,13 +584,16 @@ export default class AddArticle extends Component {
                                 <Col xs={12} sm={6} md={4}>
                                     <label htmlFor="status">Status: </label>
                                     <Field
-                                        type="text"
-                                        placeholder="live or draft"
-                                        className="box"
+                                        component="select" 
                                         onChange={props.handleChange}
                                         name="status"
                                         value={props.values.status}
-                                    />
+                                        >
+                                        <option defaultValue value="">No status selected</option> 
+                                        <option value="carousel">Carousel</option>
+                                        <option value="live">Live</option>
+                                        <option value="draft">Draft</option>
+                                    </Field>
                                     <br/>
                                     {props.errors.status && props.touched.status ? (
                                         <span className="red">{props.errors.status}</span>

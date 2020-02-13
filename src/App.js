@@ -18,7 +18,7 @@ import "./assets/css/Header.css";
 import "./assets/css/Footer.css";
 import "./assets/css/pdf.css";
 import 'react-toastify/dist/ReactToastify.css';
-
+import "react-datez/dist/css/react-datez.css";
 
 class App extends Component {
   _isMounted = false
