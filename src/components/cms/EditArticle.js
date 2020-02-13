@@ -33,15 +33,24 @@ class EditArticle extends Component {
                 })
             } else {
                 console.log("No such document!");
-                toast.warn("No such article!")
+                this.props.history.push("/cms/home");
             }
         }).catch((error) => {
             console.log("Error getting document:", error);
         });
     }
 
+
     deleteArticle(){
-        // TODO: implement
+        if(window.confirm('Are you sure you want to delete this article?')){
+            firestore.collection("articles").doc(this.props.match.params.articleId).delete().then(() => {
+                this.props.history.push("/cms/home");
+                toast.success("Article successfully deleted!");
+                console.log("Document successfully deleted!");
+            }).catch((error) => {
+                console.error("Error removing document: ", error);
+            });
+        }
     }
 
     updateRichTextArticle(values){
@@ -677,6 +686,11 @@ class EditArticle extends Component {
                             )}
                         </Formik>
                     )}
+
+                    <br/>
+                    <br/>
+                    <br/>
+                    <button type="button" className="s-btn-danger" onClick={() => this.deleteArticle()}>Delete article</button>
                 </div>
             )
         }

@@ -51,6 +51,9 @@ export default class AddArticle extends Component {
 
     // TODO: add ability to add image to header
     // TODO: on carousel? recents preview? issue index preview?
+    // TODO: allow user to toggle articles on carousel
+    // TODO: Home page recents should be 10 most recent articles (orderBy and limit)
+    // TODO: each category page index will only display based on where claus
 
     
     addRichTextArticle(values){
