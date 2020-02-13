@@ -168,7 +168,7 @@ export class Routes extends React.PureComponent {
     firestore.collection("articles").onSnapshot(snapshot => {
         const pastArticles = []
         snapshot.forEach(doc => {
-            if(doc.data().status === "live"){
+            if(doc.data().status === "live" || doc.data().status === "carousel"){
               var docWithId = Object.assign({}, doc.data());
               docWithId.id = doc.id;
               pastArticles.push(docWithId)
