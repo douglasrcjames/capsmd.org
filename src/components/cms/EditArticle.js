@@ -81,49 +81,73 @@ class EditArticle extends Component {
 
     updateRichTextArticle(values){
         var dateValue = new Date(values.date).getTime();
-        firestore.collection("articles").doc(this.props.match.params.articleId).update({
-            title: values.title,
-            author: values.author,
-            date: dateValue,
-            body: values.body,
-            status: values.status,
-            category: values.category,
-            issue: values.issue,
-            localUrl: values.localUrl,
-            carousel: values.carousel
-        })
-        .then(function() {
-            console.log("Successfully updated article.");
-            toast.success("Successfully updated article.")
-        })
-        .catch(function(error) {
-            // The document probably doesn't exist.
-            console.error("Error updating article: ", error);
-            toast.error("Error updating article: " + error);
-        });
+        var catPass = false
+        if(values.issue === "resident-reflections"){
+            catPass = true;
+        } else {
+            if(values.category){
+                catPass = true
+            } else {
+                catPass = false
+                toast.error("If the Issue tag is not Resident Reflections then the Category must be set to something!")
+            }
+        }
+
+        if(catPass){
+            firestore.collection("articles").doc(this.props.match.params.articleId).update({
+                title: values.title,
+                author: values.author,
+                date: dateValue,
+                body: values.body,
+                status: values.status,
+                category: values.category,
+                issue: values.issue,
+                localUrl: values.localUrl,
+                carousel: values.carousel
+            }).then(() => {
+                console.log("Successfully updated article.");
+                toast.success("Successfully updated article.")
+            }).catch((error) => {
+                // The document probably doesn't exist.
+                console.error("Error updating article: ", error);
+                toast.error("Error updating article: " + error);
+            });
+        }
     }
 
     updatePdfArticle(values){
         var dateValue = new Date(values.date).getTime();
-        firestore.collection("articles").doc(this.props.match.params.articleId).update({
-            title: values.title,
-            date: dateValue,
-            pdfUrl: values.pdfUrl,
-            status: values.status,
-            category: values.category,
-            issue: values.issue,
-            localUrl: values.localUrl,
-            carousel: values.carousel
-        })
-        .then(function() {
-            console.log("Successfully updated article.");
-            toast.success("Successfully updated article.")
-        })
-        .catch(function(error) {
-            // The document probably doesn't exist.
-            console.error("Error updating article:  ", error);
-            toast.error("Error updating article: " + error);
-        });
+        var catPass = false
+        if(values.issue === "resident-reflections"){
+            catPass = true;
+        } else {
+            if(values.category){
+                catPass = true
+            } else {
+                catPass = false
+                toast.error("If the Issue tag is not Resident Reflections then the Category must be set to something!")
+            }
+        }
+
+        if(catPass){
+            firestore.collection("articles").doc(this.props.match.params.articleId).update({
+                title: values.title,
+                date: dateValue,
+                pdfUrl: values.pdfUrl,
+                status: values.status,
+                category: values.category,
+                issue: values.issue,
+                localUrl: values.localUrl,
+                carousel: values.carousel
+            }).then(() => {
+                console.log("Successfully updated article.");
+                toast.success("Successfully updated article.")
+            }).catch((error) => {
+                // The document probably doesn't exist.
+                console.error("Error updating article:  ", error);
+                toast.error("Error updating article: " + error);
+            });
+        }
     }
 
     handleFileChange = e => {

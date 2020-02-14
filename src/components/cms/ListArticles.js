@@ -76,13 +76,15 @@ export default class ListArticles extends Component {
                                 </Row>
                                 <Row>
                                     <Col xs={12} sm={6}>
-                                        <label>Category: </label>
-                                        {article.category}
-                                    </Col>
-                                    <Col xs={12} sm={6}>
                                         <label>Issue: </label>
                                         {article.issue}
                                     </Col>
+                                    { article.category && (
+                                        <Col xs={12} sm={6}>
+                                            <label>Category: </label>
+                                            {article.category}
+                                        </Col>
+                                    )}
                                 </Row>
                                 <Row>
                                     <Col xs={12}>

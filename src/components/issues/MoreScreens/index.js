@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import ArticlePreview from '../ArticlePreview'
+import { firestore } from "../../../Fire.js";
+import { readableTimestamp } from '../../../utilities/dateTime'
 
 export default class More extends Component {
   render() {
@@ -19,6 +21,22 @@ export default class More extends Component {
 
         <h2 className="inline">Facts</h2>
         <p>Information about where the county stands</p>
+        { 
+          this.state.articles.filter(article => article.category === "").map((article, i) => {
+              const dateDT = readableTimestamp(article.date)
+              return (
+                  <span key={i}>
+                      <ArticlePreview 
+                          title={article.title}
+                          picPath={article.headerUrl}
+                          link={article.localUrl}
+                          date={dateDT}
+                          />
+                      <br/>
+                  </span>
+              )
+          })
+        }
         <ArticlePreview 
           title={'Maryland Newspapers are Disappearing'}
           picPath={require('../../../assets/images/icons/Growth.png')}

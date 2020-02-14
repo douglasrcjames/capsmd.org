@@ -19,6 +19,8 @@ export default class Home extends Component {
             recentArticles: []
         }
     }
+
+    // TODO: make constants for stuff like issue titles, carousel, etc and replace strings through app with constants
     
     componentWillMount() {
         this._isMounted = true;
@@ -228,21 +230,20 @@ export default class Home extends Component {
                 <div className="m-padding">
                     <h1>Recent CAPS Updates</h1>
                     { 
-                            this.state.recentArticles.map((article, i) => {
-                                const dateDT = readableTimestamp(article.date)
-                                return (
-                                    <span key={i}>
-                                        <ArticlePreview 
-                                            
-                                            title={article.title}
-                                            picPath={article.headerUrl}
-                                            link={article.localUrl}
-                                            date={dateDT}
-                                            />
-                                        <br/>
-                                    </span>
-                                )
-                            })
+                        this.state.recentArticles.map((article, i) => {
+                            const dateDT = readableTimestamp(article.date)
+                            return (
+                                <span key={i}>
+                                    <ArticlePreview 
+                                        title={article.title}
+                                        picPath={article.headerUrl}
+                                        link={article.localUrl}
+                                        date={dateDT}
+                                        />
+                                    <br/>
+                                </span>
+                            )
+                        })
                     }
                     <ArticlePreview 
                         title={"MoCo’s Moratorium Madness"}

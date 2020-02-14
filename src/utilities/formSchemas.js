@@ -59,9 +59,6 @@ export const addRichTextArticleSchema = yup.object().shape({
     status: yup
         .string()
         .required("A status is required."),
-    category: yup
-        .string()
-        .required("A category tag is required."),
     issue: yup
         .string()
         .required("An issue tag is required."),
@@ -80,9 +77,6 @@ export const addPdfArticleSchema = yup.object().shape({
   status: yup
       .string()
       .required("A status is required."),
-  category: yup
-      .string()
-      .required("A category tag is required."),
   issue: yup
       .string()
       .required("An issue tag is required."),
@@ -107,9 +101,6 @@ export const editRichTextArticleSchema = yup.object().shape({
   status: yup
       .string()
       .required("A status is required."),
-  category: yup
-      .string()
-      .required("A category tag is required."),
   issue: yup
       .string()
       .required("An issue tag is required."),
@@ -131,9 +122,6 @@ export const editPdfArticleSchema = yup.object().shape({
   status: yup
       .string()
       .required("A status is required."),
-  category: yup
-      .string()
-      .required("A category tag is required."),
   issue: yup
       .string()
       .required("An issue tag is required."),

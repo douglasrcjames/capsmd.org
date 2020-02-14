@@ -57,7 +57,7 @@ class App extends Component {
       <Router history={history}>
         <ScrollToTop>
             <Header />
-            <ToastContainer position="top-center" hideProgressBar={true} />
+            <ToastContainer position="top-center" hideProgressBar={true} autoClose={7000} />
             { !this.state.loading && (
               <Routes user={this.state.user} />
             )}

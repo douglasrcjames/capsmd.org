@@ -64,25 +64,40 @@ class AddArticle extends Component {
                 toast.error("An article with a similar title exists");
             } else {
                 if(this.state.headerUrl){
-                    var localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
-                    ref.set({
-                        title: values.title,
-                        author: values.author,
-                        date: dateValue,
-                        body: values.body,
-                        status: values.status,
-                        category: values.category,
-                        issue: values.issue,
-                        carousel: values.carousel,
-                        headerUrl: this.state.headerUrl,
-                        localUrl: localUrl,
-                        created: Date.now()
-                    }).then(() => {
-                        toast.success("Rich text article added successfully!");
-                        this.props.history.push("/cms/list-articles");
-                    }).catch((error) => {
-                        toast.error("Error writing document: ", error);
-                    });
+                    var localUrl = null
+                    // Resident Refl doesnt have a category
+                    if(values.issue === "resident-reflections"){
+                        localUrl = `/issues/${values.issue}/${titleCleaned}`
+                    } else {
+                        if(values.category){
+                            localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
+                        } else {
+                            toast.error("If the Issue tag is not Resident Reflections then the Category must be set to something!")
+                        }
+                    }
+
+                    // Only proceed if test above passes
+                    if(localUrl){
+                        ref.set({
+                            title: values.title,
+                            author: values.author,
+                            date: dateValue,
+                            body: values.body,
+                            status: values.status,
+                            category: values.category,
+                            issue: values.issue,
+                            carousel: values.carousel,
+                            headerUrl: this.state.headerUrl,
+                            localUrl: localUrl,
+                            created: Date.now()
+                        }).then(() => {
+                            toast.success("Rich text article added successfully!");
+                            this.props.history.push("/cms/list-articles");
+                        }).catch((error) => {
+                            toast.error("Error writing document: ", error);
+                        });
+                    }
+                    
                 } else {
                     toast.error("Please upload a header image!")
                 }  
@@ -101,24 +116,39 @@ class AddArticle extends Component {
                 toast.error("An article with a similar title exists");
             } else {
                 if(this.state.headerUrl){
-                    var localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
-                    ref.set({
-                        title: values.title,
-                        date: dateValue,
-                        pdfUrl: values.pdfUrl,
-                        status: values.status,
-                        category: values.category,
-                        issue: values.issue,
-                        carousel: values.carousel,
-                        localUrl: localUrl,
-                        headerUrl: this.state.headerUrl,
-                        created: Date.now()
-                    }).then(() =>  {
-                        toast.success("PDF article added successfully!");
-                        this.props.history.push("/cms/list-articles");
-                    }).catch((error) =>  {
-                        toast.error("Error writing document: ", error);
-                    });
+                    var localUrl = null
+                    // Resident Refl doesnt have a category
+                    if(values.issue === "resident-reflections"){
+                        localUrl = `/issues/${values.issue}/${titleCleaned}`
+                    } else {
+                        if(values.category){
+                            localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
+                        } else {
+                            toast.error("If the Issue tag is not Resident Reflections then the Category must be set to something!")
+                        }
+                    }
+
+                    // Only proceed if test above passes
+                    if(localUrl){
+                        ref.set({
+                            title: values.title,
+                            date: dateValue,
+                            pdfUrl: values.pdfUrl,
+                            status: values.status,
+                            category: values.category,
+                            issue: values.issue,
+                            carousel: values.carousel,
+                            localUrl: localUrl,
+                            headerUrl: this.state.headerUrl,
+                            created: Date.now()
+                        }).then(() =>  {
+                            toast.success("PDF article added successfully!");
+                            this.props.history.push("/cms/list-articles");
+                        }).catch((error) =>  {
+                            toast.error("Error writing document: ", error);
+                        });
+                    }
+                    
                 } else {
                     toast.error("Please upload a header image!")
                 }  
