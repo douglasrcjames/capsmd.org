@@ -23,7 +23,7 @@ export default class Home extends Component {
     componentWillMount() {
         this._isMounted = true;
         if(this._isMounted){
-            firestore.collection("articles").where("status", "==", "carousel").orderBy("date", "desc").limit(10).onSnapshot(snapshot => {
+            firestore.collection("articles").where("carousel", "==", true).orderBy("date", "desc").onSnapshot(snapshot => {
                 // TODO: manually input these past 10 articles
                 const oldArticles = [
                     {
@@ -231,16 +231,16 @@ export default class Home extends Component {
                             this.state.recentArticles.map((article, i) => {
                                 const dateDT = readableTimestamp(article.date)
                                 return (
-                                    <>
+                                    <span key={i}>
                                         <ArticlePreview 
-                                            key={i}
+                                            
                                             title={article.title}
                                             picPath={article.headerUrl}
                                             link={article.localUrl}
                                             date={dateDT}
                                             />
                                         <br/>
-                                    </>
+                                    </span>
                                 )
                             })
                     }

@@ -23,6 +23,30 @@ class EditArticle extends Component {
              progress: 0,
              picPath: '',
         }
+
+        this.modules = {
+            toolbar: [
+                [{'header': '2'}],
+                [{size: []}],
+                ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+                [{'list': 'ordered'}, {'list': 'bullet'}, 
+                {'indent': '-1'}, {'indent': '+1'}],
+                [{ align: '' }, { align: 'center' }, { align: 'right' }, { align: 'justify' }],
+                ['link', 'image'],
+                ['clean']
+            ],
+            // TODO: this is still adding <p><br></p> for line breaks!
+            clipboard: {
+              matchVisual: false,
+            }
+          }
+        
+        this.formats = [
+            'header', 'size',
+            'bold', 'italic', 'underline', 'strike', 'blockquote',
+            'list', 'bullet', 'indent',
+            'link', 'image', 'align'
+        ]
     }
 
     componentDidMount(){
@@ -65,7 +89,8 @@ class EditArticle extends Component {
             status: values.status,
             category: values.category,
             issue: values.issue,
-            localUrl: values.localUrl
+            localUrl: values.localUrl,
+            carousel: values.carousel
         })
         .then(function() {
             console.log("Successfully updated article.");
@@ -87,7 +112,8 @@ class EditArticle extends Component {
             status: values.status,
             category: values.category,
             issue: values.issue,
-            localUrl: values.localUrl
+            localUrl: values.localUrl,
+            carousel: values.carousel
         })
         .then(function() {
             console.log("Successfully updated article.");
@@ -176,7 +202,8 @@ class EditArticle extends Component {
                 localUrl: this.state.article.localUrl,
                 status: this.state.article.status,
                 category: this.state.article.category,
-                issue: this.state.article.issue
+                issue: this.state.article.issue,
+                carousel: this.state.article.carousel
               };
     
             const initialPDFFormState = {
@@ -186,7 +213,8 @@ class EditArticle extends Component {
                 pdfUrl: this.state.article.pdfUrl,
                 status: this.state.article.status,
                 category: this.state.article.category,
-                issue: this.state.article.issue
+                issue: this.state.article.issue,
+                carousel: this.state.article.carousel
               };
 
             return (
@@ -260,6 +288,7 @@ class EditArticle extends Component {
                                                 {({ field }) => 
                                                     <ReactDatez 
                                                         inputClassName="box"
+                                                        allowPast={true}
                                                         value={field.value}
                                                         handleChange={field.onChange(field.name)}
                                                         placeholder="Select date"
@@ -285,6 +314,8 @@ class EditArticle extends Component {
                                                 {({ field }) => 
                                                     <ReactQuill 
                                                         value={field.value} 
+                                                        modules={this.modules}
+                                                        formats={this.formats}
                                                         placeholder="This can be a simple or complex body of text with links to webpages, bolded text, headers, and more!"
                                                         onChange={field.onChange(field.name)} />
                                                 }
@@ -376,7 +407,6 @@ class EditArticle extends Component {
                                                 value={props.values.status}
                                                 >
                                                 <option defaultValue value="">No status selected</option> 
-                                                <option value="carousel">Carousel</option>
                                                 <option value="live">Live</option>
                                                 <option value="draft">Draft</option>
                                             </Field>
@@ -388,7 +418,17 @@ class EditArticle extends Component {
                                             )}
                                         </Col>
                                     </Row>
+
                                     {/* Row 6 */}
+                                    <Row>
+                                        <Col xs={12} className="s-margin-b">
+                                            <Field type="checkbox" id="carousel1" name="carousel" value={props.values.carousel} checked={props.values.carousel} className="checkbox-input" />
+                                            <label htmlFor="carousel1">&nbsp;Carousel Article?</label>  
+                                            <br/>
+                                        </Col>
+                                    </Row>
+
+                                    {/* Row 7 */}
                                     <Row>
                                         { !this.state.headerUrl && (
                                             <>
@@ -505,6 +545,7 @@ class EditArticle extends Component {
                                                 {({ field }) => 
                                                     <ReactDatez 
                                                         inputClassName="box"
+                                                        allowPast={true}
                                                         value={field.value}
                                                         handleChange={field.onChange(field.name)}
                                                         placeholder="Select date"
@@ -522,7 +563,7 @@ class EditArticle extends Component {
                                         </Col>
                                     </Row>
 
-                                    {/* Row 4 */}
+                                    {/* Row 3 */}
                                     <Row>
                                         <Col xs={12}>
                                             <label htmlFor="localUrl">Local URL: </label>
@@ -544,7 +585,7 @@ class EditArticle extends Component {
                                         </Col>
                                     </Row>  
 
-                                    {/* Row 5 */}
+                                    {/* Row 4 */}
                                     <Row>
                                         <Col xs={12}>
                                             <label htmlFor="pdfUrl">Google Drive PDF URL: </label>
@@ -567,7 +608,7 @@ class EditArticle extends Component {
                                         </Col>
                                     </Row>  
                                     
-                                    {/* Row 6 */}
+                                    {/* Row 5 */}
                                     <Row>
                                         <Col xs={12} sm={6} md={4}>
                                             <label htmlFor="issue">Issue: </label>
@@ -623,7 +664,6 @@ class EditArticle extends Component {
                                                 value={props.values.status}
                                                 >
                                                 <option defaultValue value="">No status selected</option> 
-                                                <option value="carousel">Carousel</option>
                                                 <option value="live">Live</option>
                                                 <option value="draft">Draft</option>
                                             </Field>
@@ -635,6 +675,15 @@ class EditArticle extends Component {
                                             )}
                                         </Col>
                                     </Row>  
+
+                                    {/* Row 6 */}
+                                    <Row>
+                                        <Col xs={12} className="s-margin-b">
+                                            <Field type="checkbox" id="carousel2" name="carousel" value={props.values.carousel} className="checkbox-input" />
+                                            <label htmlFor="carousel2">&nbsp;Carousel Article?</label>  
+                                            <br/>
+                                        </Col>
+                                    </Row> 
 
                                     {/* Row 7 */}
                                     <Row>

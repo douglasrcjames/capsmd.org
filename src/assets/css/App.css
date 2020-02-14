@@ -984,3 +984,58 @@ Yellow: #FFD54C
     font-weight: 600;
     color: #c0392b !important;
   }
+
+  /* Checkbox */
+  .checkbox-input + label{
+    display: block;
+    margin: 0.2em;
+    cursor: pointer;
+    padding: 0.2em;
+  }
+
+  .checkbox-input {
+    display: none;
+  }
+  
+  .checkbox-input + label:before {
+    content: "\2714";
+    border: 0.1em solid #000;
+    border-radius: 0.2em;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    padding-left: 0.2em;
+    padding-bottom: 0.3em;
+    margin-right: 0.2em;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+  }
+  
+  .checkbox-input + label:active:before {
+    transform: scale(0);
+  }
+  
+  .checkbox-input:checked + label:before {
+    background-color: MediumSeaGreen;
+    border-color: MediumSeaGreen;
+    color: #fff;
+  }
+  
+  .checkbox-input:disabled + label:before {
+    transform: scale(1);
+    border-color: #aaa;
+  }
+  
+  .checkbox-input:checked:disabled + label:before {
+    transform: scale(1);
+    background-color: #bfb;
+    border-color: #bfb;
+  }
+
+
+  /* Align verticle middle */
+  .box-text-v-align {
+    display: flex;
+    align-items:center;
+ }

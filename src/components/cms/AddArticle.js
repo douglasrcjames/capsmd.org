@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
 import { Formik, Field } from 'formik';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import FileUploader from "react-firebase-file-uploader";
 import ReactQuill from 'react-quill';
 import { ReactDatez } from 'react-datez'
-import "react-datez/dist/css/react-datez.css";
 
 import { firestore, firebase } from "../../Fire.js";
 import { addRichTextArticleSchema, addPdfArticleSchema } from '../../utilities/formSchemas'
 import { checkFile } from '../../utilities/misc.js';
 
-export default class AddArticle extends Component {
+class AddArticle extends Component {
     constructor(props) {
         super(props)
     
@@ -28,7 +27,7 @@ export default class AddArticle extends Component {
 
         this.modules = {
             toolbar: [
-                [{ 'header': '1'}, {'header': '2'}],
+                [{'header': '2'}],
                 [{size: []}],
                 ['bold', 'italic', 'underline', 'strike', 'blockquote'],
                 [{'list': 'ordered'}, {'list': 'bullet'}, 
@@ -52,10 +51,8 @@ export default class AddArticle extends Component {
         
     }
 
-    // TODO: on carousel? recents preview? issue index preview?
-    // TODO: allow user to toggle articles on carousel
-    // TODO: Home page recents should be 10 most recent articles (orderBy and limit)
     // TODO: each category page index will only display specific articles based on where claus
+    // TODO: prevent too large of images from being inserted (automatically downsize them?)
     
     addRichTextArticle(values){
         var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
@@ -76,12 +73,14 @@ export default class AddArticle extends Component {
                         status: values.status,
                         category: values.category,
                         issue: values.issue,
+                        carousel: values.carousel,
                         headerUrl: this.state.headerUrl,
                         localUrl: localUrl,
                         created: Date.now()
-                    }).then(function() {
+                    }).then(() => {
                         toast.success("Rich text article added successfully!");
-                    }).catch(function(error) {
+                        this.props.history.push("/cms/list-articles");
+                    }).catch((error) => {
                         toast.error("Error writing document: ", error);
                     });
                 } else {
@@ -110,12 +109,14 @@ export default class AddArticle extends Component {
                         status: values.status,
                         category: values.category,
                         issue: values.issue,
+                        carousel: values.carousel,
                         localUrl: localUrl,
                         headerUrl: this.state.headerUrl,
                         created: Date.now()
-                    }).then(function() {
+                    }).then(() =>  {
                         toast.success("PDF article added successfully!");
-                    }).catch(function(error) {
+                        this.props.history.push("/cms/list-articles");
+                    }).catch((error) =>  {
                         toast.error("Error writing document: ", error);
                     });
                 } else {
@@ -198,6 +199,7 @@ export default class AddArticle extends Component {
             status: "",
             category: "",
             issue: "",
+            carousel: false
           };
 
         return (
@@ -285,6 +287,7 @@ export default class AddArticle extends Component {
                                         {({ field }) => 
                                             <ReactDatez 
                                                 inputClassName="box"
+                                                allowPast={true}
                                                 value={field.value}
                                                 handleChange={field.onChange(field.name)}
                                                 placeholder="Select date"
@@ -381,7 +384,6 @@ export default class AddArticle extends Component {
                                         value={props.values.status}
                                         >
                                         <option defaultValue value="">No status selected</option> 
-                                        <option value="carousel">Carousel</option>
                                         <option value="live">Live</option>
                                         <option value="draft">Draft</option>
                                     </Field>
@@ -394,6 +396,16 @@ export default class AddArticle extends Component {
                                     <br/>
                                 </Col>
                             </Row>  
+
+                            {/* Row 5 */}
+                            <Row>
+                                <Col xs={12} className="s-margin-b">
+                                    <Field type="checkbox" id="carousel1" name="carousel" value={props.values.carousel} className="checkbox-input" />
+                                    <label htmlFor="carousel1">&nbsp;Carousel Article?</label>  
+                                    <br/>
+                                </Col>
+                            </Row>  
+                            
                             {/* Row 6 */}
                             <Row>
                                 { !this.state.headerUrl && (
@@ -494,6 +506,7 @@ export default class AddArticle extends Component {
                                         {({ field }) => 
                                             <ReactDatez 
                                                 inputClassName="box"
+                                                allowPast={true}
                                                 value={field.value}
                                                 handleChange={field.onChange(field.name)}
                                                 placeholder="Select date"
@@ -590,7 +603,6 @@ export default class AddArticle extends Component {
                                         value={props.values.status}
                                         >
                                         <option defaultValue value="">No status selected</option> 
-                                        <option value="carousel">Carousel</option>
                                         <option value="live">Live</option>
                                         <option value="draft">Draft</option>
                                     </Field>
@@ -602,8 +614,18 @@ export default class AddArticle extends Component {
                                     )}
                                     <br/>
                                 </Col>
-                            </Row>  
+                            </Row> 
+
                             {/* Row 6 */}
+                            <Row>
+                                <Col xs={12} className="s-margin-b">
+                                    <Field type="checkbox" id="carousel2" name="carousel" value={props.values.carousel} className="checkbox-input" />
+                                    <label htmlFor="carousel2">&nbsp;Carousel Article?</label>  
+                                    <br/>
+                                </Col>
+                            </Row>   
+
+                            {/* Row 7 */}
                             <Row>
                                 { !this.state.headerUrl && (
                                     <>
@@ -664,3 +686,5 @@ export default class AddArticle extends Component {
         )
     }
 }
+
+export default withRouter(AddArticle);
