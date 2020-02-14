@@ -6,7 +6,9 @@ import UnderConstruction from "./components/UnderConstruction";
 import AboutUs from "./components/AboutUs";
 
 import PilotPrograms from "./components/caps-foundation/PilotPrograms"
-import PressReleases from "./components/caps-foundation/PressReleases"
+import PressReleases from "./components/caps-foundation/press-releases"
+import BlueprintForMarylandsFuture from "./components/caps-foundation/press-releases/BlueprintForMarylandsFuture";
+import KirwanJoinMoCoSchoolFunding from "./components/caps-foundation/press-releases/KirwanJoinMoCoSchoolFunding";
 import FoundationDonate from "./components/caps-foundation/FoundationDonate"
 
 import News from "./components/news";
@@ -122,6 +124,7 @@ import ShouldMoCoMakeTeardownsPayImpactTaxes from "./components/issues/ResidentR
 
 import withTracker from './components/WithTracker';
 
+
 const Page404 = ({ location }) => (
   <div className="m-padding">
     {/* <img src={error404} alt="error404" className="large responsive center" /> */}
@@ -148,6 +151,8 @@ export class Routes extends React.PureComponent {
         <Route exact path="/find-legislators" component={UnderConstruction} />
         <Route exact path="/caps-foundation/pilot-programs" component={PilotPrograms} />
         <Route exact path="/caps-foundation/press-releases" component={PressReleases} />
+        <Route exact path="/caps-foundation/press-releases/blueprint-for-marylands-future" component={BlueprintForMarylandsFuture} />
+        <Route exact path="/caps-foundation/press-releases/kirwan-join-moco-school-funding" component={KirwanJoinMoCoSchoolFunding} />
         <Route exact path="/caps-foundation/donate" component={FoundationDonate} />
 
         <Route exact path="/issues/economic-development" component={withTracker(EconomicDevelopment)} />

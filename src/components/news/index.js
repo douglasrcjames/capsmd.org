@@ -9,6 +9,13 @@ export default class News extends Component {
         <hr className="m-width"/>
         <br/>
         <ArticlePreview 
+          title={"Event Advisory: CAPS, local advocacy organizations, to hold community forum with Dr. Brit Kirwan on Kirwan Recommendations"}
+          picPath={require('../../assets/images/icons/Growth.png')}
+          link={'/caps-foundation/press-releases/blueprint-for-marylands-future'}
+          date={'October 6, 2019'}
+          />
+        <br/>
+        <ArticlePreview 
           title={'Letter from the CAPS Chairman'}
           picPath={require('../../assets/images/icons/Pencil.png')}
           link={'/news/letter-from-chairman'}
