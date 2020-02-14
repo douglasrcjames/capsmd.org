@@ -63,7 +63,7 @@ class App extends Component {
             )}
             { this.state.loading && (
               <div className="l-container">
-                <h2>Loading...</h2> 
+                <h2 className="wrapper">Loading...</h2> 
               </div>
             )}
             <Footer />

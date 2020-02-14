@@ -39,7 +39,7 @@ export default class ResidentReflections extends Component {
     render() {
         if(!this.state.articles){
             return(
-                <h2>Loading...</h2>
+                <h2 className="wrapper">Loading...</h2>
             )
         } else {
             return (

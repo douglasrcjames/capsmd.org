@@ -26,7 +26,7 @@ class CMSHome extends Component {
     render() {
         if(!this.props.user){
             return(
-                <h2>Loading...</h2>
+                <h2 className="wrapper">Loading...</h2>
             )
         } else {
             return (

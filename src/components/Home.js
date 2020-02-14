@@ -126,7 +126,7 @@ export default class Home extends Component {
   render() {
       if(!this.state.recentArticles || !this.state.carouselArticles){
           return(
-              <h2>Loading...</h2>
+              <h2 className="wrapper">Loading...</h2>
           )
       } else {
         return (
