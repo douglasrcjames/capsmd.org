@@ -79,13 +79,6 @@ export default class ResidentReflections extends Component {
                     }
 
                     <ArticlePreview 
-                        title={"Should MoCo Make Teardowns Pay Impact Taxes?"}
-                        picPath={require('../../../assets/images/articles/taxes-coins.jpg')}
-                        link={'/issues/resident-reflections/should-moco-make-teardowns-pay-impact-taxes'}
-                        date={'February 10, 2020'}
-                        />
-                    <br/>
-                    <ArticlePreview 
                         title={"Health Care Reform … Good Luck"}
                         picPath={require('../../../assets/images/carousel/stethoscope.jpg')}
                         link={'/issues/resident-reflections/health-care-form-good-luck'}

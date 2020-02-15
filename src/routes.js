@@ -27,8 +27,8 @@ import ErrorBoundary from './components/misc/ErrorBoundary';
 
 import PilotPrograms from "./components/caps-foundation/PilotPrograms"
 import PressReleases from "./components/caps-foundation/press-releases"
-import BlueprintForMarylandsFuture from "./components/caps-foundation/press-releases/BlueprintForMarylandsFuture";
-import KirwanJoinMoCoSchoolFunding from "./components/caps-foundation/press-releases/KirwanJoinMoCoSchoolFunding";
+import BlueprintForMarylandsFuture from "./components/news/BlueprintForMarylandsFuture";
+import KirwanJoinMoCoSchoolFunding from "./components/news/KirwanJoinMoCoSchoolFunding";
 import FoundationDonate from "./components/caps-foundation/FoundationDonate"
 
 // News
@@ -94,7 +94,6 @@ import PotholePathos from "./components/issues/InfrastructureScreens/StoriesOpin
 import SilverSpringHousing from "./components/issues/InfrastructureScreens/StoriesOpinions/SilverSpringHousing";
 import HowToDoBRTProperly from "./components/issues/InfrastructureScreens/StoriesOpinions/HowToDoBRTProperly";
 import ProposalsWorthConsideringI from "./components/issues/InfrastructureScreens/Solutions/ProposalsWorthConsidering";
-import TenYearsAffordableHousing from './components/issues/InfrastructureScreens/StoriesOpinions/TenYearsAffordableHousing'
 
 // Governance
 import Governance from "./components/issues/GovernanceScreens/index";
@@ -145,9 +144,6 @@ import WaitImUndocumented from "./components/issues/ResidentReflectionsScreens/W
 import StartingSmallBusinessMoCo from "./components/issues/ResidentReflectionsScreens/StartingSmallBusinessMoCo"
 import HealthCareFormGoodLuck from "./components/issues/ResidentReflectionsScreens/HealthCareFormGoodLuck"
 import Badlands from "./components/issues/ResidentReflectionsScreens/Badlands";
-import ShouldMoCoMakeTeardownsPayImpactTaxes from "./components/issues/ResidentReflectionsScreens/ShouldMoCoMakeTeardownsPayImpactTaxes";
-
-import withTracker from './components/WithTracker';
 
 const Page404 = ({ location }) => (
   <div className="m-padding">
@@ -196,13 +192,14 @@ export class Routes extends React.PureComponent {
         <Route exact path="/news/business-incubator" component={withTracker(BusinessIncubator)} />
         <Route exact path="/news/letter-from-chairman" component={withTracker(LetterFromChairman)} />
         <Route exact path="/news/inaugural-study" component={withTracker(InauguralStudy)} />
+        <Route exact path="/news/kirwan-join-moco-school-funding" component={KirwanJoinMoCoSchoolFunding} />
+        <Route exact path="/news/blueprint-for-marylands-future" component={BlueprintForMarylandsFuture} />
 
         <Route exact path="/contact-us" component={withTracker(ContactUs)} />
         <Route exact path="/find-legislators" component={UnderConstruction} />
         <Route exact path="/caps-foundation/pilot-programs" component={PilotPrograms} />
         <Route exact path="/caps-foundation/press-releases" component={PressReleases} />
-        <Route exact path="/caps-foundation/press-releases/blueprint-for-marylands-future" component={BlueprintForMarylandsFuture} />
-        <Route exact path="/caps-foundation/press-releases/kirwan-join-moco-school-funding" component={KirwanJoinMoCoSchoolFunding} />
+
         <Route exact path="/caps-foundation/donate" component={FoundationDonate} />
 
         <Route exact path="/issues/economic-development" component={withTracker(EconomicDevelopment)} />
@@ -259,7 +256,6 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/infrastructure/stories-opinions/pothole-pathos" component={PotholePathos} />
         <Route exact path="/issues/infrastructure/stories-opinions/silver-spring-housing" component={SilverSpringHousing} />
         <Route exact path="/issues/infrastructure/stories-opinions/how-to-do-brt-properly" component={HowToDoBRTProperly} />
-        <Route exact path="/issues/infrastructure/stories-opinions/ten-years-affordable-housing" component={TenYearsAffordableHousing} />
         <Route exact path="/issues/infrastructure/solutions/proposals-worth-considering" component={ProposalsWorthConsideringI} />
         <Route exact path="/issues/infrastructure/facts/potomac-divide/housing-units-permitted" component={HousingUnitsPermitted} />
    
@@ -299,7 +295,6 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/resident-reflections/starting-small-business-in-montgomery-county" component={withTracker(StartingSmallBusinessMoCo)} />
         <Route exact path="/issues/resident-reflections/caps-x-badlands" component={withTracker(Badlands)} />
         <Route exact path="/issues/resident-reflections/health-care-form-good-luck" component={withTracker(HealthCareFormGoodLuck)} />
-        <Route exact path="/issues/resident-reflections/should-moco-make-teardowns-pay-impact-taxes" component={withTracker(ShouldMoCoMakeTeardownsPayImpactTaxes)} />
         
         <Route exact path="/issues/more" component={withTracker(More)} />
         <Route exact path="/issues/more/facts/newspapers-disappearing" component={NewspapersDisappearing} />
@@ -325,14 +320,14 @@ export class Routes extends React.PureComponent {
         <Route path="/cms/register" exact render={() => <RegisterContainer user={this.props.user} />} />
         <UserRoute
               exact
-              path="/cms/home"
+              path="/cms/"
               loggedIn={this.props.user}
               component={() => <CMSHome user={this.props.user} />} />
         <UserRoute
               exact
               path="/cms/add-article"
               loggedIn={this.props.user}
-              component={() => <AddArticle />} />
+              component={() => <AddArticle user={this.props.user} />} />
         <UserRoute
               exact
               path="/cms/edit-article/:articleId"

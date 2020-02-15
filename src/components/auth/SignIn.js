@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { toast } from "react-toastify";
 import { Formik, Field } from "formik";
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import { firebase, fire } from "../../Fire.js";
 import { signInSchema } from "../../utilities/formSchemas"
@@ -101,6 +101,12 @@ class SignIn extends Component {
                       disabled={!props.dirty && !props.isSubmitting}>
                       Sign in
                     </button>
+                </div>
+                <br/>
+                <div className="center-text">
+                  <Link to="/cms/register" className="grey-text-btn s-padding-b">
+                    Don't have an account?
+                  </Link>
                 </div>
                 <br/>
                 <div id="recaptcha" className="p-container recaptcha"></div>

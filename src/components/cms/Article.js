@@ -42,7 +42,7 @@ export default class Article extends Component {
                     <br/>
                     <br/>
                     
-                    <div dangerouslySetInnerHTML={{__html: this.props.article.body}}></div>
+                    <div className="bye-br" dangerouslySetInnerHTML={{__html: this.props.article.body}}></div>
 
                     <br/>
                     <br/>

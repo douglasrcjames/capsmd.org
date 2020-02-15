@@ -9,7 +9,7 @@ class SigningIn extends Component {
 
     redirectToProfile(){
         setTimeout(() => {
-            this.props.history.push("/cms/home");
+            this.props.history.push("/cms/");
           }, 1500);
     }
     

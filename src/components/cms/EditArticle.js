@@ -59,7 +59,7 @@ class EditArticle extends Component {
                 })
             } else {
                 console.log("No such document!");
-                this.props.history.push("/cms/home");
+                this.props.history.push("/cms/");
             }
         }).catch((error) => {
             console.log("Error getting document:", error);
@@ -70,7 +70,7 @@ class EditArticle extends Component {
     deleteArticle(){
         if(window.confirm('Are you sure you want to delete this article?')){
             firestore.collection("articles").doc(this.props.match.params.articleId).delete().then(() => {
-                this.props.history.push("/cms/home");
+                this.props.history.push("/cms/");
                 toast.success("Article successfully deleted!");
                 console.log("Document successfully deleted!");
             }).catch((error) => {

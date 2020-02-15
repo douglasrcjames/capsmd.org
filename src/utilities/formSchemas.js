@@ -47,9 +47,6 @@ export const addRichTextArticleSchema = yup.object().shape({
     title: yup
         .string()
         .required("A title is required."),
-    author: yup
-        .string()
-        .required("An author is required."),
     date: yup
         .string()
         .required("A date is required."),
@@ -86,9 +83,6 @@ export const editRichTextArticleSchema = yup.object().shape({
   title: yup
       .string()
       .required("A title is required."),
-  author: yup
-      .string()
-      .required("An author is required."),
   date: yup
       .string()
       .required("A date is required."),

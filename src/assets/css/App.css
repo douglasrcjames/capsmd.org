@@ -1039,3 +1039,11 @@ Yellow: #FFD54C
     display: flex;
     align-items:center;
  }
+
+ /* Don't display line breaks */
+ .bye-br br {
+  display: block;
+  margin: 10px 0;
+  line-height: 30px;
+  content: " ";
+}

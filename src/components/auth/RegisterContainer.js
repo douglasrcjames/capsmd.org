@@ -10,7 +10,7 @@ class RegisterContainer extends Component {
     
         if (props.user) {
           toast.warn("You must be signed out to visit that page.")
-          props.history.push('/cms/home')
+          props.history.push('/cms/')
         }
       }
     

@@ -15,6 +15,7 @@ export default class ListArticles extends Component {
         }
     }
     
+    // Eventually want to load more option instead of grabbing all of the articles are once
     componentWillMount() {
         this._isMounted = true;
         if(this._isMounted){
@@ -45,7 +46,7 @@ export default class ListArticles extends Component {
                 <p>
                     Below are all the articles added to the system via the CMS. Some articles might not be visible, such as those hard coded by developers.
                 </p>
-                <Link to="/cms/home"><button className="s-btn"> <i className="fas fa-arrow-left" />&nbsp; Back to CMS home</button></Link>
+                <Link to="/cms/"><button className="s-btn"> <i className="fas fa-arrow-left" />&nbsp; Back to CMS home</button></Link>
                 <br/>
                 <h4>{this.state.articles.length} total articles</h4>
                 <hr/>
@@ -67,7 +68,7 @@ export default class ListArticles extends Component {
                                         <label>Date: </label>
                                         {dateDT}
                                     </Col>
-                                    { article.body && (
+                                    { article.author && (
                                         <Col xs={12} sm={6}>
                                             <label>Author: </label>
                                             {article.author}
@@ -110,6 +111,12 @@ export default class ListArticles extends Component {
                                     <Col xs={12} sm={6}>
                                         <label>Created: </label>
                                         {createdDT.fullDate} @ {createdDT.fullTime}
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col xs={12} sm={6}>
+                                        <label>Creator: </label>
+                                        {article.creator}
                                     </Col>
                                 </Row>
                                 <Row>

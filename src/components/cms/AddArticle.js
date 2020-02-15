@@ -48,12 +48,12 @@ class AddArticle extends Component {
             'list', 'bullet', 'indent',
             'link', 'image', 'align'
         ]
-        
     }
 
-    // TODO: each category page index will only display specific articles based on where claus
     // TODO: prevent too large of images from being inserted (automatically downsize them?)
-    
+    // https://firebase.google.com/products/extensions/storage-resize-images
+    // TODO: allow user to post content after the author section (ask nina if we need this)
+    // TODO: give option to put pdf or rich text article to caps foundation press releases or caps news press releases (ask nina how we want this laid out)
     addRichTextArticle(values){
         var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
         var titleCleaned = titleNoSpecialChars.replace(/\s+/g, '-').toLowerCase(); //lower case and dashified
@@ -89,7 +89,8 @@ class AddArticle extends Component {
                             carousel: values.carousel,
                             headerUrl: this.state.headerUrl,
                             localUrl: localUrl,
-                            created: Date.now()
+                            created: Date.now(),
+                            creator: this.props.user.displayName
                         }).then(() => {
                             toast.success("Rich text article added successfully!");
                             this.props.history.push("/cms/list-articles");
@@ -140,7 +141,8 @@ class AddArticle extends Component {
                             carousel: values.carousel,
                             localUrl: localUrl,
                             headerUrl: this.state.headerUrl,
-                            created: Date.now()
+                            created: Date.now(),
+                            creator: this.props.user.displayName
                         }).then(() =>  {
                             toast.success("PDF article added successfully!");
                             this.props.history.push("/cms/list-articles");
@@ -239,7 +241,7 @@ class AddArticle extends Component {
                     Please spell and capitalize everything how you would want it to be seen. 
                     Remember that the Title, Date, and Author will be shown in the final article so do not include them in the Body section!
                 </p>
-                <Link to="/cms/home"><button className="s-btn"> <i className="fas fa-arrow-left" />&nbsp; Back to CMS home</button></Link>
+                <Link to="/cms/"><button className="s-btn"> <i className="fas fa-arrow-left" />&nbsp; Back to CMS home</button></Link>
                 <br/>
                 <br/>
                 <hr/>
