@@ -7,7 +7,7 @@ export default class BlueprintForMarylandsFuture extends Component {
             <iframe 
                 src="https://drive.google.com/file/d/1IDeJo-tugKShNMwF96injwb9XpwM0tzA/preview" 
                 title="Blueprint for Maryland's Future"
-                frameborder="0" 
+                frameBorder="0" 
                 height="800px" 
                 width="100%">
                 <p>

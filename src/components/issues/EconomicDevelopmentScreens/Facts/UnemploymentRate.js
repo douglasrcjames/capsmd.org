@@ -7,7 +7,7 @@ export default class UnemploymentRate extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1F3XYAOQ_EuW22dDHsNltc0zE6egfuj-9/preview" 
                     title="Unemployment Rate, 2018"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

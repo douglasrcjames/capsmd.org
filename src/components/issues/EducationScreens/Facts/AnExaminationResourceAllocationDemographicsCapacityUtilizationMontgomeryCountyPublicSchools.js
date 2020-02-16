@@ -8,7 +8,7 @@ export default class AnExaminationResourceAllocationDemographicsCapacityUtilizat
                 <iframe 
                     src="https://drive.google.com/file/d/11frnIUAbvjRojl2NURU4HKox25zTIcCp/preview" 
                     title="An Examination of Resource Allocation, Demographics and Capacity Utilization in Montgomery County Public Schools"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

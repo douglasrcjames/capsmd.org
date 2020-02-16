@@ -7,7 +7,7 @@ export default class HowKirwanBenefitsMontgomeryCounty extends Component {
             <iframe 
                 src="https://drive.google.com/file/d/1H7YPFTLkAK5VS1VeUbSqI2yTAXyUxHya/preview" 
                 title="How Kirwan Benefits Montgomery County"
-                frameborder="0" 
+                frameBorder="0" 
                 height="800px" 
                 width="100%">
                 <p>

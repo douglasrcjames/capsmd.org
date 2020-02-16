@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
 import Subscribe from '../components/Subscribe';
 import ContactForm from '../components/ContactForm';
 
@@ -10,7 +9,7 @@ export default class ContactUs extends Component {
         
         <div className="m-container">
           <h1>Contact Us</h1>
-          <p>Send us a message directly or email us at <Link mailto="info@capsmd.org"><u>info@capsmd.org</u></Link></p>
+          <p>Send us a message directly or email us at <a mailto="info@capsmd.org" href="# "><u>info@capsmd.org</u></a></p>
           <ContactForm />
         </div>
         

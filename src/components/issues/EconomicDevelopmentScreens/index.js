@@ -16,7 +16,7 @@ export default class EconomicDevelopment extends Component {
           }
       }
 
-      componentWillMount() {
+      componentDidMount() {
           this._isMounted = true;
           if(this._isMounted){
               firestore.collection("articles").where("status", "==", "live").where("issue", "==", "economic-development").orderBy("date", "desc").onSnapshot(snapshot => {

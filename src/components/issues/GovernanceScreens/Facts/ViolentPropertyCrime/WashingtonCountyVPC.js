@@ -8,7 +8,7 @@ export default class WashingtonCountyVPC extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1xH88EL46LCVf9OC77DeXoW9BwEd4tizC/preview" 
                     title="Washington County: Violent and Property Crime"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

@@ -7,7 +7,7 @@ export default class AnneArundelCountyVPC extends Component {
             <iframe 
                 src="https://drive.google.com/file/d/1uIprnehejftJsoexEc3Kg8V7rlVKopze/preview" 
                 title="Crime in Maryland"
-                frameborder="0" 
+                frameBorder="0" 
                 height="800px" 
                 width="100%">
                 <p>

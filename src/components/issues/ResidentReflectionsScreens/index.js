@@ -12,7 +12,7 @@ export default class ResidentReflections extends Component {
         }
     }
     
-    componentWillMount() {
+    componentDidMount() {
         this._isMounted = true;
         if(this._isMounted){
             firestore.collection("articles").where("status", "==", "live").where("issue", "==", "resident-reflections").orderBy("date", "desc").onSnapshot(snapshot => {

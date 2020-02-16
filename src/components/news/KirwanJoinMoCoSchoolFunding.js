@@ -7,7 +7,7 @@ export default class KirwanJoinMoCoSchoolFunding extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1QvbvQKXxn3acJNT7jbmeUKR4V2VCqOSe/preview" 
                     title="Blueprint for Maryland's Future"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

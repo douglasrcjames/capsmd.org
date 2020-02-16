@@ -16,7 +16,7 @@ export default class Tranportation extends Component {
       }
   }
 
-  componentWillMount() {
+  componentDidMount() {
       this._isMounted = true;
       if(this._isMounted){
           firestore.collection("articles").where("status", "==", "live").where("issue", "==", "infrastructure").orderBy("date", "desc").onSnapshot(snapshot => {

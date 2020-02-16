@@ -7,7 +7,7 @@ export default class CalvertCountyVPC extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1hPNyRve_lQA-w-rM9OSydA31Kscp6zv5/preview" 
                     title="CalvertCountyVPC"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

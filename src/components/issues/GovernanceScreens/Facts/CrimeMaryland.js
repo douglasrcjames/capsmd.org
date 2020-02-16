@@ -7,7 +7,7 @@ export default class CrimeMaryland extends Component {
             <iframe 
                 src="https://drive.google.com/file/d/1m7IHfCARVxt8bsOKwBprA7S0U0vNr-Y0/preview" 
                 title="Crime in Maryland"
-                frameborder="0" 
+                frameBorder="0" 
                 height="800px" 
                 width="100%">
                 <p>

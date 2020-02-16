@@ -7,7 +7,7 @@ export default class FrederickCountyVPC extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1bgUQxNAvB6BKGDr44O9TQ0_YekeMkgTM/preview" 
                     title="FrederickCountyVPC"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

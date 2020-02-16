@@ -8,7 +8,7 @@ export default class TalbotCountyVPC extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1evwZmo5_8x-J2Lfsirs_rIPhTAL2a8f_/preview" 
                     title="Talbot County: Violent and Property Crime"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

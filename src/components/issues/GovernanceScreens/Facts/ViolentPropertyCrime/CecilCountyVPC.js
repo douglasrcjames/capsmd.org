@@ -7,7 +7,7 @@ export default class CecilCountyVPC extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1r1lrW8ZNKXviw1pl1vOaLwieYQlubiQK/preview" 
                     title="CecilCountyVPC"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

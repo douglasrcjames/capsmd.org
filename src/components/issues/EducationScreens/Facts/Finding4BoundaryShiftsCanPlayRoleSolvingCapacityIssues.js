@@ -7,7 +7,7 @@ export default class Finding4BoundaryShiftsCanPlayRoleSolvingCapacityIssues exte
             <iframe 
                 src="https://drive.google.com/file/d/1KQdnW7-T0XE0bg88ZZaxxO00h5pG9ovs/preview" 
                 title="Finding 4: Boundary Shifts Can Play a Role in Solving Capacity Issues"
-                frameborder="0" 
+                frameBorder="0" 
                 height="800px" 
                 width="100%">
                 <p>

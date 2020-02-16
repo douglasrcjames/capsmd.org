@@ -7,7 +7,7 @@ export default class Finding1MCPSDistributesStaffResourcesFightAchievementGap ex
                 <iframe 
                     src="https://drive.google.com/file/d/1G1shMvUOsH-Z1an4ZSuCt-4q4HWkFyNF/preview" 
                     title="Finding 1: MCPS Distributes Staff Resources to Fight the Achievement Gap"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

@@ -7,7 +7,7 @@ export default class KentCountyVPC extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1wpBI4ZK9cCxTSMk3UHWEs7_Mkrp29lo-/preview" 
                     title="KentCountyVPC"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

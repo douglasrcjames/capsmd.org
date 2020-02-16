@@ -7,7 +7,7 @@ export default class WagesSalariesPaidGrowth extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1gfZlRxYtM_qE6RowLzX4gCYx8_sT-AK1/preview" 
                     title="Growth in Wages and Salaries Paid, 2007-2017"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

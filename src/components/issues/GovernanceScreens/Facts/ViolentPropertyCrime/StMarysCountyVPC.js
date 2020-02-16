@@ -7,7 +7,7 @@ export default class StMarysCountyVPC extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1SSb71E2X70IN4dwR_4LTXLMt5I-l5SGZ/preview" 
                     title="StMarysCountyVPC"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

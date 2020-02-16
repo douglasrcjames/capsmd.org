@@ -16,7 +16,7 @@ export default class Education extends Component {
           }
       }
 
-      componentWillMount() {
+      componentDidMount() {
           this._isMounted = true;
           if(this._isMounted){
               firestore.collection("articles").where("status", "==", "live").where("issue", "==", "education").orderBy("date", "desc").onSnapshot(snapshot => {

@@ -7,7 +7,7 @@ export default class MeanCompPerJob extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1VbN6E1cl-7eDrBp0OktVg6yUM8unjGuU/preview" 
                     title="Mean Compensation per Job, 2017"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

@@ -22,7 +22,7 @@ export default class Home extends Component {
 
     // TODO: make constants for stuff like issue titles, carousel, etc and replace strings through app with constants
     
-    componentWillMount() {
+    componentDidMount() {
         this._isMounted = true;
         if(this._isMounted){
             // TODO: when these 10 articles are pasted, reimplement .orderBy("date", "desc") in query instead of sort (for both recents and carousel)
@@ -172,6 +172,8 @@ export default class Home extends Component {
     componentWillUnmount() {
         this._isMounted = false;
     }
+
+    // TODO: clean up warnings and errors
 
     
   render() {

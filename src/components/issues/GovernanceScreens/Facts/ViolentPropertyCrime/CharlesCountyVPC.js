@@ -7,7 +7,7 @@ export default class CharlesCountyVPC extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1LEEnHkkOTwgqZKTLnf2KmjdJU8InoMDB/preview" 
                     title="CharlesCountyVPC"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

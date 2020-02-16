@@ -7,7 +7,7 @@ export default class SomersetCountyVPC extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1rNYHYK3oHHmZXoGuWtR83g9qLNzQRtV_/preview" 
                     title="BaltimoreCityVPC"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

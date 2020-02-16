@@ -7,7 +7,7 @@ export default class WillMoCoNeedTaxHikePayKirwan extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/199H5BKTW9QktWJ6jUEuJ-OcIuvs-EKhe/preview" 
                     title="Will MoCo Need a Tax Hike to Pay for Kirwan?"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

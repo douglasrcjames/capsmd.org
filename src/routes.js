@@ -163,7 +163,7 @@ export class Routes extends React.PureComponent {
     }
   }
   
-  componentWillMount() {
+  componentDidMount() {
     firestore.collection("articles").onSnapshot(snapshot => {
         const pastArticles = []
         snapshot.forEach(doc => {

@@ -7,7 +7,7 @@ export default class Finding2Fiscal2017PropertyTaxHikeDidNotBringSubstantiallyMo
             <iframe 
                 src="https://drive.google.com/file/d/1-tjQlBFl9d5pkqgkKtDGXNNESENmWAd_/preview" 
                 title="Finding 2: The Fiscal 2017 Property Tax Hike Did Not Bring Substantially More Resources to the Classroom"
-                frameborder="0" 
+                frameBorder="0" 
                 height="800px" 
                 width="100%">
                 <p>

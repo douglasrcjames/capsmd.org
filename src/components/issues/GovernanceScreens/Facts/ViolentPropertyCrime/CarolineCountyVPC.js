@@ -7,7 +7,7 @@ export default class CarolineCountyVPC extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1jkx0PG8jyDXmhS3oRidHodrKXVkj67PG/preview" 
                     title="CarolineCountyVPC"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

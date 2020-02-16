@@ -16,7 +16,7 @@ export default class More extends Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this._isMounted = true;
         if(this._isMounted){
             firestore.collection("articles").where("status", "==", "live").where("issue", "==", "more").orderBy("date", "desc").onSnapshot(snapshot => {

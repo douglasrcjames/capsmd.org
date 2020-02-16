@@ -7,7 +7,7 @@ export default class DorchesterCountyVPC extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1wXtZXoQxlvEIqH0_cN-gKvQ3b_MXJs4T/preview" 
                     title="DorchesterCountyVPC"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

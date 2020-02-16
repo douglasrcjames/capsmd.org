@@ -7,7 +7,7 @@ export default class HowardCountyVPC extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1A_sDa8nIFzfVkxQ3_j8R9HUlnd3EvV9A/preview" 
                     title="HowardCountyVPC"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

@@ -7,7 +7,7 @@ export default class BaltimoreCountyVPC extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/146CvyVCHkFf3FLwI4pJHDThkHh6N50B0/preview" 
                     title="BaltimoreCountyVPC"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

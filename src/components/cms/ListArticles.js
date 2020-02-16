@@ -16,7 +16,7 @@ export default class ListArticles extends Component {
     }
     
     // Eventually want to load more option instead of grabbing all of the articles are once
-    componentWillMount() {
+    componentDidMount() {
         this._isMounted = true;
         if(this._isMounted){
             firestore.collection("articles").orderBy("created", "desc").onSnapshot(snapshot => {

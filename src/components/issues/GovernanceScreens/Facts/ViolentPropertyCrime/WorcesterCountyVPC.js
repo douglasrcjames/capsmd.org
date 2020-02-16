@@ -8,7 +8,7 @@ export default class WorcesterCountyVPC extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1A7Q9mWdf0_6Cn95eVlnJNMrXXHsQMa7H/preview" 
                     title="Worcester County: Violent and Property Crime"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

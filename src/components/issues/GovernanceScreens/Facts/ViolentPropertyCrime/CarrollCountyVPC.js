@@ -7,7 +7,7 @@ export default class CarrollCountyVPC extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1Nke3pTvDKC0zccLeXonmquM_hWLzUYjX/preview" 
                     title="CarolineCountyVPC"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>

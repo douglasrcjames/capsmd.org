@@ -7,7 +7,7 @@ export default class PopulationGrowth extends Component {
                 <iframe 
                     src="https://drive.google.com/file/d/1ZVViVycjEuiHW5wO3TPoNFSRZQxWL7Dl/preview" 
                     title="Population Growth, 2007-2017"
-                    frameborder="0" 
+                    frameBorder="0" 
                     height="800px" 
                     width="100%">
                     <p>
