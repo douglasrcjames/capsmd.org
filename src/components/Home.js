@@ -9,14 +9,18 @@ import { firestore } from "../Fire.js";
 import Subscribe from './Subscribe';
 import ArticlePreview from './issues/ArticlePreview'
 import { readableTimestamp } from '../utilities/dateTime'
+import Modal from "react-modal";
 
 export default class Home extends Component {
     _isMounted = false
     constructor(props) {
         super(props)
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
         this.state = {
             carouselArticles: [],
-            recentArticles: []
+            recentArticles: [],
+            showModal: true
         }
     }
 
@@ -173,9 +177,14 @@ export default class Home extends Component {
         this._isMounted = false;
     }
 
-    // TODO: clean up warnings and errors
+    handleOpenModal() {
+        this.setState({ showModal: true });
+    }
 
-    
+    handleCloseModal() {
+        this.setState({ showModal: false });
+    }
+
   render() {
       if(!this.state.recentArticles || !this.state.carouselArticles){
           return(
@@ -184,6 +193,7 @@ export default class Home extends Component {
       } else {
         return (
             <div className="wrapper-top">
+               
                 <Slider className="slider-wrapper p-container" autoplay={3000} touchDisabled={true}>
                     {this.state.carouselArticles.map((article, index) => (
                         <div
@@ -301,6 +311,43 @@ export default class Home extends Component {
 
                     
                 </div>
+
+                <Modal
+                        isOpen={this.state.showModal}
+                        contentLabel="David Blair's Written Testimony"
+                        className="modal"
+                        overlayClassName="modal-overlay"
+                        onRequestClose={this.handleCloseModal}
+                    >
+                    <div className="top-bar"><h4 className="white heading">David Blair's Written Testimony</h4><i onClick={() => this.handleCloseModal()} className="close"/></div>
+                    <div className="modal-pdf-container">
+                         <div className="l-container center-text">
+                            <b>
+                            Join me in reaching out to your local legislator to fully fund and pass 
+                            The Blueprint for Maryland's Future Bill (House Bill 1300 and Senate Bill 1000): 
+                            <br/>
+                            <a href="https://msa.maryland.gov/msa/mdmanual/07leg/html/gacomo.html" target="_blank" rel="noopener noreferrer">
+                                <button  className="s-btn s-margin-t-b" type="button" >Join me!</button>
+                            </a>
+                            </b>
+                        </div>
+                        <iframe 
+                            src="https://drive.google.com/file/d/1-AtOMkAalpkLrflPD9UPpdQ4XAHReGRz/preview" 
+                            title="David Blair's Written Testimony"
+                            frameBorder="0" 
+                            height="650px" 
+                            width="100%">
+                            <p>
+                                This PDF could not be displayed, please download or view it 
+                                <a href="https://drive.google.com/file/d/1-AtOMkAalpkLrflPD9UPpdQ4XAHReGRz">
+                                    here.
+                                </a>
+                            </p>
+                        </iframe>
+                        
+                        
+                    </div>
+                </Modal>
             </div>
         )
       }

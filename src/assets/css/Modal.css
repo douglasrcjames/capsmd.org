@@ -1,0 +1,70 @@
+.top-bar {
+  width: 100%;
+  background: #003da5;
+  height: 36px;
+  margin: 0 0 0 0;
+}
+
+.heading {
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+ 
+}
+
+.modal-container {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  position: relative;
+  padding: 5%;
+}
+
+.modal-pdf-container {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  position: relative;
+  
+}
+
+.modal.confirm {
+  max-height: 30% !important;
+}
+
+.modal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background-color: rgb(212, 212, 212);
+  outline-width: 0;
+  margin: auto;
+  z-index: 3;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+/* Large */
+@media screen and (min-width: 901px) {
+  .modal {
+    max-width: 70%;
+    max-height: 80%;
+  }
+}
+
+/* Small */
+@media screen and (max-width: 900px) {
+  .modal {
+    max-width: 95%;
+    max-height: 80%;
+  }
+
+}
