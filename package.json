@@ -17,6 +17,7 @@
     "react-animated-burgers": "^1.2.6",
     "react-animated-slider": "^1.1.4",
     "react-burger-menu": "^2.6.10",
+    "react-cookie": "^4.0.3",
     "react-datez": "^1.4.0",
     "react-dom": "^16.8.6",
     "react-firebase-file-uploader": "^2.4.3",

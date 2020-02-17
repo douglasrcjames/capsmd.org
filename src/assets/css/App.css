@@ -1048,3 +1048,15 @@ Yellow: #FFD54C
   line-height: 30px;
   content: " ";
 }
+
+.sliver {
+  max-height: 10%
+}
+
+.background-lightgrey {
+  background-color: #dfdfdf;
+}
+
+.background-blue {
+  background-color: #003da5;
+}

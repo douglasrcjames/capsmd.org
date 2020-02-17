@@ -53,10 +53,19 @@
 }
 
 /* Large */
-@media screen and (min-width: 901px) {
+@media screen and (min-width: 1300px) {
   .modal {
     max-width: 70%;
     max-height: 80%;
+  }
+}
+
+
+/* Small */
+@media screen and (min-width: 901px) and (max-width: 1299px){
+  .modal {
+    max-width: 95%;
+    max-height: 70%;
   }
 }
 
@@ -64,7 +73,11 @@
 @media screen and (max-width: 900px) {
   .modal {
     max-width: 95%;
-    max-height: 80%;
+    max-height: 65%;
+  }
+
+  .top-bar {
+    font-size: 14px;
   }
 
 }

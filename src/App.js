@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Router } from "react-router-dom";
 import Routes from "./routes";
 import { ToastContainer } from "react-toastify";
-
+import { CookiesProvider } from 'react-cookie';
 import { firebase } from "./Fire.js";
 import history from './history';
 // Components
@@ -55,21 +55,23 @@ class App extends Component {
 
   render() {
       return (
-      <Router history={history}>
-        <ScrollToTop>
-            <Header />
-            <ToastContainer position="top-center" hideProgressBar={true} autoClose={7000} />
-            { !this.state.loading && (
-              <Routes user={this.state.user} />
-            )}
-            { this.state.loading && (
-              <div className="l-container">
-                <h2 className="wrapper">Loading...</h2> 
-              </div>
-            )}
-            <Footer />
-        </ScrollToTop>
-      </Router>
+      <CookiesProvider>
+        <Router history={history}>
+          <ScrollToTop>
+              <Header />
+              <ToastContainer position="top-center" hideProgressBar={true} autoClose={7000} />
+              { !this.state.loading && (
+                <Routes user={this.state.user} />
+              )}
+              { this.state.loading && (
+                <div className="l-container">
+                  <h2 className="wrapper">Loading...</h2> 
+                </div>
+              )}
+              <Footer />
+          </ScrollToTop>
+        </Router>
+      </CookiesProvider>
     );
   }
 }

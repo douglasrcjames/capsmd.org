@@ -10,8 +10,14 @@ import Subscribe from './Subscribe';
 import ArticlePreview from './issues/ArticlePreview'
 import { readableTimestamp } from '../utilities/dateTime'
 import Modal from "react-modal";
+import { withCookies, Cookies } from 'react-cookie';
+import { instanceOf } from 'prop-types';
 
-export default class Home extends Component {
+class Home extends Component {
+    static propTypes = {
+        cookies: instanceOf(Cookies).isRequired
+      };
+    
     _isMounted = false
     constructor(props) {
         super(props)
@@ -20,7 +26,7 @@ export default class Home extends Component {
         this.state = {
             carouselArticles: [],
             recentArticles: [],
-            showModal: true
+            showModal: false
         }
     }
 
@@ -170,6 +176,15 @@ export default class Home extends Component {
             }, () => {
                 console.log("No recentArticles!")
             });
+
+            const { cookies } = this.props;
+
+             // When user exits or acts on modal, it will set the popupDismissed cookie
+             // only open modal if the popupDismissed cookie is unset
+            if(!cookies.get('popupDismissed')){
+                this.handleOpenModal()
+            }
+            
         }
     }
 
@@ -183,6 +198,17 @@ export default class Home extends Component {
 
     handleCloseModal() {
         this.setState({ showModal: false });
+        const { cookies } = this.props;
+        cookies.set('popupDismissed', true, { path: '/' });
+    }
+
+    actionTaken(){
+        // When the user clicks on button on popup
+        const { cookies } = this.props;
+        cookies.set('popupDismissed', true, { path: '/' })
+        this.setState({
+            showModal: false
+        })
     }
 
   render() {
@@ -193,7 +219,50 @@ export default class Home extends Component {
       } else {
         return (
             <div className="wrapper-top">
-               
+
+                {/* Call to action */}
+                <div className={this.state.showModal ? "hide" : "background-blue center-text"}>
+                    <button  className="s-btn-inv s-margin-t-b" type="button" onClick={() =>  this.handleOpenModal()}><i className="fa fa-file-invoice">&nbsp;</i>View David Blair's Written Testimony </button>
+                </div>
+                <Modal
+                    ariaHideApp={false}
+                    isOpen={this.state.showModal}
+                    contentLabel="David Blair's Written Testimony"
+                    className="modal"
+                    overlayClassName="modal-overlay"
+                    onRequestClose={this.handleCloseModal}
+                    >
+                    <div className="top-bar"><h4 className="white heading">David Blair's Written Testimony</h4><i onClick={() => this.handleCloseModal()} className="close"/></div>
+                    <div className="modal-pdf-container">
+                         <div className="l-container center-text">
+                            <b>
+                            Join me in reaching out to your local legislator to fully fund and pass 
+                            The Blueprint for Maryland's Future Bill (House Bill 1300 and Senate Bill 1000): 
+                            <br/>
+                            <a href="https://msa.maryland.gov/msa/mdmanual/07leg/html/gacomo.html" target="_blank" rel="noopener noreferrer">
+                                <button  className="s-btn s-margin-t-b" type="button" onClick={() =>  this.actionTaken()}>Join me!</button>
+                            </a>
+                            </b>
+                        </div>
+                        <iframe 
+                            src="https://drive.google.com/file/d/1-AtOMkAalpkLrflPD9UPpdQ4XAHReGRz/preview" 
+                            title="David Blair's Written Testimony"
+                            frameBorder="0" 
+                            height="650px" 
+                            width="100%">
+                            <p>
+                                This PDF could not be displayed, please download or view it 
+                                <a href="https://drive.google.com/file/d/1-AtOMkAalpkLrflPD9UPpdQ4XAHReGRz">
+                                    here.
+                                </a>
+                            </p>
+                        </iframe>
+                        
+                        
+                    </div>
+                </Modal>
+
+
                 <Slider className="slider-wrapper p-container" autoplay={3000} touchDisabled={true}>
                     {this.state.carouselArticles.map((article, index) => (
                         <div
@@ -311,45 +380,10 @@ export default class Home extends Component {
 
                     
                 </div>
-
-                <Modal
-                        isOpen={this.state.showModal}
-                        contentLabel="David Blair's Written Testimony"
-                        className="modal"
-                        overlayClassName="modal-overlay"
-                        onRequestClose={this.handleCloseModal}
-                    >
-                    <div className="top-bar"><h4 className="white heading">David Blair's Written Testimony</h4><i onClick={() => this.handleCloseModal()} className="close"/></div>
-                    <div className="modal-pdf-container">
-                         <div className="l-container center-text">
-                            <b>
-                            Join me in reaching out to your local legislator to fully fund and pass 
-                            The Blueprint for Maryland's Future Bill (House Bill 1300 and Senate Bill 1000): 
-                            <br/>
-                            <a href="https://msa.maryland.gov/msa/mdmanual/07leg/html/gacomo.html" target="_blank" rel="noopener noreferrer">
-                                <button  className="s-btn s-margin-t-b" type="button" >Join me!</button>
-                            </a>
-                            </b>
-                        </div>
-                        <iframe 
-                            src="https://drive.google.com/file/d/1-AtOMkAalpkLrflPD9UPpdQ4XAHReGRz/preview" 
-                            title="David Blair's Written Testimony"
-                            frameBorder="0" 
-                            height="650px" 
-                            width="100%">
-                            <p>
-                                This PDF could not be displayed, please download or view it 
-                                <a href="https://drive.google.com/file/d/1-AtOMkAalpkLrflPD9UPpdQ4XAHReGRz">
-                                    here.
-                                </a>
-                            </p>
-                        </iframe>
-                        
-                        
-                    </div>
-                </Modal>
             </div>
         )
       }
   }
 }
+
+export default withCookies(Home);
