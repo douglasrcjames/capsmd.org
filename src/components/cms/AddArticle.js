@@ -121,6 +121,8 @@ class AddArticle extends Component {
                     // Resident Refl doesnt have a category
                     if(values.issue === "resident-reflections"){
                         localUrl = `/issues/${values.issue}/${titleCleaned}`
+                    } else if(values.issue === "press-releases"){
+                        localUrl = `/news/${titleCleaned}`
                     } else {
                         if(values.category){
                             localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
@@ -596,6 +598,7 @@ class AddArticle extends Component {
                                         <option value="governance">Governance</option>
                                         <option value="resident-reflections">Resident Reflections</option>
                                         <option value="more">More</option>
+                                        <option value="press-releases">CAPS Press Releases</option>
                                     </Field>
                                     <br/>
                                     {props.errors.issue && props.touched.issue ? (

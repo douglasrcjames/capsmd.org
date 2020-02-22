@@ -315,7 +315,7 @@ export class Routes extends React.PureComponent {
            )
         } 
 
-        <Route exact path="/cms/sign-in" component={SignIn} />
+        <VisitorRoute loggedIn={this.props.user} path="/cms/sign-in" component={SignIn} />
         <Route path="/cms/signing-in" exact component={() => <SigningIn user={this.props.user} />} />
         <Route path="/cms/register" exact render={() => <RegisterContainer user={this.props.user} />} />
         <UserRoute
@@ -369,5 +369,28 @@ const UserRoute = ({ component: Comp, loggedIn, path, ...rest }) => {
     />
   );
 };
+
+  // Must be signed out to view
+  const VisitorRoute = ({ component: Comp, loggedIn, path }) => {
+    return (
+      <Route
+        path={path}
+        render={props => {
+          return loggedIn ? (
+            <Route
+              render={() => (
+                <>
+                  {toast.warn("You must be signed out to visit that page.")}
+                  <Redirect to="/cms" />
+                </>
+              )}
+            />
+          ) : (
+            <ErrorBoundary><Comp {...props} /></ErrorBoundary>
+          );
+        }}
+      />
+    );
+  };
 
 export default withRouter(Routes);
