@@ -1,7 +1,8 @@
-import fire from "firebase";
-import "firebase/database";
-import "firebase/storage";
-import "firebase/auth";
+import firebase from 'firebase/app';
+import 'firebase/auth';        // for authentication
+import 'firebase/storage';     // for storage
+import 'firebase/firestore';   // for cloud firestore
+import 'firebase/functions';   // for cloud functions
 
 const DB_CONFIG = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -12,9 +13,9 @@ const DB_CONFIG = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID
 };
 
-const firebase = fire.initializeApp(DB_CONFIG);
-const firestore = fire.firestore();
-const storage = fire.storage();
-const functions = fire.functions();
+const fire = firebase.initializeApp(DB_CONFIG);
+const firestore = firebase.firestore();
+const storage = firebase.storage();
+const functions = firebase.functions();
 
 export { firebase, fire, firestore, storage, functions };

@@ -8,7 +8,7 @@ import FileUploader from "react-firebase-file-uploader";
 import { ReactDatez } from 'react-datez'
 import "react-datez/dist/css/react-datez.css";
 
-import { firestore, firebase } from "../../Fire.js";
+import { firestore, fire } from "../../Fire.js";
 import { editRichTextArticleSchema, editPdfArticleSchema } from '../../utilities/formSchemas'
 import { checkFile } from '../../utilities/misc.js';
 
@@ -84,6 +84,9 @@ class EditArticle extends Component {
         var catPass = false
         if(values.issue === "resident-reflections"){
             catPass = true;
+        } else if(values.category === "elections" && values.issue !== "governance"){
+            catPass = false;
+            toast.error("The Elections category is a Governance only category.")
         } else {
             if(values.category){
                 catPass = true
@@ -120,6 +123,9 @@ class EditArticle extends Component {
         var catPass = false
         if(values.issue === "resident-reflections"){
             catPass = true;
+        } else if(values.category === "elections" && values.issue !== "governance"){
+            catPass = false;
+            toast.error("The Elections category is a Governance only category.")
         } else {
             if(values.category){
                 catPass = true
@@ -184,7 +190,7 @@ class EditArticle extends Component {
     }
 
     handleUploadSuccess = filename => {
-        firebase.storage()
+        fire.storage()
             .ref(`headers`)
             .child(filename)
             .getDownloadURL()
@@ -413,6 +419,7 @@ class EditArticle extends Component {
                                                 <option value="facts">Facts</option>
                                                 <option value="stories-opinions">Stories &amp; Opinions</option>
                                                 <option value="solutions">Solutions</option>
+                                                <option value="elections">Elections</option>
                                             </Field>
                                             <br/>
                                             {props.errors.category && props.touched.category ? (
@@ -471,7 +478,7 @@ class EditArticle extends Component {
                                                         hidden
                                                         accept="image/*"
                                                         randomizeFilename
-                                                        storageRef={firebase.storage().ref(`headers`)}
+                                                        storageRef={fire.storage().ref(`headers`)}
                                                         onChange={this.handleFileChange}
                                                         ref={instance => { this.fileUploader = instance; } }
                                                         onUploadStart={this.handleUploadStart}
@@ -670,6 +677,7 @@ class EditArticle extends Component {
                                                 <option value="facts">Facts</option>
                                                 <option value="stories-opinions">Stories &amp; Opinions</option>
                                                 <option value="solutions">Solutions</option>
+                                                <option value="elections">Elections</option>
                                             </Field>
                                             <br/>
                                             {props.errors.category && props.touched.category ? (
@@ -728,7 +736,7 @@ class EditArticle extends Component {
                                                         hidden
                                                         accept="image/*"
                                                         randomizeFilename
-                                                        storageRef={firebase.storage().ref(`headers`)}
+                                                        storageRef={fire.storage().ref(`headers`)}
                                                         onChange={this.handleFileChange}
                                                         ref={instance => { this.fileUploader = instance; } }
                                                         onUploadStart={this.handleUploadStart}

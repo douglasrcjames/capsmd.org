@@ -3,7 +3,7 @@ import { Router } from "react-router-dom";
 import Routes from "./routes";
 import { ToastContainer } from "react-toastify";
 import { CookiesProvider } from 'react-cookie';
-import { firebase } from "./Fire.js";
+import { fire } from "./Fire.js";
 import history from './history';
 // Components
 import Header from "./components/misc/Header";
@@ -34,7 +34,7 @@ class App extends Component {
   componentDidMount(){
     this._isMounted = true;
     if(this._isMounted){
-      firebase.auth().onAuthStateChanged((user) => {
+      fire.auth().onAuthStateChanged((user) => {
         if (user) {
           this.setState({
             user: user,

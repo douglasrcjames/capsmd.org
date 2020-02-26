@@ -12,7 +12,8 @@ export default class Governance extends Component {
               ready: false,
               factsCat: false,
               storiesOpinionsCat: false,
-              solutionsCat: false
+              solutionsCat: false,
+              electionsCat: false
           }
       }
 
@@ -24,6 +25,7 @@ export default class Governance extends Component {
                   var factsCat = false;
                   var storiesOpinionsCat = false;
                   var solutionsCat = false;
+                  var electionsCat = false;
 
                   snapshot.forEach(doc => {
                       // Grab each article for issue tag
@@ -38,7 +40,9 @@ export default class Governance extends Component {
                         storiesOpinionsCat = true;
                       } else if(doc.data().category === "solutions"){
                         solutionsCat = true;
-                      }           
+                      } else if(doc.data().category === "elections"){
+                        electionsCat = true;
+                      }                
                   })
 
                   this.setState({
@@ -46,7 +50,8 @@ export default class Governance extends Component {
                       ready: true,
                       factsCat: factsCat,
                       storiesOpinionsCat: storiesOpinionsCat,
-                      solutionsCat: solutionsCat
+                      solutionsCat: solutionsCat,
+                      electionsCat: electionsCat
                   })
 
               }, () => {
@@ -333,6 +338,33 @@ export default class Governance extends Component {
                 }
               </>
             )}
+
+          { this.state.electionsCat && (
+            <>
+              <br/>
+              <hr className="m-width"/>
+              <br/>
+
+              <h2 className="inline">Elections</h2>
+              <p>Articles detailing the elections affecting you</p>
+              { 
+                this.state.articles && this.state.articles.filter(article => article.category === "elections").map((article, i) => {
+                    const dateDT = readableTimestamp(article.date)
+                    return (
+                        <span key={i}>
+                            <ArticlePreview 
+                                title={article.title}
+                                picPath={article.headerUrl}
+                                link={article.localUrl}
+                                date={dateDT}
+                                />
+                            <br/>
+                        </span>
+                    )
+                })
+              }
+            </>
+          )}
         </div>
       )
     }

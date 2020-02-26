@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { toast } from "react-toastify";
-import { firebase } from '../../Fire'
+import { fire } from '../../Fire'
 
 class CMSHome extends Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class CMSHome extends Component {
 
     signOut(){
         console.log("Signing out...")
-        firebase.auth().signOut().then(() => {
+        fire.auth().signOut().then(() => {
           console.log("Sign out successful.");
           toast.success("Sign out successful.");
           this.props.history.push("/");

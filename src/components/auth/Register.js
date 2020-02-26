@@ -27,13 +27,13 @@ class Register extends Component {
   signUp(values) {
     if(values.adminPassword === process.env.REACT_APP_CAPS_PASSWORD){
       if (values.confirmPassword === values.password) {
-        window.recaptchaVerifier = new fire.auth.RecaptchaVerifier('recaptcha', {
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha', {
           'callback': (response) => {
             // reCAPTCHA solved, allow Ask.
-            firebase.auth().createUserWithEmailAndPassword(values.email, values.password)
+            fire.auth().createUserWithEmailAndPassword(values.email, values.password)
               .then(function(userData){
                   // No existing user, now add to Firestore
-                  var currentUser = firebase.auth().currentUser;
+                  var currentUser = fire.auth().currentUser;
                   currentUser.updateProfile({
                     displayName: (values.firstName + " " + values.lastName)
                   }).then(function() {

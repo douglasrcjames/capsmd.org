@@ -23,10 +23,10 @@ class SignIn extends Component {
     }
   
     signIn(values) {
-      window.recaptchaVerifier = new fire.auth.RecaptchaVerifier('recaptcha', {
+      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha', {
         'callback': (response) => {
           // reCAPTCHA solved, allow signIn.
-          firebase.auth().signInWithEmailAndPassword(values.email, values.password)
+          fire.auth().signInWithEmailAndPassword(values.email, values.password)
           .then(function(user) {
               console.log("Sign in success!")
               this.props.history.push("/cms/signing-in");
