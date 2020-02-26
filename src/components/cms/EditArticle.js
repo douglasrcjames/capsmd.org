@@ -84,9 +84,6 @@ class EditArticle extends Component {
         var catPass = false
         if(values.issue === "resident-reflections"){
             catPass = true;
-        } else if(values.category === "elections" && values.issue !== "governance"){
-            catPass = false;
-            toast.error("The Elections category is a Governance only category.")
         } else {
             if(values.category){
                 catPass = true
@@ -123,9 +120,6 @@ class EditArticle extends Component {
         var catPass = false
         if(values.issue === "resident-reflections"){
             catPass = true;
-        } else if(values.category === "elections" && values.issue !== "governance"){
-            catPass = false;
-            toast.error("The Elections category is a Governance only category.")
         } else {
             if(values.category){
                 catPass = true
@@ -419,7 +413,6 @@ class EditArticle extends Component {
                                                 <option value="facts">Facts</option>
                                                 <option value="stories-opinions">Stories &amp; Opinions</option>
                                                 <option value="solutions">Solutions</option>
-                                                <option value="elections">Elections</option>
                                             </Field>
                                             <br/>
                                             {props.errors.category && props.touched.category ? (
@@ -677,7 +670,6 @@ class EditArticle extends Component {
                                                 <option value="facts">Facts</option>
                                                 <option value="stories-opinions">Stories &amp; Opinions</option>
                                                 <option value="solutions">Solutions</option>
-                                                <option value="elections">Elections</option>
                                             </Field>
                                             <br/>
                                             {props.errors.category && props.touched.category ? (

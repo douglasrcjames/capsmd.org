@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Router } from "react-router-dom";
 import Routes from "./routes";
 import { ToastContainer } from "react-toastify";
-import { CookiesProvider } from 'react-cookie';
 import { fire } from "./Fire.js";
 import history from './history';
 // Components
@@ -55,7 +54,6 @@ class App extends Component {
 
   render() {
       return (
-      <CookiesProvider>
         <Router history={history}>
           <ScrollToTop>
               <Header />
@@ -71,7 +69,6 @@ class App extends Component {
               <Footer />
           </ScrollToTop>
         </Router>
-      </CookiesProvider>
     );
   }
 }

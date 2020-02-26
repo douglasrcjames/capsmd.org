@@ -68,8 +68,6 @@ class AddArticle extends Component {
                     // Resident Refl doesnt have a category
                     if(values.issue === "resident-reflections"){
                         localUrl = `/issues/${values.issue}/${titleCleaned}`
-                    } else if(values.category === "elections" && values.issue !== "governance"){
-                        toast.error("The Elections category is a Governance only category.")
                     } else {
                         if(values.category){
                             localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
@@ -123,8 +121,6 @@ class AddArticle extends Component {
                     // Resident Refl doesnt have a category
                     if(values.issue === "resident-reflections"){
                         localUrl = `/issues/${values.issue}/${titleCleaned}`
-                    } else if(values.category === "elections" && values.issue !== "governance"){
-                        toast.error("The Elections category is a Governance only category.")
                     } else if(values.issue === "press-releases"){
                         localUrl = `/news/${titleCleaned}`
                     } else {
@@ -404,7 +400,6 @@ class AddArticle extends Component {
                                         <option value="facts">Facts</option>
                                         <option value="stories-opinions">Stories &amp; Opinions</option>
                                         <option value="solutions">Solutions</option>
-                                        <option value="elections">Elections</option>
                                     </Field>
                                     <br/>
                                     {props.errors.category && props.touched.category ? (
@@ -625,7 +620,6 @@ class AddArticle extends Component {
                                         <option value="facts">Facts</option>
                                         <option value="stories-opinions">Stories &amp; Opinions</option>
                                         <option value="solutions">Solutions</option>
-                                        <option value="elections">Elections</option>
                                     </Field>
                                     <br/>
                                     {props.errors.category && props.touched.category ? (

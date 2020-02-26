@@ -10,14 +10,8 @@ import Subscribe from './Subscribe';
 import ArticlePreview from './issues/ArticlePreview'
 import { readableTimestamp } from '../utilities/dateTime'
 import Modal from "react-modal";
-import { withCookies, Cookies } from 'react-cookie';
-import { instanceOf } from 'prop-types';
 
 class Home extends Component {
-    static propTypes = {
-        cookies: instanceOf(Cookies).isRequired
-      };
-    
     _isMounted = false
     constructor(props) {
         super(props)
@@ -176,14 +170,6 @@ class Home extends Component {
             }, () => {
                 console.log("No recentArticles!")
             });
-
-            const { cookies } = this.props;
-
-             // When user exits or acts on modal, it will set the popupDismissed cookie
-             // only open modal if the popupDismissed cookie is unset
-            if(!cookies.get('popupDismissed')){
-                this.handleOpenModal()
-            }
             
         }
     }
@@ -198,17 +184,6 @@ class Home extends Component {
 
     handleCloseModal() {
         this.setState({ showModal: false });
-        const { cookies } = this.props;
-        cookies.set('popupDismissed', true, { path: '/' });
-    }
-
-    actionTaken(){
-        // When the user clicks on button on popup
-        const { cookies } = this.props;
-        cookies.set('popupDismissed', true, { path: '/' })
-        this.setState({
-            showModal: false
-        })
     }
 
   render() {
@@ -386,4 +361,4 @@ class Home extends Component {
   }
 }
 
-export default withCookies(Home);
+export default Home;
