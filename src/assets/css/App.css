@@ -46,8 +46,6 @@ Yellow: #FFD54C
   
   h3 {
     font-size: 1.5em;
-    padding: 0px !important;
-    margin: 0px !important;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: pre;
@@ -659,6 +657,10 @@ Yellow: #FFD54C
   .m-margin {
     margin: 5%;
   }
+
+  .m-margin-b {
+    margin: 0 0 5% 0;
+  }
   
   .l-margin {
     margin: 10%;
@@ -1059,4 +1061,8 @@ Yellow: #FFD54C
 
 .background-blue {
   background-color: #003da5;
+}
+
+.display-block {
+  display: block;
 }

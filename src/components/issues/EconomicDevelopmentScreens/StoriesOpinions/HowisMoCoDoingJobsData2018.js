@@ -405,7 +405,7 @@ export default class HowisMoCoDoingJobsData2018 extends Component {
                 <div className="l-container">
                     <h2>Comparative Growth Rates, 2018 vs 2010-17 Avg.</h2>
                     <p>Source: U.S. Bureau of Labor Statistics.</p>
-                    <h3>Total Employment</h3>
+                    <h3 className="no-margin">Total Employment</h3>
                     <div className="overflow-div">
                         <table>
                             <thead>
@@ -440,7 +440,7 @@ export default class HowisMoCoDoingJobsData2018 extends Component {
                         </table>
                     </div>
                     <br/>
-                    <h3>Establishments</h3>
+                    <h3 className="no-margin">Establishments</h3>
                     <div className="overflow-div">
                         <table>
                             <thead>

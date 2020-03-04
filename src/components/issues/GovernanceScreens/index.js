@@ -83,7 +83,14 @@ export default class Governance extends Component {
           <hr className="m-width"/>
           <br/>
           <h2 className="inline">Elections</h2>
-          <p>More information about the election this November 6th, 2020 is coming soon!</p>
+          <p>Details, interviews, and more regarding the upcoming elections.</p>
+          <ArticlePreview 
+            title={"Mitra Ahadpour, MD"}
+            picPath={require('../../../assets/images/icons/candidate.png')}
+            link={'/issues/governance/elections/mitra-ahadpour-md'}
+            date={'Board of Ed / At-large Candidate'}
+            />
+          <br/>
 
 
           <br/>

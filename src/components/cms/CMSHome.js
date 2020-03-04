@@ -35,7 +35,7 @@ class CMSHome extends Component {
                         <h1>CMS Home</h1>
                     </div>
                     
-                    <h3>Hello {this.props.user.displayName}!</h3>
+                    <h3 className="no-margin">Hello {this.props.user.displayName}!</h3>
                     <b>Your email is {this.props.user.email}</b>
                     <p>
                         CMS or Content Management System will allow you to post content (articles) directly to the site based on what the web developers built. 

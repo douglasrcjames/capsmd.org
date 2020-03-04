@@ -122,6 +122,7 @@ import TalbotCountyVPC from "./components/issues/GovernanceScreens/Facts/Violent
 import WashingtonCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/WashingtonCountyVPC";
 import WicomicoCountyCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/WicomicoCountyCountyVPC";
 import WorcesterCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/WorcesterCountyVPC";
+import MitraAhadpourMD from "./components/issues/GovernanceScreens/Elections/MitraAhadpourMD";
 
 // More
 import More from "./components/issues/MoreScreens/index";
@@ -285,6 +286,9 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/governance/facts/violent-and-property-crime/wicomico-county" component={WicomicoCountyCountyVPC} />
         <Route exact path="/issues/governance/facts/violent-and-property-crime/washington-county" component={WashingtonCountyVPC} />
         <Route exact path="/issues/governance/facts/violent-and-property-crime/talbot-county" component={TalbotCountyVPC} />
+
+        <Route exact path="/issues/governance/elections/mitra-ahadpour-md" component={MitraAhadpourMD} />
+
 
         <Route exact path="/issues/resident-reflections" component={withTracker(ResidentReflections)} />
         <Route exact path="/issues/resident-reflections/moco-overlooks-developments-impact-education" component={withTracker(MoCoOverlooksDevelopmentsImpactEducation)} />

@@ -41,7 +41,7 @@ export default class ContactUs extends Component {
         
         <br/>
         <div className="m-padding center-text background-light-grey">
-          <h3>Join Our Mailing List</h3>
+          <h3 className="no-margin">Join Our Mailing List</h3>
           <span>Keep up with the latest information about the county.</span>
           <Subscribe />
         </div>
