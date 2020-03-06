@@ -3,6 +3,8 @@ Colors:
 Main: 
 Blue: #003da5
 Yellow: #FFD54C
+Red: #9C3536
+
 /*/
 
 /* @font-face {
@@ -129,6 +131,10 @@ Yellow: #FFD54C
   
   .background-blue {
     background: #003da5
+  }
+
+  .background-red {
+    background: #9C3536
   }
 
   .background-white {
@@ -579,6 +585,10 @@ Yellow: #FFD54C
 
   .s-padding-b {
     padding: 0 0 1% 0;
+  }
+
+  .s-padding-t-b {
+    padding: 1% 0 1% 0;
   }
 
   .m-padding-t-b {

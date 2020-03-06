@@ -196,8 +196,8 @@ class Home extends Component {
             <div className="wrapper-top">
 
                 {/* Call to action */}
-                <div className={this.state.showModal ? "hide" : "background-blue center-text"}>
-                    <button  className="s-btn-inv s-margin-t-b" type="button" onClick={() =>  this.handleOpenModal()}><i className="fa fa-file-invoice">&nbsp;</i>View David Blair's Written Testimony </button>
+                <div className={this.state.showModal ? "hide" : "background-red center-text"}>
+                    <div className="s-padding-t-b white"><i className="fa fa-wrench">&nbsp;</i> Site maintenance underway, some features might be down temporarily.</div>
                 </div>
                 <Modal
                     ariaHideApp={false}
