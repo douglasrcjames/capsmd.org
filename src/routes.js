@@ -165,7 +165,7 @@ export class Routes extends React.PureComponent {
   }
   
   componentDidMount() {
-    firestore.collection("articles").onSnapshot(snapshot => {
+    this.unsubscribeArticles = firestore.collection("articles").onSnapshot(snapshot => {
         const pastArticles = []
         snapshot.forEach(doc => {
             if(doc.data().status === "live" || doc.data().status === "carousel"){
@@ -181,6 +181,10 @@ export class Routes extends React.PureComponent {
         console.log("No articles!")
     });
       
+  }
+
+  componentWillUnmount(){
+    this.unsubscribeArticles();
   }
 
   render() {

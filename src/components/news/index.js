@@ -14,34 +14,31 @@ export default class News extends Component {
   }
 
   componentDidMount() {
-      this._isMounted = true;
-      if(this._isMounted){
-          firestore.collection("articles").where("status", "==", "live").where("issue", "==", "press-releases").orderBy("date", "desc").onSnapshot(snapshot => {
-              const articles = []
+    this.unsubscribeArticles = firestore.collection("articles").where("status", "==", "live").where("issue", "==", "press-releases").orderBy("date", "desc").onSnapshot(snapshot => {
+        const articles = []
 
-              snapshot.forEach(doc => {
-                  // Grab each article for issue tag
-                  var docWithId = Object.assign({}, doc.data());
-                  docWithId.id = doc.id;
-                  articles.push(docWithId)    
-              })
+        snapshot.forEach(doc => {
+            // Grab each article for issue tag
+            var docWithId = Object.assign({}, doc.data());
+            docWithId.id = doc.id;
+            articles.push(docWithId)    
+        })
 
-              this.setState({
-                  articles: articles,
-                  ready: true,
-              })
+        this.setState({
+            articles: articles,
+            ready: true,
+        })
 
-          }, () => {
-              console.log("No articles!")
-              this.setState({
-                ready: true
-              })
-          });
-      }
+    }, () => {
+        console.log("No articles!")
+        this.setState({
+          ready: true
+        })
+    });
   }
 
   componentWillUnmount() {
-      this._isMounted = false;
+    this.unsubscribeArticles()
   }
 
   render() {

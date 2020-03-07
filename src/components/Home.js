@@ -9,181 +9,165 @@ import { firestore } from "../Fire.js";
 import Subscribe from './Subscribe';
 import ArticlePreview from './issues/ArticlePreview'
 import { readableTimestamp } from '../utilities/dateTime'
-import Modal from "react-modal";
 
 class Home extends Component {
-    _isMounted = false
     constructor(props) {
         super(props)
-        this.handleOpenModal = this.handleOpenModal.bind(this);
-        this.handleCloseModal = this.handleCloseModal.bind(this);
         this.state = {
             carouselArticles: [],
-            recentArticles: [],
-            showModal: false
+            recentArticles: []
         }
     }
 
     // TODO: make constants for stuff like issue titles, carousel, etc and replace strings through app with constants
     
     componentDidMount() {
-        this._isMounted = true;
-        if(this._isMounted){
-            // TODO: when these 10 articles are pasted, reimplement .orderBy("date", "desc") in query instead of sort (for both recents and carousel)
-            firestore.collection("articles").where("carousel", "==", true).where("status", "==", "live").onSnapshot(snapshot => {
-                const carouselArticles = [
-                    {
-                        title: "MoCo’s Moratorium Madness",
-                        headerUrl: `${require("../assets/images/carousel/stop-sign.jpg")}`,
-                        localUrl: "/issues/economic-development/stories-opinions/moco-moratorium-madness",
-                        date: 1581337677000
-                    },
-                    {
-                        title: "Does the County Government Need More Revenue?",
-                        headerUrl: `${require("../assets/images/carousel/revenue.jpg")}`,
-                        localUrl: "/issues/economic-development/stories-opinions/does-county-need-more-revenue",
-                        date: 1580300877000
-                    },
-                    {
-                        title: "A Golden Opportunity: Promoting Lifelong Health by Investing in Infant & Early Childhood Mental Health",
-                        headerUrl: `${require("../assets/images/carousel/hero-kid.jpg")}`,
-                        localUrl: "/issues/education/facts/promoting-lifelong-health-by-investing-in-infant-and-early-childhood-mental-health",
-                        date: 1575635277000
-                    },
-                    {
-                        title: "Health Care Reform … Good Luck",
-                        headerUrl: `${require("../assets/images/carousel/stethoscope.jpg")}`,
-                        localUrl: "/issues/resident-reflections/health-care-form-good-luck",
-                        date: 1574425677000
-                    },
-                    {
-                        title: "Will MoCo Need a Tax Hike to Pay for Kirwan?",
-                        headerUrl: `${require("../assets/images/carousel/school-bus.jpg")}`,
-                        localUrl: "/issues/education/stories-opinions/will-moco-need-a-tax-hike-to-pay-for-kirwan",
-                        date: 1572956877000
-                    },
-                    {
-                        title: "The Potomac Divide",
-                        headerUrl: `${require("../assets/images/carousel/brown-green-field.jpg")}`,
-                        localUrl: "/issues/economic-development/facts/potomac-divide",
-                        date: 1572870477000
-                    },
-                    {
-                        title: "CAPS X Badlands",
-                        headerUrl: `${require("../assets/images/carousel/badlands.jpg")}`,
-                        localUrl: "/issues/resident-reflections/caps-x-badlands",
-                        date: 1572438477000
-                    },
-                    {
-                        title: "Starting a Small Business in Montgomery County",
-                        headerUrl: `${require("../assets/images/carousel/dressing.jpg")}`,
-                        localUrl: "/issues/resident-reflections/starting-small-business-in-montgomery-county",
-                        date: 1572265677000
-                    },          
-                ];
-                // TODO: grab all article like this (not grabbing everything just stuff we need)
-                snapshot.forEach(doc => {
-                    var articleContents = {
-                        title: doc.data().title,
-                        headerUrl: doc.data().headerUrl,
-                        localUrl: doc.data().localUrl,
-                        date: doc.data().date // ** wont need this here when we remove sorting after query
-                    }
-                    carouselArticles.unshift(articleContents)
-                })
-                carouselArticles.sort((a, b) =>
-                    a.date < b.date ? 1 : -1
-                )
-                this.setState({
-                    carouselArticles: carouselArticles
-                })
-            }, () => {
-                console.log("No carouselArticles!")
-            });
+        // TODO: when these 10 articles are pasted, reimplement .orderBy("date", "desc") in query instead of sort (for both recents and carousel)
+        this.unsubscribeCarousel = firestore.collection("articles").where("carousel", "==", true).where("status", "==", "live").onSnapshot(snapshot => {
+            const carouselArticles = [
+                {
+                    title: "MoCo’s Moratorium Madness",
+                    headerUrl: `${require("../assets/images/carousel/stop-sign.jpg")}`,
+                    localUrl: "/issues/economic-development/stories-opinions/moco-moratorium-madness",
+                    date: 1581337677000
+                },
+                {
+                    title: "Does the County Government Need More Revenue?",
+                    headerUrl: `${require("../assets/images/carousel/revenue.jpg")}`,
+                    localUrl: "/issues/economic-development/stories-opinions/does-county-need-more-revenue",
+                    date: 1580300877000
+                },
+                {
+                    title: "A Golden Opportunity: Promoting Lifelong Health by Investing in Infant & Early Childhood Mental Health",
+                    headerUrl: `${require("../assets/images/carousel/hero-kid.jpg")}`,
+                    localUrl: "/issues/education/facts/promoting-lifelong-health-by-investing-in-infant-and-early-childhood-mental-health",
+                    date: 1575635277000
+                },
+                {
+                    title: "Health Care Reform … Good Luck",
+                    headerUrl: `${require("../assets/images/carousel/stethoscope.jpg")}`,
+                    localUrl: "/issues/resident-reflections/health-care-form-good-luck",
+                    date: 1574425677000
+                },
+                {
+                    title: "Will MoCo Need a Tax Hike to Pay for Kirwan?",
+                    headerUrl: `${require("../assets/images/carousel/school-bus.jpg")}`,
+                    localUrl: "/issues/education/stories-opinions/will-moco-need-a-tax-hike-to-pay-for-kirwan",
+                    date: 1572956877000
+                },
+                {
+                    title: "The Potomac Divide",
+                    headerUrl: `${require("../assets/images/carousel/brown-green-field.jpg")}`,
+                    localUrl: "/issues/economic-development/facts/potomac-divide",
+                    date: 1572870477000
+                },
+                {
+                    title: "CAPS X Badlands",
+                    headerUrl: `${require("../assets/images/carousel/badlands.jpg")}`,
+                    localUrl: "/issues/resident-reflections/caps-x-badlands",
+                    date: 1572438477000
+                },
+                {
+                    title: "Starting a Small Business in Montgomery County",
+                    headerUrl: `${require("../assets/images/carousel/dressing.jpg")}`,
+                    localUrl: "/issues/resident-reflections/starting-small-business-in-montgomery-county",
+                    date: 1572265677000
+                },          
+            ];
+            // TODO: grab all article like this (not grabbing everything just stuff we need)
+            snapshot.forEach(doc => {
+                var articleContents = {
+                    title: doc.data().title,
+                    headerUrl: doc.data().headerUrl,
+                    localUrl: doc.data().localUrl,
+                    date: doc.data().date // ** wont need this here when we remove sorting after query
+                }
+                carouselArticles.unshift(articleContents)
+            })
+            carouselArticles.sort((a, b) =>
+                a.date < b.date ? 1 : -1
+            )
+            this.setState({
+                carouselArticles: carouselArticles
+            })
+        }, () => {
+            console.log("No carouselArticles!")
+        });
 
-            firestore.collection("articles").where("status", "==", "live").limit(10).onSnapshot(snapshot => {
-                const recentArticles = [
-                    {
-                        title: "MoCo’s Moratorium Madness",
-                        headerUrl: `${require("../assets/images/carousel/stop-sign.jpg")}`,
-                        localUrl: "/issues/economic-development/stories-opinions/moco-moratorium-madness",
-                        date: 1581337677000
-                    },
-                    {
-                        title: "Does the County Government Need More Revenue?",
-                        headerUrl: `${require("../assets/images/carousel/revenue.jpg")}`,
-                        localUrl: "/issues/economic-development/stories-opinions/does-county-need-more-revenue",
-                        date: 1580300877000
-                    },
-                    {
-                        title: "A Golden Opportunity: Promoting Lifelong Health by Investing in Infant & Early Childhood Mental Health",
-                        headerUrl: `${require("../assets/images/carousel/hero-kid.jpg")}`,
-                        localUrl: "/issues/education/facts/promoting-lifelong-health-by-investing-in-infant-and-early-childhood-mental-health",
-                        date: 1575635277000
-                    },
-                    {
-                        title: "Health Care Reform … Good Luck",
-                        headerUrl: `${require("../assets/images/carousel/stethoscope.jpg")}`,
-                        localUrl: "/issues/resident-reflections/health-care-form-good-luck",
-                        date: 1574425677000
-                    },
-                    {
-                        title: "Will MoCo Need a Tax Hike to Pay for Kirwan?",
-                        headerUrl: `${require("../assets/images/carousel/school-bus.jpg")}`,
-                        localUrl: "/issues/education/stories-opinions/will-moco-need-a-tax-hike-to-pay-for-kirwan",
-                        date: 1572956877000
-                    },
-                    {
-                        title: "The Potomac Divide",
-                        headerUrl: `${require("../assets/images/carousel/brown-green-field.jpg")}`,
-                        localUrl: "/issues/economic-development/facts/potomac-divide",
-                        date: 1572870477000
-                    },
-                    {
-                        title: "CAPS X Badlands",
-                        headerUrl: `${require("../assets/images/carousel/badlands.jpg")}`,
-                        localUrl: "/issues/resident-reflections/caps-x-badlands",
-                        date: 1572438477000
-                    },
-                    {
-                        title: "Starting a Small Business in Montgomery County",
-                        headerUrl: `${require("../assets/images/carousel/dressing.jpg")}`,
-                        localUrl: "/issues/resident-reflections/starting-small-business-in-montgomery-county",
-                        date: 1572265677000
-                    },             
-                ]
-                snapshot.forEach(doc => {
-                    var articleContents = {
-                        title: doc.data().title,
-                        localUrl: doc.data().localUrl,
-                        headerUrl: doc.data().headerUrl,
-                        date: doc.data().date
-                    }
-                    recentArticles.unshift(articleContents)
-                })
-                recentArticles.sort((a, b) =>
-                    a.date < b.date ? 1 : -1
-                )
-                this.setState({
-                    recentArticles: recentArticles
-                })
-            }, () => {
-                console.log("No recentArticles!")
-            });
-            
-        }
+        this.unsubscribeRecents = firestore.collection("articles").where("status", "==", "live").limit(10).onSnapshot(snapshot => {
+            const recentArticles = [
+                {
+                    title: "MoCo’s Moratorium Madness",
+                    headerUrl: `${require("../assets/images/carousel/stop-sign.jpg")}`,
+                    localUrl: "/issues/economic-development/stories-opinions/moco-moratorium-madness",
+                    date: 1581337677000
+                },
+                {
+                    title: "Does the County Government Need More Revenue?",
+                    headerUrl: `${require("../assets/images/carousel/revenue.jpg")}`,
+                    localUrl: "/issues/economic-development/stories-opinions/does-county-need-more-revenue",
+                    date: 1580300877000
+                },
+                {
+                    title: "A Golden Opportunity: Promoting Lifelong Health by Investing in Infant & Early Childhood Mental Health",
+                    headerUrl: `${require("../assets/images/carousel/hero-kid.jpg")}`,
+                    localUrl: "/issues/education/facts/promoting-lifelong-health-by-investing-in-infant-and-early-childhood-mental-health",
+                    date: 1575635277000
+                },
+                {
+                    title: "Health Care Reform … Good Luck",
+                    headerUrl: `${require("../assets/images/carousel/stethoscope.jpg")}`,
+                    localUrl: "/issues/resident-reflections/health-care-form-good-luck",
+                    date: 1574425677000
+                },
+                {
+                    title: "Will MoCo Need a Tax Hike to Pay for Kirwan?",
+                    headerUrl: `${require("../assets/images/carousel/school-bus.jpg")}`,
+                    localUrl: "/issues/education/stories-opinions/will-moco-need-a-tax-hike-to-pay-for-kirwan",
+                    date: 1572956877000
+                },
+                {
+                    title: "The Potomac Divide",
+                    headerUrl: `${require("../assets/images/carousel/brown-green-field.jpg")}`,
+                    localUrl: "/issues/economic-development/facts/potomac-divide",
+                    date: 1572870477000
+                },
+                {
+                    title: "CAPS X Badlands",
+                    headerUrl: `${require("../assets/images/carousel/badlands.jpg")}`,
+                    localUrl: "/issues/resident-reflections/caps-x-badlands",
+                    date: 1572438477000
+                },
+                {
+                    title: "Starting a Small Business in Montgomery County",
+                    headerUrl: `${require("../assets/images/carousel/dressing.jpg")}`,
+                    localUrl: "/issues/resident-reflections/starting-small-business-in-montgomery-county",
+                    date: 1572265677000
+                },             
+            ]
+            snapshot.forEach(doc => {
+                var articleContents = {
+                    title: doc.data().title,
+                    localUrl: doc.data().localUrl,
+                    headerUrl: doc.data().headerUrl,
+                    date: doc.data().date
+                }
+                recentArticles.unshift(articleContents)
+            })
+            recentArticles.sort((a, b) =>
+                a.date < b.date ? 1 : -1
+            )
+            this.setState({
+                recentArticles: recentArticles
+            })
+        }, () => {
+            console.log("No recentArticles!")
+        });
     }
 
     componentWillUnmount() {
-        this._isMounted = false;
-    }
-
-    handleOpenModal() {
-        this.setState({ showModal: true });
-    }
-
-    handleCloseModal() {
-        this.setState({ showModal: false });
+        this.unsubscribeRecents()
+        this.unsubscribeCarousel()
     }
 
   render() {
@@ -194,48 +178,9 @@ class Home extends Component {
       } else {
         return (
             <div className="wrapper-top">
-
-                {/* Call to action */}
-                <div className={this.state.showModal ? "hide" : "background-red center-text"}>
+                {/* <div className={this.state.showModal ? "hide" : "background-red center-text"}>
                     <div className="s-padding-t-b white"><i className="fa fa-wrench">&nbsp;</i> Site maintenance underway, some features might be down temporarily.</div>
-                </div>
-                <Modal
-                    ariaHideApp={false}
-                    isOpen={this.state.showModal}
-                    contentLabel="David Blair's Written Testimony"
-                    className="modal"
-                    overlayClassName="modal-overlay"
-                    onRequestClose={this.handleCloseModal}
-                    >
-                    <div className="top-bar"><h4 className="white heading">David Blair's Written Testimony</h4><i onClick={() => this.handleCloseModal()} className="close"/></div>
-                    <div className="modal-pdf-container">
-                         <div className="l-container center-text">
-                            <b>
-                            Join me in reaching out to your local legislator to fully fund and pass 
-                            The Blueprint for Maryland's Future Bill (House Bill 1300 and Senate Bill 1000): 
-                            <br/>
-                            <a href="https://msa.maryland.gov/msa/mdmanual/07leg/html/gacomo.html" target="_blank" rel="noopener noreferrer">
-                                <button  className="s-btn s-margin-t-b" type="button" onClick={() =>  this.actionTaken()}>Join me!</button>
-                            </a>
-                            </b>
-                        </div>
-                        <iframe 
-                            src="https://drive.google.com/file/d/1-AtOMkAalpkLrflPD9UPpdQ4XAHReGRz/preview" 
-                            title="David Blair's Written Testimony"
-                            frameBorder="0" 
-                            height="650px" 
-                            width="100%">
-                            <p>
-                                This PDF could not be displayed, please download or view it 
-                                <a href="https://drive.google.com/file/d/1-AtOMkAalpkLrflPD9UPpdQ4XAHReGRz">
-                                    here.
-                                </a>
-                            </p>
-                        </iframe>
-                        
-                        
-                    </div>
-                </Modal>
+                </div> */}
 
 
                 <Slider className="slider-wrapper p-container" autoplay={3000} touchDisabled={true}>

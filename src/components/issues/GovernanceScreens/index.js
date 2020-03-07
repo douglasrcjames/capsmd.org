@@ -17,49 +17,46 @@ export default class Governance extends Component {
       }
 
       componentDidMount() {
-          this._isMounted = true;
-          if(this._isMounted){
-              firestore.collection("articles").where("status", "==", "live").where("issue", "==", "governance").orderBy("date", "desc").onSnapshot(snapshot => {
-                  const articles = []
-                  var factsCat = false;
-                  var storiesOpinionsCat = false;
-                  var solutionsCat = false;
+        this.unsubscribeArticles = firestore.collection("articles").where("status", "==", "live").where("issue", "==", "governance").orderBy("date", "desc").onSnapshot(snapshot => {
+            const articles = []
+            var factsCat = false;
+            var storiesOpinionsCat = false;
+            var solutionsCat = false;
 
-                  snapshot.forEach(doc => {
-                      // Grab each article for issue tag
-                      var docWithId = Object.assign({}, doc.data());
-                      docWithId.id = doc.id;
-                      articles.push(docWithId)
+            snapshot.forEach(doc => {
+                // Grab each article for issue tag
+                var docWithId = Object.assign({}, doc.data());
+                docWithId.id = doc.id;
+                articles.push(docWithId)
 
-                      // test if we should even render html for these categories
-                      if(doc.data().category === "facts"){
-                        factsCat = true;
-                      } else if(doc.data().category === "stories-opinions"){
-                        storiesOpinionsCat = true;
-                      } else if(doc.data().category === "solutions"){
-                        solutionsCat = true;
-                      }           
-                  })
+                // test if we should even render html for these categories
+                if(doc.data().category === "facts"){
+                  factsCat = true;
+                } else if(doc.data().category === "stories-opinions"){
+                  storiesOpinionsCat = true;
+                } else if(doc.data().category === "solutions"){
+                  solutionsCat = true;
+                }           
+            })
 
-                  this.setState({
-                      articles: articles,
-                      ready: true,
-                      factsCat: factsCat,
-                      storiesOpinionsCat: storiesOpinionsCat,
-                      solutionsCat: solutionsCat
-                  })
+            this.setState({
+                articles: articles,
+                ready: true,
+                factsCat: factsCat,
+                storiesOpinionsCat: storiesOpinionsCat,
+                solutionsCat: solutionsCat
+            })
 
-              }, () => {
-                  console.log("No articles!")
-                  this.setState({
-                    ready: true
-                  })
-              });
-          }
+        }, () => {
+            console.log("No articles!")
+            this.setState({
+              ready: true
+            })
+        });
       }
 
       componentWillUnmount() {
-          this._isMounted = false;
+        this.unsubscribeArticles()
       }
 
 

@@ -6,7 +6,6 @@ import { firestore } from '../../Fire'
 import { timestamp_to_date_time, readableTimestamp } from '../../utilities/dateTime'
 
 export default class ListArticles extends Component {
-    _isMounted = false
     constructor(props) {
         super(props)
     
@@ -17,26 +16,23 @@ export default class ListArticles extends Component {
     
     // Eventually want to load more option instead of grabbing all of the articles are once
     componentDidMount() {
-        this._isMounted = true;
-        if(this._isMounted){
-            firestore.collection("articles").orderBy("created", "desc").onSnapshot(snapshot => {
-                const pastArticles = []
-                snapshot.forEach(doc => {
-                    var docWithId = Object.assign({}, doc.data());
-                    docWithId.id = doc.id;
-                    pastArticles.push(docWithId)
-                })
-                this.setState({
-                    articles: pastArticles
-                })
-            }, () => {
-                console.log("No articles!")
-            });
-        }
+        this.unsubscribeArticles = firestore.collection("articles").orderBy("created", "desc").onSnapshot(snapshot => {
+            const pastArticles = []
+            snapshot.forEach(doc => {
+                var docWithId = Object.assign({}, doc.data());
+                docWithId.id = doc.id;
+                pastArticles.push(docWithId)
+            })
+            this.setState({
+                articles: pastArticles
+            })
+        }, () => {
+            console.log("No articles!")
+        });
     }
     
     componentWillUnmount() {
-        this._isMounted = false;
+        this.unsubscribeArticles()
     }
 
     render() {

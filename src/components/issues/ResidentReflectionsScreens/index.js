@@ -13,26 +13,23 @@ export default class ResidentReflections extends Component {
     }
     
     componentDidMount() {
-        this._isMounted = true;
-        if(this._isMounted){
-            firestore.collection("articles").where("status", "==", "live").where("issue", "==", "resident-reflections").orderBy("date", "desc").onSnapshot(snapshot => {
-                const articles = []
-                snapshot.forEach(doc => {
-                    var docWithId = Object.assign({}, doc.data());
-                    docWithId.id = doc.id;
-                    articles.push(docWithId)
-                })
-                this.setState({
-                    articles: articles
-                })
-            }, () => {
-                console.log("No articles!")
-            });
-        }
+        this.unsubscribeArticles = firestore.collection("articles").where("status", "==", "live").where("issue", "==", "resident-reflections").orderBy("date", "desc").onSnapshot(snapshot => {
+            const articles = []
+            snapshot.forEach(doc => {
+                var docWithId = Object.assign({}, doc.data());
+                docWithId.id = doc.id;
+                articles.push(docWithId)
+            })
+            this.setState({
+                articles: articles
+            })
+        }, () => {
+            console.log("No articles!")
+        });
     }
 
     componentWillUnmount() {
-        this._isMounted = false;
+        this.unsubscribeArticles()
     }
 
     

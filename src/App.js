@@ -21,7 +21,6 @@ import "react-datez/dist/css/react-datez.css";
 import "./assets/css/Modal.css";
 
 class App extends Component {
-  _isMounted = false
   constructor(props) {
     super(props)
   
@@ -31,25 +30,18 @@ class App extends Component {
   }
 
   componentDidMount(){
-    this._isMounted = true;
-    if(this._isMounted){
-      fire.auth().onAuthStateChanged((user) => {
-        if (user) {
-          this.setState({
-            user: user,
-            loading: false
-          });
-        } else {
-          this.setState({
-            loading: false
-          });
-        }
-      });
-    }
-  }
-
-  componentWillUnmount() {
-    this._isMounted = false;
+    fire.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          user: user,
+          loading: false
+        });
+      } else {
+        this.setState({
+          loading: false
+        });
+      }
+    });
   }
 
   render() {
