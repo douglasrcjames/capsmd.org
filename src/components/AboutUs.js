@@ -131,15 +131,21 @@ export default class AboutUs extends Component {
 
           {/* Row 3 */}
           <Row>
-            <Headshot name={'Rose Li'} title={"Board Member"} description={"CEO + President, Rose Li and Associates"} picPath={require('../assets/images/headshots/Rose.png')} />
-            <Headshot name={'Kelly Leonard'} title={"Board Member"} description={"CEO + Co-Founder, Taylor-Leonard Corporation"} picPath={require('../assets/images/headshots/Kelly.png')} />
+            <Headshot name={'Rose Li'} title={"Board Member"} description={"CEO and President, Rose Li and Associates"} picPath={require('../assets/images/headshots/Rose.png')} />
+            <Headshot name={'Kelly Leonard'} title={"Board Member"} description={"CEO and Co-Founder, Taylor-Leonard Corporation"} picPath={require('../assets/images/headshots/Kelly.png')} />
+            <Headshot 
+              name={'Sally Murek'} 
+              title={"Board Member"} 
+              description={"Coordinator, Paraeducator Program Montgomery County Public Schools, and Vice-President, Paraeducator Chapter SEIU Local 500"} 
+              picPath={require('../assets/images/headshots/Sally.png')} />
             <Headshot name={'Chung Pak'} title={"Board Member"} description={"Retired Administrative Patent Judge"} picPath={require('../assets/images/headshots/Chung.png')} />
-            <Headshot name={'Nancy Roman'} title={"Board Member"} description={"CEO + President - Partnership for a Healthier America"} picPath={require('../assets/images/headshots/Nancy.png')} />
+
           </Row>
 
           {/* Row 4 */}
           <Row>
-            <Headshot name={'Jordan Steffy'} title={"Board Member"} description={"CEO + Founder, Attolo"} picPath={require('../assets/images/headshots/Jordan.png')} />
+            <Headshot name={'Nancy Roman'} title={"Board Member"} description={"CEO and President - Partnership for a Healthier America"} picPath={require('../assets/images/headshots/Nancy.png')} />
+            <Headshot name={'Jordan Steffy'} title={"Board Member"} description={"CEO and Founder, Attolo"} picPath={require('../assets/images/headshots/Jordan.png')} />
           </Row>
         </Grid>     
       </div>

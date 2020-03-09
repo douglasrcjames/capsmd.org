@@ -125,6 +125,12 @@ import WorcesterCountyVPC from "./components/issues/GovernanceScreens/Facts/Viol
 
 import MitraAhadpourMD from "./components/issues/GovernanceScreens/Elections/MitraAhadpourMD";
 import SunilDasgupta from "./components/issues/GovernanceScreens/Elections/SunilDasgupta";
+import SteveSolomon from "./components/issues/GovernanceScreens/Elections/SteveSolomon";
+import LynneHarris from "./components/issues/GovernanceScreens/Elections/LynneHarris";
+import LumpoangeThomas from "./components/issues/GovernanceScreens/Elections/LumpoangeThomas";
+import DalbinOsorio from "./components/issues/GovernanceScreens/Elections/DalbinOsorio";
+import EhrenReynolds from "./components/issues/GovernanceScreens/Elections/EhrenReynolds";
+import CameronRhode from "./components/issues/GovernanceScreens/Elections/CameronRhode";
 
 // More
 import More from "./components/issues/MoreScreens/index";
@@ -147,12 +153,7 @@ import WaitImUndocumented from "./components/issues/ResidentReflectionsScreens/W
 import StartingSmallBusinessMoCo from "./components/issues/ResidentReflectionsScreens/StartingSmallBusinessMoCo"
 import HealthCareFormGoodLuck from "./components/issues/ResidentReflectionsScreens/HealthCareFormGoodLuck"
 import Badlands from "./components/issues/ResidentReflectionsScreens/Badlands";
-import SteveSolomon from "./components/issues/GovernanceScreens/Elections/SteveSolomon";
-import LynneHarris from "./components/issues/GovernanceScreens/Elections/LynneHarris";
-import LumpoangeThomas from "./components/issues/GovernanceScreens/Elections/LumpoangeThomas";
-import DalbinOsorio from "./components/issues/GovernanceScreens/Elections/DalbinOsorio";
-import EhrenReynolds from "./components/issues/GovernanceScreens/Elections/EhrenReynolds";
-import CameronRhode from "./components/issues/GovernanceScreens/Elections/CameronRhode";
+
 
 
 const Page404 = ({ location }) => (
