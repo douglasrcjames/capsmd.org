@@ -3,6 +3,75 @@ import ArticlePreview from '../ArticlePreview'
 import { firestore } from "../../../Fire.js";
 import { readableTimestamp } from '../../../utilities/dateTime'
 
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+let candidates =[
+  {
+    name: "Mitra Ahadpour, MD",
+    headerUrl: `${require("../../../assets/images/icons/candidate.png")}`,
+    localUrl: "/issues/governance/elections/mitra-ahadpour-md",
+    description: "Board of Ed / At Large candidate"
+  },
+  {
+    name: "Sunil Dasgupta",
+    headerUrl: `${require("../../../assets/images/icons/candidate.png")}`,
+    localUrl: "/issues/governance/elections/sunil-dasgupta",
+    description: "At Large candidate"
+  },
+  {
+    name: "Steve Solomon",
+    headerUrl: `${require("../../../assets/images/icons/candidate.png")}`,
+    localUrl: "/issues/governance/elections/steve-solomon",
+    description: "District 4 candidate"
+  },
+  {
+    name: "Lynne Harris",
+    headerUrl: `${require("../../../assets/images/icons/candidate.png")}`,
+    localUrl: "/issues/governance/elections/lynne-harris",
+    description: "At Large candidate"
+  },
+  {
+    name: "Lumpoange Thomas",
+    headerUrl: `${require("../../../assets/images/icons/candidate.png")}`,
+    localUrl: "/issues/governance/elections/lumpoange-thomas",
+    description: "At Large candidate"
+  }, 
+  {
+    name: "Dalbin Osorio",
+    headerUrl: `${require("../../../assets/images/candidates/dalbin-osorio.png")}`,
+    localUrl: "/issues/governance/elections/dalbin-osorio",
+    description: "At Large candidate"
+  }, 
+  {
+    name: "Ehren Reynolds",
+    headerUrl: `${require("../../../assets/images/icons/candidate.png")}`,
+    localUrl: "/issues/governance/elections/ehren-reynolds",
+    description: "District 4 candidate"
+  }, 
+  {
+    name: "Cameron Rhode",
+    headerUrl: `${require("../../../assets/images/icons/candidate.png")}`,
+    localUrl: "/issues/governance/elections/cameron-rhode",
+    description: "At Large candidate"
+  },     
+]
 export default class Governance extends Component {
       constructor(props) {
           super(props)
@@ -12,11 +81,13 @@ export default class Governance extends Component {
               ready: false,
               factsCat: false,
               storiesOpinionsCat: false,
-              solutionsCat: false
+              solutionsCat: false,
+              
           }
       }
 
       componentDidMount() {
+        shuffle(candidates)
         this.unsubscribeArticles = firestore.collection("articles").where("status", "==", "live").where("issue", "==", "governance").orderBy("date", "desc").onSnapshot(snapshot => {
             const articles = []
             var factsCat = false;
@@ -81,13 +152,22 @@ export default class Governance extends Component {
           <br/>
           <h2 className="inline">Elections</h2>
           <p>Details, interviews, and more regarding the upcoming elections.</p>
-          <ArticlePreview 
-            title={"Mitra Ahadpour, MD"}
-            picPath={require('../../../assets/images/icons/candidate.png')}
-            link={'/issues/governance/elections/mitra-ahadpour-md'}
-            date={'Board of Ed / At-large Candidate'}
-            />
-          <br/>
+          { 
+            candidates.map((candidate, i) => {
+                return (
+                    <span key={i}>
+                        <ArticlePreview 
+                            title={candidate.name}
+                            picPath={candidate.headerUrl}
+                            link={candidate.localUrl}
+                            date={candidate.description}
+                            />
+                        <br/>
+                    </span>
+                )
+            })
+          }
+          
 
 
           <br/>

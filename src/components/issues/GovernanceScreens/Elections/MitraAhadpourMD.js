@@ -1,11 +1,23 @@
 import React, { Component } from 'react'
 
 export default class MitraAhadpourMD extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             
+        }
+    }
+    
+    componentDidMount(){
+        document.title = "CAPS - Mitra Ahadpour, MD";
+    }
+
     render() {
         return (
             <div className="wrapper">
                 <h1 className="s-margin-t">Mitra Ahadpour, MD</h1>
-                <h3 className="no-margin">Board of Ed / At-large candidate</h3>
+                <h3 className="no-margin">Board of Ed / At Large candidate</h3>
                 <a 
                     href="https://dra4students.com/home" 
                     className="s-margin-b display-block" 

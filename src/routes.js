@@ -122,7 +122,9 @@ import TalbotCountyVPC from "./components/issues/GovernanceScreens/Facts/Violent
 import WashingtonCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/WashingtonCountyVPC";
 import WicomicoCountyCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/WicomicoCountyCountyVPC";
 import WorcesterCountyVPC from "./components/issues/GovernanceScreens/Facts/ViolentPropertyCrime/WorcesterCountyVPC";
+
 import MitraAhadpourMD from "./components/issues/GovernanceScreens/Elections/MitraAhadpourMD";
+import SunilDasgupta from "./components/issues/GovernanceScreens/Elections/SunilDasgupta";
 
 // More
 import More from "./components/issues/MoreScreens/index";
@@ -145,6 +147,13 @@ import WaitImUndocumented from "./components/issues/ResidentReflectionsScreens/W
 import StartingSmallBusinessMoCo from "./components/issues/ResidentReflectionsScreens/StartingSmallBusinessMoCo"
 import HealthCareFormGoodLuck from "./components/issues/ResidentReflectionsScreens/HealthCareFormGoodLuck"
 import Badlands from "./components/issues/ResidentReflectionsScreens/Badlands";
+import SteveSolomon from "./components/issues/GovernanceScreens/Elections/SteveSolomon";
+import LynneHarris from "./components/issues/GovernanceScreens/Elections/LynneHarris";
+import LumpoangeThomas from "./components/issues/GovernanceScreens/Elections/LumpoangeThomas";
+import DalbinOsorio from "./components/issues/GovernanceScreens/Elections/DalbinOsorio";
+import EhrenReynolds from "./components/issues/GovernanceScreens/Elections/EhrenReynolds";
+import CameronRhode from "./components/issues/GovernanceScreens/Elections/CameronRhode";
+
 
 const Page404 = ({ location }) => (
   <div className="m-padding">
@@ -292,7 +301,13 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/governance/facts/violent-and-property-crime/talbot-county" component={TalbotCountyVPC} />
 
         <Route exact path="/issues/governance/elections/mitra-ahadpour-md" component={MitraAhadpourMD} />
-
+        <Route exact path="/issues/governance/elections/sunil-dasgupta" component={SunilDasgupta} />
+        <Route exact path="/issues/governance/elections/steve-solomon" component={SteveSolomon} />
+        <Route exact path="/issues/governance/elections/lynne-harris" component={LynneHarris} />
+        <Route exact path="/issues/governance/elections/lumpoange-thomas" component={LumpoangeThomas} />
+        <Route exact path="/issues/governance/elections/dalbin-osorio" component={DalbinOsorio} />
+        <Route exact path="/issues/governance/elections/ehren-reynolds" component={EhrenReynolds} />
+        <Route exact path="/issues/governance/elections/cameron-rhode" component={CameronRhode} />
 
         <Route exact path="/issues/resident-reflections" component={withTracker(ResidentReflections)} />
         <Route exact path="/issues/resident-reflections/moco-overlooks-developments-impact-education" component={withTracker(MoCoOverlooksDevelopmentsImpactEducation)} />

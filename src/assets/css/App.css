@@ -97,6 +97,7 @@ Red: #9C3536
     text-decoration: none;
     font-family: Montserrat, sans-serif;
     cursor: pointer;
+    color: #003da5
   }
   
   .grey {
@@ -589,6 +590,10 @@ Red: #9C3536
 
   .s-padding-t-b {
     padding: 1% 0 1% 0;
+  }
+
+  .s-padding-r-l {
+    padding: 0 1% 0 1%;
   }
 
   .m-padding-t-b {
