@@ -69,21 +69,21 @@ export default class News extends Component {
               )
             })
           }
-
-          <ArticlePreview 
-              title={"Event Advisory: CAPS, local advocacy organizations, hold successful community forum with large attendance"}
-              picPath={require('../../assets/images/icons/Handshake.png')}
-              link={'/news/kirwan-join-moco-school-funding'}
-              date={'November 6, 2019'}
-              />
-          <br/>
           <ArticlePreview 
             title={"Event Advisory: CAPS, local advocacy organizations, to hold community forum with Dr. Brit Kirwan on Kirwan Recommendations"}
             picPath={require('../../assets/images/icons/Growth.png')}
             link={'/news/blueprint-for-marylands-future'}
+            date={'November 6, 2019'}
+            />
+          <br/>
+          <ArticlePreview 
+            title={"Event Advisory: CAPS, local advocacy organizations, hold successful community forum with large attendance"}
+            picPath={require('../../assets/images/icons/Handshake.png')}
+            link={'/news/kirwan-join-moco-school-funding'}
             date={'October 6, 2019'}
             />
           <br/>
+         
           <ArticlePreview 
             title={'Letter from the CAPS Chairman'}
             picPath={require('../../assets/images/icons/Pencil.png')}

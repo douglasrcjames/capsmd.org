@@ -6,7 +6,7 @@ export default class KirwanJoinMoCoSchoolFunding extends Component {
             <div className="pdf-container">
                 <iframe 
                     src="https://drive.google.com/file/d/1QvbvQKXxn3acJNT7jbmeUKR4V2VCqOSe/preview" 
-                    title="Blueprint for Maryland's Future"
+                    title="Kirwan to Join Montgomery County School Funding Community Forum"
                     frameBorder="0" 
                     height="800px" 
                     width="100%">
