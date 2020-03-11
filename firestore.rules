@@ -1,8 +1,31 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      allow write, read;
+    // First Functions //
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Now for the rules! //
+    // Only let CMs user to write, but everyone else can just read
+    match /articles/{articleId} {
+      allow create, update, delete: if isSignedIn();
+      allow read, list: if true;
+    }
+    // No one can update, delete, read, or list but everyone can create
+    match /messages/{messageId} {
+      allow update, delete, read, list: if false;
+      allow create: if true;
+    }
+    // No one can update, delete, read, or list but everyone can create
+    match /subscribers/{subscriberId} {
+      allow update, delete, read, list: if false;
+      allow create: if true;
+    }
+    // No one can update or delete but everyone, can create, read, or list
+    match /users/{userId} {
+      allow update, delete: if false;
+      allow create, read, list: if true;
     }
   }
 }
