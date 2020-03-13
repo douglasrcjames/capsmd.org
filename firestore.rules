@@ -7,7 +7,7 @@ service cloud.firestore {
     }
 
     // Now for the rules! //
-    // Only let CMs user to write, but everyone else can just read
+    // Only let CMS user write, but everyone else can just read
     match /articles/{articleId} {
       allow create, update, delete: if isSignedIn();
       allow read, list: if true;

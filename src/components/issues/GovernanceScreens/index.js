@@ -70,7 +70,13 @@ let candidates =[
     headerUrl: `${require("../../../assets/images/icons/candidate.png")}`,
     localUrl: "/issues/governance/elections/cameron-rhode",
     description: "At Large candidate"
-  },     
+  }, 
+  {
+    name: "Jay Guan",
+    headerUrl: `${require("../../../assets/images/icons/candidate.png")}`,
+    localUrl: "/issues/governance/elections/jay-guan",
+    description: "At Large candidate"
+  },      
 ]
 export default class Governance extends Component {
       constructor(props) {

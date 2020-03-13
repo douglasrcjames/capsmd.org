@@ -131,6 +131,7 @@ import LumpoangeThomas from "./components/issues/GovernanceScreens/Elections/Lum
 import DalbinOsorio from "./components/issues/GovernanceScreens/Elections/DalbinOsorio";
 import EhrenReynolds from "./components/issues/GovernanceScreens/Elections/EhrenReynolds";
 import CameronRhode from "./components/issues/GovernanceScreens/Elections/CameronRhode";
+import JayGuan from "./components/issues/GovernanceScreens/Elections/JayGuan";
 
 // More
 import More from "./components/issues/MoreScreens/index";
@@ -153,8 +154,6 @@ import WaitImUndocumented from "./components/issues/ResidentReflectionsScreens/W
 import StartingSmallBusinessMoCo from "./components/issues/ResidentReflectionsScreens/StartingSmallBusinessMoCo"
 import HealthCareFormGoodLuck from "./components/issues/ResidentReflectionsScreens/HealthCareFormGoodLuck"
 import Badlands from "./components/issues/ResidentReflectionsScreens/Badlands";
-
-
 
 const Page404 = ({ location }) => (
   <div className="m-padding">
@@ -309,6 +308,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/governance/elections/dalbin-osorio" component={DalbinOsorio} />
         <Route exact path="/issues/governance/elections/ehren-reynolds" component={EhrenReynolds} />
         <Route exact path="/issues/governance/elections/cameron-rhode" component={CameronRhode} />
+        <Route exact path="/issues/governance/elections/jay-guan" component={JayGuan} />
 
         <Route exact path="/issues/resident-reflections" component={withTracker(ResidentReflections)} />
         <Route exact path="/issues/resident-reflections/moco-overlooks-developments-impact-education" component={withTracker(MoCoOverlooksDevelopmentsImpactEducation)} />
