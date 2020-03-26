@@ -3,7 +3,14 @@ import { readableTimestamp } from '../../utilities/dateTime'
 
 export default class Article extends Component {
     render() {
-        if(this.props.article.pdfUrl){
+        if(this.props.article.status === "draft" && !this.props.user){
+            return(
+                <div className="wrapper">
+                    <h2>This article is not live yet</h2>
+                    <p>Please sign in as an administrator to view or wait until the article is posted.</p>
+                </div>
+            )
+        }else if(this.props.article.pdfUrl){
             return (
                 <div className="pdf-container">
                     <iframe 

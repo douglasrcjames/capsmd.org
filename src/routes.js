@@ -175,19 +175,17 @@ export class Routes extends React.PureComponent {
   
   componentDidMount() {
     this.unsubscribeArticles = firestore.collection("articles").onSnapshot(snapshot => {
-        const pastArticles = []
-        snapshot.forEach(doc => {
-            if(doc.data().status === "live" || doc.data().status === "carousel"){
-              var docWithId = Object.assign({}, doc.data());
-              docWithId.id = doc.id;
-              pastArticles.push(docWithId)
-            }
-        })
-        this.setState({
-            articles: pastArticles
-        })
+      const pastArticles = []
+      snapshot.forEach(doc => {
+        var docWithId = Object.assign({}, doc.data());
+        docWithId.id = doc.id;
+        pastArticles.push(docWithId)
+      })
+      this.setState({
+        articles: pastArticles
+      })
     }, () => {
-        console.log("No articles!")
+      console.log("No articles!")
     });
       
   }
@@ -334,7 +332,7 @@ export class Routes extends React.PureComponent {
         {  
           this.state.articles && (
             this.state.articles.map((article, i) => {
-              return (<Route key={i} exact path={article.localUrl} component={() => <Article article={article} />} />)
+              return (<Route key={i} exact path={article.localUrl} component={() => <Article article={article} user={this.props.user} />} />)
             })  
            )
         } 

@@ -1066,6 +1066,18 @@ Red: #9C3536
   content: " ";
 }
 
+.bye-br {
+  all: unset;
+}
+
+.ql-align-center {
+  text-align: center !important;
+}
+
+.ql-align-right {
+  text-align: right !important;
+}
+
 .sliver {
   max-height: 10%
 }

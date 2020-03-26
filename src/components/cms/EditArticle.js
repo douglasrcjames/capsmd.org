@@ -93,6 +93,9 @@ class EditArticle extends Component {
             }
         }
 
+        console.log("Updating body: ")
+        console.log(values.body)
+
         if(catPass){
             firestore.collection("articles").doc(this.props.match.params.articleId).update({
                 title: values.title,
