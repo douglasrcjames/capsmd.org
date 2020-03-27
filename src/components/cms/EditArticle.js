@@ -10,7 +10,7 @@ import "react-datez/dist/css/react-datez.css";
 
 import { firestore, fire } from "../../Fire.js";
 import { editRichTextArticleSchema, editPdfArticleSchema } from '../../utilities/formSchemas'
-import { checkFile } from '../../utilities/misc.js';
+import { checkFile, chunkSubstr } from '../../utilities/misc.js';
 
 class EditArticle extends Component {
     constructor(props) {
@@ -52,10 +52,14 @@ class EditArticle extends Component {
     componentDidMount(){
         firestore.collection("articles").doc(this.props.match.params.articleId).get().then((doc) => {
             if (doc.exists) {
-                var docWithId = Object.assign({}, doc.data());
-                docWithId.id = doc.id;
+                var docWithMore = Object.assign({}, doc.data());
+                docWithMore.id = doc.id;
+                if(Array.isArray(doc.data().body)){
+                    docWithMore.body = doc.data().body.join('')
+                }
+                
                 this.setState({
-                    article: docWithId
+                    article: docWithMore
                 })
             } else {
                 console.log("No such document!");
@@ -96,12 +100,34 @@ class EditArticle extends Component {
         console.log("Updating body: ")
         console.log(values.body)
 
+        // TODO: getting error: // FirebaseError: [code=invalid-argument]: The value of property "body" is longer than .
+        // First test data size of string, if exceeds the 1048487 byte limit, 
+        // then split into array of strings, then piece that back together on the render screen
+       // Get total byte size to test
+        var bodyByteSize = new Blob([values.body]).size;
+        console.log("bodyByteSize: ")
+        console.log(bodyByteSize)
+        var bodyArray = null
+        if(bodyByteSize > 1048400){
+            console.error("Need to split up the body into arrays")
+
+            // Prepare to split into N sized chunks, where the size of N is half the length of the body
+            // ** might want to reduce this to a third or less
+            // https://stackoverflow.com/questions/7033639/split-large-string-in-n-size-chunks-in-javascript
+            // https://stackoverflow.com/questions/4029109/javascript-regex-how-to-put-a-variable-inside-a-regular-expression
+            bodyArray = chunkSubstr(values.body, 10)
+        } else {
+            bodyArray = [`${values.body}`]
+        }
+
+        console.log("bodyArray: ")
+        console.log(bodyArray);
         if(catPass){
             firestore.collection("articles").doc(this.props.match.params.articleId).update({
                 title: values.title,
                 author: values.author,
                 date: dateValue,
-                body: values.body,
+                body: bodyArray,
                 status: values.status,
                 category: values.category,
                 issue: values.issue,
@@ -116,6 +142,9 @@ class EditArticle extends Component {
                 toast.error("Error updating article: " + error);
             });
         }
+
+
+        
     }
 
     updatePdfArticle(values){
