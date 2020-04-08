@@ -39,7 +39,7 @@ exports.newContactMessage = functions.firestore
         // Pack it
         let mailOptions = {
             from: `${newValue.email}`,
-            to: 'info@capsmd.org',
+            to: 'info@capsmd.org, douglasrcjames@gmail.com',
             replyTo: `${newValue.email}`,
             subject: `New capsmd.org contact from ${newValue.name}`,
             text: newValue.message,
