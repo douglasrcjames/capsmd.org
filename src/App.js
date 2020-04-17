@@ -7,7 +7,7 @@ import history from './history';
 // Components
 import Header from "./components/misc/Header";
 import Footer from "./components/misc/Footer";
-import ScrollToTop from "../src/ScrollToTop";
+import ScrollToTop from "./ScrollToTop";
 
 // CSS
 import "./assets/css/App.css";
