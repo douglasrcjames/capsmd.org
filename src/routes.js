@@ -19,7 +19,7 @@ import RegisterContainer from './components/auth/RegisterContainer'
 import Home from "./components/Home";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
-
+import Test from "./components/misc/Test";
 // Misc
 import withTracker from './components/misc/WithTracker';
 import UnderConstruction from "./components/misc/UnderConstruction";
@@ -361,6 +361,7 @@ export class Routes extends React.PureComponent {
             loggedIn={this.props.user}
             component={() => <ListArticles />} />
 
+        <Route exact path="/test" component={Test} />
         <Route component={withTracker(Page404)} />
       </Switch>
     );

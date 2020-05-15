@@ -147,7 +147,7 @@ export default class AboutUs extends Component {
             <Headshot name={'Nancy Roman'} title={"Board Member"} description={"CEO and President - Partnership for a Healthier America"} picPath={require('../assets/images/headshots/Nancy.png')} />
             <Headshot name={'Jordan Steffy'} title={"Board Member"} description={"CEO and Founder, Attolo"} picPath={require('../assets/images/headshots/Jordan.png')} />
           </Row>
-        </Grid>     
+        </Grid>   
       </div>
     </div>
     )
