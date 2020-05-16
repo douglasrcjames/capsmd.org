@@ -68,9 +68,6 @@ export const addPdfArticleSchema = yup.object().shape({
   date: yup
       .string()
       .required("A date is required."),
-  pdfUrl: yup
-      .string()
-      .required("A PDF URL is required."),
   status: yup
       .string()
       .required("A status is required."),

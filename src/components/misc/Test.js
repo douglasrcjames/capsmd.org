@@ -68,8 +68,6 @@ export default class Test extends Component {
                     </Row>
                 </Grid>
             </div>
-          
-           
         </React.Fragment>
       );
     }

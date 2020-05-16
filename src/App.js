@@ -20,6 +20,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import "react-datez/dist/css/react-datez.css";
 import "./assets/css/Modal.css";
 
+import Modal from "react-modal";
+Modal.setAppElement('body');
 class App extends Component {
   constructor(props) {
     super(props)

@@ -6,7 +6,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import FileUploader from "react-firebase-file-uploader";
 import ReactQuill from 'react-quill';
 import { ReactDatez } from 'react-datez'
-
+import Modal from "react-modal";
 import { firestore, fire } from "../../Fire.js";
 import { addRichTextArticleSchema, addPdfArticleSchema } from '../../utilities/formSchemas'
 import { checkFile } from '../../utilities/misc.js';
@@ -14,15 +14,25 @@ import { checkFile } from '../../utilities/misc.js';
 class AddArticle extends Component {
     constructor(props) {
         super(props)
-    
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
         this.state = {
-            quillShown: false,
+            richTextShown: true,
             pdfShown: false,
+            // TODO: make types into constants
+            // Types: rich-text-header, pdf-header, or pdf-file 
+            // Need types to determine which file upload instance we are using (lib problem?)
+            typeShown: "rich-text-header",
             headerUrl: "",
             isUploading: false,
             progress: 0,
-            picPath: '',
-            date: new Date()
+            picPath: "",
+            pdfUrl: "",
+            isUploadingPdf: false,
+            pdfProgress: 0,
+            pdfPath: "",
+            date: new Date(),
+            showModal: false,
         }
 
         this.modules = {
@@ -116,7 +126,7 @@ class AddArticle extends Component {
             if(doc.exists){
                 toast.error("An article with a similar title exists");
             } else {
-                if(this.state.headerUrl){
+                if(this.state.headerUrl && this.state.pdfUrl){
                     var localUrl = null
                     // Resident Refl doesnt have a category
                     if(values.issue === "resident-reflections"){
@@ -136,7 +146,7 @@ class AddArticle extends Component {
                         ref.set({
                             title: values.title,
                             date: dateValue,
-                            pdfUrl: values.pdfUrl,
+                            pdfUrl: this.state.pdfUrl,
                             status: values.status,
                             category: values.category,
                             issue: values.issue,
@@ -154,16 +164,24 @@ class AddArticle extends Component {
                     }
                     
                 } else {
-                    toast.error("Please upload a header image!")
+                    toast.error("Check to make you you have properly uploaded the PDF and/or the header image!!")
                 }  
             }
         })
 
       }
 
+      handleOpenModal() {
+        this.setState({ showModal: true, typeShown: "pdf-file" });
+      }
+      
+      handleCloseModal() {
+        this.setState({ showModal: false, typeShown: "pdf-header" });
+      }
+
     handleFileChange = e => {
         if (e.target.files[0]) {
-            if(checkFile(this.state.pdfShown)){
+            if(checkFile(this.state.typeShown)){
                 const picPath = e.target.files[0];
                 this.setState(() => ({ picPath }));
             } else {
@@ -171,21 +189,49 @@ class AddArticle extends Component {
             }
         }
     };
+    handlePdfFileChange = e => {
+        if (e.target.files[0]) {
+            if(checkFile(this.state.typeShown)){
+                const pdfPath = e.target.files[0];
+                this.setState(() => ({ pdfPath }));
+            } else {
+                toast.error("Please upload a PDF file format like such as 'example.pdf'");
+            }
+        }
+    };
 
     uploadHeaderUrl() {
+        console.log("Clicked header upload");
         if(this.state.picPath){
+            console.log("Starting header upload...");
             this.fileUploader.startUpload(this.state.picPath)
         } else {
             toast.error("Choose a header picture first!");
         }
     }
+    uploadPdfUrl() {
+        console.log("Clicked pdf upload");
+        if(this.state.pdfPath){
+            console.log("Starting pdf upload...");
+            this.pdfUploader.startUpload(this.state.pdfPath)
+        } else {
+            toast.error("Choose a PDF file from your computer first!");
+        }
+    }
 
-    handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
+    handleUploadStart = () => {console.log("Started header upload!"); this.setState({ isUploading: true, progress: 0 });} 
+    handlePdfUploadStart = () => {console.log("Started PDF upload!"); this.setState({ isUploadingPdf: true, pdfProgress: 0 });}
 
     handleProgress = progress => this.setState({ progress });
+    handlePdfProgress = pdfProgress => this.setState({ pdfProgress });
 
     handleUploadError = error => {
         this.setState({ isUploading: false });
+        console.error("Error handling upload: " + error);
+        toast.error("Error handling upload: " + error);
+    };
+    handlePdfUploadError = error => {
+        this.setState({ isUploadingPdf: false });
         console.error("Error handling upload: " + error);
         toast.error("Error handling upload: " + error);
     };
@@ -193,13 +239,19 @@ class AddArticle extends Component {
     deletePicPath(){
         this.setState(() => ({ picPath: "" }));
     }
+    deletePdfPath(){
+        this.setState(() => ({ pdfPath: "" }));
+    }
+
 
     handleUploadSuccess = filename => {
+        console.log("Success with header upload!"); 
         fire.storage()
             .ref(`headers`)
             .child(filename)
             .getDownloadURL()
             .then((url) => {       
+                console.log(url) 
                 this.setState({  
                     headerUrl: url,
                     progress: 100, 
@@ -207,17 +259,37 @@ class AddArticle extends Component {
                 });
             });
         }
-    
+    handlePdfUploadSuccess = filename => {
+        console.log("Success with PDF upload!"); 
+        
+        fire.storage()
+            .ref(`pdfs`)
+            .child(filename)
+            .getDownloadURL()
+            .then((url) => {      
+                console.log(url) 
+                this.handleCloseModal();
+                this.setState({  
+                    pdfUrl: url,
+                    pdfProgress: 100, 
+                    isUploadingPdf: false
+                });
+            });
+        }
+        
     showPdf(){
         this.setState({
             pdfShown: true,
+            typeShown: "pdf-header",
+            richTextShown: false,
             author: "",
-            body: "",
+            body: ""
         })
     }
 
-    showQuill(){
+    showRichText(){
         this.setState({
+            richTextShown: true,
             pdfShown: false,
             pdfUrl: ""
         })
@@ -252,7 +324,7 @@ class AddArticle extends Component {
                     {/* Row 1 */}
                     <Row center="xs">
                         <Col xs={12} sm={6}>
-                            <button className={this.state.pdfShown ? "s-btn-inv" : "s-btn"} onClick={()=>this.showQuill()}> <i className="fas fa-text-height" />&nbsp; Rich Text Article</button>
+                            <button className={this.state.richTextShown ? "s-btn" : "s-btn-inv"} onClick={()=>this.showRichText()}> <i className="fas fa-text-height" />&nbsp; Rich Text Article</button>
                         </Col>
                         <Col xs={12} sm={6}>
                             <button className={this.state.pdfShown ? "s-btn" : "s-btn-inv"} onClick={()=>this.showPdf()}> <i className="fas fa-file-pdf" />&nbsp; PDF Article</button>
@@ -261,7 +333,7 @@ class AddArticle extends Component {
                 </Grid>
 
                 {/* // Rich Text Article // */}
-                <div className={this.state.pdfShown ? "hide" : ""}>
+                <div className={this.state.richTextShown ? "" : "hide"}>
                 <Formik
                     initialValues={initialFormState}
                     onSubmit={(values) => {
@@ -442,14 +514,16 @@ class AddArticle extends Component {
                             
                             {/* Row 6 */}
                             <Row>
+                                <label htmlFor="header">Header picture: </label>
+                                &nbsp;&nbsp;
                                 { !this.state.headerUrl && (
                                     <>
                                     <Col xs={12} sm={6}>
                                         <label className="s-btn-inv">
                                             <i className="fa fa-upload"></i> Choose a header photo
                                             <FileUploader
-                                                name="file-upload1"
-                                                id="file-upload1"
+                                                name="rich-text-header"
+                                                id="rich-text-header"
                                                 hidden
                                                 accept="image/*"
                                                 randomizeFilename
@@ -479,7 +553,7 @@ class AddArticle extends Component {
                                     </>
                                 )}
                                 { this.state.headerUrl && (
-                                    <span className="blue"><i className="fa fa-check"></i> Header uploaded!</span>
+                                    <span className="green"><i className="fa fa-check"></i> Header uploaded!</span>
                                 )}
                             </Row> 
                         </Grid>
@@ -559,28 +633,78 @@ class AddArticle extends Component {
                             </Row>
 
                             {/* Row 4 */}
-                            <Row>
-                                <Col xs={12}>
-                                    <label htmlFor="pdfUrl">Google Drive PDF URL: </label>
-                                    <span className="grey s-text">* make sure this URL follows the placeholder value format (i.e. no '/view' appended)</span>
-                                    <Field
-                                        type="text"
-                                        placeholder="https://drive.google.com/file/d/1eqNFnV8Df8ODN-hB4ZtAYe_OWyE3igeE"
-                                        className="pdfUrl"
-                                        onChange={props.handleChange}
-                                        name="pdfUrl"
-                                        value={props.values.pdfUrl}
-                                    />
-                                    <br/>
-                                    {props.errors.pdfUrl && props.touched.pdfUrl ? (
-                                        <span className="red">{props.errors.pdfUrl}</span>
-                                    ) : (
-                                        ""
-                                    )}
-                                    <br/>
-                                </Col>
-                            </Row>  
-                            
+                            {this.state.pdfUrl && (
+                                <Row>
+                                    <Col xs={12}>
+                                        <label htmlFor="pdf">Uploaded PDF Link: </label>
+                                        &nbsp;&nbsp;
+                                        <a href={this.state.pdfUrl} className="blue">{this.state.pdfUrl}</a>
+                                    </Col>
+                                </Row>
+                            )}   
+                                
+                            <br/>
+                            <label htmlFor="pdf">PDF file: </label>
+                            &nbsp;&nbsp;
+                            { !this.state.pdfUrl && (
+                                <button type="button" className="s-btn-inv" onClick={this.handleOpenModal}>
+                                    <i className="fa fa-file-upload"></i> Choose PDF file
+                                </button>
+                            )}
+                            { this.state.pdfUrl && (
+                                <span className="green"><i className="fa fa-check"></i> PDF uploaded!</span>
+                            )}
+                            <br/>
+
+                            <Modal
+                                isOpen={this.state.showModal}
+                                contentLabel="Choose PDF File"
+                                className="modal"
+                                overlayClassName="modal-overlay"
+                                onRequestClose={this.handleCloseModal}>
+                                <div className="top-bar">
+                                    <h4 className="white heading">Choose PDF File</h4>
+                                    <i onClick={() => this.handleCloseModal()} className="close" />
+                                </div>
+                                <div className="modal-container">
+                                    <p>
+                                        Pick a PDF file from your computer to use as the main article body. 
+                                    </p>
+                                    <Row>
+                                        <Col xs={12}>
+                                            <label className="s-btn-inv">
+                                                <i className="fa fa-file-upload"></i> Choose PDF file
+                                                <FileUploader
+                                                    name="pdf-file"
+                                                    id="pdf-file"
+                                                    hidden
+                                                    accept="pdf/*"
+                                                    storageRef={fire.storage().ref(`pdfs`)}
+                                                    onChange={this.handlePdfFileChange}
+                                                    ref={instance => { this.pdfUploader = instance; } }
+                                                    onUploadStart={this.handlePdfUploadStart}
+                                                    onUploadError={this.handlePdfUploadError}
+                                                    onUploadSuccess={this.handlePdfUploadSuccess}
+                                                    onProgress={this.handlePdfProgress}
+                                                />
+                                            </label>
+                                        </Col>
+                                        <Col xs={12}>
+                                            {this.state.isUploadingPdf && <p>Progress: {this.state.pdfProgress}%</p>}
+                                            <br/>
+                                            {this.state.pdfPath && (
+                                                <>
+                                                    <p>{this.state.pdfPath.name.split('\\').pop().split('/').pop()}</p>
+                                                    <button type="button" className="s-btn-inv" onClick={() => this.uploadPdfUrl()}>Upload choice</button>
+                                                    &nbsp; &nbsp;
+                                                    <button type="button" className="s-btn-danger-inv" onClick={() => this.deletePdfPath()}>Delete choice</button>
+                                                    
+                                                </>
+                                            )}
+                                        </Col>
+                                    </Row>
+                                </div>
+                            </Modal>
                             {/* Row 5 */}
                             <Row>
                                 <Col xs={12} sm={6} md={4}>
@@ -662,14 +786,16 @@ class AddArticle extends Component {
 
                             {/* Row 7 */}
                             <Row>
+                                <label htmlFor="header">Header picture: </label>
+                                &nbsp;&nbsp;
                                 { !this.state.headerUrl && (
                                     <>
                                     <Col xs={12} sm={6}>
                                         <label className="s-btn-inv">
                                             <i className="fa fa-upload"></i> Choose a header photo
                                             <FileUploader
-                                                name="file-upload2"
-                                                id="file-upload2"
+                                                name="pdf-header"
+                                                id="pdf-header"
                                                 hidden
                                                 accept="image/*"
                                                 randomizeFilename
@@ -699,7 +825,7 @@ class AddArticle extends Component {
                                     </>
                                 )}
                                 { this.state.headerUrl && (
-                                    <span className="blue">Header uploaded!</span>
+                                    <span className="green"><i className="fa fa-check"></i> Header uploaded!</span>
                                 )}
                                 
                             </Row> 

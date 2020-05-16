@@ -2,30 +2,27 @@ export function ucFirst(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-export function checkFile(pdfShown) {
-    var fileElement1 = document.getElementById("file-upload1");
-    var fileElement2 = document.getElementById("file-upload2")
-    var fileElement = null;
-    if(pdfShown){
-      fileElement = fileElement2
-    } else {
-      fileElement = fileElement1
-    }
+export function checkFile(typeShown) {
+  // Check to make sure file type is what we want
+  // Types: rich-text-header, pdf-header, or pdf-file
+    var fileElement = document.getElementById(typeShown);
 
     var fileExtension = "";
 
     if (fileElement.value.lastIndexOf(".") > 0) {
         fileExtension = fileElement.value.substring(fileElement.value.lastIndexOf(".") + 1, fileElement.value.length);
     }
-    if (
-        fileExtension.toLowerCase() === "png" || 
+    if((typeShown === "rich-text-header" || typeShown === "pdf-header") &&
+        (fileExtension.toLowerCase() === "png" || 
         fileExtension.toLowerCase() === "jpg" || 
         fileExtension.toLowerCase() === "jpeg" ||
-        fileExtension.toLowerCase() === "bmp"
+        fileExtension.toLowerCase() === "bmp")
     ) {
         return true;
-    }
-    else {
+    } else if(typeShown === "pdf-file" && 
+        (fileExtension.toLowerCase() === "pdf")) {
+      return true
+    } else {
         return false;
     }
 }

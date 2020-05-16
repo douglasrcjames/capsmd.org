@@ -7,7 +7,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import FileUploader from "react-firebase-file-uploader";
 import { ReactDatez } from 'react-datez'
 import "react-datez/dist/css/react-datez.css";
-
+import Modal from "react-modal";
 import { firestore, fire } from "../../Fire.js";
 import { editRichTextArticleSchema, editPdfArticleSchema } from '../../utilities/formSchemas'
 import { checkFile } from '../../utilities/misc.js';
@@ -15,13 +15,20 @@ import { checkFile } from '../../utilities/misc.js';
 class EditArticle extends Component {
     constructor(props) {
         super(props)
-    
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
         this.state = {
-             article: "",
-             headerUrl: "",
-             isUploading: false,
-             progress: 0,
-             picPath: '',
+            typeShown: "pdf-header",
+            article: "",
+            headerUrl: "",
+            isUploading: false,
+            progress: 0,
+            picPath: '',
+            pdfUrl: "",
+            isUploadingPdf: false,
+            pdfProgress: 0,
+            pdfPath: "",
+            showModal: false,
         }
 
         this.modules = {
@@ -143,7 +150,7 @@ class EditArticle extends Component {
             firestore.collection("articles").doc(this.props.match.params.articleId).update({
                 title: values.title,
                 date: dateValue,
-                pdfUrl: values.pdfUrl,
+                pdfUrl: this.state.pdfUrl,
                 status: values.status,
                 category: values.category,
                 issue: values.issue,
@@ -160,9 +167,17 @@ class EditArticle extends Component {
         }
     }
 
+    handleOpenModal() {
+        this.setState({ showModal: true, typeShown: "pdf-file" });
+      }
+      
+      handleCloseModal() {
+        this.setState({ showModal: false, typeShown: "pdf-header" });
+      }
+
     handleFileChange = e => {
         if (e.target.files[0]) {
-            if(checkFile(this.state.article.pdfUrl)){
+            if(checkFile(this.state.typeShown)){
                 const picPath = e.target.files[0];
                 this.setState(() => ({ picPath }));
             } else {
@@ -170,21 +185,49 @@ class EditArticle extends Component {
             }
         }
     };
+    handlePdfFileChange = e => {
+        if (e.target.files[0]) {
+            if(checkFile(this.state.typeShown)){
+                const pdfPath = e.target.files[0];
+                this.setState(() => ({ pdfPath }));
+            } else {
+                toast.error("Please upload a PDF file format like such as 'example.pdf'");
+            }
+        }
+    };
 
     uploadHeaderUrl() {
+        console.log("Clicked header upload");
         if(this.state.picPath){
+            console.log("Starting header upload...");
             this.fileUploader.startUpload(this.state.picPath)
         } else {
             toast.error("Choose a header picture first!");
         }
     }
+    uploadPdfUrl() {
+        console.log("Clicked pdf upload");
+        if(this.state.pdfPath){
+            console.log("Starting pdf upload...");
+            this.pdfUploader.startUpload(this.state.pdfPath)
+        } else {
+            toast.error("Choose a PDF file from your computer first!");
+        }
+    }
 
-    handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
+    handleUploadStart = () => {console.log("Started header upload!"); this.setState({ isUploading: true, progress: 0 });} 
+    handlePdfUploadStart = () => {console.log("Started PDF upload!"); this.setState({ isUploadingPdf: true, pdfProgress: 0 });}
 
     handleProgress = progress => this.setState({ progress });
+    handlePdfProgress = pdfProgress => this.setState({ pdfProgress });
 
     handleUploadError = error => {
         this.setState({ isUploading: false });
+        console.error("Error handling upload: " + error);
+        toast.error("Error handling upload: " + error);
+    };
+    handlePdfUploadError = error => {
+        this.setState({ isUploadingPdf: false });
         console.error("Error handling upload: " + error);
         toast.error("Error handling upload: " + error);
     };
@@ -192,6 +235,10 @@ class EditArticle extends Component {
     deletePicPath(){
         this.setState(() => ({ picPath: "" }));
     }
+    deletePdfPath(){
+        this.setState(() => ({ pdfPath: "" }));
+    }
+
 
     handleUploadSuccess = filename => {
         fire.storage()
@@ -214,6 +261,33 @@ class EditArticle extends Component {
 
                 this.setState({  
                     headerUrl: url,
+                    progress: 100, 
+                    isUploading: false
+                });
+            });
+        }
+
+    handlePdfUploadSuccess = filename => {
+        fire.storage()
+            .ref(`pdfs`)
+            .child(filename)
+            .getDownloadURL()
+            .then((url) => {    
+                firestore.collection("articles").doc(this.props.match.params.articleId).update({
+                    pdfUrl: url
+                })
+                .then(function() {
+                    console.log("Successfully updated article.");
+                    toast.success("Successfully updated article.")
+                })
+                .catch(function(error) {
+                    // The document probably doesn't exist.
+                    console.error("Error updating article: ", error);
+                    toast.error("Error updating article: " + error);
+                });
+
+                this.setState({  
+                    pdfUrl: url,
                     progress: 100, 
                     isUploading: false
                 });
@@ -244,7 +318,7 @@ class EditArticle extends Component {
                 title: this.state.article.title,
                 date: new Date(this.state.article.date),
                 localUrl: this.state.article.localUrl,
-                pdfUrl: this.state.article.pdfUrl,
+                pdfUrl: this.state.pdfUrl || this.state.article.pdfUrl,
                 status: this.state.article.status,
                 category: this.state.article.category,
                 issue: this.state.article.issue,
@@ -509,7 +583,7 @@ class EditArticle extends Component {
                                         )}
                                         { this.state.headerUrl && (
                                             <Col xs={12}>
-                                                <span className="blue"><i className="fa fa-check"></i> New header updated successfully!</span>
+                                                <span className="green"><i className="fa fa-check"></i> New header updated successfully!</span>
                                                 <br/><br/>
                                                 <img
                                                     src={this.state.headerUrl}
@@ -604,7 +678,6 @@ class EditArticle extends Component {
                                             <Field
                                                 type="text"
                                                 placeholder="/issues/governance/stories-opinions/article-name"
-                                                className="localUrl"
                                                 onChange={props.handleChange}
                                                 name="localUrl"
                                                 value={props.values.localUrl}
@@ -618,30 +691,80 @@ class EditArticle extends Component {
                                             <br/>
                                         </Col>
                                     </Row>  
+                                   
 
                                     {/* Row 4 */}
-                                    <Row>
-                                        <Col xs={12}>
-                                            <label htmlFor="pdfUrl">Google Drive PDF URL: </label>
-                                            <span className="grey s-text">* make sure this URL follows the placeholder value format (i.e. no '/view' appended)</span>
-                                            <Field
-                                                type="text"
-                                                placeholder="https://drive.google.com/file/d/1eqNFnV8Df8ODN-hB4ZtAYe_OWyE3igeE"
-                                                className="pdfUrl"
-                                                onChange={props.handleChange}
-                                                name="pdfUrl"
-                                                value={props.values.pdfUrl}
-                                            />
-                                            <br/>
-                                            {props.errors.pdfUrl && props.touched.pdfUrl ? (
-                                                <span className="red">{props.errors.pdfUrl}</span>
-                                            ) : (
-                                                ""
-                                            )}
-                                            <br/>
-                                        </Col>
-                                    </Row>  
-                                    
+                                    {!this.state.pdfUrl && (
+                                        <Row>
+                                            <Col xs={12}>
+                                                <label htmlFor="pdf">Current PDF Link: </label>
+                                                &nbsp;&nbsp;
+                                                <a href={this.state.article.pdfUrl} className="blue">{this.state.article.pdfUrl}</a>
+                                            </Col>
+                                        </Row>
+                                    )} 
+                                    <br/>
+                                    <label htmlFor="pdf" className="display-block">PDF file: </label>
+                                    &nbsp;&nbsp;
+                                    { !this.state.pdfUrl && (
+                                        <button type="button" className="s-btn-inv" onClick={this.handleOpenModal}>
+                                            <i className="fa fa-file-upload"></i> Choose new PDF file
+                                        </button>
+                                    )}
+                                    { this.state.pdfUrl && (
+                                        <span className="green"><i className="fa fa-check"></i> PDF updated!</span>
+                                    )}
+                                    <br/>
+                                    <Modal
+                                        isOpen={this.state.showModal}
+                                        contentLabel="Choose PDF File"
+                                        className="modal"
+                                        overlayClassName="modal-overlay"
+                                        onRequestClose={this.handleCloseModal}>
+                                        <div className="top-bar">
+                                            <h4 className="white heading">Choose PDF File</h4>
+                                            <i onClick={() => this.handleCloseModal()} className="close" />
+                                        </div>
+                                        <div className="modal-container">
+                                            <p>
+                                                Pick a PDF file from your computer to use as the main article body. 
+                                            </p>
+                                            <Row>
+                                                <Col xs={12}>
+                                                    <label className="s-btn-inv">
+                                                        <i className="fa fa-file-upload"></i> Choose new PDF file
+                                                        <FileUploader
+                                                            name="pdf-file"
+                                                            id="pdf-file"
+                                                            hidden
+                                                            accept="pdf/*"
+                                                            storageRef={fire.storage().ref(`pdfs`)}
+                                                            onChange={this.handlePdfFileChange}
+                                                            ref={instance => { this.pdfUploader = instance; } }
+                                                            onUploadStart={this.handlePdfUploadStart}
+                                                            onUploadError={this.handlePdfUploadError}
+                                                            onUploadSuccess={this.handlePdfUploadSuccess}
+                                                            onProgress={this.handlePdfProgress}
+                                                        />
+                                                    </label>
+                                                </Col>
+                                                <Col xs={12}>
+                                                    {this.state.isUploadingPdf && <p>Progress: {this.state.pdfProgress}%</p>}
+                                                    <br/>
+                                                    {this.state.pdfPath && (
+                                                        <>
+                                                            <p>{this.state.pdfPath.name.split('\\').pop().split('/').pop()}</p>
+                                                            <button type="button" className="s-btn-inv" onClick={() => this.uploadPdfUrl()}>Upload choice</button>
+                                                            &nbsp; &nbsp;
+                                                            <button type="button" className="s-btn-danger-inv" onClick={() => this.deletePdfPath()}>Delete choice</button>
+                                                            
+                                                        </>
+                                                    )}
+                                                </Col>
+                                            </Row>
+                                        </div>
+                                    </Modal>
+                                    <br/>
                                     {/* Row 5 */}
                                     <Row>
                                         <Col xs={12} sm={6} md={4}>
@@ -766,7 +889,7 @@ class EditArticle extends Component {
                                         )}
                                         { this.state.headerUrl && (
                                             <Col xs={12}>
-                                                <span className="blue"><i className="fa fa-check"></i> New header updated successfully!</span>
+                                                <span className="green"><i className="fa fa-check"></i> New header updated successfully!</span>
                                                 <br/><br/>
                                                 <img
                                                     src={this.state.headerUrl}
