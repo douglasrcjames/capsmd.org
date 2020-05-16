@@ -108,24 +108,62 @@ class EditArticle extends Component {
             toast.error("The document is too large. Try reducing the file size of some bigger pictures with online tools or ask Doug. Remember you can always just upload it as a PDF! ")
         } else {
             if(catPass){
-                firestore.collection("articles").doc(this.props.match.params.articleId).update({
-                    title: values.title,
-                    author: values.author,
-                    date: dateValue,
-                    body: values.body,
-                    status: values.status,
-                    category: values.category,
-                    issue: values.issue,
-                    localUrl: values.localUrl,
-                    carousel: values.carousel
-                }).then(() => {
-                    console.log("Successfully updated article.");
-                    toast.success("Successfully updated article.")
-                }).catch((error) => {
-                    // The document probably doesn't exist.
-                    console.error("Error updating article: ", error);
-                    toast.error("Error updating article: " + error);
-                });
+                if(this.state.article.title !== values.title){
+                    // If title changed, delete old article doc and create new one
+                    var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
+                    var titleCleaned = titleNoSpecialChars.replace(/\s+/g, '-').toLowerCase(); //lower case and dashified
+                    var ref = firestore.collection("articles").doc(`${titleCleaned}`)
+                    ref.get().then(doc => {
+                        if(doc.exists){
+                            toast.error("An article with a similar title exists");
+                        } else {
+                            ref.set({
+                                title: values.title,
+                                date: dateValue,
+                                status: values.status,
+                                category: values.category,
+                                issue: values.issue,
+                                headerUrl: this.state.article.headerUrl,
+                                creator: this.state.article.creator,
+                                body: this.state.article.body,
+                                created: this.state.article.created,
+                                carousel: values.carousel,
+                                localUrl: values.localUrl,
+                                updated: Date.now()
+                            }).then(() =>  {
+                                // Delete old doc
+                                firestore.collection("articles").doc(this.props.match.params.articleId).delete().then(() => {
+                                    this.props.history.push("/cms/list-articles");
+                                    toast.success("Article successfully updated!");
+                                    console.log("Document successfully deleted");
+                                }).catch((error) => {
+                                    console.error("Error removing document: ", error);
+                                });
+                            }).catch((error) =>  {
+                                toast.error("Error writing document: ", error);
+                            });
+                        }
+                    })
+                } else {
+                    firestore.collection("articles").doc(this.props.match.params.articleId).update({
+                        author: values.author,
+                        date: dateValue,
+                        body: values.body,
+                        status: values.status,
+                        category: values.category,
+                        issue: values.issue,
+                        localUrl: values.localUrl,
+                        carousel: values.carousel
+                    }).then(() => {
+                        console.log("Successfully updated article.");
+                        toast.success("Successfully updated article.")
+                    }).catch((error) => {
+                        // The document probably doesn't exist.
+                        console.error("Error updating article: ", error);
+                        toast.error("Error updating article: " + error);
+                    });
+                }
+                
             }
         }
 
@@ -147,33 +185,71 @@ class EditArticle extends Component {
         }
 
         if(catPass){
-            firestore.collection("articles").doc(this.props.match.params.articleId).update({
-                title: values.title,
-                date: dateValue,
-                pdfUrl: this.state.pdfUrl,
-                status: values.status,
-                category: values.category,
-                issue: values.issue,
-                localUrl: values.localUrl,
-                carousel: values.carousel
-            }).then(() => {
-                console.log("Successfully updated article.");
-                toast.success("Successfully updated article.")
-            }).catch((error) => {
-                // The document probably doesn't exist.
-                console.error("Error updating article:  ", error);
-                toast.error("Error updating article: " + error);
-            });
+            if(this.state.article.title !== values.title){
+                // If title changed, delete old article doc and create new one
+                var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
+                var titleCleaned = titleNoSpecialChars.replace(/\s+/g, '-').toLowerCase(); //lower case and dashified
+                var ref = firestore.collection("articles").doc(`${titleCleaned}`)
+                ref.get().then(doc => {
+                    if(doc.exists){
+                        toast.error("An article with a similar title exists");
+                    } else {
+                        ref.set({
+                            title: values.title,
+                            date: dateValue,
+                            status: values.status,
+                            category: values.category,
+                            issue: values.issue,
+                            headerUrl: this.state.article.headerUrl,
+                            pdfUrl: this.state.article.pdfUrl,
+                            creator: this.state.article.creator,
+                            created: this.state.article.created,
+                            carousel: values.carousel,
+                            localUrl: values.localUrl,
+                            updated: Date.now()
+                        }).then(() =>  {
+                            // Delete old doc
+                            firestore.collection("articles").doc(this.props.match.params.articleId).delete().then(() => {
+                                this.props.history.push("/cms/list-articles");
+                                toast.success("Article successfully updated!");
+                                console.log("Document successfully deleted");
+                            }).catch((error) => {
+                                console.error("Error removing document: ", error);
+                            });
+                        }).catch((error) =>  {
+                            toast.error("Error writing document: ", error);
+                        });
+                    }
+                })
+                
+                
+            } else {
+                firestore.collection("articles").doc(this.props.match.params.articleId).update({
+                    status: values.status,
+                    category: values.category,
+                    issue: values.issue,
+                    localUrl: values.localUrl,
+                    carousel: values.carousel,
+                    updated: Date.now()
+                }).then(() => {
+                    console.log("Successfully updated article.");
+                    toast.success("Successfully updated article.")
+                }).catch((error) => {
+                    // The document probably doesn't exist.
+                    console.error("Error updating article:  ", error);
+                    toast.error("Error updating article: " + error);
+                });
+            }
         }
     }
 
     handleOpenModal() {
         this.setState({ showModal: true, typeShown: "pdf-file" });
-      }
+    }
       
-      handleCloseModal() {
+    handleCloseModal() {
         this.setState({ showModal: false, typeShown: "pdf-header" });
-      }
+    }
 
     handleFileChange = e => {
         if (e.target.files[0]) {
@@ -197,26 +273,22 @@ class EditArticle extends Component {
     };
 
     uploadHeaderUrl() {
-        console.log("Clicked header upload");
         if(this.state.picPath){
-            console.log("Starting header upload...");
             this.fileUploader.startUpload(this.state.picPath)
         } else {
             toast.error("Choose a header picture first!");
         }
     }
     uploadPdfUrl() {
-        console.log("Clicked pdf upload");
         if(this.state.pdfPath){
-            console.log("Starting pdf upload...");
             this.pdfUploader.startUpload(this.state.pdfPath)
         } else {
             toast.error("Choose a PDF file from your computer first!");
         }
     }
 
-    handleUploadStart = () => {console.log("Started header upload!"); this.setState({ isUploading: true, progress: 0 });} 
-    handlePdfUploadStart = () => {console.log("Started PDF upload!"); this.setState({ isUploadingPdf: true, pdfProgress: 0 });}
+    handleUploadStart = () => {this.setState({ isUploading: true, progress: 0 });} 
+    handlePdfUploadStart = () => {this.setState({ isUploadingPdf: true, pdfProgress: 0 });}
 
     handleProgress = progress => this.setState({ progress });
     handlePdfProgress = pdfProgress => this.setState({ pdfProgress });

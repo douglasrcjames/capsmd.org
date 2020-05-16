@@ -705,6 +705,7 @@ class AddArticle extends Component {
                                     </Row>
                                 </div>
                             </Modal>
+                            <br/>
                             {/* Row 5 */}
                             <Row>
                                 <Col xs={12} sm={6} md={4}>
