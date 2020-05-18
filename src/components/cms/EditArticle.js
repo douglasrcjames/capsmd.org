@@ -908,7 +908,7 @@ class EditArticle extends Component {
                                     {/* Row 6 */}
                                     <Row>
                                         <Col xs={12} className="s-margin-b">
-                                            <Field type="checkbox" id="carousel2" name="carousel" value={props.values.carousel} className="checkbox-input" />
+                                            <Field type="checkbox" id="carousel2" name="carousel" value={props.values.carousel} checked={props.values.carousel} className="checkbox-input" />
                                             <label htmlFor="carousel2">&nbsp;Carousel Article?</label>  
                                             <br/>
                                         </Col>
