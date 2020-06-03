@@ -201,18 +201,14 @@ class AddArticle extends Component {
     };
 
     uploadHeaderUrl() {
-        console.log("Clicked header upload");
         if(this.state.picPath){
-            console.log("Starting header upload...");
             this.fileUploader.startUpload(this.state.picPath)
         } else {
             toast.error("Choose a header picture first!");
         }
     }
     uploadPdfUrl() {
-        console.log("Clicked pdf upload");
         if(this.state.pdfPath){
-            console.log("Starting pdf upload...");
             this.pdfUploader.startUpload(this.state.pdfPath)
         } else {
             toast.error("Choose a PDF file from your computer first!");

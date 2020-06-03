@@ -9,8 +9,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 export default class Article extends Component {
     state = {
         numPages: null,
-        pageNumber: 1,
-        pdfLink: "https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/pdfs%2FDoes_County_Need_More_Revenue.pdf?alt=media&token=18f739e2-c707-4176-b728-d3d6a2e877cf"
+        pageNumber: 1
     }
 
     onDocumentLoadSuccess = (document) => {
@@ -41,7 +40,7 @@ export default class Article extends Component {
         }else if(this.props.article.pdfUrl){
             return (
                 <React.Fragment>
-                    <div className="pdf-container responsive">
+                    <div className="pdf-container">
                         <Document
                             file={this.props.article.pdfUrl}
                             onLoadSuccess={this.onDocumentLoadSuccess}

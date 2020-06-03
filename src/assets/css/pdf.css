@@ -3,7 +3,7 @@
    justify-content: center !important;
 }
 
-.react-pdf__Page__canvas {
+.react-pdf__Page__canvas, .react-pdf__Page__annotations {
    max-width: 100% !important;
    height: auto !important;
 }
