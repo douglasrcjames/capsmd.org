@@ -22,8 +22,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-functions/package-lock.json
 
 *.cache
-functions/package-lock.json
-package-lock.json
