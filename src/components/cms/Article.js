@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { readableTimestamp } from '../../utilities/dateTime'
 import { Document, Page, pdfjs } from 'react-pdf';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 

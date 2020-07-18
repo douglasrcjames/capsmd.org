@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Document, Page, pdfjs } from 'react-pdf';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -9,7 +9,7 @@ export default class Test extends Component {
     state = {
       numPages: null,
       pageNumber: 1,
-      pdfLink: "https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/pdfs%2FDoes_County_Need_More_Revenue.pdf?alt=media&token=18f739e2-c707-4176-b728-d3d6a2e877cf"
+      pdfLink: "https://drive.google.com/file/d/11frnIUAbvjRojl2NURU4HKox25zTIcCp/view"
     }
   
     onDocumentLoadSuccess = (document) => {

@@ -202,7 +202,9 @@ class Home extends Component {
                 <div className="m-padding background-light-grey center-text">
                     <h1>Who are we?</h1>
                     <p className="l-text">The Council for Advocacy and Policy Solutions (CAPS) is a non-profit public policy organization based in Montgomery County, Maryland.</p>
-        
+                    <div className="center-text">
+                        <Link to="/contact-us"><button className="m-btn">Contact Us</button></Link>
+                    </div>
                     <br/>
                     <hr className="m-width" />
                     <br/>
