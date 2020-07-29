@@ -29,9 +29,11 @@ export default class AboutUs extends Component {
         <div className="l-container">
           <h1>Who We Are</h1>
           <p>
-            The Council for Advocacy and Policy Solutions (CAPS) is a non-profit public policy organization 
-            based in Montgomery County, Maryland, USA. CAPS is the locus of discussion and information 
-            dissemination for responsible local policy.
+            CAPS, a nonprofit public policy institute, works to educate the Montgomery County community on 
+            legislation with local impacts. CAPS offers the community a centralized hub to find resources-- including policy review, policy recommendations, 
+            and community opinions on local legislation — in the areas of education, infrastructure, economic development, and health. Additionally, through the 
+            CAPS Foundation, a sister 501(c)(3) organization, CAPS designs and implements pilot programs that solve community needs through various nonprofit and 
+            community partnerships.
           </p>
           <div className="center-text">
             <Link to="/contact-us"><button className="m-btn">Contact Us</button></Link>

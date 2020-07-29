@@ -93,19 +93,25 @@ class Header extends Component {
                     &nbsp;
                     <div className="top-dropdown-content">
                         <NavLink 
-                            to="/caps-foundation/pilot-programs" 
+                            to="/foundation/about" 
+                            className="nav-link dropdown"
+                            activeClassName="nav-select">
+                            About
+                        </NavLink>
+                        <NavLink 
+                            to="/foundation/pilot-programs" 
                             className="nav-link dropdown"
                             activeClassName="nav-select">
                             Pilot Programs
                         </NavLink>
                         <NavLink 
-                            to="/caps-foundation/press-releases" 
+                            to="/foundation/press-releases" 
                             className="nav-link dropdown"
                             activeClassName="nav-select">
                             Press Releases
                         </NavLink>
                         <NavLink 
-                            to="/caps-foundation/donate" 
+                            to="/foundation/donate" 
                             className="nav-link dropdown"
                             activeClassName="nav-select">
                             Donate
@@ -218,21 +224,28 @@ class Header extends Component {
                   <div className="side-dropdown-content">
                     <NavLink 
                         id="pilot-program"
-                        to="/caps-foundation/pilot-programs" 
+                        to="/foundation/about" 
+                        className="menu-item"
+                        onClick={() => this.closeMenu()}>
+                        About
+                    </NavLink>
+                    <NavLink 
+                        id="pilot-program"
+                        to="/foundation/pilot-programs" 
                         className="menu-item"
                         onClick={() => this.closeMenu()}>
                         Pilot Programs
                     </NavLink>
                     <NavLink 
                         id="press-releases"
-                        to="/caps-foundation/press-releases" 
+                        to="/foundation/press-releases" 
                         className="menu-item"
                         onClick={() => this.closeMenu()}>
                         Press Releases
                     </NavLink>
                     <NavLink 
                         id="donate"
-                        to="/caps-foundation/donate" 
+                        to="/foundation/donate" 
                         className="menu-item"
                         onClick={() => this.closeMenu()}>
                         Donate

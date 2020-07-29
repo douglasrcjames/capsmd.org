@@ -25,11 +25,12 @@ import withTracker from './components/misc/WithTracker';
 import UnderConstruction from "./components/misc/UnderConstruction";
 import ErrorBoundary from './components/misc/ErrorBoundary';
 
-import PilotPrograms from "./components/caps-foundation/PilotPrograms"
-import PressReleases from "./components/caps-foundation/press-releases"
+import AboutFoundation from "./components/foundation/AboutFoundation"
+import PilotPrograms from "./components/foundation/PilotPrograms"
+import PressReleases from "./components/foundation/press-releases"
 import BlueprintForMarylandsFuture from "./components/news/BlueprintForMarylandsFuture";
 import KirwanJoinMoCoSchoolFunding from "./components/news/KirwanJoinMoCoSchoolFunding";
-import FoundationDonate from "./components/caps-foundation/FoundationDonate"
+import FoundationDonate from "./components/foundation/FoundationDonate"
 
 // News
 import News from "./components/news";
@@ -209,10 +210,11 @@ export class Routes extends React.PureComponent {
 
         <Route exact path="/contact-us" component={withTracker(ContactUs)} />
         <Route exact path="/find-legislators" component={UnderConstruction} />
-        <Route exact path="/caps-foundation/pilot-programs" component={PilotPrograms} />
-        <Route exact path="/caps-foundation/press-releases" component={PressReleases} />
-
-        <Route exact path="/caps-foundation/donate" component={FoundationDonate} />
+        
+        <Route exact path="/foundation/about" component={AboutFoundation} />
+        <Route exact path="/foundation/pilot-programs" component={PilotPrograms} />
+        <Route exact path="/foundation/press-releases" component={PressReleases} />
+        <Route exact path="/foundation/donate" component={FoundationDonate} />
 
         <Route exact path="/issues/economic-development" component={withTracker(EconomicDevelopment)} />
         <Route exact path="/issues/economic-development/facts/job-market-stagnant" component={JobMarketStagnant} />

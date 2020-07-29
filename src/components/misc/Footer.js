@@ -24,10 +24,10 @@ export default class Footer extends Component {
                 <br/>
                 <br/>
                 <MediaQuery minWidth={373}>
-                    <div className="center">
+                    <div className="center s-padding-b">
                         <a href="https://www.facebook.com/CAPSmaryland/" target="_blank" rel="noopener noreferrer"> 
                             <img
-                                className="m-em"
+                                className="m-em vertical-align-middle"
                                 alt="facebook"
                                 src={require('../../assets/images/social/facebook.png')}
                                 />
@@ -40,7 +40,7 @@ export default class Footer extends Component {
                         &nbsp;
                         <a href="https://twitter.com/CAPSmaryland" target="_blank" rel="noopener noreferrer"> 
                             <img
-                                className="m-em"
+                                className="m-em vertical-align-middle"
                                 alt="twitter"
                                 src={require('../../assets/images/social/twitter.png')}
                                 />
@@ -52,7 +52,7 @@ export default class Footer extends Component {
                         &nbsp;
                         <a href="https://www.instagram.com/capsmaryland/" target="_blank" rel="noopener noreferrer"> 
                             <img
-                                className="m-em"
+                                className="m-em vertical-align-middle"
                                 alt="instagram"
                                 src={require('../../assets/images/social/instagram.png')}
                                 />
@@ -60,13 +60,16 @@ export default class Footer extends Component {
                             Instagram
                         </a>
                     </div>
+                    <div>
+                        <a href="https://www.douglasrcjames.com" target="_blank" rel="noopener noreferrer"><i className="fas fa-tools"/> by douglasrcjames</a> 
+                    </div>
 
                 </MediaQuery>
                 <MediaQuery maxWidth={372}>
-                    <div className="center">
+                    <div className="center s-padding-b">
                         <a href="https://www.facebook.com/CAPSmaryland/" target="_blank" rel="noopener noreferrer"> 
                             <img
-                                className="m-em"
+                                className="m-em vertical-align-middle"
                                 alt="facebook"
                                 src={require('../../assets/images/social/facebook.png')}
                                 />
@@ -76,7 +79,7 @@ export default class Footer extends Component {
                         <br/>
                         <a href="https://www.instagram.com/capsmaryland/" target="_blank" rel="noopener noreferrer"> 
                             <img
-                                className="m-em"
+                                className="m-em vertical-align-middle"
                                 alt="instagram"
                                 src={require('../../assets/images/social/instagram.png')}
                                 />
@@ -86,13 +89,16 @@ export default class Footer extends Component {
                         <br/>
                         <a href="https://twitter.com/CAPSmaryland" target="_blank" rel="noopener noreferrer"> 
                             <img
-                                className="m-em"
+                                className="m-em vertical-align-middle"
                                 alt="twitter"
                                 src={require('../../assets/images/social/twitter.png')}
                                 />
                             &nbsp;
                             Twitter
                         </a>             
+                    </div>
+                    <div>
+                        <a href="https://www.douglasrcjames.com" target="_blank" rel="noopener noreferrer"><i className="fas fa-tools"/> by douglasrcjames</a> 
                     </div>
                 </MediaQuery>
                

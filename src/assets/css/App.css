@@ -1093,3 +1093,7 @@ Red: #9C3536
 .display-block {
   display: block;
 }
+
+.vertical-align-middle {
+  vertical-align: middle;
+}
