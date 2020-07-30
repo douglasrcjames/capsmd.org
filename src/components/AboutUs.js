@@ -30,7 +30,7 @@ export default class AboutUs extends Component {
           <h1>Who We Are</h1>
           <p>
             CAPS, a nonprofit public policy institute, works to educate the Montgomery County community on 
-            legislation with local impacts. CAPS offers the community a centralized hub to find resources-- including policy review, policy recommendations, 
+            legislation with local impacts. CAPS offers the community a centralized hub to find resources — including policy review, policy recommendations, 
             and community opinions on local legislation — in the areas of education, infrastructure, economic development, and health. Additionally, through the 
             CAPS Foundation, a sister 501(c)(3) organization, CAPS designs and implements pilot programs that solve community needs through various nonprofit and 
             community partnerships.
