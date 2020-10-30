@@ -20,23 +20,20 @@ import Home from "./components/Home";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import Test from "./components/misc/Test";
+
 // Misc
 import withTracker from './components/misc/WithTracker';
 import UnderConstruction from "./components/misc/UnderConstruction";
-import ErrorBoundary from './components/misc/ErrorBoundary';
-
-import AboutFoundation from "./components/foundation/AboutFoundation"
-import PilotPrograms from "./components/foundation/PilotPrograms"
-import PressReleases from "./components/foundation/press-releases"
-import BlueprintForMarylandsFuture from "./components/news/BlueprintForMarylandsFuture";
-import KirwanJoinMoCoSchoolFunding from "./components/news/KirwanJoinMoCoSchoolFunding";
-import FoundationDonate from "./components/foundation/FoundationDonate"
 
 // News
 import News from "./components/news";
 import BusinessIncubator from "./components/news/BusinessIncubator";
 import LetterFromChairman from "./components/news/LetterFromChairman";
 import InauguralStudy from "./components/news/InauguralStudy";
+import ErrorBoundary from './components/misc/ErrorBoundary';
+
+import BlueprintForMarylandsFuture from "./components/news/BlueprintForMarylandsFuture";
+import KirwanJoinMoCoSchoolFunding from "./components/news/KirwanJoinMoCoSchoolFunding";
 
 // Economic Development
 import EconomicDevelopment from "./components/issues/EconomicDevelopmentScreens/index";
@@ -210,11 +207,6 @@ export class Routes extends React.PureComponent {
 
         <Route exact path="/contact-us" component={withTracker(ContactUs)} />
         <Route exact path="/find-legislators" component={UnderConstruction} />
-        
-        <Route exact path="/foundation/about" component={AboutFoundation} />
-        <Route exact path="/foundation/pilot-programs" component={PilotPrograms} />
-        <Route exact path="/foundation/press-releases" component={PressReleases} />
-        <Route exact path="/foundation/donate" component={FoundationDonate} />
 
         <Route exact path="/issues/economic-development" component={withTracker(EconomicDevelopment)} />
         <Route exact path="/issues/economic-development/facts/job-market-stagnant" component={JobMarketStagnant} />

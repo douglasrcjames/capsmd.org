@@ -63,7 +63,6 @@ class AddArticle extends Component {
     // TODO: prevent too large of images from being inserted (automatically downsize them?)
     // https://firebase.google.com/products/extensions/storage-resize-images
     // TODO: allow user to post content after the author section (ask nina if we need this)
-    // TODO: give option to put pdf or rich text article to caps foundation press releases or caps news press releases (ask nina how we want this laid out)
     addRichTextArticle(values){
         var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
         var titleCleaned = titleNoSpecialChars.replace(/\s+/g, '-').toLowerCase(); //lower case and dashified

@@ -89,37 +89,6 @@ class Header extends Component {
                   </NavLink>
                   &nbsp;
                   <div className="top-dropdown">
-                    <span className="nav-link">CAPS Foundation &nbsp;<i className="fas fa-chevron-down fa-xs" /> </span>
-                    &nbsp;
-                    <div className="top-dropdown-content">
-                        <NavLink 
-                            to="/foundation/about" 
-                            className="nav-link dropdown"
-                            activeClassName="nav-select">
-                            About
-                        </NavLink>
-                        <NavLink 
-                            to="/foundation/pilot-programs" 
-                            className="nav-link dropdown"
-                            activeClassName="nav-select">
-                            Pilot Programs
-                        </NavLink>
-                        <NavLink 
-                            to="/foundation/press-releases" 
-                            className="nav-link dropdown"
-                            activeClassName="nav-select">
-                            Press Releases
-                        </NavLink>
-                        <NavLink 
-                            to="/foundation/donate" 
-                            className="nav-link dropdown"
-                            activeClassName="nav-select">
-                            Donate
-                        </NavLink>                     
-                    </div>  
-                  </div>
-                  &nbsp;
-                  <div className="top-dropdown">
                     <span className="nav-link">Get Involved &nbsp;<i className="fas fa-chevron-down fa-xs" /> </span>
                     &nbsp;
                     <div className="top-dropdown-content">
@@ -218,40 +187,6 @@ class Header extends Component {
                 <NavLink id="news" className="menu-item" to="/news" onClick={() => this.closeMenu()}>
                     News
                 </NavLink>
-                <div className="side-dropdown">
-                  <span className="menu-item" >CAPS Foundation &nbsp;<i className="fas fa-chevron-down fa-xs" /></span>
-                  &nbsp;
-                  <div className="side-dropdown-content">
-                    <NavLink 
-                        id="pilot-program"
-                        to="/foundation/about" 
-                        className="menu-item"
-                        onClick={() => this.closeMenu()}>
-                        About
-                    </NavLink>
-                    <NavLink 
-                        id="pilot-program"
-                        to="/foundation/pilot-programs" 
-                        className="menu-item"
-                        onClick={() => this.closeMenu()}>
-                        Pilot Programs
-                    </NavLink>
-                    <NavLink 
-                        id="press-releases"
-                        to="/foundation/press-releases" 
-                        className="menu-item"
-                        onClick={() => this.closeMenu()}>
-                        Press Releases
-                    </NavLink>
-                    <NavLink 
-                        id="donate"
-                        to="/foundation/donate" 
-                        className="menu-item"
-                        onClick={() => this.closeMenu()}>
-                        Donate
-                    </NavLink>
-                  </div>
-                </div>
                 <div className="side-dropdown">
                   <span className="menu-item" >Get Involved &nbsp;<i className="fas fa-chevron-down fa-xs" /></span>
                   &nbsp;
