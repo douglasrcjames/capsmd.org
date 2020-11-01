@@ -81,6 +81,12 @@ class Header extends Component {
                           activeClassName="nav-select">
                           More
                       </NavLink>
+                      <NavLink 
+                          to="/issues/op-eds" 
+                          className="nav-link dropdown"
+                          activeClassName="nav-select">
+                          Op-Eds
+                      </NavLink>
                     </div>  
                   </div>
                   &nbsp;
@@ -181,6 +187,13 @@ class Header extends Component {
                         className="menu-item"
                         onClick={() => this.closeMenu()}>
                         More
+                    </NavLink>
+                    <NavLink 
+                        id="more"
+                        to="/issues/op-eds" 
+                        className="menu-item"
+                        onClick={() => this.closeMenu()}>
+                        Op-Eds
                     </NavLink>
                   </div>
                 </div>

@@ -142,6 +142,8 @@ import CountyInFiveYearsPartTwo from "./components/issues/MoreScreens/StoriesOpi
 import ComplexitiesChildCareNutshell from "./components/issues/MoreScreens/StoriesOpinions/ComplexitiesChildCareNutshell";
 import LifeThreateningProjectBust from "./components/issues/MoreScreens/StoriesOpinions/LifeThreateningProjectBust";
 
+import OpEds from "./components/issues/OpEdScreens";
+
 // Resident Reflections
 import ResidentReflections from "./components/issues/ResidentReflectionsScreens/index"
 import MoCoOverlooksDevelopmentsImpactEducation from "./components/issues/ResidentReflectionsScreens/MoCoOverlooksDevelopmentsImpactEducation"
@@ -152,6 +154,7 @@ import WaitImUndocumented from "./components/issues/ResidentReflectionsScreens/W
 import StartingSmallBusinessMoCo from "./components/issues/ResidentReflectionsScreens/StartingSmallBusinessMoCo"
 import HealthCareFormGoodLuck from "./components/issues/ResidentReflectionsScreens/HealthCareFormGoodLuck"
 import Badlands from "./components/issues/ResidentReflectionsScreens/Badlands";
+
 
 const Page404 = ({ location }) => (
   <div className="m-padding">
@@ -321,6 +324,8 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/more/stories-opinions/complexities-child-care-nutshell" component={ComplexitiesChildCareNutshell} />
         <Route exact path="/issues/more/legislation/voting-bills" component={VotingBills} />
         <Route exact path="/issues/more/legislation/life-threatening-project-bust" component={LifeThreateningProjectBust} />
+
+        <Route exact path="/issues/op-eds" component={withTracker(OpEds)} />
 
         {/* CMS */}
         {  
