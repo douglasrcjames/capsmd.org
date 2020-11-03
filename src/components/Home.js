@@ -20,73 +20,18 @@ class Home extends Component {
     }
 
     // TODO: make constants for stuff like issue titles, carousel, etc and replace strings through app with constants
-    
     componentDidMount() {
-        // TODO: when these 10 articles are pasted, reimplement .orderBy("date", "desc") in query instead of sort (for both recents and carousel)
-        this.unsubscribeCarousel = firestore.collection("articles").where("carousel", "==", true).where("status", "==", "live").onSnapshot(snapshot => {
-            const carouselArticles = [
-                {
-                    title: "MoCo’s Moratorium Madness",
-                    headerUrl: `${require("../assets/images/carousel/stop-sign.jpg")}`,
-                    localUrl: "/issues/economic-development/stories-opinions/moco-moratorium-madness",
-                    date: 1581337677000
-                },
-                {
-                    title: "Does the County Government Need More Revenue?",
-                    headerUrl: `${require("../assets/images/carousel/revenue.jpg")}`,
-                    localUrl: "/issues/economic-development/stories-opinions/does-county-need-more-revenue",
-                    date: 1580300877000
-                },
-                {
-                    title: "A Golden Opportunity: Promoting Lifelong Health by Investing in Infant & Early Childhood Mental Health",
-                    headerUrl: `${require("../assets/images/carousel/hero-kid.jpg")}`,
-                    localUrl: "/issues/education/facts/promoting-lifelong-health-by-investing-in-infant-and-early-childhood-mental-health",
-                    date: 1575635277000
-                },
-                {
-                    title: "Health Care Reform … Good Luck",
-                    headerUrl: `${require("../assets/images/carousel/stethoscope.jpg")}`,
-                    localUrl: "/issues/resident-reflections/health-care-form-good-luck",
-                    date: 1574425677000
-                },
-                {
-                    title: "Will MoCo Need a Tax Hike to Pay for Kirwan?",
-                    headerUrl: `${require("../assets/images/carousel/school-bus.jpg")}`,
-                    localUrl: "/issues/education/stories-opinions/will-moco-need-a-tax-hike-to-pay-for-kirwan",
-                    date: 1572956877000
-                },
-                {
-                    title: "The Potomac Divide",
-                    headerUrl: `${require("../assets/images/carousel/brown-green-field.jpg")}`,
-                    localUrl: "/issues/economic-development/facts/potomac-divide",
-                    date: 1572870477000
-                },
-                {
-                    title: "CAPS X Badlands",
-                    headerUrl: `${require("../assets/images/carousel/badlands.jpg")}`,
-                    localUrl: "/issues/resident-reflections/caps-x-badlands",
-                    date: 1572438477000
-                },
-                {
-                    title: "Starting a Small Business in Montgomery County",
-                    headerUrl: `${require("../assets/images/carousel/dressing.jpg")}`,
-                    localUrl: "/issues/resident-reflections/starting-small-business-in-montgomery-county",
-                    date: 1572265677000
-                },          
-            ];
-            // TODO: grab all article like this (not grabbing everything just stuff we need)
+        this.unsubscribeCarousel = firestore.collection("articles").where("carousel", "==", true).where("status", "==", "live").orderBy("date", "asc").limit(10).onSnapshot(snapshot => {
+            const carouselArticles = [];
             snapshot.forEach(doc => {
                 var articleContents = {
                     title: doc.data().title,
                     headerUrl: doc.data().headerUrl,
                     localUrl: doc.data().localUrl,
-                    date: doc.data().date // ** wont need this here when we remove sorting after query
                 }
                 carouselArticles.unshift(articleContents)
             })
-            carouselArticles.sort((a, b) =>
-                a.date < b.date ? 1 : -1
-            )
+
             this.setState({
                 carouselArticles: carouselArticles
             })
@@ -94,57 +39,8 @@ class Home extends Component {
             console.log("No carouselArticles!")
         });
 
-        this.unsubscribeRecents = firestore.collection("articles").where("status", "==", "live").limit(10).onSnapshot(snapshot => {
-            const recentArticles = [
-                {
-                    title: "MoCo’s Moratorium Madness",
-                    headerUrl: `${require("../assets/images/carousel/stop-sign.jpg")}`,
-                    localUrl: "/issues/economic-development/stories-opinions/moco-moratorium-madness",
-                    date: 1581337677000
-                },
-                {
-                    title: "Does the County Government Need More Revenue?",
-                    headerUrl: `${require("../assets/images/carousel/revenue.jpg")}`,
-                    localUrl: "/issues/economic-development/stories-opinions/does-county-need-more-revenue",
-                    date: 1580300877000
-                },
-                {
-                    title: "A Golden Opportunity: Promoting Lifelong Health by Investing in Infant & Early Childhood Mental Health",
-                    headerUrl: `${require("../assets/images/carousel/hero-kid.jpg")}`,
-                    localUrl: "/issues/education/facts/promoting-lifelong-health-by-investing-in-infant-and-early-childhood-mental-health",
-                    date: 1575635277000
-                },
-                {
-                    title: "Health Care Reform … Good Luck",
-                    headerUrl: `${require("../assets/images/carousel/stethoscope.jpg")}`,
-                    localUrl: "/issues/resident-reflections/health-care-form-good-luck",
-                    date: 1574425677000
-                },
-                {
-                    title: "Will MoCo Need a Tax Hike to Pay for Kirwan?",
-                    headerUrl: `${require("../assets/images/carousel/school-bus.jpg")}`,
-                    localUrl: "/issues/education/stories-opinions/will-moco-need-a-tax-hike-to-pay-for-kirwan",
-                    date: 1572956877000
-                },
-                {
-                    title: "The Potomac Divide",
-                    headerUrl: `${require("../assets/images/carousel/brown-green-field.jpg")}`,
-                    localUrl: "/issues/economic-development/facts/potomac-divide",
-                    date: 1572870477000
-                },
-                {
-                    title: "CAPS X Badlands",
-                    headerUrl: `${require("../assets/images/carousel/badlands.jpg")}`,
-                    localUrl: "/issues/resident-reflections/caps-x-badlands",
-                    date: 1572438477000
-                },
-                {
-                    title: "Starting a Small Business in Montgomery County",
-                    headerUrl: `${require("../assets/images/carousel/dressing.jpg")}`,
-                    localUrl: "/issues/resident-reflections/starting-small-business-in-montgomery-county",
-                    date: 1572265677000
-                },             
-            ]
+        this.unsubscribeRecents = firestore.collection("articles").where("status", "==", "live").orderBy("date", "desc").limit(10).onSnapshot(snapshot => {
+            const recentArticles = []
             snapshot.forEach(doc => {
                 var articleContents = {
                     title: doc.data().title,

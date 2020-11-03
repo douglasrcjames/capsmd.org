@@ -6,11 +6,7 @@ export default class OpEds extends Component {
           <>
           <div className="wrapper">
             <h1>
-              <img
-                className="m-em"
-                alt="plus"
-                src={require("../../../assets/images/icons/book.png")}
-                />&nbsp;Op-Eds  
+              Op-Eds  
             </h1>
 
             <br/>

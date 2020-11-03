@@ -89,14 +89,14 @@ class EditArticle extends Component {
     updateRichTextArticle(values){
         var dateValue = new Date(values.date).getTime();
         var catPass = false
-        if(values.issue === "resident-reflections"){
+        if(values.issue === "resident-reflections" || values.issue === "press-releases"){
             catPass = true;
         } else {
             if(values.category){
                 catPass = true
             } else {
                 catPass = false
-                toast.error("If the Issue tag is not Resident Reflections then the Category must be set to something!")
+                toast.error("If the Issue tag is not Resident Reflections or CAPS News Press Releases then the Category must be set to something!")
             }
         }
 
@@ -173,14 +173,14 @@ class EditArticle extends Component {
     updatePdfArticle(values){
         var dateValue = new Date(values.date).getTime();
         var catPass = false
-        if(values.issue === "resident-reflections"){
+        if(values.issue === "resident-reflections" || values.issue === "press-releases"){
             catPass = true;
         } else {
             if(values.category){
                 catPass = true
             } else {
                 catPass = false
-                toast.error("If the Issue tag is not Resident Reflections then the Category must be set to something!")
+                toast.error("If the Issue tag is not Resident Reflections or CAPS News Press Releases then the Category must be set to something!")
             }
         }
 
@@ -548,6 +548,8 @@ class EditArticle extends Component {
                                                 <option value="governance">Governance</option>
                                                 <option value="resident-reflections">Resident Reflections</option>
                                                 <option value="more">More</option>
+                                                <option value="op-eds">Op-Eds</option>
+                                                <option value="press-releases">CAPS News Press Releases</option>
                                             </Field>
                                             <br/>
                                             {props.errors.issue && props.touched.issue ? (
@@ -854,6 +856,8 @@ class EditArticle extends Component {
                                                 <option value="governance">Governance</option>
                                                 <option value="resident-reflections">Resident Reflections</option>
                                                 <option value="more">More</option>
+                                                <option value="op-eds">Op-Eds</option>
+                                                <option value="press-releases">CAPS News Press Releases</option>
                                             </Field>
                                             <br/>
                                             {props.errors.issue && props.touched.issue ? (
