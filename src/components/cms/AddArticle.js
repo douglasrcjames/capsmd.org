@@ -505,12 +505,12 @@ class AddArticle extends Component {
                             {/* Row 5 */}
                             <Row>
                                 <Col xs={12} className="s-margin-b">
-                                    <Field type="checkbox" id="carousel1" name="carousel" value={props.values.carousel} className="checkbox-input" />
+                                    <Field type="checkbox" id="carousel1" name="carousel" value={props.values.carousel} checked={props.values.carousel} className="checkbox-input" />
                                     <label htmlFor="carousel1">&nbsp;Carousel Article?</label>  
                                     <br/>
                                 </Col>
                             </Row>  
-                            
+
                             {/* Row 6 */}
                             <Row>
                                 <label htmlFor="header">Header picture: </label>
@@ -779,7 +779,7 @@ class AddArticle extends Component {
                             {/* Row 6 */}
                             <Row>
                                 <Col xs={12} className="s-margin-b">
-                                    <Field type="checkbox" id="carousel2" name="carousel" value={props.values.carousel} className="checkbox-input" />
+                                    <Field type="checkbox" id="carousel2" name="carousel" value={props.values.carousel} checked={props.values.carousel} className="checkbox-input" />
                                     <label htmlFor="carousel2">&nbsp;Carousel Article?</label>  
                                     <br/>
                                 </Col>

@@ -52,17 +52,10 @@ exports.newContactMessage = functions.firestore
         }
 
         // Send it
-        transporter.sendMail(mailOptions, (err) => {
-            if (err) {
-                return console.error(err);
-            } else {
-                return console.log("Successfully sent mail with sendMail()!");
-            }
-        })
-
-        return console.log("Finished try{}...")
+        return transporter.sendMail(mailOptions);
     } catch (error) {
-        return console.error(error)
+        console.error(error)
+        return false;
     }
   });
 
@@ -110,16 +103,9 @@ exports.newSubscriber = functions.firestore
         }
 
         // Send it
-        transporter.sendMail(mailOptions, (err) => {
-            if (err) {
-                return console.error(err);
-            } else {
-                return console.log("Successfully sent mail with sendMail()!");
-            }
-        })
-
-        return console.log("Finished try{}...")
+        return transporter.sendMail(mailOptions)
     } catch (error) {
-        return console.error(err)
+        console.error(err);
+        return false;
     }
   });
