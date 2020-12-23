@@ -1097,3 +1097,11 @@ Red: #9C3536
 .vertical-align-middle {
   vertical-align: middle;
 }
+
+.anchor {
+  font-size: 0;
+  display: block;
+  position: relative;
+  top: -100px;
+  visibility: hidden;
+}

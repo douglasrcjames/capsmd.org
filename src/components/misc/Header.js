@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
 import { FaBars } from "react-icons/fa";
 import MediaQuery from "react-responsive";
+import { HashLink } from 'react-router-hash-link';
 
 class Header extends Component {
   constructor(props) {
@@ -119,36 +120,13 @@ class Header extends Component {
                     News
                 </NavLink>
                 &nbsp;
-                <div className="top-dropdown">
-                  <span className="nav-link">Get Involved &nbsp;<i className="fas fa-chevron-down fa-xs" /> </span>
-                  &nbsp;
-                  <div className="top-dropdown-content">
-                      <NavLink 
-                          to="/contact-us" 
-                          className="nav-link dropdown"
-                          activeClassName="nav-select">
-                          Contact Us
-                      </NavLink>
-                      <NavLink 
-                          to="/contact-us#donate" 
-                          className="nav-link dropdown"
-                          href="#donate"
-                          >
-                          Donate
-                      </NavLink>
-                      <NavLink 
-                          to="/find-legislators" 
-                          className="nav-link dropdown"
-                          activeClassName="nav-select">
-                          Find Your Legislators
-                      </NavLink>                     
-                  </div>  
-                </div>
-                &nbsp;
                 <NavLink to="/about-us" className="nav-link" activeClassName="nav-select">
                     About Us
                 </NavLink>
                 &nbsp;
+                <HashLink to="/about-us#Contact" className="nav-link">
+                    Contact
+                </HashLink>
               </div>
             </div>
           </MediaQuery>

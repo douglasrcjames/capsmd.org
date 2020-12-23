@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import ContactForm from './ContactForm';
+import Subscribe from './Subscribe';
 
 const Headshot = ({ name, picPath, title, description }) => {
   return (
@@ -33,9 +35,6 @@ export default class AboutUs extends Component {
             legislation with local impacts. CAPS offers the community a centralized hub to find resources — including policy review, policy recommendations, 
             and community opinions on local legislation — in the areas of education, infrastructure, economic development, and health.
           </p>
-          <div className="center-text">
-            <Link to="/contact-us"><button className="m-btn">Contact Us</button></Link>
-          </div>
         </div>
       </div>
 
@@ -44,10 +43,10 @@ export default class AboutUs extends Component {
         <div className="l-container">
           <h1>We're on a Mission</h1>
             <p>
-            Our mission is to educate and activate the local community by accurate and 
-            clear data, information, and resident expert opinions about policy implications. ‍ The 
-            Council for Advocacy and Policy Solutions partners with other nonprofits and charitable 
-            organizations to pilot real-change solutions to challenges facing our community.
+              Our mission is to educate and activate the local community by accurate and 
+              clear data, information, and resident expert opinions about policy implications. ‍ The 
+              Council for Advocacy and Policy Solutions partners with other nonprofits and charitable 
+              organizations to pilot real-change solutions to challenges facing our community.
             </p>
         </div>
       </div>
@@ -148,6 +147,19 @@ export default class AboutUs extends Component {
           </Row>
         </Grid>   
       </div>
+
+      <div className="m-container">
+        <h1><a id="Contact" className="anchor" href="/#">Contact</a>Contact</h1>
+        <p>Send us a message directly or email us at <a mailto="info@capsmd.org" href="# "><u>info@capsmd.org</u></a></p>
+        <ContactForm />
+      </div>
+
+      <div className="m-padding center-text background-light-grey">
+        <h3 className="no-margin">Join Our Mailing List</h3>
+        <span>Keep up with the latest information about the county.</span>
+        <Subscribe />
+      </div>
+
     </div>
     )
   }

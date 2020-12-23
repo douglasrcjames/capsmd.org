@@ -18,12 +18,10 @@ import RegisterContainer from './components/auth/RegisterContainer'
 // Main pages
 import Home from "./components/Home";
 import AboutUs from "./components/AboutUs";
-import ContactUs from "./components/ContactUs";
 import Test from "./components/misc/Test";
 
 // Misc
 import withTracker from './components/misc/WithTracker';
-import UnderConstruction from "./components/misc/UnderConstruction";
 
 // News
 import News from "./components/news";
@@ -210,9 +208,6 @@ export class Routes extends React.PureComponent {
         <Route exact path="/news/inaugural-study" component={withTracker(InauguralStudy)} />
         <Route exact path="/news/kirwan-join-moco-school-funding" component={KirwanJoinMoCoSchoolFunding} />
         <Route exact path="/news/blueprint-for-marylands-future" component={BlueprintForMarylandsFuture} />
-
-        <Route exact path="/contact-us" component={withTracker(ContactUs)} />
-        <Route exact path="/find-legislators" component={UnderConstruction} />
 
         <Route exact path="/issues/economic-development" component={withTracker(EconomicDevelopment)} />
         <Route exact path="/solutions/economic-development" component={withTracker(EconomicDevelopmentSolutions)} />
