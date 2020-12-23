@@ -10,6 +10,7 @@ import Modal from "react-modal";
 import { firestore, fire } from "../../Fire.js";
 import { addRichTextArticleSchema, addPdfArticleSchema } from '../../utilities/formSchemas'
 import { checkFile } from '../../utilities/misc.js';
+import { CATEGORIES, ISSUES } from '../../utilities/constants.js';
 
 class AddArticle extends Component {
     constructor(props) {
@@ -75,9 +76,9 @@ class AddArticle extends Component {
                 if(this.state.headerUrl){
                     var localUrl = null
                     // Resident Refl doesnt have a category
-                    if(values.issue === "resident-reflections"){
+                    if(values.issue === ISSUES.RESIDENT_REFLECTIONS){
                         localUrl = `/issues/${values.issue}/${titleCleaned}`
-                    } else if(values.issue === "press-releases"){
+                    } else if(values.issue === ISSUES.PRESS_RELEASES){
                         localUrl = `/news/${titleCleaned}`
                     } else {
                         if(values.category){
@@ -130,9 +131,9 @@ class AddArticle extends Component {
                 if(this.state.headerUrl && this.state.pdfUrl){
                     var localUrl = null
                     // Resident Refl doesnt have a category
-                    if(values.issue === "resident-reflections"){
+                    if(values.issue === ISSUES.RESIDENT_REFLECTIONS){
                         localUrl = `/issues/${values.issue}/${titleCleaned}`
-                    } else if(values.issue === "press-releases"){
+                    } else if(values.issue === ISSUES.PRESS_RELEASES){
                         localUrl = `/news/${titleCleaned}`
                     } else {
                         if(values.category){
@@ -442,14 +443,14 @@ class AddArticle extends Component {
                                         value={props.values.issue}
                                         >
                                         <option defaultValue value="">No issue selected</option> 
-                                        <option value="economic-development">Economic Development</option>
-                                        <option value="education">Education</option>
-                                        <option value="infrastructure">Infrastructure</option>
-                                        <option value="governance">Governance</option>
-                                        <option value="resident-reflections">Resident Reflections</option>
-                                        <option value="more">More</option>
-                                        <option value="op-eds">Op-Eds</option>
-                                        <option value="press-releases">CAPS News Press Releases</option>
+                                        <option value={ISSUES.ECONOMIC_DEVELOPMENT}>Economic Development</option>
+                                        <option value={ISSUES.EDUCATION}>Education</option>
+                                        <option value={ISSUES.INFRASTRUCTURE}>Infrastructure</option>
+                                        <option value={ISSUES.GOVERNANCE}>Governance</option>
+                                        <option value={ISSUES.RESIDENT_REFLECTIONS}>Resident Reflections</option>
+                                        <option value={ISSUES.MORE}>More</option>
+                                        <option value={ISSUES.OP_EDS}>Op-Eds</option>
+                                        <option value={ISSUES.PRESS_RELEASES}>CAPS News Press Releases</option>
                                     </Field>
                                     <br/>
                                     {props.errors.issue && props.touched.issue ? (
@@ -468,9 +469,9 @@ class AddArticle extends Component {
                                         value={props.values.category}
                                         >
                                         <option defaultValue value="">No category selected</option> 
-                                        <option value="facts">Facts</option>
-                                        <option value="stories-opinions">Stories &amp; Opinions</option>
-                                        <option value="solutions">Solutions</option>
+                                        <option value={CATEGORIES.FACTS}>Facts</option>
+                                        <option value={CATEGORIES.STORIES_OPINIONS}>Stories &amp; Opinions</option>
+                                        <option value={CATEGORIES.SOLUTIONS}>Solutions</option>
                                     </Field>
                                     <br/>
                                     {props.errors.category && props.touched.category ? (
@@ -716,14 +717,14 @@ class AddArticle extends Component {
                                         value={props.values.issue}
                                         >
                                         <option defaultValue value="">No issue selected</option> 
-                                        <option value="economic-development">Economic Development</option>
-                                        <option value="education">Education</option>
-                                        <option value="infrastructure">Infrastructure</option>
-                                        <option value="governance">Governance</option>
-                                        <option value="resident-reflections">Resident Reflections</option>
-                                        <option value="more">More</option>
-                                        <option value="op-eds">Op-Eds</option>
-                                        <option value="press-releases">CAPS News Press Releases</option>
+                                        <option value={ISSUES.ECONOMIC_DEVELOPMENT}>Economic Development</option>
+                                        <option value={ISSUES.EDUCATION}>Education</option>
+                                        <option value={ISSUES.INFRASTRUCTURE}>Infrastructure</option>
+                                        <option value={ISSUES.GOVERNANCE}>Governance</option>
+                                        <option value={ISSUES.RESIDENT_REFLECTIONS}>Resident Reflections</option>
+                                        <option value={ISSUES.MORE}>More</option>
+                                        <option value={ISSUES.OP_EDS}>Op-Eds</option>
+                                        <option value={ISSUES.PRESS_RELEASES}>CAPS News Press Releases</option>
                                     </Field>
                                     <br/>
                                     {props.errors.issue && props.touched.issue ? (
@@ -742,9 +743,9 @@ class AddArticle extends Component {
                                         value={props.values.category}
                                         >
                                         <option defaultValue value="">No category selected</option> 
-                                        <option value="facts">Facts</option>
-                                        <option value="stories-opinions">Stories &amp; Opinions</option>
-                                        <option value="solutions">Solutions</option>
+                                        <option value={CATEGORIES.FACTS}>Facts</option>
+                                        <option value={CATEGORIES.STORIES_OPINIONS}>Stories &amp; Opinions</option>
+                                        <option value={CATEGORIES.SOLUTIONS}>Solutions</option>
                                     </Field>
                                     <br/>
                                     {props.errors.category && props.touched.category ? (

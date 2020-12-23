@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ArticlePreview from '../ArticlePreview'
 import { firestore } from "../../../Fire.js";
 import { readableTimestamp } from '../../../utilities/dateTime'
+import { CATEGORIES, ISSUES } from '../../../utilities/constants';
 
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -94,7 +95,7 @@ export default class Governance extends Component {
 
       componentDidMount() {
         shuffle(candidates)
-        this.unsubscribeArticles = firestore.collection("articles").where("status", "==", "live").where("issue", "==", "governance").orderBy("date", "desc").onSnapshot(snapshot => {
+        this.unsubscribeArticles = firestore.collection("articles").where("status", "==", "live").where("issue", "==", ISSUES.GOVERNANCE).orderBy("date", "desc").onSnapshot(snapshot => {
             const articles = []
             var factsCat = false;
             var storiesOpinionsCat = false;
@@ -107,11 +108,11 @@ export default class Governance extends Component {
                 articles.push(docWithId)
 
                 // test if we should even render html for these categories
-                if(doc.data().category === "facts"){
+                if(doc.data().category === CATEGORIES.FACTS){
                   factsCat = true;
-                } else if(doc.data().category === "stories-opinions"){
+                } else if(doc.data().category === CATEGORIES.STORIES_OPINIONS){
                   storiesOpinionsCat = true;
-                } else if(doc.data().category === "solutions"){
+                } else if(doc.data().category === CATEGORIES.SOLUTIONS){
                   solutionsCat = true;
                 }           
             })
@@ -183,7 +184,7 @@ export default class Governance extends Component {
           <h2 className="inline">Facts</h2>
           <p>Information about where the county stands</p>
           { 
-            this.state.articles && this.state.articles.filter(article => article.category === "facts").map((article, i) => {
+            this.state.articles && this.state.articles.filter(article => article.category === CATEGORIES.FACTS).map((article, i) => {
                 const dateDT = readableTimestamp(article.date)
                 return (
                     <span key={i}>
@@ -386,7 +387,7 @@ export default class Governance extends Component {
               <h2 className="inline">Stories &amp; Opinions</h2>
               <p>How the county decisions affect real life people</p>
               { 
-                this.state.articles && this.state.articles.filter(article => article.category === "stories-opinions").map((article, i) => {
+                this.state.articles && this.state.articles.filter(article => article.category === CATEGORIES.STORIES_OPINIONS).map((article, i) => {
                     const dateDT = readableTimestamp(article.date)
                     return (
                         <span key={i}>
@@ -412,7 +413,7 @@ export default class Governance extends Component {
                 <h2 className="inline">Solutions</h2>
                 <p>The county's challenges and some ideas to address them</p>
                 { 
-                  this.state.articles && this.state.articles.filter(article => article.category === "solutions").map((article, i) => {
+                  this.state.articles && this.state.articles.filter(article => article.category === CATEGORIES.SOLUTIONS).map((article, i) => {
                       const dateDT = readableTimestamp(article.date)
                       return (
                           <span key={i}>

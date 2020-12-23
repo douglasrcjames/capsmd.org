@@ -154,6 +154,9 @@ import WaitImUndocumented from "./components/issues/ResidentReflectionsScreens/W
 import StartingSmallBusinessMoCo from "./components/issues/ResidentReflectionsScreens/StartingSmallBusinessMoCo"
 import HealthCareFormGoodLuck from "./components/issues/ResidentReflectionsScreens/HealthCareFormGoodLuck"
 import Badlands from "./components/issues/ResidentReflectionsScreens/Badlands";
+import EconomicDevelopmentSolutions from "./components/solutions/EconomicDevelopmentSolutions";
+import EducationSolutions from "./components/solutions/EducationSolutions";
+import InfrastructureSolutions from "./components/solutions/InfrastructureSolutions";
 
 
 const Page404 = ({ location }) => (
@@ -212,6 +215,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/find-legislators" component={UnderConstruction} />
 
         <Route exact path="/issues/economic-development" component={withTracker(EconomicDevelopment)} />
+        <Route exact path="/solutions/economic-development" component={withTracker(EconomicDevelopmentSolutions)} />
         <Route exact path="/issues/economic-development/facts/job-market-stagnant" component={JobMarketStagnant} />
         <Route exact path="/issues/economic-development/facts/lags-region-in-job-creation" component={LagsRegionInJobCreation} />
         <Route exact path="/issues/economic-development/facts/lags-region-in-business" component={LagsRegionInBusiness} />
@@ -240,6 +244,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/economic-development/stories-opinions/moco-moratorium-madness" component={MoCoMoratoriumMadness} />
 
         <Route exact path="/issues/education" component={withTracker(Education)} />
+        <Route exact path="/solutions/education" component={withTracker(EducationSolutions)} />
         <Route exact path="/issues/education/facts/per-pupil-funding" component={PerPupilFunding} />
         <Route exact path="/issues/education/facts/public-school-needs" component={PublicSchoolNeeds} />
         <Route exact path="/issues/education/solutions/proposals-worth-considering" component={ProposalsWorthConsideringE} />
@@ -257,6 +262,7 @@ export class Routes extends React.PureComponent {
         <Route exact path="/issues/education/facts/promoting-lifelong-health-by-investing-in-infant-and-early-childhood-mental-health" component={GoldenOpportunity} />
 
         <Route exact path="/issues/infrastructure" component={withTracker(Infrastructure)} />
+        <Route exact path="/solutions/infrastructure" component={withTracker(InfrastructureSolutions)} />
         <Route exact path="/issues/infrastructure/facts/housing-construction" component={HousingConstruction} />
         <Route exact path="/issues/infrastructure/facts/trails-in-new-housing" component={TrailsInNewHousing} />
         <Route exact path="/issues/infrastructure/facts/roads-clogged" component={RoadsClogged} />

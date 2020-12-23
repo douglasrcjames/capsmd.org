@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ArticlePreview from '../ArticlePreview'
 import { firestore } from "../../../Fire.js";
 import { readableTimestamp } from '../../../utilities/dateTime'
+import { ISSUES } from '../../../utilities/constants';
 
 export default class ResidentReflections extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ export default class ResidentReflections extends Component {
     }
     
     componentDidMount() {
-        this.unsubscribeArticles = firestore.collection("articles").where("status", "==", "live").where("issue", "==", "resident-reflections").orderBy("date", "desc").onSnapshot(snapshot => {
+        this.unsubscribeArticles = firestore.collection("articles").where("status", "==", "live").where("issue", "==", ISSUES.RESIDENT_REFLECTIONS).orderBy("date", "desc").onSnapshot(snapshot => {
             const articles = []
             snapshot.forEach(doc => {
                 var docWithId = Object.assign({}, doc.data());
