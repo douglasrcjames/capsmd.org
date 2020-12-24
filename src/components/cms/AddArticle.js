@@ -80,6 +80,8 @@ class AddArticle extends Component {
                         localUrl = `/issues/${values.issue}/${titleCleaned}`
                     } else if(values.issue === ISSUES.PRESS_RELEASES){
                         localUrl = `/news/${titleCleaned}`
+                    } else if(values.issue === ISSUES.OP_EDS){
+                        localUrl = `/issues/op-eds/${titleCleaned}`
                     } else {
                         if(values.category){
                             localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
@@ -135,6 +137,8 @@ class AddArticle extends Component {
                         localUrl = `/issues/${values.issue}/${titleCleaned}`
                     } else if(values.issue === ISSUES.PRESS_RELEASES){
                         localUrl = `/news/${titleCleaned}`
+                    } else if(values.issue === ISSUES.OP_EDS){
+                        localUrl = `/issues/op-eds/${titleCleaned}`
                     } else {
                         if(values.category){
                             localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`

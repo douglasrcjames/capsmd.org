@@ -90,7 +90,7 @@ class EditArticle extends Component {
     updateRichTextArticle(values){
         var dateValue = new Date(values.date).getTime();
         var catPass = false
-        if(values.issue === ISSUES.RESIDENT_REFLECTIONS || values.issue === ISSUES.PRESS_RELEASES){
+        if(values.issue === ISSUES.RESIDENT_REFLECTIONS || values.issue === ISSUES.PRESS_RELEASES || values.issue === ISSUES.OP_EDS){
             catPass = true;
         } else {
             if(values.category){
@@ -174,7 +174,7 @@ class EditArticle extends Component {
     updatePdfArticle(values){
         var dateValue = new Date(values.date).getTime();
         var catPass = false
-        if(values.issue === ISSUES.RESIDENT_REFLECTIONS || values.issue === ISSUES.PRESS_RELEASES){
+        if(values.issue === ISSUES.RESIDENT_REFLECTIONS || values.issue === ISSUES.PRESS_RELEASES || values.issue === ISSUES.OP_EDS){
             catPass = true;
         } else {
             if(values.category){
