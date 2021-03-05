@@ -103,12 +103,12 @@
     outline-width: 0;
 
     color: white;
-    background-color: rgb(252, 36, 36);
-    border: 1px solid rgb(252, 36, 36);
+    background-color: #9C3637;
+    border: 1px solid #9C3637;
 }
 
 .s-btn-danger:hover {
-    background-color: rgb(255, 88, 88);
+    background-color: #9e5355;
 }
 
 .s-btn-danger-inv {
@@ -122,13 +122,13 @@
     cursor: pointer;
     outline-width: 0;
 
-    color: rgb(252, 36, 36);
+    color: #9C3637;
     background-color: white;
-    border: 1px solid rgb(252, 36, 36);
+    border: 1px solid #9C3637;
 }
 
 .s-btn-danger-inv:hover { 
-    background-color: rgb(255, 88, 88);
+    background-color: #9e5355;
     color: white;
 }
 

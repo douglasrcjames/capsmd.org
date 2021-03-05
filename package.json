@@ -11,6 +11,7 @@
     "firebase-functions": "^3.11.0",
     "formik": "^2.2.5",
     "history": "^4.10.1",
+    "node-sass": "^4.14.1",
     "npm": "^7.3.0",
     "react": "^16.14.0",
     "react-animated-burgers": "^1.2.8",

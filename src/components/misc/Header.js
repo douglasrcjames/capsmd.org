@@ -27,6 +27,7 @@ class Header extends Component {
   render() {
       return (
         <header className="header-padding">
+            
           <div className="top-nav">
             <MediaQuery minWidth={921}>
               <div className="nav-container">
@@ -272,6 +273,7 @@ class Header extends Component {
             </Link>
             
           </MediaQuery>
+          <div className="background-blue" style={{height: "5px"}}></div>
         </div>
       </header>
     );

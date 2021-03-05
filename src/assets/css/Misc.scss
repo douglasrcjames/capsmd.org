@@ -1,0 +1,177 @@
+
+// Hero
+.hero-container {
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/backgrounds%2Fflowers-blur-mid.png?alt=media&token=58e23512-b11b-475e-9c6d-cbca320e4d62');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    width: 100%;
+    margin-top: -20px;
+    padding-bottom: 45%;
+    padding-top: 150px;
+}
+
+.hero-content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction	: column;
+    -ms-flex-direction		  : column;
+    flex-direction			    : column;
+    -webkit-justify-content	: center; 
+    justify-content			    : center; 
+    position: absolute;
+    top: 0; bottom: 0; left: 100px; right: 30px;
+    max-width: 60%;
+}
+
+@media only screen and (max-width: 900px) {
+   .hero-container {
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/capsmd-site.appspot.com/o/backgrounds%2Fflowers-blur-small.png?alt=media&token=8a562b7c-54e6-41e1-96e1-6b66b929170c');
+   }
+   .hero-content {
+        position: relative;
+        top: 0; bottom: 0; left: 0; right: 0;
+        z-index: 2;
+        padding: 30px;
+        max-width: 100%;
+   }
+}
+
+
+/* Slanted backgrounds */
+// mixin
+@mixin angle($pseudo, $flip: false, $angle: 1.5deg) {
+    // Possible values for $pseudo are: before, after, both
+    @if $pseudo == 'before' or $pseudo == 'after' or $pseudo == 'both' {
+      position: relative;
+      z-index: 1;
+      $selector: if($pseudo == 'both', '&:before,&:after', '&:#{$pseudo}');
+  
+      #{$selector} {
+        background: inherit;
+        content: '';
+        display: block;
+        height: 50%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        z-index: -1;
+        -webkit-backface-visibility: hidden; // for Chrome Windows
+        backface-visibility: hidden;
+      }
+  
+      @if $pseudo == 'before' {
+        #{$selector} {
+          top: 0;
+  
+          @if $flip {
+            transform: skewY($angle * -1);
+            transform-origin: 0 0;
+          } @else {
+            transform: skewY($angle);
+            transform-origin: 100% 0;
+          }
+        }
+      }
+  
+      @if $pseudo == 'after' {
+        #{$selector} {
+          bottom: 0;
+  
+          @if $flip {
+            transform: skewY($angle);
+            transform-origin: 0 100%;
+          } @else {
+            transform: skewY($angle * -1);
+            transform-origin: 100%;
+          }
+        }
+      }
+  
+      @if $pseudo == 'both' {
+        &:before {
+          top: 0;
+  
+          @if $flip {
+            transform: skewY($angle * -1);
+            transform-origin: 0 0;
+          } @else {
+            transform: skewY($angle);
+            transform-origin: 100% 0;
+          }
+        }
+  
+        &:after {
+          bottom: 0;
+  
+          @if $flip {
+            transform: skewY($angle);
+            transform-origin: 0 0;
+          } @else {
+            transform: skewY($angle * -1);
+            transform-origin: 100%;
+          }
+        }
+      }
+    }
+  }
+  
+  // slanted edges here
+  .edge--bottom {
+    @include angle(after);
+  }
+  
+  .edge--bottom--reverse {
+    @include angle(after, true);
+  }
+  
+  .edge--top {
+    @include angle(before);
+  }
+  
+  .edge--top--reverse {
+    @include angle(before, true);
+  }
+  
+  .edge--both {
+    @include angle(both);
+  }
+  
+  .edge--both--reverse {
+    @include angle(both, true);
+  }
+  
+  
+  // demo code below
+  .slant-block {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 100px 0;
+    padding: 100px 20px;
+  }
+
+
+
+// Misc
+.horiz-rule-white:before,
+.horiz-rule-white:after {
+    margin: auto;
+    display: block;
+    width: 45%;
+    border-bottom: 1px solid white;
+    content: "";
+}
+
+.horiz-rule-blue:before,
+.horiz-rule-blue:after {
+    margin: auto;
+    display: block;
+    width: 45%;
+    border-bottom: 1px solid #003da5;
+    content: "";
+}

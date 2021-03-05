@@ -81,6 +81,7 @@ export default class Article extends Component {
             var topBgImageStyle = {
                 width: "100%",
                 height: "200px",
+                marginTop: "-20px",
                 backgroundImage: `url(${this.props.article.headerUrl})`,
                 backgroundPosition: "50% 60%", // change me around to move up and down!
                 backgroundSize: "cover"

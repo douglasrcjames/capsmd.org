@@ -7,7 +7,8 @@ export default class GoldenOpportunity extends Component {
             height: "200px",
             backgroundImage: `url(${Background})`,
             backgroundPosition: "50% 55%", // change me around to move up and down!
-            backgroundSize: "cover"
+            backgroundSize: "cover",
+            marginTop: "-20px",
           };
         return (
             <>

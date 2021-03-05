@@ -9,7 +9,8 @@ export default class HealthCareFormGoodLuck extends Component {
             height: "200px",
             backgroundImage: `url(${Background})`,
             backgroundPosition: "50% 40%", // change me around to move up and down!
-            backgroundSize: "cover"
+            backgroundSize: "cover",
+            marginTop: "-20px",
           };
         return (
             <>

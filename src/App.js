@@ -19,6 +19,7 @@ import "./assets/css/pdf.css";
 import 'react-toastify/dist/ReactToastify.css';
 import "react-datez/dist/css/react-datez.css";
 import "./assets/css/Modal.css";
+import "./assets/css/Misc.scss";
 
 import Modal from "react-modal";
 Modal.setAppElement('body');
@@ -53,7 +54,9 @@ class App extends Component {
               <Header />
               <ToastContainer position="top-center" hideProgressBar={true} autoClose={7000} />
               { !this.state.loading && (
-                <Routes user={this.state.user} />
+                <div style={{paddingTop: "5%"}}>
+                    <Routes user={this.state.user} />
+                </div>
               )}
               { this.state.loading && (
                 <div className="l-container">

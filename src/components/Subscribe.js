@@ -61,7 +61,7 @@ class Subscribe extends Component {
               <br/>
               <button
                 type="submit"
-                className="s-btn"
+                className="s-btn-danger"
                 disabled={!props.dirty && !props.isSubmitting}
               >
                 Subscribe
