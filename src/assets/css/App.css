@@ -255,13 +255,33 @@ Red: #9C3536
   }
   
   .text-hover-danger:hover {
-    color: rgb(252, 36, 36)  !important;
+    color: #9C3536  !important;
     cursor: pointer;
   }
   
   .text-hover:hover {
-    color: #003da5  !important;
+    color: #003da5 !important;
     cursor: pointer;
+  }
+
+  .underline-hover {
+    position: relative;
+    padding: 3px 0;
+  }
+  .underline-hover:before {    
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #003da5;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  .underline-hover:hover:before {
+    visibility: visible;
+    width: 100%;
   }
   
   /* 
@@ -1103,4 +1123,8 @@ Red: #9C3536
   position: relative;
   top: -100px;
   visibility: hidden;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }

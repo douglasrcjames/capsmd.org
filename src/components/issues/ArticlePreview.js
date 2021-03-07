@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Link } from "react-router-dom";
-
+import { NEWS } from '../../utilities/constants'
 class ArticlePreview extends Component {
     render() {
         return (
@@ -20,15 +20,15 @@ class ArticlePreview extends Component {
                             <h4 className="l-text preview-text">{this.props.title}</h4>
                             {/* { this.props.author && (<p className="grey preview-text">by {this.props.author}</p>) }
                             { !this.props.author && (<br/>) } */}
-                            { !this.props.external && (
-                                <Link to={this.props.link} className="blue read-now-text">Read now</Link>
+                            { (this.props.news !== NEWS.EXTERNAL_NEWS && this.props.news !== NEWS.EMAIL_BLASTS) && (
+                                <Link to={this.props.link} className="blue text-hover-danger underline-hover">Read now</Link>
                             )}
-                            { this.props.external && (
+                            { (this.props.news === NEWS.EXTERNAL_NEWS || this.props.news === NEWS.EMAIL_BLASTS) && (
                                 <a 
-                                className="blue read-now-text" 
-                                href={this.props.link} 
-                                target="_blank" 
-                                rel="noopener noreferrer"
+                                    className="m-text blue text-hover-danger underline-hover" 
+                                    href={this.props.link} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
                                 >
                                     Read now
                                 </a>

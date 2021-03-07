@@ -88,10 +88,9 @@ class Home extends Component {
                         <h1 className="white no-margin">Who are we?</h1>
                         <p>
                             The Council for Advocacy and Policy Solutions (CAPS) is a non-profit public policy organization based in Montgomery County, Maryland. 
-                            Commodo pariatur qui consequat anim ut nulla id eu et consequat. 
-                            Aliqua sunt nulla Lorem Lorem. Nisi quis sint adipisicing elit duis consectetur sit. 
-                            Ut ullamco consectetur commodo laborum laborum laboris eu duis aute ex ad sunt minim cillum. 
-                            Deserunt reprehenderit enim pariatur ea.
+                            CAPS works to educate the Montgomery County community on the best policy solutions to improve our economy, schools, and health care for all. 
+                            CAPS offers a centralized hub to find resources — including policy review, policy recommendations, and community opinions on local legislation for an informed public. 
+                            We seek effective and meaningful policy change in the areas of education, infrastructure, economic development, and health.
                         </p>
                         <br/>
                         <div className="horiz-rule-white"/>
@@ -109,7 +108,7 @@ class Home extends Component {
                     <h1>Explore the Issues</h1>
                     <Grid fluid>
                         <Row center={"xs"}>
-                            <Col xs={12} sm={6} md={4} lg={3} className="center-text">
+                            <Col xs={12} sm={6} md={4} lg={3} className="center-text s-margin-t-b">
                                 <img
                                     className="center small"
                                     alt="dollar"
@@ -117,9 +116,9 @@ class Home extends Component {
                                     />
                                 <h4>Economic Development</h4>
                                 <p>Learn about jobs, business growth and other issues connected to growing the economy.</p>
-                                <Link to="/issues/economic-development"><span className="m-text blue">Learn more</span></Link>
+                                <Link to="/issues/economic-development"><span className="m-text blue text-hover-danger underline-hover">Learn more</span></Link>
                             </Col>
-                            <Col xs={12} sm={6} md={4} lg={3} className="center-text">
+                            <Col xs={12} sm={6} md={4} lg={3} className="center-text s-margin-t-b">
                                 <img
                                     className="center small"
                                     alt="book"
@@ -127,9 +126,9 @@ class Home extends Component {
                                     />
                                 <h4>Education</h4>
                                 <p>Learn about issues concerning our public schools and more.</p>
-                                <Link to="/issues/education"><span className="m-text blue">Learn more</span></Link>
+                                <Link to="/issues/education"><span className="m-text blue text-hover-danger underline-hover">Learn more</span></Link>
                             </Col>
-                            <Col xs={12} sm={6} md={4} lg={3} className="center-text">
+                            <Col xs={12} sm={6} md={4} lg={3} className="center-text s-margin-t-b">
                                 <img
                                     className="center small"
                                     alt="building"
@@ -137,7 +136,7 @@ class Home extends Component {
                                     />
                                 <h4>Infrastructure</h4>
                                 <p>Learn about our infrastructure network, including roads, transit and more.</p>
-                                <Link to="/issues/infrastructure"><span className="m-text blue">Learn more</span></Link>
+                                <Link to="/issues/infrastructure"><span className="m-text blue text-hover-danger underline-hover">Learn more</span></Link>
                             </Col>
                             <Col xs={12} sm={6} md={4} lg={3} className="center-text">
                                 <img
@@ -147,9 +146,9 @@ class Home extends Component {
                                     />
                                 <h4>Governance</h4>
                                 <p>Learn about governance.</p>
-                                <Link to="/issues/governance"><span className="m-text blue">Learn more</span></Link>
+                                <Link to="/issues/governance"><span className="m-text blue text-hover-danger underline-hover">Learn more</span></Link>
                             </Col>
-                            <Col xs={12} sm={6} md={4} lg={3} className="center-text">
+                            <Col xs={12} sm={6} md={4} lg={3} className="center-text s-margin-t-b">
                                 <img
                                     className="center small"
                                     alt="books"
@@ -158,9 +157,9 @@ class Home extends Component {
                                 <h4>Resident Reflections</h4>
                                 <p>Giving residents a platform to share challenges and solutions 
                                 that support community improvement</p>
-                                <Link to="/issues/resident-reflections"><span className="m-text blue">Learn more</span></Link>
+                                <Link to="/issues/resident-reflections"><span className="m-text blue text-hover-danger underline-hover">Learn more</span></Link>
                             </Col>
-                            <Col xs={12} sm={6} md={4} lg={3} className="center-text">
+                            <Col xs={12} sm={6} md={4} lg={3} className="center-text s-margin-t-b">
                                 <img
                                     className="center small"
                                     alt="books"
@@ -168,7 +167,7 @@ class Home extends Component {
                                     />
                                 <h4>More</h4>
                                 <p>Learn about other issues important to Montgomery County.</p>
-                                <Link to="/issues/more"><span className="m-text blue">Learn more</span></Link>
+                                <Link to="/issues/more"><span className="m-text blue text-hover-danger underline-hover">Learn more</span></Link>
                             </Col>
                         </Row>
                     </Grid>         

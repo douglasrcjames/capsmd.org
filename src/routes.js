@@ -331,8 +331,20 @@ export class Routes extends React.PureComponent {
         {/* CMS */}
         {  
           this.state.articles && (
-            this.state.articles.map((article, i) => {
-              return (<Route key={i} exact path={article.localUrl} component={() => <Article article={article} user={this.props.user} />} />)
+            this.state.articles.filter(article => !article.isOldComponent).map((article, i) => {
+                return (
+                    <Route 
+                        key={i} 
+                        exact 
+                        path={article.localUrl} 
+                        component={() => 
+                            <Article 
+                                article={article} 
+                                user={this.props.user} 
+                            />
+                        } 
+                    />
+                )
             })  
            )
         } 
