@@ -113,7 +113,7 @@ export default class Article extends Component {
             )
         } else {
             return (
-                <div>Loading article...</div>
+                <div className="wrapper"><h2>Loading...</h2></div>
             )
         }
         

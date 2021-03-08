@@ -10,7 +10,7 @@ import Modal from "react-modal";
 import { firestore, fire } from "../../Fire.js";
 import { addRichTextArticleSchema, addPdfArticleSchema } from '../../utilities/formSchemas'
 import { checkFile } from '../../utilities/misc.js';
-import { CATEGORIES, ISSUES } from '../../utilities/constants.js';
+import { CATEGORIES, ISSUES, NEWS } from '../../utilities/constants.js';
 
 class AddArticle extends Component {
     constructor(props) {
@@ -63,118 +63,130 @@ class AddArticle extends Component {
 
     // TODO: prevent too large of images from being inserted (automatically downsize them?)
     // https://firebase.google.com/products/extensions/storage-resize-images
-    // TODO: allow user to post content after the author section (ask nina if we need this)
     addRichTextArticle(values){
-        var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
-        var titleCleaned = titleNoSpecialChars.replace(/\s+/g, '-').toLowerCase(); //lower case and dashified
-        var dateValue = new Date(values.date).getTime()
-        var ref = firestore.collection("articles").doc(`${titleCleaned}`)
-        ref.get().then(doc => {
-            if(doc.exists){
-                toast.error("An article with a similar title exists");
+        if(values.news || values.issue){
+            if((values.news === NEWS.EXTERNAL_NEWS || values.news === NEWS.EMAIL_BLASTS) && !values.link){
+                toast.error("If you are posting a news article that is either External News or Email Blasts, you must provide a link!")
             } else {
-                if(this.state.headerUrl){
-                    var localUrl = null
-                    // Resident Refl doesnt have a category
-                    if(values.issue === ISSUES.RESIDENT_REFLECTIONS){
-                        localUrl = `/issues/${values.issue}/${titleCleaned}`
-                    } else if(values.issue === ISSUES.PRESS_RELEASES){
-                        localUrl = `/news/${titleCleaned}`
-                    } else if(values.issue === ISSUES.OP_EDS){
-                        localUrl = `/issues/op-eds/${titleCleaned}`
+                var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
+                var titleCleaned = titleNoSpecialChars.replace(/\s+/g, '-').toLowerCase(); //lower case and dashified
+                var dateValue = new Date(values.date).getTime()
+                var ref = firestore.collection("articles").doc(`${titleCleaned}`)
+                ref.get().then(doc => {
+                    if(doc.exists){
+                        toast.error("An article with a similar title exists");
                     } else {
-                        if(values.category){
-                            localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
+                        if(this.state.headerUrl){
+                            var localUrl = null
+                            // Resident Refl doesnt have a category
+                            if(values.issue === ISSUES.RESIDENT_REFLECTIONS){
+                                localUrl = `/issues/${values.issue}/${titleCleaned}`
+                            } else if(values.news === NEWS.PRESS_RELEASES){
+                                localUrl = `/news/${titleCleaned}`
+                            } else if(values.news === NEWS.EXTERNAL_NEWS || values.news === NEWS.EMAIL_BLASTS){
+                                localUrl = '' // externally linked article, so no local url
+                            } else if(values.issue === ISSUES.OP_EDS){
+                                localUrl = `/issues/op-eds/${titleCleaned}`
+                            } else {
+                                if(values.category){
+                                    localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
+                                } else {
+                                    toast.error("If the Issue tag is not Resident Reflections or Op-Eds then the Category must be set to something!")
+                                }
+                            }
+    
+                            // Only proceed if test above passes
+                            if(localUrl){
+                                ref.set({
+                                    title: values.title,
+                                    author: values.author,
+                                    date: dateValue,
+                                    body: values.body,
+                                    status: values.status,
+                                    category: values.category,
+                                    issue: values.issue,
+                                    carousel: values.carousel,
+                                    headerUrl: this.state.headerUrl,
+                                    localUrl: localUrl,
+                                    link: values.link || '',
+                                    created: Date.now(),
+                                    creator: this.props.user.displayName
+                                }).then(() => {
+                                    toast.success("Rich text article added successfully!");
+                                    this.props.history.push("/cms/list-articles");
+                                }).catch((error) => {
+                                    toast.error("Error writing document: ", error);
+                                });
+                            }
+                            
                         } else {
-                            toast.error("If the Issue tag is not Resident Reflections or CAPS News Press Releases then the Category must be set to something!")
-                        }
+                            toast.error("Please upload a header image!")
+                        }  
                     }
-
-                    // Only proceed if test above passes
-                    if(localUrl){
-                        ref.set({
-                            title: values.title,
-                            author: values.author,
-                            date: dateValue,
-                            body: values.body,
-                            status: values.status,
-                            category: values.category,
-                            issue: values.issue,
-                            carousel: values.carousel,
-                            headerUrl: this.state.headerUrl,
-                            localUrl: localUrl,
-                            created: Date.now(),
-                            creator: this.props.user.displayName
-                        }).then(() => {
-                            toast.success("Rich text article added successfully!");
-                            this.props.history.push("/cms/list-articles");
-                        }).catch((error) => {
-                            toast.error("Error writing document: ", error);
-                        });
-                    }
-                    
-                } else {
-                    toast.error("Please upload a header image!")
-                }  
+                })
             }
-        })
-
+        } else {
+            toast.error("You must set either the Issues or News values to post an article.")
+        }
       }
 
       addPdfArticle(values){
-        var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
-        var titleCleaned = titleNoSpecialChars.replace(/\s+/g, '-').toLowerCase(); //lower case and dashified
-        var dateValue = new Date(values.date).getTime()
-        var ref = firestore.collection("articles").doc(`${titleCleaned}`)
-        ref.get().then(doc => {
-            if(doc.exists){
-                toast.error("An article with a similar title exists");
-            } else {
-                if(this.state.headerUrl && this.state.pdfUrl){
-                    var localUrl = null
-                    // Resident Refl doesnt have a category
-                    if(values.issue === ISSUES.RESIDENT_REFLECTIONS){
-                        localUrl = `/issues/${values.issue}/${titleCleaned}`
-                    } else if(values.issue === ISSUES.PRESS_RELEASES){
-                        localUrl = `/news/${titleCleaned}`
-                    } else if(values.issue === ISSUES.OP_EDS){
-                        localUrl = `/issues/op-eds/${titleCleaned}`
-                    } else {
-                        if(values.category){
-                            localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
-                        } else {
-                            toast.error("If the Issue tag is not Resident Reflections or CAPS News Press Releases then the Category must be set to something!")
-                        }
-                    }
-
-                    // Only proceed if test above passes
-                    if(localUrl){
-                        ref.set({
-                            title: values.title,
-                            date: dateValue,
-                            pdfUrl: this.state.pdfUrl,
-                            status: values.status,
-                            category: values.category,
-                            issue: values.issue,
-                            carousel: values.carousel,
-                            localUrl: localUrl,
-                            headerUrl: this.state.headerUrl,
-                            created: Date.now(),
-                            creator: this.props.user.displayName
-                        }).then(() =>  {
-                            toast.success("PDF article added successfully!");
-                            this.props.history.push("/cms/list-articles");
-                        }).catch((error) =>  {
-                            toast.error("Error writing document: ", error);
-                        });
-                    }
-                    
+        if(values.news || values.issue){
+            var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
+            var titleCleaned = titleNoSpecialChars.replace(/\s+/g, '-').toLowerCase(); //lower case and dashified
+            var dateValue = new Date(values.date).getTime()
+            var ref = firestore.collection("articles").doc(`${titleCleaned}`)
+            ref.get().then(doc => {
+                if(doc.exists){
+                    toast.error("An article with a similar title exists");
                 } else {
-                    toast.error("Check to make you you have properly uploaded the PDF and/or the header image!!")
-                }  
-            }
-        })
-
+                    if(this.state.headerUrl && this.state.pdfUrl){
+                        var localUrl = null
+                        // Resident Refl doesnt have a category
+                        if(values.issue === ISSUES.RESIDENT_REFLECTIONS){
+                            localUrl = `/issues/${values.issue}/${titleCleaned}`
+                        } else if(values.news === NEWS.PRESS_RELEASES){
+                            localUrl = `/news/${titleCleaned}`
+                        } else if(values.issue === ISSUES.OP_EDS){
+                            localUrl = `/issues/op-eds/${titleCleaned}`
+                        } else {
+                            if(values.category){
+                                localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
+                            } else {
+                                toast.error("If the Issue tag is not Resident Reflections or Op-Eds then the Category must be set to something!")
+                            }
+                        }
+    
+                        // Only proceed if test above passes
+                        if(localUrl){
+                            ref.set({
+                                title: values.title,
+                                date: dateValue,
+                                pdfUrl: this.state.pdfUrl,
+                                status: values.status,
+                                category: values.category,
+                                issue: values.issue,
+                                carousel: values.carousel,
+                                localUrl: localUrl,
+                                headerUrl: this.state.headerUrl,
+                                created: Date.now(),
+                                creator: this.props.user.displayName
+                            }).then(() =>  {
+                                toast.success("PDF article added successfully!");
+                                this.props.history.push("/cms/list-articles");
+                            }).catch((error) =>  {
+                                toast.error("Error writing document: ", error);
+                            });
+                        }
+                        
+                    } else {
+                        toast.error("Please upload a header image!")
+                    }  
+                }
+            })
+        } else {
+            toast.error("You must set either the Issues or News values to post an article.")
+        }
       }
 
       handleOpenModal() {
@@ -260,7 +272,7 @@ class AddArticle extends Component {
                     isUploading: false
                 });
             });
-        }
+    }
     handlePdfUploadSuccess = filename => {
         console.log("Success with PDF upload!"); 
         
@@ -277,7 +289,7 @@ class AddArticle extends Component {
                     isUploadingPdf: false
                 });
             });
-        }
+    }
         
     showPdf(){
         this.setState({
@@ -292,52 +304,55 @@ class AddArticle extends Component {
     showRichText(){
         this.setState({
             richTextShown: true,
+            typeShown: "rich-text-header",
             pdfShown: false,
             pdfUrl: ""
         })
     }
 
     render() {
-        const initialFormState = {
-            title: "",
-            author: "",
-            date: "",
-            body: "",
-            pdfUrl: "",
-            status: "",
-            category: "",
-            issue: "",
-            carousel: false
-          };
-
         return (
             <div className="wrapper">
-                <h1>Add Article</h1>
+                <br/>
+                <Link to="/cms/"><button className="s-btn"> <i className="fas fa-arrow-left" />&nbsp; Back to CMS home</button></Link>
+                <h1 className="s-margin-t-b">Add Article</h1>
                 <p>
                     Please spell and capitalize everything how you would want it to be seen. 
                     Remember that the Title, Date, and Author will be shown in the final article so do not include them in the Body section!
                 </p>
-                <Link to="/cms/"><button className="s-btn"> <i className="fas fa-arrow-left" />&nbsp; Back to CMS home</button></Link>
-                <br/>
-                <br/>
+
                 <hr/>
-                <br/>
                 <Grid fluid>
-                    {/* Row 1 */}
+                    <div className="center-text">
+                        <h2 className="s-margin-t-b">Pick an article type</h2>
+                    </div>
                     <Row center="xs">
-                        <Col xs={12} sm={6}>
+                        <Col xs={12} sm={6} className="s-margin-t-b">
                             <button className={this.state.richTextShown ? "s-btn" : "s-btn-inv"} onClick={()=>this.showRichText()}> <i className="fas fa-text-height" />&nbsp; Rich Text Article</button>
                         </Col>
-                        <Col xs={12} sm={6}>
+                        <Col xs={12} sm={6} className="s-margin-t-b">
                             <button className={this.state.pdfShown ? "s-btn" : "s-btn-inv"} onClick={()=>this.showPdf()}> <i className="fas fa-file-pdf" />&nbsp; PDF Article</button>
                         </Col>
                     </Row>
                 </Grid>
+                <hr/>
+                <br/>
 
                 {/* // Rich Text Article // */}
                 <div className={this.state.richTextShown ? "" : "hide"}>
                 <Formik
-                    initialValues={initialFormState}
+                    initialValues={{
+                        title: "",
+                        author: "",
+                        date: "",
+                        body: "",
+                        status: "",
+                        category: "",
+                        issue: "",
+                        news: "",
+                        link: "",
+                        carousel: false
+                    }}
                     onSubmit={(values) => {
                         this.addRichTextArticle(values);
                     }}
@@ -346,9 +361,102 @@ class AddArticle extends Component {
                     {props => (
                         <form onSubmit={props.handleSubmit}>
                             <Grid fluid>
-                            {/* Row 1 */}
                             <Row>
-                                <Col xs={12} sm={6}>
+                                {!props.values.news && (
+                                    <>
+                                    <Col xs={12} sm={6} md={4}>
+                                        <label htmlFor="issue">Issue: </label>
+                                        <Field
+                                            component="select" 
+                                            onChange={props.handleChange}
+                                            name="issue"
+                                            value={props.values.issue}
+                                            >
+                                            <option defaultValue value="">No issue selected</option> 
+                                            <option value={ISSUES.ECONOMIC_DEVELOPMENT}>Economic Development</option>
+                                            <option value={ISSUES.EDUCATION}>Education</option>
+                                            <option value={ISSUES.INFRASTRUCTURE}>Infrastructure</option>
+                                            <option value={ISSUES.GOVERNANCE}>Governance</option>
+                                            <option value={ISSUES.RESIDENT_REFLECTIONS}>Resident Reflections</option>
+                                            <option value={ISSUES.MORE}>More</option>
+                                            <option value={ISSUES.OP_EDS}>Op-Eds</option>
+                                        </Field>
+                                        <br/>
+                                        {props.errors.issue && props.touched.issue ? (
+                                            <span className="red">{props.errors.issue}</span>
+                                        ) : (
+                                            ""
+                                        )}
+                                    </Col>
+                                    {props.values.issue && (
+                                        <Col xs={12} sm={6} md={4}>
+                                            <label htmlFor="category">Category: </label>
+                                            <Field
+                                                component="select" 
+                                                onChange={props.handleChange}
+                                                name="category"
+                                                value={props.values.category}
+                                                >
+                                                <option defaultValue value="">No category selected</option> 
+                                                <option value={CATEGORIES.FACTS}>Facts</option>
+                                                <option value={CATEGORIES.STORIES_OPINIONS}>Stories &amp; Opinions</option>
+                                                <option value={CATEGORIES.SOLUTIONS}>Solutions</option>
+                                            </Field>
+                                            <br/>
+                                            {props.errors.category && props.touched.category ? (
+                                                <span className="red">{props.errors.category}</span>
+                                            ) : (
+                                                ""
+                                            )}
+                                        </Col>
+                                    )}
+                                    </>
+                                )}
+                               {!props.values.issue && (
+                                    <Col xs={12} sm={6} md={4}>
+                                        <label htmlFor="news">News: </label>
+                                        <Field
+                                            component="select" 
+                                            onChange={props.handleChange}
+                                            name="news"
+                                            value={props.values.news}
+                                            >
+                                            <option defaultValue value="">No news section selected</option> 
+                                            <option value={NEWS.PRESS_RELEASES}>Press Releases</option>
+                                            <option value={NEWS.EXTERNAL_NEWS}>External News</option>
+                                            <option value={NEWS.EMAIL_BLASTS}>Email Blasts</option>
+                                        </Field>
+                                        <br/>
+                                        {props.errors.news && props.touched.news ? (
+                                            <span className="red">{props.errors.news}</span>
+                                        ) : (
+                                            ""
+                                        )}
+                                    </Col>
+                                )}
+                               
+                                <Col xs={12} sm={6} md={4}>
+                                    <label htmlFor="status">Status: </label>
+                                    <Field
+                                        component="select" 
+                                        onChange={props.handleChange}
+                                        name="status"
+                                        value={props.values.status}
+                                        >
+                                        <option defaultValue value="">No status selected</option> 
+                                        <option value="live">Live</option>
+                                        <option value="draft">Draft</option>
+                                    </Field>
+                                    <br/>
+                                    {props.errors.status && props.touched.status ? (
+                                        <span className="red">{props.errors.status}</span>
+                                    ) : (
+                                        ""
+                                    )}
+                                </Col>
+                            </Row>  
+                            <Row>
+                                <Col xs={12} sm={8}>
                                     <label htmlFor="title">Title: </label>
                                     <Field
                                         type="title"
@@ -364,31 +472,8 @@ class AddArticle extends Component {
                                     ) : (
                                         ""
                                     )}
-                                    <br/>
                                 </Col>
-                            </Row>
-
-                            {/* Row 2 */}
-                            <Row>
-                                <Col xs={12} sm={6}>
-                                    <label htmlFor="author">Author: </label>
-                                    <Field
-                                        type="text"
-                                        placeholder="John Doe"
-                                        className="box"
-                                        onChange={props.handleChange}
-                                        name="author"
-                                        value={props.values.author}
-                                    />
-                                    <br/>
-                                    {props.errors.author && props.touched.author ? (
-                                        <span className="red">{props.errors.author}</span>
-                                    ) : (
-                                        ""
-                                    )}
-                                    <br/>
-                                </Col>
-                                <Col xs={12} sm={6}>
+                                <Col xs={12} sm={4}>
                                     <label htmlFor="date">Date: </label>
                                     <br/>
                                     <Field name="date">
@@ -409,114 +494,82 @@ class AddArticle extends Component {
                                     ) : (
                                         ""
                                     )}
-                                    <br/>
                                 </Col>
                             </Row>
-
-                            {/* Row 3 */}
-                            <Row>
-                                <Col xs={12}>
-                                    <label htmlFor="body">Body: </label>
-                                    <Field name="body">
-                                        {({ field }) => 
-                                            <ReactQuill 
-                                                value={field.value} 
-                                                modules={this.modules}
-                                                formats={this.formats}
-                                                placeholder="This can be a simple or complex body of text with links to webpages, bolded text, headers, and more!"
-                                                onChange={field.onChange(field.name)} />
-                                        }
-                                    </Field>
-                                    <br/>
-                                    {props.errors.body && props.touched.body ? (
-                                        <span className="red">{props.errors.body}</span>
-                                    ) : (
-                                        ""
-                                    )}
-                                </Col>
-                            </Row>  
                             
-                            {/* Row 4 */}
-                            <Row>
-                                <Col xs={12} sm={6} md={4}>
-                                    <label htmlFor="issue">Issue: </label>
-                                    <Field
-                                        component="select" 
-                                        onChange={props.handleChange}
-                                        name="issue"
-                                        value={props.values.issue}
-                                        >
-                                        <option defaultValue value="">No issue selected</option> 
-                                        <option value={ISSUES.ECONOMIC_DEVELOPMENT}>Economic Development</option>
-                                        <option value={ISSUES.EDUCATION}>Education</option>
-                                        <option value={ISSUES.INFRASTRUCTURE}>Infrastructure</option>
-                                        <option value={ISSUES.GOVERNANCE}>Governance</option>
-                                        <option value={ISSUES.RESIDENT_REFLECTIONS}>Resident Reflections</option>
-                                        <option value={ISSUES.MORE}>More</option>
-                                        <option value={ISSUES.OP_EDS}>Op-Eds</option>
-                                        <option value={ISSUES.PRESS_RELEASES}>CAPS News Press Releases</option>
-                                    </Field>
-                                    <br/>
-                                    {props.errors.issue && props.touched.issue ? (
-                                        <span className="red">{props.errors.issue}</span>
-                                    ) : (
-                                        ""
-                                    )}
-                                    <br/>
-                                </Col>
-                                <Col xs={12} sm={6} md={4}>
-                                    <label htmlFor="category">Category: </label>
-                                    <Field
-                                        component="select" 
-                                        onChange={props.handleChange}
-                                        name="category"
-                                        value={props.values.category}
-                                        >
-                                        <option defaultValue value="">No category selected</option> 
-                                        <option value={CATEGORIES.FACTS}>Facts</option>
-                                        <option value={CATEGORIES.STORIES_OPINIONS}>Stories &amp; Opinions</option>
-                                        <option value={CATEGORIES.SOLUTIONS}>Solutions</option>
-                                    </Field>
-                                    <br/>
-                                    {props.errors.category && props.touched.category ? (
-                                        <span className="red">{props.errors.category}</span>
-                                    ) : (
-                                        ""
-                                    )}
-                                    <br/>
-                                </Col>
-                                <Col xs={12} sm={6} md={4}>
-                                    <label htmlFor="status">Status: </label>
-                                    <Field
-                                        component="select" 
-                                        onChange={props.handleChange}
-                                        name="status"
-                                        value={props.values.status}
-                                        >
-                                        <option defaultValue value="">No status selected</option> 
-                                        <option value="live">Live</option>
-                                        <option value="draft">Draft</option>
-                                    </Field>
-                                    <br/>
-                                    {props.errors.status && props.touched.status ? (
-                                        <span className="red">{props.errors.status}</span>
-                                    ) : (
-                                        ""
-                                    )}
-                                    <br/>
-                                </Col>
-                            </Row>  
+                            {(props.values.issue || props.values.news === NEWS.PRESS_RELEASES) && (
+                                <>
+                                <Row>
+                                    <Col xs={12} sm={6}>
+                                        <label htmlFor="author">Author: </label>
+                                        <Field
+                                            type="text"
+                                            placeholder="John Doe"
+                                            className="box"
+                                            onChange={props.handleChange}
+                                            name="author"
+                                            value={props.values.author}
+                                        />
+                                        <br/>
+                                        {props.errors.author && props.touched.author ? (
+                                            <span className="red">{props.errors.author}</span>
+                                        ) : (
+                                            ""
+                                        )}
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col xs={12}>
+                                        <label htmlFor="body">Body: </label>
+                                        <Field name="body">
+                                            {({ field }) => 
+                                                <ReactQuill 
+                                                    value={field.value} 
+                                                    modules={this.modules}
+                                                    formats={this.formats}
+                                                    placeholder="This can be a simple or complex body of text with links to webpages, bolded text, headers, and more!"
+                                                    onChange={field.onChange(field.name)} />
+                                            }
+                                        </Field>
+                                        <br/>
+                                        {props.errors.body && props.touched.body ? (
+                                            <span className="red">{props.errors.body}</span>
+                                        ) : (
+                                            ""
+                                        )}
+                                    </Col>
+                                </Row>  
+                                </>
+                            )}
+                            {(props.values.news === NEWS.EXTERNAL_NEWS || props.values.news === NEWS.EMAIL_BLASTS) && (
+                                <Row>
+                                    <Col xs={12} sm={6}>
+                                        <label htmlFor="link">Link: </label>
+                                        <Field
+                                            type="text"
+                                            placeholder="https://www.website.com"
+                                            className="box"
+                                            onChange={props.handleChange}
+                                            name="link"
+                                            value={props.values.link}
+                                        />
+                                        <br/>
+                                        {props.errors.link && props.touched.link ? (
+                                            <span className="red">{props.errors.link}</span>
+                                        ) : (
+                                            ""
+                                        )}
+                                    </Col>
+                                </Row>
+                            )}
 
-                            {/* Row 5 */}
                             <Row>
                                 <Col xs={12} className="s-margin-b">
                                     <Field type="checkbox" id="carousel1" name="carousel" value={props.values.carousel} checked={props.values.carousel} className="checkbox-input" />
-                                    <label htmlFor="carousel1">&nbsp;Carousel Article?</label>  
+                                    <label htmlFor="carousel1">&nbsp;Featured Article?</label>  
                                     <br/>
                                 </Col>
                             </Row>  
-
-                            {/* Row 6 */}
                             <Row>
                                 <label htmlFor="header">Header picture: </label>
                                 &nbsp;&nbsp;
@@ -578,7 +631,17 @@ class AddArticle extends Component {
                 {/* // PDF Article // */}
                 <div className={this.state.pdfShown ? "" : "hide"}>
                 <Formik
-                    initialValues={initialFormState}
+                    initialValues={{
+                        title: "",
+                        author: "",
+                        date: "",
+                        pdfUrl: "",
+                        status: "",
+                        category: "",
+                        issue: "",
+                        news: "",
+                        carousel: false
+                    }}
                     onSubmit={(values, actions) => {
                         this.addPdfArticle(values);
                     }}
@@ -587,9 +650,100 @@ class AddArticle extends Component {
                     {props => (
                         <form onSubmit={props.handleSubmit}>
                             <Grid fluid>
-                            {/* Row 1 */}
                             <Row>
-                                <Col xs={12} sm={6}>
+                                {!props.values.news && (
+                                    <>
+                                    <Col xs={12} sm={6} md={4}>
+                                        <label htmlFor="issue">Issue: </label>
+                                        <Field
+                                            component="select" 
+                                            onChange={props.handleChange}
+                                            name="issue"
+                                            value={props.values.issue}
+                                            >
+                                            <option defaultValue value="">No issue selected</option> 
+                                            <option value={ISSUES.ECONOMIC_DEVELOPMENT}>Economic Development</option>
+                                            <option value={ISSUES.EDUCATION}>Education</option>
+                                            <option value={ISSUES.INFRASTRUCTURE}>Infrastructure</option>
+                                            <option value={ISSUES.GOVERNANCE}>Governance</option>
+                                            <option value={ISSUES.RESIDENT_REFLECTIONS}>Resident Reflections</option>
+                                            <option value={ISSUES.MORE}>More</option>
+                                            <option value={ISSUES.OP_EDS}>Op-Eds</option>
+                                        </Field>
+                                        <br/>
+                                        {props.errors.issue && props.touched.issue ? (
+                                            <span className="red">{props.errors.issue}</span>
+                                        ) : (
+                                            ""
+                                        )}
+                                    </Col>
+                                    {props.values.issue && (
+                                        <Col xs={12} sm={6} md={4}>
+                                            <label htmlFor="category">Category: </label>
+                                            <Field
+                                                component="select" 
+                                                onChange={props.handleChange}
+                                                name="category"
+                                                value={props.values.category}
+                                                >
+                                                <option defaultValue value="">No category selected</option> 
+                                                <option value={CATEGORIES.FACTS}>Facts</option>
+                                                <option value={CATEGORIES.STORIES_OPINIONS}>Stories &amp; Opinions</option>
+                                                <option value={CATEGORIES.SOLUTIONS}>Solutions</option>
+                                            </Field>
+                                            <br/>
+                                            {props.errors.category && props.touched.category ? (
+                                                <span className="red">{props.errors.category}</span>
+                                            ) : (
+                                                ""
+                                            )}
+                                        </Col>
+                                    )}
+                                    </>
+                                )}
+                               {!props.values.issue && (
+                                    <Col xs={12} sm={6} md={4}>
+                                        <label htmlFor="news">News: </label>
+                                        <Field
+                                            component="select" 
+                                            onChange={props.handleChange}
+                                            name="news"
+                                            value={props.values.news}
+                                            >
+                                            <option defaultValue value="">No news section selected</option> 
+                                            <option value={NEWS.PRESS_RELEASES}>Press Releases</option>
+                                        </Field>
+                                        <br/>
+                                        {props.errors.news && props.touched.news ? (
+                                            <span className="red">{props.errors.news}</span>
+                                        ) : (
+                                            ""
+                                        )}
+                                    </Col>
+                                )}
+                               
+                                <Col xs={12} sm={6} md={4}>
+                                    <label htmlFor="status">Status: </label>
+                                    <Field
+                                        component="select" 
+                                        onChange={props.handleChange}
+                                        name="status"
+                                        value={props.values.status}
+                                        >
+                                        <option defaultValue value="">No status selected</option> 
+                                        <option value="live">Live</option>
+                                        <option value="draft">Draft</option>
+                                    </Field>
+                                    <br/>
+                                    {props.errors.status && props.touched.status ? (
+                                        <span className="red">{props.errors.status}</span>
+                                    ) : (
+                                        ""
+                                    )}
+                                </Col>
+                            </Row>  
+                            <Row>
+                                <Col xs={12} sm={8}>
                                     <label htmlFor="title">Title: </label>
                                     <Field
                                         type="title"
@@ -605,13 +759,8 @@ class AddArticle extends Component {
                                     ) : (
                                         ""
                                     )}
-                                    <br/>
                                 </Col>
-                            </Row>
-
-                            {/* Row 2 */}
-                            <Row>
-                                <Col xs={12} sm={6}>
+                                <Col xs={12} sm={4}>
                                     <label htmlFor="date">Date: </label>
                                     <br/>
                                     <Field name="date">
@@ -632,33 +781,29 @@ class AddArticle extends Component {
                                     ) : (
                                         ""
                                     )}
-                                    <br/>
                                 </Col>
                             </Row>
-
-                            {/* Row 4 */}
-                            {this.state.pdfUrl && (
-                                <Row>
-                                    <Col xs={12}>
+                            <Row>
+                                <Col xs={12} sm={6} className="s-margin-t-b">
+                                    <label htmlFor="pdf">PDF file: </label>
+                                    &nbsp;&nbsp;
+                                    { !this.state.pdfUrl && (
+                                        <button type="button" className="s-btn-inv" onClick={this.handleOpenModal}>
+                                            <i className="fa fa-file-upload"></i> Choose PDF file
+                                        </button>
+                                    )}
+                                    { this.state.pdfUrl && (
+                                        <span className="green"><i className="fa fa-check"></i> PDF uploaded!</span>
+                                    )}
+                                </Col>
+                                {this.state.pdfUrl && (
+                                    <Col xs={12} sm={6} className="s-margin-t-b">
                                         <label htmlFor="pdf">Uploaded PDF Link: </label>
                                         &nbsp;&nbsp;
-                                        <a href={this.state.pdfUrl} className="blue">{this.state.pdfUrl}</a>
+                                        <a href={this.state.pdfUrl} className="blue" target="_blank" rel="noopener noreferrer">click here</a>
                                     </Col>
-                                </Row>
-                            )}   
-                                
-                            <br/>
-                            <label htmlFor="pdf">PDF file: </label>
-                            &nbsp;&nbsp;
-                            { !this.state.pdfUrl && (
-                                <button type="button" className="s-btn-inv" onClick={this.handleOpenModal}>
-                                    <i className="fa fa-file-upload"></i> Choose PDF file
-                                </button>
-                            )}
-                            { this.state.pdfUrl && (
-                                <span className="green"><i className="fa fa-check"></i> PDF uploaded!</span>
-                            )}
-                            <br/>
+                                )}   
+                            </Row>
 
                             <Modal
                                 isOpen={this.state.showModal}
@@ -709,84 +854,12 @@ class AddArticle extends Component {
                                     </Row>
                                 </div>
                             </Modal>
-                            <br/>
-                            {/* Row 5 */}
-                            <Row>
-                                <Col xs={12} sm={6} md={4}>
-                                    <label htmlFor="issue">Issue: </label>
-                                    <Field
-                                        component="select" 
-                                        onChange={props.handleChange}
-                                        name="issue"
-                                        value={props.values.issue}
-                                        >
-                                        <option defaultValue value="">No issue selected</option> 
-                                        <option value={ISSUES.ECONOMIC_DEVELOPMENT}>Economic Development</option>
-                                        <option value={ISSUES.EDUCATION}>Education</option>
-                                        <option value={ISSUES.INFRASTRUCTURE}>Infrastructure</option>
-                                        <option value={ISSUES.GOVERNANCE}>Governance</option>
-                                        <option value={ISSUES.RESIDENT_REFLECTIONS}>Resident Reflections</option>
-                                        <option value={ISSUES.MORE}>More</option>
-                                        <option value={ISSUES.OP_EDS}>Op-Eds</option>
-                                        <option value={ISSUES.PRESS_RELEASES}>CAPS News Press Releases</option>
-                                    </Field>
-                                    <br/>
-                                    {props.errors.issue && props.touched.issue ? (
-                                        <span className="red">{props.errors.issue}</span>
-                                    ) : (
-                                        ""
-                                    )}
-                                    <br/>
-                                </Col>
-                                <Col xs={12} sm={6} md={4}>
-                                    <label htmlFor="category">Category: </label>
-                                    <Field
-                                        component="select" 
-                                        onChange={props.handleChange}
-                                        name="category"
-                                        value={props.values.category}
-                                        >
-                                        <option defaultValue value="">No category selected</option> 
-                                        <option value={CATEGORIES.FACTS}>Facts</option>
-                                        <option value={CATEGORIES.STORIES_OPINIONS}>Stories &amp; Opinions</option>
-                                        <option value={CATEGORIES.SOLUTIONS}>Solutions</option>
-                                    </Field>
-                                    <br/>
-                                    {props.errors.category && props.touched.category ? (
-                                        <span className="red">{props.errors.category}</span>
-                                    ) : (
-                                        ""
-                                    )}
-                                    <br/>
-                                </Col>
-                                <Col xs={12} sm={6} md={4}>
-                                    <label htmlFor="status">Status: </label>
-                                    <Field
-                                        component="select" 
-                                        onChange={props.handleChange}
-                                        name="status"
-                                        value={props.values.status}
-                                        >
-                                        <option defaultValue value="">No status selected</option> 
-                                        <option value="live">Live</option>
-                                        <option value="draft">Draft</option>
-                                    </Field>
-                                    <br/>
-                                    {props.errors.status && props.touched.status ? (
-                                        <span className="red">{props.errors.status}</span>
-                                    ) : (
-                                        ""
-                                    )}
-                                    <br/>
-                                </Col>
-                            </Row> 
 
                             {/* Row 6 */}
                             <Row>
                                 <Col xs={12} className="s-margin-b">
                                     <Field type="checkbox" id="carousel2" name="carousel" value={props.values.carousel} checked={props.values.carousel} className="checkbox-input" />
-                                    <label htmlFor="carousel2">&nbsp;Carousel Article?</label>  
-                                    <br/>
+                                    <label htmlFor="carousel2">&nbsp;Featured Article?</label> 
                                 </Col>
                             </Row>   
 
@@ -833,7 +906,6 @@ class AddArticle extends Component {
                                 { this.state.headerUrl && (
                                     <span className="green"><i className="fa fa-check"></i> Header uploaded!</span>
                                 )}
-                                
                             </Row> 
                         </Grid>
                         <div className="center-text s-margin-t">
@@ -841,8 +913,8 @@ class AddArticle extends Component {
                                 type="submit"
                                 className="m-btn"
                                 disabled={!props.dirty && !props.isSubmitting}
-                                >
-                            Submit Article
+                            >
+                                Submit Article
                             </button>
                         </div>
                         </form>

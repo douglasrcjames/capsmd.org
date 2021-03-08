@@ -155,6 +155,7 @@ import Badlands from "./components/issues/ResidentReflectionsScreens/Badlands";
 import EconomicDevelopmentSolutions from "./components/solutions/EconomicDevelopmentSolutions";
 import EducationSolutions from "./components/solutions/EducationSolutions";
 import InfrastructureSolutions from "./components/solutions/InfrastructureSolutions";
+import ListFeaturedArticles from "./components/cms/ListFeaturedArticles";
 
 
 const Page404 = ({ location }) => (
@@ -331,7 +332,7 @@ export class Routes extends React.PureComponent {
         {/* CMS */}
         {  
           this.state.articles && (
-            this.state.articles.filter(article => !article.isOldComponent).map((article, i) => {
+            this.state.articles.filter(article => (!article.isOldComponent && article.localUrl)).map((article, i) => {
                 return (
                     <Route 
                         key={i} 
@@ -353,25 +354,31 @@ export class Routes extends React.PureComponent {
         <Route path="/cms/signing-in" exact component={() => <SigningIn user={this.props.user} />} />
         <Route path="/cms/register" exact render={() => <RegisterContainer user={this.props.user} />} />
         <UserRoute
-              exact
-              path="/cms/"
-              loggedIn={this.props.user}
-              component={() => <CMSHome user={this.props.user} />} />
+            exact
+            path="/cms"
+            loggedIn={this.props.user}
+            component={() => <CMSHome user={this.props.user} />} />
         <UserRoute
-              exact
-              path="/cms/add-article"
-              loggedIn={this.props.user}
-              component={() => <AddArticle user={this.props.user} />} />
+            exact
+            path="/cms/add-article"
+            loggedIn={this.props.user}
+            component={() => <AddArticle user={this.props.user} />} />
         <UserRoute
-              exact
-              path="/cms/edit-article/:articleId"
-              loggedIn={this.props.user}
-              component={() => <EditArticle />} />
+            exact
+            path="/cms/edit-article/:articleId"
+            loggedIn={this.props.user}
+            component={() => <EditArticle />} />
         <UserRoute
             exact
             path="/cms/list-articles"
             loggedIn={this.props.user}
             component={() => <ListArticles />} />
+
+        <UserRoute
+            exact
+            path="/cms/list-featured-articles"
+            loggedIn={this.props.user}
+            component={() => <ListFeaturedArticles />} />
 
         <Route exact path="/test" component={Test} />
         <Route component={withTracker(Page404)} />

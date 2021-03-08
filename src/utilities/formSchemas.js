@@ -56,9 +56,6 @@ export const addRichTextArticleSchema = yup.object().shape({
     status: yup
         .string()
         .required("A status is required."),
-    issue: yup
-        .string()
-        .required("An issue tag is required."),
 })
 
 export const addPdfArticleSchema = yup.object().shape({
@@ -71,9 +68,6 @@ export const addPdfArticleSchema = yup.object().shape({
   status: yup
       .string()
       .required("A status is required."),
-  issue: yup
-      .string()
-      .required("An issue tag is required."),
 })
 
 export const editRichTextArticleSchema = yup.object().shape({
@@ -86,15 +80,9 @@ export const editRichTextArticleSchema = yup.object().shape({
   body: yup
       .string()
       .required("A body paragraph is required."),
-  localUrl: yup
-      .string()
-      .required("A local URL is required."),
   status: yup
       .string()
       .required("A status is required."),
-  issue: yup
-      .string()
-      .required("An issue tag is required."),
 })
 
 export const editPdfArticleSchema = yup.object().shape({
@@ -104,16 +92,10 @@ export const editPdfArticleSchema = yup.object().shape({
   date: yup
       .string()
       .required("A date is required."),
-  localUrl: yup
-      .string()
-      .required("A local URL is required."),
   pdfUrl: yup
       .string()
       .required("A PDF URL is required."),
   status: yup
       .string()
       .required("A status is required."),
-  issue: yup
-      .string()
-      .required("An issue tag is required."),
 })

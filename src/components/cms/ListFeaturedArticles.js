@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { firestore } from '../../Fire'
 import { timestamp_to_date_time, readableTimestamp } from '../../utilities/dateTime'
 
-export default class ListArticles extends Component {
+export default class ListFeaturedArticles extends Component {
     constructor(props) {
         super(props)
     
@@ -16,7 +16,7 @@ export default class ListArticles extends Component {
     
     // Eventually want to load more option instead of grabbing all of the articles are once
     componentDidMount() {
-        this.unsubscribeArticles = firestore.collection("articles").orderBy("created", "desc").onSnapshot(snapshot => {
+        this.unsubscribeArticles = firestore.collection("articles").orderBy("created", "desc").where("carousel", "==", true).onSnapshot(snapshot => {
             const pastArticles = []
             snapshot.forEach(doc => {
                 var docWithId = Object.assign({}, doc.data());
@@ -38,8 +38,7 @@ export default class ListArticles extends Component {
     render() {
         return (
             <div className="wrapper">
-                <h1>List All Articles</h1>
-
+                <h1>List Featured Articles</h1>
                 <Link to="/cms/"><button className="s-btn"> <i className="fas fa-arrow-left" />&nbsp; Back to CMS home</button></Link>
                 <br/>
                 <h4>{this.state.articles.length} total articles</h4>

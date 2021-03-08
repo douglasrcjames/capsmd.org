@@ -50,6 +50,7 @@ class CMSHome extends Component {
                             headerUrl: article.picPath,
                             localUrl: article.localUrl || '',
                             link: article.link || '',
+                            isOldComponent: article.isOldComponent || false,
                             created: Date.now(),
                             creator: article.creator
                         }).then(() => {
@@ -94,14 +95,15 @@ class CMSHome extends Component {
                         <Row className="s-margin-t-b">
                             <Col xs={6} sm={3}>
                                 <Link to="/cms/add-article"><button className="s-btn-success"> <i className="fas fa-plus" />&nbsp; Add an article</button></Link>
-                                </Col>
+                            </Col>
                             <Col xs={6} sm={3}>
                                 <Link to="/cms/list-articles"><button className="s-btn"> <i className="fas fa-list" />&nbsp; List all articles</button></Link>
                             </Col>
-                           
                             <Col xs={6} sm={3}>
-                                <button className="s-btn-danger" onClick={this.signOut}> <i className="fas fa-sign-out-alt" />&nbsp; Sign Out</button>
+                                <Link to="/cms/list-featured-articles"><button className="s-btn"> <i className="fas fa-star" />&nbsp; List Featured articles</button></Link>
                             </Col>
+                           
+                            
                         </Row>
                         <Row className="s-margin-t-b">
                             <Col xs={6} sm={3}>
@@ -109,6 +111,11 @@ class CMSHome extends Component {
                             </Col>
                             <Col xs={6} sm={3}>
                                 <button className="s-btn" onClick={() => this.addArticles(OLD_EXTERNAL_NEWS)}> <i className="fas fa-plus" />&nbsp; Create External News</button>
+                            </Col>
+                        </Row>
+                        <Row className="s-margin-t-b">
+                            <Col xs={6} sm={3}>
+                                <button className="s-btn-danger" onClick={this.signOut}> <i className="fas fa-sign-out-alt" />&nbsp; Sign Out</button>
                             </Col>
                         </Row>
                     </Grid>
