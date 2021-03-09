@@ -671,7 +671,8 @@ class EditArticle extends Component {
                                                 </Col>
                                             </Row>
                                             <Row>
-                                                { !this.state.headerUrl && (
+                                                <label>* Updating header image currently broken *</label>
+                                                {/* { !this.state.headerUrl && (
                                                     <>
                                                     {!this.state.picPath && (
                                                         <Col xs={12} sm={6}>
@@ -726,7 +727,7 @@ class EditArticle extends Component {
                                                             className="medium responsive"
                                                         />
                                                     </Col>
-                                                )}
+                                                )} */}
                                                 
                                             </Row> 
                                         </Grid>
@@ -1008,7 +1009,8 @@ class EditArticle extends Component {
                                             </Row> 
 
                                             <Row>
-                                                { !this.state.headerUrl && (
+                                                <label>* Updating header image currently broken *</label>
+                                                {/* { !this.state.headerUrl && (
                                                     <>
                                                     {!this.state.picPath && (
                                                         <Col xs={12} sm={6}>
@@ -1063,7 +1065,7 @@ class EditArticle extends Component {
                                                             className="medium responsive"
                                                         />
                                                     </Col>
-                                                )}
+                                                )} */}
                                                 
                                             </Row> 
                                         </Grid>

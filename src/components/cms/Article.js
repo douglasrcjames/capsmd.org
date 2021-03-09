@@ -52,7 +52,7 @@ export default class Article extends Component {
                                 <Col xs={12} sm={4} className="s-padding-b">
                                     <button
                                         type="button"
-                                        className="s-btn"
+                                        className={`s-btn ${pageNumber <= 1 ? "hide" : ""}`}
                                         disabled={pageNumber <= 1}
                                         onClick={this.previousPage}
                                         >
@@ -65,7 +65,7 @@ export default class Article extends Component {
                                 <Col xs={12} sm={4} className="s-padding-b">
                                     <button
                                         type="button"
-                                        className="s-btn"
+                                        className={`s-btn ${pageNumber >= numPages ? "hide" : ""}`}
                                         disabled={pageNumber >= numPages}
                                         onClick={this.nextPage}
                                         >

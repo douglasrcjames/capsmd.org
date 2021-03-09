@@ -553,7 +553,7 @@ Red: #9C3536
   }
   
   .hide {
-    display: none;
+    display: none !important;
   }
   
   .horiz-center {

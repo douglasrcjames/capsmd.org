@@ -10,7 +10,7 @@ class ArticlePreview extends Component {
                     <Row>
                         <Col sm={12} md={2} className="preview-img"> 
                             <img
-                                className="medium"
+                                className="medium center"
                                 alt="article-img"
                                 src={this.props.picPath}
                                 />
