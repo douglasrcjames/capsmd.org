@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "capsmd-site"
+  },
+  "targets": {
+    "capsmd-site": {
+      "hosting": {
+        "live": [
+          "capsmd-site"
+        ],
+        "test": [
+          "dev-capsmd-org"
+        ]
+      }
+    }
   }
 }
