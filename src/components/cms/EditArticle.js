@@ -19,7 +19,7 @@ class EditArticle extends Component {
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
         this.state = {
-            typeShown: "pdf-header",
+            typeShown: "rich-text-header",
             article: "",
             headerUrl: "",
             isUploading: false,
@@ -62,8 +62,20 @@ class EditArticle extends Component {
             if (doc.exists) {
                 var docWithId = Object.assign({}, doc.data());
                 docWithId.id = doc.id;
+                let articleType = "";
+                if(doc.data().body){
+                    articleType = "rich-text-header";
+                } else if(doc.data().link){
+                    articleType = "link-header";
+                } else if(doc.data().pdfUrl){
+                    articleType = "pdf-header";
+                } else {
+                    console.log("Header setting hit a weird case.... shouldnt happen.")
+                }
+
                 this.setState({
-                    article: docWithId
+                    article: docWithId,
+                    typeShown: articleType
                 })
             } else {
                 console.log("No such document!");
@@ -92,12 +104,16 @@ class EditArticle extends Component {
             toast.error("This article requires a local URL to be set, looks like you removed it!")
         } else {
             if(values.news || values.issue){
+                let categoryCheck = values.category
+                if(values.news){
+                    categoryCheck = ''
+                }
                 var dateValue = new Date(values.date).getTime();
                 var catPass = false
                 if(values.issue === ISSUES.RESIDENT_REFLECTIONS || values.news || values.issue === ISSUES.OP_EDS){
                     catPass = true;
                 } else {
-                    if(values.category){
+                    if(categoryCheck){
                         catPass = true
                     } else {
                         catPass = false
@@ -106,10 +122,7 @@ class EditArticle extends Component {
                 }
         
                 var bodyByteSize = new Blob([values.body]).size;
-                console.log("bodyByteSize: ")
-                console.log(bodyByteSize)
                 if(bodyByteSize > 1048400){
-                    // TODO: this needs to be displayed longer... so they can read it
                     toast.error("The document is too large. Try reducing the file size of some bigger pictures with online tools or ask Doug. Remember you can always just upload it as a PDF! ")
                 } else {
                     if(catPass){
@@ -125,14 +138,15 @@ class EditArticle extends Component {
                                     ref.set({
                                         title: values.title,
                                         date: dateValue,
+                                        author: values.author || '',
                                         status: values.status,
-                                        category: values.category,
+                                        category: categoryCheck,
                                         issue: values.issue,
                                         headerUrl: this.state.article.headerUrl,
                                         creator: this.state.article.creator,
-                                        body: this.state.article.body,
+                                        body: values.body,
                                         created: this.state.article.created,
-                                        carousel: values.carousel,
+                                        carousel: values.carousel || false,
                                         localUrl: values.localUrl,
                                         updated: Date.now()
                                     }).then(() =>  {
@@ -151,14 +165,14 @@ class EditArticle extends Component {
                             })
                         } else {
                             firestore.collection("articles").doc(this.props.match.params.articleId).update({
-                                author: values.author,
+                                author: values.author || '',
                                 date: dateValue,
                                 body: values.body,
                                 status: values.status,
-                                category: values.category,
+                                category: categoryCheck,
                                 issue: values.issue,
                                 localUrl: values.localUrl,
-                                carousel: values.carousel
+                                carousel: values.carousel || false
                             }).then(() => {
                                 console.log("Successfully updated article.");
                                 toast.success("Successfully updated article.")
@@ -175,7 +189,6 @@ class EditArticle extends Component {
                 toast.error("You must set either the Issues or News values for an article.")
             }
         }
-       
     }
 
     updatePdfArticle(values){
@@ -183,12 +196,16 @@ class EditArticle extends Component {
             toast.error("This article requires a local URL to be set, looks like you removed it!")
         } else {
             if(values.news || values.issue){
+                let categoryCheck = values.category
+                if(values.news){
+                    categoryCheck = ''
+                }
                 var dateValue = new Date(values.date).getTime();
                 var catPass = false
                 if(values.issue === ISSUES.RESIDENT_REFLECTIONS || values.news || values.issue === ISSUES.OP_EDS){
                     catPass = true;
                 } else {
-                    if(values.category){
+                    if(categoryCheck){
                         catPass = true
                     } else {
                         catPass = false
@@ -210,7 +227,7 @@ class EditArticle extends Component {
                                     title: values.title,
                                     date: dateValue,
                                     status: values.status,
-                                    category: values.category,
+                                    category: categoryCheck,
                                     issue: values.issue,
                                     headerUrl: this.state.article.headerUrl,
                                     pdfUrl: this.state.article.pdfUrl,
@@ -236,7 +253,7 @@ class EditArticle extends Component {
                     } else {
                         firestore.collection("articles").doc(this.props.match.params.articleId).update({
                             status: values.status,
-                            category: values.category,
+                            category: categoryCheck,
                             issue: values.issue,
                             localUrl: values.localUrl,
                             carousel: values.carousel,
@@ -411,13 +428,11 @@ class EditArticle extends Component {
 
             return (
                 <div className="wrapper">
-                    <h1>Edit Article</h1>
-                    <p>Please spell and capitalize everything how you would want it to be seen.</p>
+                    <br/><br/>
                     <Link to="/cms/list-articles"><button className="s-btn"> <i className="fas fa-arrow-left" />&nbsp; Back to article list</button></Link>
-                    <br/>
-                    <br/>
+                    <h1 className="s-margin-t">Edit Article</h1>
+                    <p>Please spell and capitalize everything how you would want it to be seen.</p>
                     <hr/>
-                    <br/>
                     { this.state.article.link && (
                         <div>
                             <h2>Article Un-editable</h2>
@@ -427,7 +442,7 @@ class EditArticle extends Component {
                     { this.state.article.isOldComponent && (
                         <div>
                             <h2>Article Un-editable</h2>
-                            <p>You cannot edit an article based on the old article structure, ask Doug, the web admin, on what to do.</p>
+                            <p>You cannot edit an article based on the old article structure, ask Doug (the web admin) on what to do.</p>
                         </div>
                     )}
                     { !this.state.article.isOldComponent && (
@@ -507,8 +522,6 @@ class EditArticle extends Component {
                                                             >
                                                             <option defaultValue value="">No news section selected</option> 
                                                             <option value={NEWS.PRESS_RELEASES}>Press Releases</option>
-                                                            <option value={NEWS.EXTERNAL_NEWS}>External News</option>
-                                                            <option value={NEWS.EMAIL_BLASTS}>Email Blasts</option>
                                                         </Field>
                                                         <br/>
                                                         {props.errors.news && props.touched.news ? (
@@ -604,31 +617,28 @@ class EditArticle extends Component {
                                                     <br/>
                                                 </Col>
                                             </Row>
-
-                                            {this.state.article.body && (
-                                                <Row>
-                                                    <Col xs={12}>
-                                                        <label htmlFor="body">Body: </label>
-                                                        <Field name="body">
-                                                            {({ field }) => 
-                                                                <ReactQuill 
-                                                                    value={field.value} 
-                                                                    modules={this.modules}
-                                                                    formats={this.formats}
-                                                                    placeholder="This can be a simple or complex body of text with links to webpages, bolded text, headers, and more!"
-                                                                    onChange={field.onChange(field.name)} 
-                                                                />
-                                                            }
-                                                        </Field>
-                                                        <br/>
-                                                        {props.errors.body && props.touched.body ? (
-                                                            <span className="red">{props.errors.body}</span>
-                                                        ) : (
-                                                            ""
-                                                        )}
-                                                    </Col>
-                                                </Row> 
-                                            )} 
+                                            <Row>
+                                                <Col xs={12}>
+                                                    <label htmlFor="body">Body: </label>
+                                                    <Field name="body">
+                                                        {({ field }) => 
+                                                            <ReactQuill 
+                                                                value={field.value} 
+                                                                modules={this.modules}
+                                                                formats={this.formats}
+                                                                placeholder="This can be a simple or complex body of text with links to webpages, bolded text, headers, and more!"
+                                                                onChange={field.onChange(field.name)} 
+                                                            />
+                                                        }
+                                                    </Field>
+                                                    <br/>
+                                                    {props.errors.body && props.touched.body ? (
+                                                        <span className="red">{props.errors.body}</span>
+                                                    ) : (
+                                                        ""
+                                                    )}
+                                                </Col>
+                                            </Row> 
                                             {this.state.article.localUrl && !this.state.article.isOldComponent && (
                                                 <Row>
                                                     <Col xs={12}>
@@ -660,46 +670,46 @@ class EditArticle extends Component {
                                                     <br/>
                                                 </Col>
                                             </Row>
-
-                                            {/* Row 7 */}
                                             <Row>
                                                 { !this.state.headerUrl && (
                                                     <>
-                                                    <Col xs={12} sm={6}>
-                                                        <img
-                                                            src={this.state.article.headerUrl}
-                                                            alt="headerUrl"
-                                                            className="medium responsive"
-                                                        />
-                                                        <br/>
-                                                        <label className="s-btn-inv">
-                                                            <i className="fa fa-upload"></i> Choose a new header photo
-                                                            <FileUploader
-                                                                name="file-upload1"
-                                                                id="file-upload1"
-                                                                hidden
-                                                                accept="image/*"
-                                                                randomizeFilename
-                                                                storageRef={fire.storage().ref(`headers`)}
-                                                                onChange={this.handleFileChange}
-                                                                ref={instance => { this.fileUploader = instance; } }
-                                                                onUploadStart={this.handleUploadStart}
-                                                                onUploadError={this.handleUploadError}
-                                                                onUploadSuccess={this.handleUploadSuccess}
-                                                                onProgress={this.handleProgress}
+                                                    {!this.state.picPath && (
+                                                        <Col xs={12} sm={6}>
+                                                            <img
+                                                                src={this.state.article.headerUrl}
+                                                                alt="headerUrl"
+                                                                className="medium responsive"
                                                             />
-                                                        </label>
-                                                    </Col>
+                                                            <br/>
+                                                            <label className="s-btn-inv">
+                                                                <i className="fa fa-upload"></i> Choose a new header photo
+                                                                <FileUploader
+                                                                    name="rich-text-header"
+                                                                    id="rich-text-header"
+                                                                    hidden
+                                                                    accept="image/*"
+                                                                    randomizeFilename
+                                                                    storageRef={fire.storage().ref(`headers`)}
+                                                                    onChange={this.handleFileChange}
+                                                                    ref={instance => { this.fileUploader = instance; } }
+                                                                    onUploadStart={this.handleUploadStart}
+                                                                    onUploadError={this.handleUploadError}
+                                                                    onUploadSuccess={this.handleUploadSuccess}
+                                                                    onProgress={this.handleProgress}
+                                                                />
+                                                            </label>
+                                                        </Col>
+                                                    )}
                                                     <Col xs={12} sm={6}>
                                                         {this.state.isUploading && <p>Progress: {this.state.progress}%</p>}
                                                         <br/>
                                                         {this.state.picPath && (
                                                             <>
-                                                                <button type="button" className="s-btn-inv" onClick={() => this.uploadHeaderUrl()}>Upload choice</button>
-                                                                &nbsp; &nbsp;
-                                                                <button type="button" className="s-btn-danger-inv" onClick={() => this.deletePicPath()}>Delete choice</button>
-                                                                <br/><br/>
                                                                 <img className="responsive square medium" alt="profile" src={URL.createObjectURL(this.state.picPath)} />
+                                                                <br/><br/>
+                                                                <button type="button" className="s-btn-inv" onClick={() => this.uploadHeaderUrl()}>Upload new choice</button>
+                                                                &nbsp; &nbsp;
+                                                                <button type="button" className="s-btn-danger-inv" onClick={() => this.deletePicPath()}>Delete current choice</button>
                                                             </>
                                                         )}
                                                     </Col>
@@ -1000,41 +1010,43 @@ class EditArticle extends Component {
                                             <Row>
                                                 { !this.state.headerUrl && (
                                                     <>
-                                                    <Col xs={12} sm={6}>
-                                                        <img
-                                                            src={this.state.article.headerUrl}
-                                                            alt="headerUrl"
-                                                            className="medium responsive"
-                                                        />
-                                                        <br/>
-                                                        <label className="s-btn-inv">
-                                                            <i className="fa fa-upload"></i> Choose a new header photo
-                                                            <FileUploader
-                                                                name="file-upload2"
-                                                                id="file-upload2"
-                                                                hidden
-                                                                accept="image/*"
-                                                                randomizeFilename
-                                                                storageRef={fire.storage().ref(`headers`)}
-                                                                onChange={this.handleFileChange}
-                                                                ref={instance => { this.fileUploader = instance; } }
-                                                                onUploadStart={this.handleUploadStart}
-                                                                onUploadError={this.handleUploadError}
-                                                                onUploadSuccess={this.handleUploadSuccess}
-                                                                onProgress={this.handleProgress}
+                                                    {!this.state.picPath && (
+                                                        <Col xs={12} sm={6}>
+                                                            <img
+                                                                src={this.state.article.headerUrl}
+                                                                alt="headerUrl"
+                                                                className="medium responsive"
                                                             />
-                                                        </label>
-                                                    </Col>
+                                                            <br/>
+                                                            <label className="s-btn-inv">
+                                                                <i className="fa fa-upload"></i> Choose a new header photo
+                                                                <FileUploader
+                                                                    name="pdf-header"
+                                                                    id="pdf-header"
+                                                                    hidden
+                                                                    accept="image/*"
+                                                                    randomizeFilename
+                                                                    storageRef={fire.storage().ref(`headers`)}
+                                                                    onChange={this.handleFileChange}
+                                                                    ref={instance => { this.fileUploader = instance; } }
+                                                                    onUploadStart={this.handleUploadStart}
+                                                                    onUploadError={this.handleUploadError}
+                                                                    onUploadSuccess={this.handleUploadSuccess}
+                                                                    onProgress={this.handleProgress}
+                                                                />
+                                                            </label>
+                                                        </Col>
+                                                    )}
                                                     <Col xs={12} sm={6}>
                                                         {this.state.isUploading && <p>Progress: {this.state.progress}%</p>}
                                                         <br/>
                                                         {this.state.picPath && (
                                                             <>
-                                                                <button type="button" className="s-btn-inv" onClick={() => this.uploadHeaderUrl()}>Upload choice</button>
-                                                                &nbsp; &nbsp;
-                                                                <button type="button" className="s-btn-danger-inv" onClick={() => this.deletePicPath()}>Delete choice</button>
-                                                                <br/><br/>
                                                                 <img className="responsive square medium" alt="profile" src={URL.createObjectURL(this.state.picPath)} />
+                                                                <br/><br/>
+                                                                <button type="button" className="s-btn-inv" onClick={() => this.uploadHeaderUrl()}>Upload new choice</button>
+                                                                &nbsp; &nbsp;
+                                                                <button type="button" className="s-btn-danger-inv" onClick={() => this.deletePicPath()}>Delete current choice</button>
                                                             </>
                                                         )}
                                                     </Col>

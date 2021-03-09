@@ -16,13 +16,32 @@ class Home extends Component {
         super(props)
         this.state = {
             carouselArticles: [],
-            recentArticles: []
+            recentArticles: [],
+            numCarouselArticlesLoaded: 0,
+            loading: {
+                carousel: true
+            }
         }
     }
 
     // TODO: make constants for stuff like issue titles, carousel, etc and replace strings through app with constants
     componentDidMount() {
-        this.unsubscribeCarousel = firestore.collection("articles").where("carousel", "==", true).where("status", "==", "live").orderBy("date", "asc").limit(5).onSnapshot(snapshot => {
+        this.loadMoreCarouselArticles();
+    }
+
+    componentWillUnmount() {
+        this.loadMoreCarouselArticles()
+    }
+
+    loadMoreCarouselArticles = () => {
+        var newNumToLoad = this.state.numCarouselArticlesLoaded;
+        newNumToLoad = newNumToLoad+5
+
+        this.setState({
+            numCarouselArticlesLoaded: newNumToLoad
+        })
+
+        this.unsubscribeCarousel = firestore.collection("articles").where("carousel", "==", true).where("status", "==", "live").orderBy("date", "asc").limit(newNumToLoad).onSnapshot(snapshot => {
             const carouselArticles = [];
             snapshot.forEach(doc => {
                 var articleContents = {
@@ -35,41 +54,23 @@ class Home extends Component {
             })
 
             this.setState({
-                carouselArticles: carouselArticles
-            })
-        }, () => {
-            console.log("No carouselArticles!")
-        });
-
-        this.unsubscribeRecents = firestore.collection("articles").where("status", "==", "live").orderBy("date", "desc").limit(10).onSnapshot(snapshot => {
-            const recentArticles = []
-            snapshot.forEach(doc => {
-                var articleContents = {
-                    title: doc.data().title,
-                    localUrl: doc.data().localUrl,
-                    headerUrl: doc.data().headerUrl,
-                    date: doc.data().date
+                carouselArticles: carouselArticles,
+                loading: {
+                    carousel: false
                 }
-                recentArticles.unshift(articleContents)
-            })
-            recentArticles.sort((a, b) =>
-                a.date < b.date ? 1 : -1
-            )
-            this.setState({
-                recentArticles: recentArticles
             })
         }, () => {
-            console.log("No recentArticles!")
+            console.log("No carouselArticles!");
+            this.setState({
+                loading: {
+                    carousel: false
+                }
+            });
         });
-    }
-
-    componentWillUnmount() {
-        this.unsubscribeRecents()
-        this.unsubscribeCarousel()
     }
 
   render() {
-      if(!this.state.recentArticles || !this.state.carouselArticles){
+      if(this.state.loading.carousel){
           return(
               <h2 className="wrapper">Loading...</h2>
           )
@@ -190,6 +191,11 @@ class Home extends Component {
                             )
                         })
                     }
+                     {((this.state.carouselArticles.length+1)%5 !== 0) && !(this.state.carouselArticles.length < this.state.numCarouselArticlesLoaded) && (
+                        <div className="center-text">
+                            <span className="blue text-hover-green underline-hover cursor-pointer" onClick={()=>this.loadMoreCarouselArticles()}>load more...</span>
+                        </div>
+                    )}
 
                     
                 </div>

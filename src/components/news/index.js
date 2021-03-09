@@ -28,31 +28,7 @@ export default class News extends Component {
   componentDidMount() {
     this.loadMorePRArticles();
     this.loadMoreENArticles();
-    // this.loadMoreEBArticles();
-
-    this.unsubscribeEBArticles = firestore.collection("articles").where("status", "==", "live").where("news", "==", NEWS.EMAIL_BLASTS).orderBy("date", "desc").onSnapshot(snapshot => {
-        const ebArticles = []
-        snapshot.forEach(doc => {
-            var docWithId = Object.assign({}, doc.data());
-            docWithId.id = doc.id;
-            ebArticles.push(docWithId)    
-        })
-
-        this.setState({
-            ebArticles: ebArticles,
-            loading: {
-                eb: false
-            }
-        })
-
-    }, () => {
-        console.log("No eb articles!")
-        this.setState({
-          loading: {
-              eb: false
-          }
-        })
-    });
+    this.loadMoreEBArticles();
   }
 
   componentWillUnmount() {
@@ -141,6 +117,41 @@ export default class News extends Component {
 
   }
 
+  loadMoreEBArticles = () => {
+    var newNumToLoad = this.state.numEBArticlesLoaded;
+    newNumToLoad = newNumToLoad+5
+
+    this.setState({
+        numEBArticlesLoaded: newNumToLoad
+    })
+
+    this.unsubscribeEBArticles = firestore.collection("articles").where("status", "==", "live").where("news", "==", NEWS.EMAIL_BLASTS).orderBy("date", "desc").limit(newNumToLoad).onSnapshot(snapshot => {
+        const ebArticles = []
+        snapshot.forEach(doc => {
+            var docWithId = Object.assign({}, doc.data());
+            docWithId.id = doc.id;
+            ebArticles.push(docWithId)    
+        })
+
+        this.setState({
+            ebArticles: ebArticles,
+            loading: {
+                eb: false
+            }
+        })
+
+    }, () => {
+        console.log("No eb articles!")
+        this.setState({
+          loading: {
+              eb: false
+          }
+        })
+    });
+
+  }
+
+
   render() {
     if(this.state.loading.pr || this.state.loading.en || this.state.loading.eb){
         return(
@@ -224,7 +235,7 @@ export default class News extends Component {
                                                 <ArticlePreview 
                                                     title={article.title}
                                                     picPath={article.headerUrl}
-                                                    link={article.localUrl}
+                                                    link={article.link}
                                                     news={article.news}
                                                     date={dateDt}
                                                     />
@@ -233,6 +244,11 @@ export default class News extends Component {
                                         )
                                     })
                                 }
+                                {((this.state.ebArticles.length+1)%5 !== 0) && !(this.state.ebArticles.length < this.state.numEBArticlesLoaded) && (
+                                    <div className="center-text">
+                                        <span className="blue text-hover-green underline-hover cursor-pointer" onClick={()=>this.loadMoreEBArticles()}>load more...</span>
+                                    </div>
+                                )}
                                 <br/>
                                 <hr className="s-width"/>
                                 <br/>

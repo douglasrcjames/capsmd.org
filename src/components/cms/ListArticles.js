@@ -38,10 +38,9 @@ export default class ListArticles extends Component {
     render() {
         return (
             <div className="wrapper">
-                <h1>List All Articles</h1>
-
+                <br/><br/>
                 <Link to="/cms/"><button className="s-btn"> <i className="fas fa-arrow-left" />&nbsp; Back to CMS home</button></Link>
-                <br/>
+                <h1 className="s-margin-t-b">List All Articles</h1>
                 <h4>{this.state.articles.length} total articles</h4>
                 <hr/>
                 <br/>
@@ -105,9 +104,9 @@ export default class ListArticles extends Component {
                                      <Row>
                                         <Col xs={12}>
                                             <label>Link: </label>
-                                            <Link to={article.link}>
+                                            <a href={article.link} target="_blank" rel="noopener noreferrer">
                                                 {article.link}
-                                            </Link>
+                                            </a>
                                         </Col>
                                     </Row>
                                 )}

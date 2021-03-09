@@ -8,7 +8,7 @@ import ReactQuill from 'react-quill';
 import { ReactDatez } from 'react-datez'
 import Modal from "react-modal";
 import { firestore, fire } from "../../Fire.js";
-import { addRichTextArticleSchema, addPdfArticleSchema } from '../../utilities/formSchemas'
+import { addRichTextArticleSchema, addPdfArticleSchema, addLinkArticleSchema } from '../../utilities/formSchemas'
 import { checkFile } from '../../utilities/misc.js';
 import { CATEGORIES, ISSUES, NEWS } from '../../utilities/constants.js';
 
@@ -20,8 +20,9 @@ class AddArticle extends Component {
         this.state = {
             richTextShown: true,
             pdfShown: false,
+            linkShown: false,
             // TODO: make types into constants
-            // Types: rich-text-header, pdf-header, or pdf-file 
+            // Types: rich-text-header, pdf-header, link-header, or pdf-file 
             // Need types to determine which file upload instance we are using (lib problem?)
             typeShown: "rich-text-header",
             headerUrl: "",
@@ -65,66 +66,64 @@ class AddArticle extends Component {
     // https://firebase.google.com/products/extensions/storage-resize-images
     addRichTextArticle(values){
         if(values.news || values.issue){
-            if((values.news === NEWS.EXTERNAL_NEWS || values.news === NEWS.EMAIL_BLASTS) && !values.link){
-                toast.error("If you are posting a news article that is either External News or Email Blasts, you must provide a link!")
-            } else {
-                var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
-                var titleCleaned = titleNoSpecialChars.replace(/\s+/g, '-').toLowerCase(); //lower case and dashified
-                var dateValue = new Date(values.date).getTime()
-                var ref = firestore.collection("articles").doc(`${titleCleaned}`)
-                ref.get().then(doc => {
-                    if(doc.exists){
-                        toast.error("An article with a similar title exists");
-                    } else {
-                        if(this.state.headerUrl){
-                            var localUrl = null
-                            // Resident Refl doesnt have a category
-                            if(values.issue === ISSUES.RESIDENT_REFLECTIONS){
-                                localUrl = `/issues/${values.issue}/${titleCleaned}`
-                            } else if(values.news === NEWS.PRESS_RELEASES){
-                                localUrl = `/news/${titleCleaned}`
-                            } else if(values.news === NEWS.EXTERNAL_NEWS || values.news === NEWS.EMAIL_BLASTS){
-                                localUrl = '' // externally linked article, so no local url
-                            } else if(values.issue === ISSUES.OP_EDS){
-                                localUrl = `/issues/op-eds/${titleCleaned}`
-                            } else {
-                                if(values.category){
-                                    localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
-                                } else {
-                                    toast.error("If the Issue tag is not Resident Reflections or Op-Eds then the Category must be set to something!")
-                                }
-                            }
-    
-                            // Only proceed if test above passes
-                            if(localUrl){
-                                ref.set({
-                                    title: values.title,
-                                    author: values.author,
-                                    date: dateValue,
-                                    body: values.body,
-                                    status: values.status,
-                                    category: values.category,
-                                    issue: values.issue,
-                                    carousel: values.carousel,
-                                    headerUrl: this.state.headerUrl,
-                                    localUrl: localUrl,
-                                    link: values.link || '',
-                                    created: Date.now(),
-                                    creator: this.props.user.displayName
-                                }).then(() => {
-                                    toast.success("Rich text article added successfully!");
-                                    this.props.history.push("/cms/list-articles");
-                                }).catch((error) => {
-                                    toast.error("Error writing document: ", error);
-                                });
-                            }
-                            
-                        } else {
-                            toast.error("Please upload a header image!")
-                        }  
-                    }
-                })
+            let categoryCheck = values.category
+            if(values.news){
+                categoryCheck = ''
             }
+            var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
+            var titleCleaned = titleNoSpecialChars.replace(/\s+/g, '-').toLowerCase(); //lower case and dashified
+            var dateValue = new Date(values.date).getTime()
+            var ref = firestore.collection("articles").doc(`${titleCleaned}`)
+            ref.get().then(doc => {
+                if(doc.exists){
+                    toast.error("An article with a similar title exists");
+                } else {
+                    if(this.state.headerUrl){
+                        var localUrl = null
+                        // Resident Refl and Op-Eds dont have a category
+                        if(values.issue === ISSUES.RESIDENT_REFLECTIONS){
+                            localUrl = `/issues/${values.issue}/${titleCleaned}`
+                        } else if(values.issue === ISSUES.OP_EDS){
+                            localUrl = `/issues/op-eds/${titleCleaned}`
+                        } else if(values.news === NEWS.PRESS_RELEASES){
+                            localUrl = `/news/${titleCleaned}`
+                        } else {
+                            if(categoryCheck){
+                                localUrl = `/issues/${values.issue}/${categoryCheck}/${titleCleaned}`
+                            } else {
+                                toast.error("If the Issue tag is not Resident Reflections or Op-Eds then the Category must be set to something!")
+                            }
+                        }
+
+                        // Only proceed if test above passes
+                        if(localUrl){
+                            ref.set({
+                                title: values.title,
+                                author: values.author,
+                                date: dateValue,
+                                body: values.body,
+                                status: values.status,
+                                category: categoryCheck,
+                                issue: values.issue || '',
+                                news: values.news || '',
+                                carousel: values.carousel || false,
+                                headerUrl: this.state.headerUrl,
+                                localUrl: localUrl,
+                                created: Date.now(),
+                                creator: this.props.user.displayName
+                            }).then(() => {
+                                toast.success("Rich text article added successfully!");
+                                this.props.history.push("/cms/list-articles");
+                            }).catch((error) => {
+                                toast.error("Error writing document: ", error);
+                            });
+                        }
+                        
+                    } else {
+                        toast.error("Please upload a header image!")
+                    }  
+                }
+            })
         } else {
             toast.error("You must set either the Issues or News values to post an article.")
         }
@@ -132,6 +131,10 @@ class AddArticle extends Component {
 
       addPdfArticle(values){
         if(values.news || values.issue){
+            let categoryCheck = values.category
+            if(values.news){
+                categoryCheck = ''
+            }
             var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
             var titleCleaned = titleNoSpecialChars.replace(/\s+/g, '-').toLowerCase(); //lower case and dashified
             var dateValue = new Date(values.date).getTime()
@@ -142,16 +145,16 @@ class AddArticle extends Component {
                 } else {
                     if(this.state.headerUrl && this.state.pdfUrl){
                         var localUrl = null
-                        // Resident Refl doesnt have a category
+                        // Resident Refl and Op-Eds dont have a category
                         if(values.issue === ISSUES.RESIDENT_REFLECTIONS){
                             localUrl = `/issues/${values.issue}/${titleCleaned}`
-                        } else if(values.news === NEWS.PRESS_RELEASES){
-                            localUrl = `/news/${titleCleaned}`
                         } else if(values.issue === ISSUES.OP_EDS){
                             localUrl = `/issues/op-eds/${titleCleaned}`
+                        } else if(values.news === NEWS.PRESS_RELEASES){
+                            localUrl = `/news/${titleCleaned}`
                         } else {
-                            if(values.category){
-                                localUrl = `/issues/${values.issue}/${values.category}/${titleCleaned}`
+                            if(categoryCheck){
+                                localUrl = `/issues/${values.issue}/${categoryCheck}/${titleCleaned}`
                             } else {
                                 toast.error("If the Issue tag is not Resident Reflections or Op-Eds then the Category must be set to something!")
                             }
@@ -164,9 +167,10 @@ class AddArticle extends Component {
                                 date: dateValue,
                                 pdfUrl: this.state.pdfUrl,
                                 status: values.status,
-                                category: values.category,
-                                issue: values.issue,
-                                carousel: values.carousel,
+                                category: categoryCheck,
+                                issue: values.issue || '',
+                                news: values.news || '',
+                                carousel: values.carousel || false,
                                 localUrl: localUrl,
                                 headerUrl: this.state.headerUrl,
                                 created: Date.now(),
@@ -187,6 +191,45 @@ class AddArticle extends Component {
         } else {
             toast.error("You must set either the Issues or News values to post an article.")
         }
+      }
+
+      addLinkArticle(values){
+        if(values.news){
+            var titleNoSpecialChars = values.title.replace(/[^a-zA-Z ]/g, "")
+            var titleCleaned = titleNoSpecialChars.replace(/\s+/g, '-').toLowerCase(); //lower case and dashified
+            var dateValue = new Date(values.date).getTime()
+            var ref = firestore.collection("articles").doc(`${titleCleaned}`)
+            ref.get().then(doc => {
+                if(doc.exists){
+                    toast.error("An article with a similar title exists");
+                } else {
+                    if(this.state.headerUrl){
+                        ref.set({
+                            title: values.title,
+                            date: dateValue,
+                            status: 'live',
+                            news: values.news,
+                            link: values.link,
+                            carousel: values.carousel || false,
+                            headerUrl: this.state.headerUrl,
+                            created: Date.now(),
+                            creator: this.props.user.displayName
+                        }).then(() => {
+                            toast.success("Link article added successfully!");
+                            this.props.history.push("/cms/list-articles");
+                        }).catch((error) => {
+                            toast.error("Error writing document: ", error);
+                        });
+                        
+                    } else {
+                        toast.error("Please upload a header image!")
+                    }  
+                }
+            })
+        } else {
+            toast.error("You must set a News section to post an article!")
+        }
+            
       }
 
       handleOpenModal() {
@@ -296,6 +339,7 @@ class AddArticle extends Component {
             pdfShown: true,
             typeShown: "pdf-header",
             richTextShown: false,
+            linkShown: false,
             author: "",
             body: ""
         })
@@ -306,6 +350,19 @@ class AddArticle extends Component {
             richTextShown: true,
             typeShown: "rich-text-header",
             pdfShown: false,
+            linkShown: false,
+            pdfUrl: ""
+        })
+    }
+
+    showLink(){
+        this.setState({
+            linkShown: true,
+            typeShown: "link-header",
+            richTextShown: false,
+            pdfShown: false,
+            author: "",
+            body: "",
             pdfUrl: ""
         })
     }
@@ -327,11 +384,14 @@ class AddArticle extends Component {
                         <h2 className="s-margin-t-b">Pick an article type</h2>
                     </div>
                     <Row center="xs">
-                        <Col xs={12} sm={6} className="s-margin-t-b">
+                        <Col xs={12} sm={4} className="s-margin-t-b">
                             <button className={this.state.richTextShown ? "s-btn" : "s-btn-inv"} onClick={()=>this.showRichText()}> <i className="fas fa-text-height" />&nbsp; Rich Text Article</button>
                         </Col>
-                        <Col xs={12} sm={6} className="s-margin-t-b">
+                        <Col xs={12} sm={4} className="s-margin-t-b">
                             <button className={this.state.pdfShown ? "s-btn" : "s-btn-inv"} onClick={()=>this.showPdf()}> <i className="fas fa-file-pdf" />&nbsp; PDF Article</button>
+                        </Col>
+                        <Col xs={12} sm={4} className="s-margin-t-b">
+                            <button className={this.state.linkShown ? "s-btn" : "s-btn-inv"} onClick={()=>this.showLink()}> <i className="fas fa-link" />&nbsp; Link Article</button>
                         </Col>
                     </Row>
                 </Grid>
@@ -361,6 +421,7 @@ class AddArticle extends Component {
                     {props => (
                         <form onSubmit={props.handleSubmit}>
                             <Grid fluid>
+                                
                             <Row>
                                 {!props.values.news && (
                                     <>
@@ -423,8 +484,6 @@ class AddArticle extends Component {
                                             >
                                             <option defaultValue value="">No news section selected</option> 
                                             <option value={NEWS.PRESS_RELEASES}>Press Releases</option>
-                                            <option value={NEWS.EXTERNAL_NEWS}>External News</option>
-                                            <option value={NEWS.EMAIL_BLASTS}>Email Blasts</option>
                                         </Field>
                                         <br/>
                                         {props.errors.news && props.touched.news ? (
@@ -455,6 +514,7 @@ class AddArticle extends Component {
                                     )}
                                 </Col>
                             </Row>  
+                            <Row center="xs">{props.values.issue && (<Col className="s-text s-margin-b">* Need to post a news article? Select "No Issue selected" from the "Issue" drop down for the News dropdown to reappear *</Col>)}</Row>
                             <Row>
                                 <Col xs={12} sm={8}>
                                     <label htmlFor="title">Title: </label>
@@ -496,73 +556,46 @@ class AddArticle extends Component {
                                     )}
                                 </Col>
                             </Row>
-                            
-                            {(props.values.issue || props.values.news === NEWS.PRESS_RELEASES) && (
-                                <>
-                                <Row>
-                                    <Col xs={12} sm={6}>
-                                        <label htmlFor="author">Author: </label>
-                                        <Field
-                                            type="text"
-                                            placeholder="John Doe"
-                                            className="box"
-                                            onChange={props.handleChange}
-                                            name="author"
-                                            value={props.values.author}
-                                        />
-                                        <br/>
-                                        {props.errors.author && props.touched.author ? (
-                                            <span className="red">{props.errors.author}</span>
-                                        ) : (
-                                            ""
-                                        )}
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col xs={12}>
-                                        <label htmlFor="body">Body: </label>
-                                        <Field name="body">
-                                            {({ field }) => 
-                                                <ReactQuill 
-                                                    value={field.value} 
-                                                    modules={this.modules}
-                                                    formats={this.formats}
-                                                    placeholder="This can be a simple or complex body of text with links to webpages, bolded text, headers, and more!"
-                                                    onChange={field.onChange(field.name)} />
-                                            }
-                                        </Field>
-                                        <br/>
-                                        {props.errors.body && props.touched.body ? (
-                                            <span className="red">{props.errors.body}</span>
-                                        ) : (
-                                            ""
-                                        )}
-                                    </Col>
-                                </Row>  
-                                </>
-                            )}
-                            {(props.values.news === NEWS.EXTERNAL_NEWS || props.values.news === NEWS.EMAIL_BLASTS) && (
-                                <Row>
-                                    <Col xs={12} sm={6}>
-                                        <label htmlFor="link">Link: </label>
-                                        <Field
-                                            type="text"
-                                            placeholder="https://www.website.com"
-                                            className="box"
-                                            onChange={props.handleChange}
-                                            name="link"
-                                            value={props.values.link}
-                                        />
-                                        <br/>
-                                        {props.errors.link && props.touched.link ? (
-                                            <span className="red">{props.errors.link}</span>
-                                        ) : (
-                                            ""
-                                        )}
-                                    </Col>
-                                </Row>
-                            )}
-
+                            <Row>
+                                <Col xs={12} sm={6}>
+                                    <label htmlFor="author">Author: </label>
+                                    <Field
+                                        type="text"
+                                        placeholder="John Doe"
+                                        className="box"
+                                        onChange={props.handleChange}
+                                        name="author"
+                                        value={props.values.author}
+                                    />
+                                    <br/>
+                                    {props.errors.author && props.touched.author ? (
+                                        <span className="red">{props.errors.author}</span>
+                                    ) : (
+                                        ""
+                                    )}
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={12}>
+                                    <label htmlFor="body">Body: </label>
+                                    <Field name="body">
+                                        {({ field }) => 
+                                            <ReactQuill 
+                                                value={field.value} 
+                                                modules={this.modules}
+                                                formats={this.formats}
+                                                placeholder="This can be a simple or complex body of text with links to webpages, bolded text, headers, and more!"
+                                                onChange={field.onChange(field.name)} />
+                                        }
+                                    </Field>
+                                    <br/>
+                                    {props.errors.body && props.touched.body ? (
+                                        <span className="red">{props.errors.body}</span>
+                                    ) : (
+                                        ""
+                                    )}
+                                </Col>
+                            </Row>  
                             <Row>
                                 <Col xs={12} className="s-margin-b">
                                     <Field type="checkbox" id="carousel1" name="carousel" value={props.values.carousel} checked={props.values.carousel} className="checkbox-input" />
@@ -678,6 +711,7 @@ class AddArticle extends Component {
                                         )}
                                     </Col>
                                     {props.values.issue && (
+                                        <>
                                         <Col xs={12} sm={6} md={4}>
                                             <label htmlFor="category">Category: </label>
                                             <Field
@@ -698,6 +732,7 @@ class AddArticle extends Component {
                                                 ""
                                             )}
                                         </Col>
+                                        </>
                                     )}
                                     </>
                                 )}
@@ -742,6 +777,7 @@ class AddArticle extends Component {
                                     )}
                                 </Col>
                             </Row>  
+                            <Row center="xs">{props.values.issue && (<Col className="s-text">* Need to post a news article? Select "No Issue selected" from the "Issue" drop down for the News dropdown to reappear *</Col>)}</Row>
                             <Row>
                                 <Col xs={12} sm={8}>
                                     <label htmlFor="title">Title: </label>
@@ -855,7 +891,6 @@ class AddArticle extends Component {
                                 </div>
                             </Modal>
 
-                            {/* Row 6 */}
                             <Row>
                                 <Col xs={12} className="s-margin-b">
                                     <Field type="checkbox" id="carousel2" name="carousel" value={props.values.carousel} checked={props.values.carousel} className="checkbox-input" />
@@ -863,7 +898,6 @@ class AddArticle extends Component {
                                 </Col>
                             </Row>   
 
-                            {/* Row 7 */}
                             <Row>
                                 <label htmlFor="header">Header picture: </label>
                                 &nbsp;&nbsp;
@@ -875,6 +909,174 @@ class AddArticle extends Component {
                                             <FileUploader
                                                 name="pdf-header"
                                                 id="pdf-header"
+                                                hidden
+                                                accept="image/*"
+                                                randomizeFilename
+                                                storageRef={fire.storage().ref(`headers`)}
+                                                onChange={this.handleFileChange}
+                                                ref={instance => { this.fileUploader = instance; } }
+                                                onUploadStart={this.handleUploadStart}
+                                                onUploadError={this.handleUploadError}
+                                                onUploadSuccess={this.handleUploadSuccess}
+                                                onProgress={this.handleProgress}
+                                            />
+                                        </label>
+                                    </Col>
+                                    <Col xs={12} sm={6}>
+                                        {this.state.isUploading && <p>Progress: {this.state.progress}%</p>}
+                                        <br/>
+                                        {this.state.picPath && (
+                                            <>
+                                                <button type="button" className="s-btn-inv" onClick={() => this.uploadHeaderUrl()}>Upload choice</button>
+                                                &nbsp; &nbsp;
+                                                <button type="button" className="s-btn-danger-inv" onClick={() => this.deletePicPath()}>Delete choice</button>
+                                                <br/><br/>
+                                                <img className="responsive square medium" alt="profile" src={URL.createObjectURL(this.state.picPath)} />
+                                            </>
+                                        )}
+                                    </Col>
+                                    </>
+                                )}
+                                { this.state.headerUrl && (
+                                    <span className="green"><i className="fa fa-check"></i> Header uploaded!</span>
+                                )}
+                            </Row> 
+                        </Grid>
+                        <div className="center-text s-margin-t">
+                            <button
+                                type="submit"
+                                className="m-btn"
+                                disabled={!props.dirty && !props.isSubmitting}
+                            >
+                                Submit Article
+                            </button>
+                        </div>
+                        </form>
+                    )}
+                </Formik>
+                </div>
+
+                {/* // Link Article // */}
+                <div className={this.state.linkShown ? "" : "hide"}>
+                <Formik
+                    initialValues={{
+                        title: "",
+                        date: "",
+                        news: "",
+                        link: "",
+                        carousel: false
+                    }}
+                    onSubmit={(values) => {
+                        this.addLinkArticle(values);
+                    }}
+                    validationSchema={addLinkArticleSchema}
+                >
+                    {props => (
+                        <form onSubmit={props.handleSubmit}>
+                            <Grid fluid>
+                            <Row>
+                                <Col xs={12} sm={6}>
+                                    <label htmlFor="news">News: </label>
+                                    <Field
+                                        component="select" 
+                                        onChange={props.handleChange}
+                                        name="news"
+                                        value={props.values.news}
+                                        >
+                                        <option defaultValue value="">No news section selected</option> 
+                                        <option value={NEWS.EXTERNAL_NEWS}>External News</option>
+                                        <option value={NEWS.EMAIL_BLASTS}>Email Blasts</option>
+                                    </Field>
+                                    <br/>
+                                    {props.errors.news && props.touched.news ? (
+                                        <span className="red">{props.errors.news}</span>
+                                    ) : (
+                                        ""
+                                    )}
+                                </Col>
+                               
+                                <Col xs={12} sm={6}>
+                                    <label htmlFor="status">* No "Draft" Status setting for Link based articles *</label>
+                                </Col>
+                            </Row>  
+                            <Row>
+                                <Col xs={12} sm={8}>
+                                    <label htmlFor="title">Title: </label>
+                                    <Field
+                                        type="title"
+                                        placeholder="The Greatest Finding Ever"
+                                        className="box"
+                                        onChange={props.handleChange}
+                                        name="title"
+                                        value={props.values.title}
+                                    />
+                                    <br/>
+                                    {props.errors.title && props.touched.title ? (
+                                        <span className="red">{props.errors.title}</span>
+                                    ) : (
+                                        ""
+                                    )}
+                                </Col>
+                                <Col xs={12} sm={4}>
+                                    <label htmlFor="date">Date: </label>
+                                    <br/>
+                                    <Field name="date">
+                                        {({ field }) => 
+                                            <ReactDatez 
+                                                inputClassName="box"
+                                                allowPast={true}
+                                                value={field.value}
+                                                handleChange={field.onChange(field.name)}
+                                                placeholder="Select date"
+                                                dateFormat="MM/DD/YYYY"
+                                            />
+                                        }
+                                    </Field>
+                                    <br/>
+                                    {props.errors.date && props.touched.date ? (
+                                        <span className="red">{props.errors.date}</span>
+                                    ) : (
+                                        ""
+                                    )}
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={12} sm={6}>
+                                    <label htmlFor="link">Link: </label>
+                                    <Field
+                                        type="text"
+                                        placeholder="https://www.website.com"
+                                        className="box"
+                                        onChange={props.handleChange}
+                                        name="link"
+                                        value={props.values.link}
+                                    />
+                                    <br/>
+                                    {props.errors.link && props.touched.link ? (
+                                        <span className="red">{props.errors.link}</span>
+                                    ) : (
+                                        ""
+                                    )}
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={12} className="s-margin-b">
+                                    <Field type="checkbox" id="carousel3" name="carousel" value={props.values.carousel} checked={props.values.carousel} className="checkbox-input" />
+                                    <label htmlFor="carousel3">&nbsp;Featured Article?</label>  
+                                    <br/>
+                                </Col>
+                            </Row>  
+                            <Row>
+                                <label htmlFor="header">Header picture: </label>
+                                &nbsp;&nbsp;
+                                { !this.state.headerUrl && (
+                                    <>
+                                    <Col xs={12} sm={6}>
+                                        <label className="s-btn-inv">
+                                            <i className="fa fa-upload"></i> Choose a header photo
+                                            <FileUploader
+                                                name="link-header"
+                                                id="link-header"
                                                 hidden
                                                 accept="image/*"
                                                 randomizeFilename

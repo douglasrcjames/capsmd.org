@@ -104,9 +104,9 @@ export default class ListFeaturedArticles extends Component {
                                      <Row>
                                         <Col xs={12}>
                                             <label>Link: </label>
-                                            <Link to={article.link}>
+                                            <a href={article.link} target="_blank" rel="noopener noreferrer">
                                                 {article.link}
-                                            </Link>
+                                            </a>
                                         </Col>
                                     </Row>
                                 )}

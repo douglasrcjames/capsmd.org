@@ -70,6 +70,19 @@ export const addPdfArticleSchema = yup.object().shape({
       .required("A status is required."),
 })
 
+export const addLinkArticleSchema = yup.object().shape({
+    title: yup
+        .string()
+        .required("A title is required."),
+    date: yup
+        .string()
+        .required("A date is required."),
+    link: yup
+        .string()
+        .url()
+        .required("A link is required."),
+})
+
 export const editRichTextArticleSchema = yup.object().shape({
   title: yup
       .string()
@@ -92,9 +105,6 @@ export const editPdfArticleSchema = yup.object().shape({
   date: yup
       .string()
       .required("A date is required."),
-  pdfUrl: yup
-      .string()
-      .required("A PDF URL is required."),
   status: yup
       .string()
       .required("A status is required."),
